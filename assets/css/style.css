@@ -177,3 +177,110 @@
   .pen-diagram svg g[fill="none"]{fill:none!important;stroke:#000!important}
   .pen-diagram svg g:not([fill="none"]){fill:#000!important;stroke:none!important}
 }
+
+
+/* Approved Option B: colourful, hand-decorated study notes on plain white paper */
+.handwritten-notes{
+  position:relative!important;
+  background:#fff!important;
+  background-image:none!important;
+  border:0!important;
+  border-radius:14px!important;
+  box-shadow:0 5px 18px rgba(31,54,94,.08)!important;
+  padding:26px 30px!important;
+  color:#25304a!important;
+  font-family:"Trebuchet MS",Arial,Helvetica,sans-serif!important;
+  line-height:1.55!important;
+}
+.handwritten-notes:before{display:none!important}
+.handwritten-notes p,.handwritten-notes li{
+  color:#26344d!important;
+  font-family:"Trebuchet MS",Arial,Helvetica,sans-serif!important;
+  font-size:15.5px!important;
+  line-height:1.55!important;
+  margin:0 0 7px!important;
+}
+.handwritten-notes ul,.handwritten-notes ol{padding-left:25px!important;margin:5px 0 13px!important}
+.handwritten-title{
+  position:relative!important;
+  color:#2459a9!important;
+  font-family:"Trebuchet MS",Arial,Helvetica,sans-serif!important;
+  font-size:23px!important;
+  line-height:1.35!important;
+  text-decoration:none!important;
+  border:0!important;
+  padding:0 0 13px!important;
+  margin:0 0 16px!important;
+}
+.handwritten-title:after{
+  content:"✦  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ✦";
+  display:block;
+  margin-top:5px;
+  color:#e05a47;
+  font-size:12px;
+  letter-spacing:1px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.handwritten-subtitle{
+  display:table!important;
+  color:#176b52!important;
+  font-family:"Trebuchet MS",Arial,Helvetica,sans-serif!important;
+  font-size:17px!important;
+  line-height:1.4!important;
+  font-weight:800!important;
+  text-decoration:none!important;
+  border:0!important;
+  padding:0 0 4px!important;
+  margin:17px 0 8px!important;
+}
+.handwritten-subtitle:before{content:"✎ ";color:#e05a47}
+.handwritten-subtitle:after{
+  content:" 〰〰〰";
+  color:#e05a47;
+  font-weight:900;
+  white-space:nowrap;
+}
+.pen-diagram{margin:10px 0 14px!important;overflow:visible!important}
+.pen-diagram svg{min-width:0!important;width:100%!important;max-width:680px!important;height:auto!important}
+.handwritten-table{width:100%;font-family:"Trebuchet MS",Arial,Helvetica,sans-serif!important;border-collapse:separate!important;border-spacing:0!important;border:2px solid #3568cc!important;border-radius:9px!important;overflow:hidden}
+.handwritten-table th,.handwritten-table td{
+  font-family:"Trebuchet MS",Arial,Helvetica,sans-serif!important;
+  color:#26344d!important;
+  background:#fff!important;
+  border:0!important;
+  border-bottom:1px solid #b8c9ed!important;
+  border-right:1px solid #b8c9ed!important;
+  font-size:14px!important;
+  line-height:1.45!important;
+  padding:8px!important;
+}
+.handwritten-table th{color:#2459a9!important;background:#edf4ff!important;font-weight:800!important}
+.handwritten-table tr:last-child td{border-bottom:0!important}
+.handwritten-table th:last-child,.handwritten-table td:last-child{border-right:0!important}
+.handwritten-notes li::marker{color:#e05a47}
+.notes-actions{margin-top:16px}
+@media(max-width:600px){
+ .handwritten-notes{padding:20px 15px!important}
+ .handwritten-notes p,.handwritten-notes li{font-size:14px!important}
+ .handwritten-title{font-size:19px!important}
+ .handwritten-subtitle{font-size:15.5px!important}
+ .handwritten-title:after{font-size:10px}
+}
+@media print{
+ .handwritten-notes{
+   background:#fff!important;background-image:none!important;color:#26344d!important;
+   border:0!important;box-shadow:none!important;border-radius:0!important;
+   padding:0!important;font-family:"Trebuchet MS",Arial,Helvetica,sans-serif!important;
+   line-height:1.4!important;print-color-adjust:exact;-webkit-print-color-adjust:exact;
+ }
+ .handwritten-notes p,.handwritten-notes li{color:#26344d!important;font-size:10.5pt!important;line-height:1.4!important;margin-bottom:1.5mm!important}
+ .handwritten-title{color:#2459a9!important;font-size:15pt!important;padding-bottom:2mm!important;margin-bottom:3mm!important}
+ .handwritten-title:after{color:#e05a47!important;font-size:8pt!important}
+ .handwritten-subtitle{color:#176b52!important;font-size:11pt!important;margin-top:3mm!important;margin-bottom:1.5mm!important}
+ .handwritten-subtitle:before,.handwritten-subtitle:after{color:#e05a47!important}
+ .handwritten-table th,.handwritten-table td{color:#26344d!important;background:#fff!important;border-color:#8c9bb8!important;font-size:9.5pt!important;padding:1.5mm!important}
+ .handwritten-table th{color:#2459a9!important;background:#f1f5fc!important}
+ .pen-diagram svg{max-height:35mm}
+ .pen-diagram svg g[fill="none"]{fill:none!important;stroke:currentColor}
+}
