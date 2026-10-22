@@ -76,3 +76,14 @@ Use this when passing the task to another AI or a human contributor:
 - **Next safe step:**
 
 The next agent must read `AGENTS.md` and this file first. Do not revert established decisions or perform broad UI/UX changes as part of an unrelated task.
+
+
+## Study & Copy and distraction-free writing contract (2026-10-23)
+
+- Keep the dedicated **Study & Copy** section separate from visual teaching, activities, and explanations. Its content must be precise, concise, ambiguity-free, editable, printable, and easy for students to copy.
+- **Illustrated notebook is the default**: white paper, clear separated writing, readable handwritten-style or notebook-like treatment, coloured pen-style headings/arrows/icons and relevant small illustrations. Preserve print legibility; decorations must not overwhelm the writing.
+- Keep a simple **Clean view** option, but do not make it the default.
+- Provide a **Writing view** that hides unrelated page content and gives the copy-ready material most of the screen. Keep only essential notebook/clean mode controls and Copy, Print, and Exit controls visible. It should be responsive and usable on mobile; scrolling, if needed for long material, stays inside the focused writing surface rather than the full lesson page.
+- Keep **Quick Revision**, quizzes/question sets, and optional reference links collapsed by default. The main explanations and essential activities remain open.
+- The full virtual-lab launch/reference card is optional and collapsed by default; do not hide the chapter's inline learning activities.
+- Apply these patterns to future chapters while preserving topic-specific teaching UI/UX. Do not flatten every topic into one generic lesson layout.
