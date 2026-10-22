@@ -1,0 +1,74 @@
+name: Sync public Google Drive source and publish Pages
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/sync_public_drive.py'
+      - '.github/workflows/sync-public-drive.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: public-drive-sync-and-pages
+  cancel-in-progress: false
+
+jobs:
+  sync-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch and compare public Drive sources
+        run: python scripts/sync_public_drive.py
+      - name: Commit source changes
+        id: commit
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add drive-source class09 class10 class11 class12 index.html
+            git commit -m "chore(sync): publish updates from public Drive source"
+            git push origin HEAD:main
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No source changes to publish."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Configure GitHub Pages
+        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+        uses: actions/configure-pages@v5
+      - name: Assemble static site
+        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+        run: |
+          rm -rf _site
+          mkdir -p _site/drive-source
+          cp index.html _site/index.html
+          cp -R class09 class10 class11 class12 _site/
+          cp drive-source/sync-report.json _site/drive-source/sync-report.json
+          touch _site/.nojekyll
+      - name: Upload Pages artifact
+        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+        id: deployment
+        uses: actions/deploy-pages@v4

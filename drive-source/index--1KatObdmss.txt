@@ -1,0 +1,25 @@
+NCERT / CBSE CS Portal
+CS Interactive Hub (•‿•)
+Select your grade to launch choice-based interactive lesson decks.
+
+
+
+
+Grade 9
+Computer Applications
+* 🖥️ Ch 1: Hardware & Memory
+
+
+Grade 10
+Web & Databases
+Coming soon...
+
+
+Grade 11
+Python Core Foundations
+Coming soon...
+
+
+Grade 12
+Advanced CS & SQL
+Coming soon...

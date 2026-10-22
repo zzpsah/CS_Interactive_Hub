@@ -1,0 +1,46 @@
+{
+  "root_folder": "https://drive.google.com/drive/folders/1Y3vRy7pwCa3Oj2FSoF7QIb4hlwIjc65H",
+  "files": {
+    "1If0HY7zlOi0SlgYSQ7s13gFEFKyCQsin": {
+      "name": "class09",
+      "mime_type": "application/vnd.google-apps.folder",
+      "parents": [
+        "1Y3vRy7pwCa3Oj2FSoF7QIb4hlwIjc65H"
+      ],
+      "sha256": "ebc8bea01fb63db9cbf370087d122b3911dfb7f9577398dccde8cb3eddd4d544"
+    },
+    "1TPiXBbTTUEAyXee6MCAhfEnb4dqp8OhpIBJC9OQj1Zs": {
+      "name": "class09_ch01_hardware_memory",
+      "mime_type": "application/vnd.google-apps.document",
+      "parents": [
+        "1If0HY7zlOi0SlgYSQ7s13gFEFKyCQsin"
+      ],
+      "sha256": "3bd25865b403e37b7d93c1c3019207b603e20342d46f51fb57e5a1d33960dba2"
+    },
+    "1KatObdmssWKuCZrr_s8ArsrTJcFplO7niwC6rG7wY1o": {
+      "name": "index",
+      "mime_type": "application/vnd.google-apps.document",
+      "parents": [
+        "1Y3vRy7pwCa3Oj2FSoF7QIb4hlwIjc65H"
+      ],
+      "sha256": "b84ca048fb1a48cced9e826ed9b185ec806558901e1486f85c4da627e120b1e6"
+    },
+    "1UziwRBj1Imt_XYY08iStw8ej_6CnHZwGaI6BDl6LgCU": {
+      "name": "pipeline_manifest.json",
+      "mime_type": "application/vnd.google-apps.document",
+      "parents": [
+        "1Y3vRy7pwCa3Oj2FSoF7QIb4hlwIjc65H"
+      ],
+      "sha256": "fa7ca9fbb8509a6496e0549e1f37acb65541ffafd22c19b87ade706e04087826"
+    },
+    "1PysvKR6LOQxHV9LWCUBn3KyX9XkdGgzUMl62jBU3DfI": {
+      "name": "README.md",
+      "mime_type": "application/vnd.google-apps.document",
+      "parents": [
+        "1Y3vRy7pwCa3Oj2FSoF7QIb4hlwIjc65H"
+      ],
+      "sha256": "b2c020d242339dadfa4f91de845a96c70ff421a918d5e59919f7041a9182d76d"
+    }
+  },
+  "last_changed_sync": "2026-10-22T21:06:36Z"
+}

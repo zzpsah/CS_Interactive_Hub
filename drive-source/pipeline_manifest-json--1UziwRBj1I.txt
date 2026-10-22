@@ -1,0 +1,16 @@
+{
+  "project": "ncert-cs-interactive",
+  "active_grade": 9,
+  "last_updated": "2026-10-23",
+  "pipeline_status": "in_progress",
+  "modules": [
+    {
+      "grade": 9,
+      "chapter": 1,
+      "title": "Computer Systems, Hardware & Memory Hierarchy",
+      "drive_doc": "class09_ch01_hardware_memory",
+      "status": "ready_for_chatgpt_sync",
+      "widgets": ["ipo_svg", "memory_pyramid", "bits_quiz"]
+    }
+  ]
+}
