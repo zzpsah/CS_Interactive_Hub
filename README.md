@@ -17,6 +17,14 @@ Open index.html in a browser or use any static web server.
 ## Publish
 GitHub Pages deploys the main branch through .github/workflows/pages.yml. The repository is the source of truth; no Drive sync is required.
 
+## Contribution and AI-agent rules
+
+- **Mandatory instructions for every AI/coding agent:** [AGENTS.md](AGENTS.md)
+- **Project brain, current context, and AI handoff:** [AI-HANDOFF.md](AI-HANDOFF.md)
+- **Curriculum accuracy and syllabus caveats:** [CURRICULUM.md](CURRICULUM.md)
+
+The existing UI/UX and working student workflows are protected project decisions. Agents must use the documented READ → UNDERSTAND → PLAN → IMPLEMENT → TEST → REVIEW → FIX → COMMIT → UPDATE DOCUMENTATION → VERIFY DEPLOYMENT workflow. No redesigns or architecture changes without explicit approval. GitHub `main` is the source of truth; commits alone do not prove GitHub Pages has deployed successfully.
+
 ## Official references
 - Bihar SCERT textbooks: https://scert.bihar.gov.in/textbooks
 - Bihar SCERT e-resources: https://scert.bihar.gov.in/eresources
