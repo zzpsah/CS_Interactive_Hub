@@ -1,0 +1,14 @@
+{
+  "project": "CS_Interactive_Hub",
+  "version": 1,
+  "chapters": [
+    {
+      "class": 9,
+      "chapter": 1,
+      "title": "Computer Systems & Architecture",
+      "path": "class09/ch01_hardware_memory.html",
+      "status": "deployed_to_github",
+      "source_verification": "pending_updated_google_drive_document"
+    }
+  ]
+}
