@@ -49,3 +49,12 @@ Follow this order for every non-trivial change:
 Give the next agent the exact repository and branch, task objective, relevant files, user constraints, latest commit, changes already made, tests actually run, known failures/uncertainties, and next safe step. Explicitly repeat: preserve UI/UX, make minimal changes, do not undo prior decisions, and do not claim unverified work is complete.
 
 If these instructions conflict with a task interpretation or an agent's default preferences, preserve the established project behavior and ask the user rather than silently changing it.
+
+
+## Student copy and focus-view rules
+
+- The chapter's **Study & Copy** area must be distinct from explanation and activity content. Make the illustrated notebook the default presentation; keep Clean view as an alternate.
+- Provide a distraction-free Writing view: hide unrelated lesson chrome/content, emphasize the writing surface, and retain only mode selection plus copy, print, and exit actions. Keep it responsive and keyboard accessible.
+- Quick Revision, quiz/question sets, and optional reference links start collapsed. Keep core teaching explanations and inline activities visible.
+- If a full lab is supplementary, collapse its launch card/reference by default without collapsing the chapter's inline activities.
+- Keep copy-ready material short, accurate, clearly sectioned, printable, and free from extra commentary that students would not copy.
