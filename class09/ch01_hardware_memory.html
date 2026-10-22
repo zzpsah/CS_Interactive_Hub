@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Class 9 Computer Science interactive learning and virtual lab: computer systems, hardware, software, CPU, memory and storage.">
 <title>Class 9 · Computer Systems, Hardware & Memory | CS सीखें</title>
-<link rel="stylesheet" href="../assets/css/style.css?v=collapsible-1?v=notes-mode-2">
+<link rel="stylesheet" href="../assets/css/style.css?v=chapter1-revision-3">
 </head>
 <body data-lang="en">
 <div class="topbar"><div class="wrap">
@@ -126,10 +126,10 @@
 <div class="section-kicker">NOTEBOOK COPY · कॉपी में लिखें</div>
 <h2>✍️ Study & Copy</h2>
 <p class="notes-intro">Choose a format: the clean view is easy to read and print; notebook style adds colourful, hand-drawn decoration for classroom display.</p>
-<div class="notes-mode-switch" role="group" aria-label="Choose exam notes appearance">
+<div class="notes-mode-switch" role="group" aria-label="Choose study guide appearance">
 <button type="button" data-notes-mode="hybrid" aria-pressed="true">📄 Clean view</button>
 <button type="button" data-notes-mode="notebook" aria-pressed="false">✏️ Illustrated notebook</button>
-<p class="notes-mode-hint" aria-live="polite" data-notes-mode-hint>Clean, uncluttered study sheet.</p>
+<p class="notes-mode-hint" aria-live="polite" data-notes-mode-hint>Clean, uncluttered study guide.</p>
 </div>
 <div class="handwritten-notes notes-mode-hybrid">
 <div class="handwritten-title">Chapter 1: Computer Systems, Hardware and Memory</div>
@@ -233,7 +233,7 @@ function setNotesMode(mode){
  if(!notesSection)return;
  notesSection.dataset.notesMode=mode;
  const hint=notesSection.querySelector('[data-notes-mode-hint]');
- if(hint)hint.textContent=mode==='notebook'?'Notebook style: colourful headings, sketch frames, decorative borders and highlighted tables.':'Hybrid notes: clean, uncluttered study sheet.';
+ if(hint)hint.textContent=mode==='notebook'?'Notebook style: colourful headings, sketch frames, decorative borders and highlighted tables.':'Clean view: clear text and uncluttered diagrams.';
  const notes=notesSection.querySelector(".handwritten-notes");
  if(notes){notes.classList.toggle("notes-mode-notebook",mode==="notebook");notes.classList.toggle("notes-mode-hybrid",mode==="hybrid");}
  notesModeButtons.forEach(button=>{const active=button.dataset.notesMode===mode;button.setAttribute("aria-pressed",String(active));});
@@ -241,7 +241,7 @@ function setNotesMode(mode){
 notesModeButtons.forEach(button=>button.addEventListener("click",()=>setNotesMode(button.dataset.notesMode)));
 setNotesMode("hybrid");
 document.querySelector("[data-print-notes]")?.addEventListener("click",()=>window.print());
-document.querySelector("[data-copy-notes]")?.addEventListener("click",async()=>{const note=document.querySelector(".handwritten-notes");const status=document.querySelector("[data-notes-status]");try{await navigator.clipboard.writeText(note.innerText);status.textContent="Notes copied.";}catch(e){status.textContent="Copy is unavailable in this browser; select the notes and copy manually.";}});
+document.querySelector("[data-copy-notes]")?.addEventListener("click",async()=>{const note=document.querySelector(".handwritten-notes");const status=document.querySelector("[data-notes-status]");try{await navigator.clipboard.writeText(note.innerText);status.textContent="Text copied.";}catch(e){status.textContent="Copy is unavailable in this browser; select the text and copy manually.";}});
 document.querySelectorAll('.worked-example .study-choice').forEach((button)=>button.addEventListener('click',()=>{const group=button.parentElement;const out=group.nextElementSibling;if(out&&out.classList.contains('feedback'))out.textContent=button.dataset.feedbackText||''}));
 </script>
 </body></html>
