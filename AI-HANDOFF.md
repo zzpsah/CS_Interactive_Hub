@@ -22,6 +22,15 @@ This file is the durable handoff point for AI agents continuing work in this rep
 - Keep print output legible and preserve authored colors; the user's printer settings determine whether output is printed in color or grayscale.
 - Do not introduce student-facing wording that the project owner has rejected. In particular, the owner has asked to avoid using the word “notes” in student-facing section labels; use labels such as “Study & Copy” and “Quick Revision” where appropriate.
 
+## Topic-driven UI/UX rule
+
+Preserve both parts of the design contract:
+
+1. **Consistent product experience across the site:** navigation, typography, spacing, color system, accessibility, language switch, responsive behavior, and familiar interaction patterns should remain coherent.
+2. **Topic-specific teaching experience:** individual chapters should use visuals and interactions that fit their actual subject. For example, hardware can use labelled component diagrams and a virtual hardware lab; algorithms can use step-by-step traces or flowcharts; networking can use packet/path visualizations; data topics can use suitable tables or charts. These are examples, not mandatory templates.
+
+Do not apply a single generic visual layout to every topic, and do not add decorative visuals that do not teach the concept. Match illustration size to available space and learning value; keep text editable and images responsive. Reuse the shared design system, but choose each topic's examples, diagrams, activities, and emphasis deliberately. A topic-specific UI/UX change must preserve accessibility, mobile usability, language behavior, and existing working controls. Significant redesigns still require the owner's explicit approval.
+
 ## Chapter 1 current working context
 
 - Main lesson: `class09/ch01_hardware_memory.html`
