@@ -21,3 +21,10 @@ GitHub Pages deploys the main branch through .github/workflows/pages.yml. The re
 - Bihar SCERT textbooks: https://scert.bihar.gov.in/textbooks
 - Bihar SCERT e-resources: https://scert.bihar.gov.in/eresources
 - Bihar SCERT homepage: https://scert.bihar.gov.in/
+
+
+## Class 9 image assets and portability
+- Class 9 Chapter 1 includes repository-local SVG hardware illustrations with a mobile-friendly zoom dialog.
+- Image files live in `assets/images/class09/`; the chapter does not depend on Google Drive or an external image CDN.
+- See `assets/images/class09/ASSET-MANIFEST.md` for the illustration inventory and portability notes.
+- Keep image references relative to the HTML file so the entire repository can be migrated as a package to Vercel or another static host.
