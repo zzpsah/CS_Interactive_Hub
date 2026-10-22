@@ -6,4 +6,24 @@ document.querySelectorAll('[data-bit-row]').forEach(row=>{const panel=row.closes
 
 document.querySelectorAll('.logic-playground').forEach(panel=>{const a=panel.querySelector('[data-logic-a]');const b=panel.querySelector('[data-logic-b]');const andOut=panel.querySelector('[data-logic-and]');const orOut=panel.querySelector('[data-logic-or]');const render=()=>{const av=!!a.checked,bv=!!b.checked;andOut.textContent=Number(av)+' AND '+Number(bv)+' = '+Number(av&&bv);orOut.textContent=Number(av)+' OR '+Number(bv)+' = '+Number(av||bv)};a.addEventListener('change',render);b.addEventListener('change',render);render()});
 document.querySelectorAll('[data-flowchart-sim]').forEach(panel=>{const input=panel.querySelector('[data-flow-number]');const run=panel.querySelector('[data-run-flowchart]');const out=panel.querySelector('[data-flow-result]');if(run)run.addEventListener('click',()=>{const n=Number(input.value);if(input.value.trim()===''||!Number.isInteger(n)){out.textContent='Please enter a whole number.';return}out.textContent='Step 1: read n = '+n+'. Step 2: calculate n % 2 = '+(Math.abs(n)%2)+'. Step 3: '+(n%2===0?'remainder is 0, so follow YES → display EVEN.':'remainder is 1, so follow NO → display ODD.')})});
+// Repository-local image viewer: no external image host or account is required.
+const zoomDialog=document.querySelector('[data-image-zoom-dialog]');
+if(zoomDialog){
+ const zoomImage=zoomDialog.querySelector('[data-image-zoom-full]');
+ const zoomTitle=zoomDialog.querySelector('[data-image-zoom-title]');
+ const viewport=zoomDialog.querySelector('[data-image-zoom-viewport]');
+ let zoom=1;
+ const renderZoom=()=>{if(zoomImage)zoomImage.style.transform='scale('+zoom+')'};
+ document.querySelectorAll('[data-image-zoom]').forEach(button=>button.addEventListener('click',()=>{
+  zoom=1;zoomImage.src=button.dataset.imageZoom;zoomImage.alt=button.querySelector('img')?.alt||button.dataset.imageTitle||'Hardware illustration';
+  zoomTitle.textContent=button.dataset.imageTitle||'Hardware detail';renderZoom();
+  if(typeof zoomDialog.showModal==='function')zoomDialog.showModal();else zoomDialog.setAttribute('open','');
+ }));
+ zoomDialog.querySelector('[data-zoom-in]')?.addEventListener('click',()=>{zoom=Math.min(zoom+0.25,4);renderZoom()});
+ zoomDialog.querySelector('[data-zoom-out]')?.addEventListener('click',()=>{zoom=Math.max(zoom-0.25,0.5);renderZoom()});
+ zoomDialog.querySelector('[data-zoom-reset]')?.addEventListener('click',()=>{zoom=1;renderZoom();if(viewport)viewport.scrollTo({left:0,top:0,behavior:'auto'})});
+ zoomDialog.querySelector('[data-zoom-close]')?.addEventListener('click',()=>zoomDialog.close?zoomDialog.close():zoomDialog.removeAttribute('open'));
+ zoomDialog.addEventListener('click',e=>{if(e.target===zoomDialog)zoomDialog.close()});
+}
+
 })();
