@@ -154,8 +154,6 @@
 <footer><div class="wrap">CS सीखें · Free bilingual learning / निःशुल्क द्विभाषी अध्ययन<p class="small">Check your school’s current syllabus and teacher’s instructions for examination coverage.</p></div></footer>
 <script src="../assets/js/app.js"></script>
 <script>
-document.querySelectorAll('.real-life-card .study-choice').forEach((button)=>button.addEventListener('click',()=>{const card=button.closest('.real-life-card');const out=card.querySelector('.feedback');if(out)out.textContent=button.dataset.feedbackText||''}));
 document.querySelectorAll('.worked-example .study-choice').forEach((button)=>button.addEventListener('click',()=>{const group=button.parentElement;const out=group.nextElementSibling;if(out&&out.classList.contains('feedback'))out.textContent=button.dataset.feedbackText||''}));
-document.querySelectorAll('.quiz-panel [data-check]').forEach(button=>button.addEventListener('click',()=>{const panel=button.closest('[data-quiz]');let score=0;const questions=[...panel.querySelectorAll('.quiz-question')];questions.forEach(q=>{const chosen=q.querySelector('input:checked');const out=q.querySelector('[data-feedback]');const correct=chosen&&chosen.value===q.dataset.answer;if(correct)score++;if(out)out.textContent=(correct?'Correct. ':'Try again. ')+q.dataset.explain});const result=panel.querySelector('[data-score]');if(result)result.textContent='Score: '+score+' / '+questions.length+'. Review the explanations above, then try again.'}));
 </script>
 </body></html>
