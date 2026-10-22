@@ -19,7 +19,7 @@
 .image-zoom-toolbar>div{display:flex;gap:6px;flex-wrap:wrap}
 .image-zoom-toolbar button{border:1px solid #aaa;border-radius:8px;background:#fff;color:#151515;padding:7px 10px}
 .image-zoom-viewport{max-height:calc(92dvh - 65px);overflow:auto;text-align:center;padding:12px;overscroll-behavior:contain}
-.image-zoom-viewport img{display:block;max-width:100%;height:auto;margin:0 auto;transform-origin:center top;transition:transform .12s ease}
+.image-zoom-viewport img{display:block;width:100%;max-width:100%;height:auto;margin:0;transform:none;transition:width .12s ease}
 .image-zoom-hint{font-size:.85rem}
 @media(max-width:600px){.image-zoom-toolbar{align-items:flex-start}.image-zoom-toolbar>div{width:100%}.image-zoom-viewport{padding:5px}}
 
