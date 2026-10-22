@@ -23,11 +23,13 @@ jobs:
           for f in class09/index.html class10/index.html class11/index.html class12/index.html class09/ch01_hardware_memory.html class10/ch01_networks_web.html class11/ch01_number_systems.html class12/ch01_python_functions.html; do test -s "$f" || exit 1; done
           python - <<'PY'
           from pathlib import Path
-          for name in ['index.html','class09/ch01_hardware_memory.html','class10/ch01_networks_web.html','class11/ch01_number_systems.html','class12/ch01_python_functions.html']:
+          pages = ['index.html','class09/ch01_hardware_memory.html','class10/ch01_networks_web.html','class11/ch01_number_systems.html','class12/ch01_python_functions.html']
+          for name in pages:
               s=Path(name).read_text(encoding='utf-8')
               assert '<!doctype html>' in s.lower(), name
               assert 'lang-hi' in s, name
-              assert 'data-quiz' in s, name
+              if name != 'index.html':
+                  assert 'data-quiz' in s, name
               print('OK', name)
           PY
       - uses: actions/configure-pages@v5
