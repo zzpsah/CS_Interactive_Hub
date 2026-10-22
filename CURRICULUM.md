@@ -8,7 +8,7 @@ This is a bilingual Computer Science learning sequence for Bihar students, not a
 
 ## Class 9 — Foundations
 1. Computer Systems, Hardware & Memory — published
-2. Software and Operating Systems — planned
+2. Software and Operating Systems — published
 3. Files and Folders — planned
 4. Internet and Cyber Safety — planned
 5. Algorithms and Flowcharts — planned
@@ -16,7 +16,7 @@ This is a bilingual Computer Science learning sequence for Bihar students, not a
 
 ## Class 10 — Applied digital skills
 1. Internet, Networks and the Web — published
-2. Digital Safety — planned
+2. Digital Safety — published
 3. HTML and Web Pages — planned
 4. Algorithms and Programming Logic — planned
 5. Data and Databases — planned
@@ -24,7 +24,7 @@ This is a bilingual Computer Science learning sequence for Bihar students, not a
 
 ## Class 11 — Computing fundamentals
 1. Number Systems and Binary — published
-2. Computer Organisation and Memory — planned
+2. Computer Organisation and Memory — published
 3. Problem Solving and Algorithms — planned
 4. Python Fundamentals — planned
 5. Conditions and Loops — planned
@@ -32,7 +32,7 @@ This is a bilingual Computer Science learning sequence for Bihar students, not a
 
 ## Class 12 — Programming and application
 1. Python Functions and Program Design — published
-2. Lists and Data Handling — planned
+2. Lists and Data Handling — published
 3. File Handling — planned
 4. Relational Databases and SQL — planned
 5. Networks and Security — planned
