@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Class 9 Computer Science interactive learning and virtual lab: computer systems, hardware, software, CPU, memory and storage.">
 <title>Class 9 · Computer Systems, Hardware & Memory | CS सीखें</title>
-<link rel="stylesheet" href="../assets/css/style.css?v=language-activity-fix-2">
+<link rel="stylesheet" href="../assets/css/style.css?v=study-copy-focus-1">
 </head>
 <body data-lang="en">
 <div class="topbar"><div class="wrap">
@@ -112,7 +112,7 @@
 <section class="content-section" id="virtual-lab">
 <div class="section-kicker">PRACTISE · अभ्यास</div><h2>6. Virtual lab: learn by doing</h2>
 <p>Start with the guided lab, then complete the short classification task below. The activities are simulations for learning; they do not control your real computer.</p>
-<div class="lab-launch-card"><div class="lab-launch-icon">🧪</div><div><h3>Computer hardware explorer</h3><p>Explore desktop, laptop, tablet and internal system-unit components. Identify ports, practise cable connections, and follow the simulated startup sequence.</p><a class="btn" href="hardware_lab.html">Open the interactive hardware lab →</a></div></div>
+<details class="collapsible-learning lab-reference-collapse"><summary><span class="collapse-icon">🧪</span><span>Optional: open the full hardware lab</span><span class="collapse-hint">Tap to expand</span></summary><div class="collapsible-body"><div class="lab-launch-card"><div class="lab-launch-icon">🧪</div><div><h3>Computer hardware explorer</h3><p>Explore desktop, laptop, tablet and internal system-unit components. Identify ports, practise cable connections, and follow the simulated startup sequence.</p><a class="btn" href="hardware_lab.html">Open the interactive hardware lab →</a></div></div></div></details>
 <h3>Activity A · Sort the devices</h3><p>Select a device, then select the correct category. You can also drag a device onto a category on a computer.</p>
 <div class="interactive sorting-lab"><div class="device-bank"><strong>Devices</strong><div class="controls"><button type="button" data-kind="input" draggable="true">⌨️ Keyboard</button><button type="button" data-kind="processing" draggable="true">🧠 CPU</button><button type="button" data-kind="memory" draggable="true">⚡ RAM</button><button type="button" data-kind="output" draggable="true">🖥️ Monitor</button><button type="button" data-kind="storage" draggable="true">💾 SSD</button><button type="button" data-kind="input" draggable="true">🖱️ Mouse</button></div></div>
 <div class="category-grid"><button type="button" data-target="input">Input</button><button type="button" data-target="processing">Processing</button><button type="button" data-target="memory">Primary memory</button><button type="button" data-target="storage">Storage</button><button type="button" data-target="output">Output</button></div><p class="feedback" data-lab-feedback aria-live="polite">Choose a device to begin.</p><p>Score: <strong data-lab-score>0 / 6</strong></p><button type="button" data-reset-lab>Reset activity</button></div>
@@ -127,8 +127,8 @@
 <h2>✍️ Study & Copy</h2>
 <p class="notes-intro">Choose a format: the clean view is easy to read and print; notebook style adds colourful, hand-drawn decoration for classroom display.</p>
 <div class="notes-mode-switch" role="group" aria-label="Choose study format">
-<button type="button" data-notes-mode="hybrid" aria-pressed="true">📄 Clean view</button>
-<button type="button" data-notes-mode="notebook" aria-pressed="false">✏️ Illustrated notebook</button>
+<button type="button" data-notes-mode="hybrid" aria-pressed="false">Clean view</button>
+<button type="button" data-notes-mode="notebook" aria-pressed="true">✏️ Notebook</button>
 <p class="notes-mode-hint" aria-live="polite" data-notes-mode-hint>Clean, uncluttered study view.</p>
 </div>
 <div class="handwritten-notes notes-mode-hybrid">
@@ -191,7 +191,7 @@
 <div class="handwritten-subtitle">Key Points</div>
 <ul><li>IPO means Input, Process and Output.</li><li>Hardware is physical equipment; software is programs and instructions.</li><li>RAM is volatile; SSD/HDD storage is non-volatile.</li><li>A touchscreen provides both input and output.</li></ul>
 </div>
-<div class="notes-actions"><button type="button" class="primary" data-print-notes>🖨️ Print this section</button><button type="button" class="secondary" data-copy-notes>Copy text</button><span class="small" data-notes-status aria-live="polite"></span></div>
+<div class="notes-actions"><button type="button" class="primary" data-writing-focus aria-pressed="false">⛶ Writing view</button><button type="button" data-print-notes>Print</button><button type="button" class="secondary" data-copy-notes>Copy text</button><span class="small" data-notes-status aria-live="polite"></span></div>
 </section>
 
 <section class="content-section" id="revision">
@@ -240,7 +240,14 @@ function setNotesMode(mode){
  notesModeButtons.forEach(button=>{const active=button.dataset.notesMode===mode;button.setAttribute("aria-pressed",String(active));});
 }
 notesModeButtons.forEach(button=>button.addEventListener("click",()=>setNotesMode(button.dataset.notesMode)));
-setNotesMode("hybrid");
+setNotesMode("notebook");
+const focusButton=document.querySelector("[data-writing-focus]");
+focusButton?.addEventListener("click",()=>{
+ const active=document.body.classList.toggle("writing-focus");
+ focusButton.setAttribute("aria-pressed",String(active));
+ focusButton.textContent=active?"✕ Exit writing view":"⛶ Writing view";
+ if(active)document.querySelector("#write-notes .handwritten-notes")?.scrollIntoView({block:"start"});
+});
 document.querySelector("[data-print-notes]")?.addEventListener("click",()=>window.print());
 document.querySelector("[data-copy-notes]")?.addEventListener("click",async()=>{const note=document.querySelector(".handwritten-notes");const status=document.querySelector("[data-notes-status]");try{await navigator.clipboard.writeText(note.innerText);status.textContent="Text copied.";}catch(e){status.textContent="Copy is unavailable in this browser; select the text and copy manually.";}});
 document.querySelectorAll('.worked-example .study-choice').forEach((button)=>button.addEventListener('click',()=>{const group=button.parentElement;const out=group.nextElementSibling;if(out&&out.classList.contains('feedback'))out.textContent=button.dataset.feedbackText||''}));
