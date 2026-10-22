@@ -15,6 +15,8 @@ These instructions apply to every AI assistant, coding agent, human contributor,
 9. **No false verification claims.** Distinguish static code inspection from a real browser test, automated test, and live deployment check. Report exactly what was checked and what remains unverified.
 10. **No secrets in Git.** Never commit passwords, API keys, OAuth secrets, tokens, personal data, or private credentials. Do not weaken security to make a test pass.
 
+11. **Topic-driven design, not one generic template.** For each chapter or topic, preserve the shared site-wide design system while tailoring the learning presentation to the subject matter. Choose diagrams, illustrations, analogies, interactive labs, examples, and visual emphasis based on what best teaches that specific topic. Do not force every topic into an identical card layout or reuse unrelated imagery. Before changing a topic's presentation, inspect its existing learning goals and assets; make changes that improve understanding without breaking the established site-wide UI/UX.
+
 ## Required DevOps / vibe-coding workflow
 
 Follow this order for every non-trivial change:
