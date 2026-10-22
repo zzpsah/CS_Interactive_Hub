@@ -126,10 +126,10 @@
 <div class="section-kicker">NOTEBOOK COPY · कॉपी में लिखें</div>
 <h2>✍️ Study & Copy</h2>
 <p class="notes-intro">Choose a format: the clean view is easy to read and print; notebook style adds colourful, hand-drawn decoration for classroom display.</p>
-<div class="notes-mode-switch" role="group" aria-label="Choose study guide appearance">
+<div class="notes-mode-switch" role="group" aria-label="Choose study format">
 <button type="button" data-notes-mode="hybrid" aria-pressed="true">📄 Clean view</button>
 <button type="button" data-notes-mode="notebook" aria-pressed="false">✏️ Illustrated notebook</button>
-<p class="notes-mode-hint" aria-live="polite" data-notes-mode-hint>Clean, uncluttered study guide.</p>
+<p class="notes-mode-hint" aria-live="polite" data-notes-mode-hint>Clean, uncluttered study view.</p>
 </div>
 <div class="handwritten-notes notes-mode-hybrid">
 <div class="handwritten-title">Chapter 1: Computer Systems, Hardware and Memory</div>
@@ -195,7 +195,7 @@
 </section>
 
 <section class="content-section" id="revision">
-<div class="section-kicker">WRITE IT · लिखकर याद करें</div><details class="collapsible-learning"><summary><span class="collapse-icon">📌</span><span>7. Quick Revision</span><span class="collapse-hint">Tap to expand</span></summary><div class="collapsible-body">
+<div class="section-kicker">REVISE · दोहराएँ</div><details class="collapsible-learning"><summary><span class="collapse-icon">⚡</span><span>7. Quick Revision</span><span class="collapse-hint">Tap to expand</span></summary><div class="collapsible-body">
 <div class="revision-sheet">
 <h3>🔑 Key terms</h3><dl class="key-terms"><div><dt>📥 Data</dt><dd>Raw facts or values entered into a computer.</dd></div><div><dt>💡 Information</dt><dd>Meaningful results produced after data is processed.</dd></div><div><dt>🧩 Hardware</dt><dd>The physical parts of a computer, such as a keyboard, monitor and SSD.</dd></div><div><dt>💿 Software</dt><dd>Programs and instructions that tell hardware what to do.</dd></div><div><dt>🧠 CPU</dt><dd>The processor that executes instructions and coordinates work.</dd></div><div><dt>⚡ RAM</dt><dd>Fast, temporary working memory for active programs and data.</dd></div><div><dt>🔒 ROM / firmware</dt><dd>Non-volatile memory or storage that retains essential startup instructions.</dd></div><div><dt>🗂️ Secondary storage</dt><dd>Persistent storage, such as an SSD or HDD, for files and programs.</dd></div><div><dt>➗ ALU</dt><dd>The CPU component that performs arithmetic and logical operations.</dd></div><div><dt>🎛️ Control Unit (CU)</dt><dd>Directs and coordinates instruction execution inside the CPU.</dd></div></dl>
 <h3>⭐ Five points to remember</h3><ol><li>IPO means Input → Process → Output.</li><li>Hardware is physical; software is instructions and programs.</li><li>The CPU executes instructions; the ALU performs arithmetic and logical operations.</li><li>RAM is temporary working memory; SSD/HDD storage keeps saved files without power.</li><li>Some devices perform more than one role. A touchscreen is both input and output.</li></ol>
@@ -233,7 +233,7 @@ function setNotesMode(mode){
  if(!notesSection)return;
  notesSection.dataset.notesMode=mode;
  const hint=notesSection.querySelector('[data-notes-mode-hint]');
- if(hint)hint.textContent=mode==='notebook'?'Notebook style: colourful headings, sketch frames, decorative borders and highlighted tables.':'Clean view: clear text and uncluttered diagrams.';
+ if(hint)hint.textContent=mode==='notebook'?'Illustrated notebook: colourful headings, sketch frames, decorative borders and highlighted tables.':'Clean view: clear text and uncluttered diagrams.';
  const notes=notesSection.querySelector(".handwritten-notes");
  if(notes){notes.classList.toggle("notes-mode-notebook",mode==="notebook");notes.classList.toggle("notes-mode-hybrid",mode==="hybrid");}
  notesModeButtons.forEach(button=>{const active=button.dataset.notesMode===mode;button.setAttribute("aria-pressed",String(active));});
