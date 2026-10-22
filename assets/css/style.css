@@ -149,3 +149,26 @@
   .handwritten-table th,.handwritten-table td{font-size:9pt;padding:2mm}
   .handwritten-notes li,.handwritten-notes p,.handwritten-subtitle,.handwritten-table{break-inside:avoid}
 }
+
+/* Clean exam notes: white paper, standard type, restrained blue rules */
+.handwritten-notes{background:#fff!important;background-image:none!important;color:#202124!important;font-family:Arial,Helvetica,sans-serif!important;line-height:1.55!important;box-shadow:none!important;border:1px solid #d9dfe8!important;border-radius:3px!important;padding:24px 28px!important}
+.handwritten-notes:before{display:none!important}
+.handwritten-notes p,.handwritten-notes li{color:#202124!important;font-family:Arial,Helvetica,sans-serif!important;font-size:15px!important;line-height:1.55!important;margin:0 0 7px!important}
+.handwritten-notes ul,.handwritten-notes ol{padding-left:23px!important;margin:4px 0 12px!important}
+.handwritten-title{font-family:Arial,Helvetica,sans-serif!important;font-size:21px!important;line-height:1.35!important;color:#2459a9!important;text-decoration:none!important;border-bottom:2px solid #2459a9;padding-bottom:9px;margin-bottom:13px!important}
+.handwritten-subtitle{font-family:Arial,Helvetica,sans-serif!important;font-size:16px!important;line-height:1.4!important;color:#2459a9!important;text-decoration:none!important;border-bottom:1px solid #8da9d4;padding-bottom:4px;margin:15px 0 7px!important}
+.pen-diagram{margin:8px 0 12px!important}
+.pen-diagram svg{min-width:0!important;width:100%!important;max-width:680px!important}
+.handwritten-table{font-family:Arial,Helvetica,sans-serif!important;border-collapse:collapse!important}
+.handwritten-table th,.handwritten-table td{font-family:Arial,Helvetica,sans-serif!important;color:#202124!important;background:#fff!important;border:1px solid #2459a9!important;font-size:14px!important;line-height:1.45!important;padding:7px!important}
+.handwritten-table th{color:#2459a9!important;font-weight:700!important}
+@media(max-width:600px){.handwritten-notes{padding:18px 14px!important}.handwritten-notes p,.handwritten-notes li{font-size:14px!important}.handwritten-title{font-size:18px!important}}
+@media print{
+  .handwritten-notes{background:#fff!important;background-image:none!important;color:#000!important;border:0!important;padding:0 0 0 5mm!important;font-family:Arial,Helvetica,sans-serif!important;box-shadow:none!important;line-height:1.4!important}
+  .handwritten-notes:before{display:none!important}
+  .handwritten-notes p,.handwritten-notes li{color:#000!important;font-family:Arial,Helvetica,sans-serif!important;font-size:10.5pt!important;line-height:1.4!important;margin-bottom:2mm!important}
+  .handwritten-title{color:#000!important;border-bottom:1px solid #000!important;font-size:15pt!important}
+  .handwritten-subtitle{color:#000!important;border-bottom:1px solid #777!important;font-size:11pt!important;margin-top:3mm!important}
+  .handwritten-table th,.handwritten-table td{color:#000!important;background:#fff!important;border:1px solid #555!important;font-size:9.5pt!important}
+  .pen-diagram svg g{stroke:#000!important;fill:#000!important}
+}
