@@ -380,3 +380,10 @@
  .topic-mini-image{width:72px;height:58px;margin-left:8px}
 }
 @media print{.topic-mini-image{max-height:58px}}
+
+/* Keep the language control visibly interactive and easy to tap on phones. */
+.lang-switch button{cursor:pointer;min-height:40px;padding:7px 13px;color:#151515;background:#fff;font-weight:750;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.lang-switch button[aria-pressed="true"]{background:#151515;color:#fff}
+.lang-switch button:disabled{opacity:1;cursor:pointer}
+.lang-switch button:focus-visible{outline:3px solid #e7a000;outline-offset:3px}
+.topic-mini-image.cpu-photo{width:min(100%,240px);max-height:155px;object-fit:contain;float:none;display:block;margin:8px 0 12px;border-radius:10px;background:#f7f7f7}
