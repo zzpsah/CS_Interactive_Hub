@@ -125,8 +125,12 @@
 <section class="content-section" id="write-notes">
 <div class="section-kicker">NOTEBOOK COPY · कॉपी में लिखें</div>
 <h2>✍️ Write in Your Copy — Exam Notes</h2>
-<p class="notes-intro">This is the clean, exam-ready version. Copy only this section into your notebook. Use the print button to print just these notes.</p>
-<div class="handwritten-notes">
+<p class="notes-intro">Choose a format: the hybrid version is clean and easy to read; notebook mode adds colourful, hand-drawn decoration for classroom display.</p>
+<div class="notes-mode-switch" role="group" aria-label="Choose exam notes appearance">
+<button type="button" data-notes-mode="hybrid" aria-pressed="true">📄 Hybrid notes</button>
+<button type="button" data-notes-mode="notebook" aria-pressed="false">✏️ Notebook style</button>
+</div>
+<div class="handwritten-notes notes-mode-hybrid">
 <div class="handwritten-title">Chapter 1: Computer Systems, Hardware and Memory</div>
 <div class="handwritten-subtitle">1. Computer System</div>
 <p>A computer system accepts data, processes it according to instructions, produces information and stores data for future use.</p>
@@ -222,6 +226,17 @@
 <footer><div class="wrap">CS सीखें · Free bilingual learning / निःशुल्क द्विभाषी अध्ययन<p class="small">Check your school’s current syllabus and teacher’s instructions for examination coverage.</p></div></footer>
 <script src="../assets/js/app.js"></script>
 <script>
+const notesSection=document.querySelector("#write-notes");
+const notesModeButtons=[...document.querySelectorAll("[data-notes-mode]")];
+function setNotesMode(mode){
+ if(!notesSection)return;
+ notesSection.dataset.notesMode=mode;
+ const notes=notesSection.querySelector(".handwritten-notes");
+ if(notes){notes.classList.toggle("notes-mode-notebook",mode==="notebook");notes.classList.toggle("notes-mode-hybrid",mode==="hybrid");}
+ notesModeButtons.forEach(button=>{const active=button.dataset.notesMode===mode;button.setAttribute("aria-pressed",String(active));});
+}
+notesModeButtons.forEach(button=>button.addEventListener("click",()=>setNotesMode(button.dataset.notesMode)));
+setNotesMode("hybrid");
 document.querySelector("[data-print-notes]")?.addEventListener("click",()=>window.print());
 document.querySelector("[data-copy-notes]")?.addEventListener("click",async()=>{const note=document.querySelector(".handwritten-notes");const status=document.querySelector("[data-notes-status]");try{await navigator.clipboard.writeText(note.innerText);status.textContent="Notes copied.";}catch(e){status.textContent="Copy is unavailable in this browser; select the notes and copy manually.";}});
 document.querySelectorAll('.worked-example .study-choice').forEach((button)=>button.addEventListener('click',()=>{const group=button.parentElement;const out=group.nextElementSibling;if(out&&out.classList.contains('feedback'))out.textContent=button.dataset.feedbackText||''}));
