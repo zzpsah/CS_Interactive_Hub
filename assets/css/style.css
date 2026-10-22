@@ -283,3 +283,11 @@
 
 /* Preserve each diagram's authored pen colours when printing. */
 @media print{.pen-diagram svg g[fill="none"]{fill:none!important;stroke:revert!important}.pen-diagram svg g:not([fill="none"]){fill:revert!important;stroke:revert!important}}
+
+
+/* Colour-pencil style illustration inside the exam notes */
+.notes-sketch{margin:14px 0 18px;padding:8px 4px;background:#fff;overflow:hidden}
+.notes-sketch svg{display:block;width:100%;height:auto;max-width:700px;margin:0 auto}
+.notes-sketch text{paint-order:stroke;stroke:#fff;stroke-width:.35px;stroke-linejoin:round}
+@media(max-width:600px){.notes-sketch{margin:10px 0 14px;padding:3px 0}.notes-sketch svg{min-width:0}}
+@media print{.notes-sketch{break-inside:avoid;padding:0;margin:2mm 0}.notes-sketch svg{max-height:55mm;width:auto;max-width:100%}}
