@@ -4,3 +4,21 @@
 
 /* Class 9 quality-first study path */
 .current-focus{margin:18px 0;padding:18px}.current-focus-card{border-color:var(--blue);box-shadow:0 6px 20px rgba(23,92,211,.07)}.worked-example{margin:18px 0;padding:14px 18px;border-left:4px solid var(--blue);border-radius:0 12px 12px 0;background:#f8fbff}.worked-example h3{margin-top:0}.worked-example ol{padding-left:1.4rem}.current-focus .btn{margin-top:4px}
+
+/* Repository-local Class 9 hardware gallery and accessible zoom viewer */
+.hardware-gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin:18px 0}
+.hardware-figure{margin:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.hardware-image-button{position:relative;display:block;width:100%;padding:0;border:0!important;background:#f5f9fc!important;cursor:zoom-in}
+.hardware-image-button img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
+.hardware-image-button span{position:absolute;right:9px;bottom:9px;padding:5px 9px;border-radius:999px;background:#151515;color:#fff;font-size:.82rem}
+.hardware-figure figcaption{padding:12px 14px}
+.hardware-figure figcaption p{margin:5px 0 0;font-size:.94rem}
+.image-zoom-dialog{width:min(96vw,1100px);max-width:none;max-height:92dvh;padding:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;color:#151515}
+.image-zoom-dialog::backdrop{background:rgba(4,16,30,.82)}
+.image-zoom-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 12px;border-bottom:1px solid var(--line)}
+.image-zoom-toolbar>div{display:flex;gap:6px;flex-wrap:wrap}
+.image-zoom-toolbar button{border:1px solid #aaa;border-radius:8px;background:#fff;color:#151515;padding:7px 10px}
+.image-zoom-viewport{max-height:calc(92dvh - 65px);overflow:auto;text-align:center;padding:12px;overscroll-behavior:contain}
+.image-zoom-viewport img{display:block;max-width:100%;height:auto;margin:0 auto;transform-origin:center top;transition:transform .12s ease}
+.image-zoom-hint{font-size:.85rem}
+@media(max-width:600px){.image-zoom-toolbar{align-items:flex-start}.image-zoom-toolbar>div{width:100%}.image-zoom-viewport{padding:5px}}
