@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Class 9 Computer Science notes and interactive virtual lab: computer systems, hardware, software, CPU, memory and storage.">
 <title>Class 9 · Computer Systems, Hardware & Memory | CS सीखें</title>
-<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style.css?v=notes-mode-2">
 </head>
 <body data-lang="en">
 <div class="topbar"><div class="wrap">
@@ -129,6 +129,7 @@
 <div class="notes-mode-switch" role="group" aria-label="Choose exam notes appearance">
 <button type="button" data-notes-mode="hybrid" aria-pressed="true">📄 Hybrid notes</button>
 <button type="button" data-notes-mode="notebook" aria-pressed="false">✏️ Notebook style</button>
+<p class="notes-mode-hint" aria-live="polite" data-notes-mode-hint>Clean, uncluttered study sheet.</p>
 </div>
 <div class="handwritten-notes notes-mode-hybrid">
 <div class="handwritten-title">Chapter 1: Computer Systems, Hardware and Memory</div>
@@ -231,6 +232,8 @@ const notesModeButtons=[...document.querySelectorAll("[data-notes-mode]")];
 function setNotesMode(mode){
  if(!notesSection)return;
  notesSection.dataset.notesMode=mode;
+ const hint=notesSection.querySelector('[data-notes-mode-hint]');
+ if(hint)hint.textContent=mode==='notebook'?'Notebook style: colourful headings, sketch frames, decorative borders and highlighted tables.':'Hybrid notes: clean, uncluttered study sheet.';
  const notes=notesSection.querySelector(".handwritten-notes");
  if(notes){notes.classList.toggle("notes-mode-notebook",mode==="notebook");notes.classList.toggle("notes-mode-hybrid",mode==="hybrid");}
  notesModeButtons.forEach(button=>{const active=button.dataset.notesMode===mode;button.setAttribute("aria-pressed",String(active));});
