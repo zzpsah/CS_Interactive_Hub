@@ -172,3 +172,8 @@
   .handwritten-table th,.handwritten-table td{color:#000!important;background:#fff!important;border:1px solid #555!important;font-size:9.5pt!important}
   .pen-diagram svg g{stroke:#000!important;fill:#000!important}
 }
+
+@media print{
+  .pen-diagram svg g[fill="none"]{fill:none!important;stroke:#000!important}
+  .pen-diagram svg g:not([fill="none"]){fill:#000!important;stroke:none!important}
+}
