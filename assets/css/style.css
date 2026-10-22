@@ -22,3 +22,11 @@
 .image-zoom-viewport img{display:block;max-width:100%;height:auto;margin:0 auto;transform-origin:center top;transition:transform .12s ease}
 .image-zoom-hint{font-size:.85rem}
 @media(max-width:600px){.image-zoom-toolbar{align-items:flex-start}.image-zoom-toolbar>div{width:100%}.image-zoom-viewport{padding:5px}}
+
+/* Public learning pages: hide internal/administrative metadata from students */
+.lesson-meta,
+.page-metadata,
+.internal-metadata,
+[data-metadata],
+.metadata,
+.meta-data { display:none !important; }
