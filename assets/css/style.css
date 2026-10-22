@@ -387,3 +387,46 @@
 .lang-switch button:disabled{opacity:1;cursor:pointer}
 .lang-switch button:focus-visible{outline:3px solid #e7a000;outline-offset:3px}
 .topic-mini-image.cpu-photo{width:min(100%,240px);max-height:155px;object-fit:contain;float:none;display:block;margin:8px 0 12px;border-radius:10px;background:#f7f7f7}
+
+
+/* Study & Copy defaults: illustrated notebook first, with a distraction-free writing view. */
+#write-notes .notes-mode-switch{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#write-notes .notes-mode-switch [data-notes-mode]{min-height:40px;padding:8px 13px;border:1px solid #b8c8df;border-radius:10px;background:#fff;color:#1c3767;font-weight:700;cursor:pointer}
+#write-notes .notes-mode-switch [data-notes-mode][aria-pressed="true"]{background:#eaf2ff;border-color:#2459a9;box-shadow:inset 0 0 0 1px #2459a9}
+#write-notes .notes-mode-hint{flex-basis:100%;margin:0;font-size:.85rem;color:#596579}
+#write-notes .handwritten-notes{max-width:980px;margin:12px auto 18px}
+.lab-reference-collapse{margin:12px 0 20px}
+.lab-reference-collapse .lab-launch-card{margin:0}
+.notes-actions [data-writing-focus]{background:#183f80;color:#fff;border:1px solid #183f80}
+body.writing-focus{overflow:hidden}
+body.writing-focus .topbar,
+body.writing-focus main.wrap> :not(#write-notes),
+body.writing-focus footer{display:none!important}
+body.writing-focus #write-notes{
+ position:fixed!important;inset:0!important;z-index:9999!important;display:block!important;
+ width:100%!important;max-width:none!important;height:100dvh!important;overflow-y:auto!important;
+ margin:0!important;padding:12px clamp(12px,3vw,36px) 28px!important;
+ background:#f5f7fb!important;border:0!important;border-radius:0!important;
+}
+body.writing-focus #write-notes>.section-kicker,
+body.writing-focus #write-notes>h2,
+body.writing-focus #write-notes>.notes-intro,
+body.writing-focus #write-notes .notes-mode-hint{display:none!important}
+body.writing-focus #write-notes .notes-mode-switch{position:sticky;top:0;z-index:2;padding:7px 0 10px;background:#f5f7fb}
+body.writing-focus #write-notes .handwritten-notes{
+ width:min(100%,1000px)!important;max-width:1000px!important;min-height:calc(100dvh - 135px);
+ margin:0 auto 14px!important;padding:26px clamp(18px,4vw,48px)!important;
+ background:#fff!important;border:1px solid #d9e1ee!important;border-radius:5px!important;
+ box-shadow:0 3px 16px rgba(20,45,85,.08)!important;font-size:1.04rem!important;
+}
+body.writing-focus #write-notes .notes-actions{position:sticky;bottom:0;z-index:2;margin:0;padding:10px 0;background:#f5f7fb}
+body.writing-focus #write-notes .notes-actions .small{color:#24334c}
+@media(max-width:600px){
+ body.writing-focus #write-notes{padding:8px 8px 18px!important}
+ body.writing-focus #write-notes .handwritten-notes{padding:18px 14px!important;min-height:calc(100dvh - 125px)}
+ body.writing-focus #write-notes .notes-actions{gap:6px}
+ body.writing-focus #write-notes .notes-actions button{padding:8px 10px;font-size:.9rem}
+}
+@media print{
+ #write-notes .notes-mode-switch{display:none!important}
+}
