@@ -544,3 +544,27 @@ html.motion-ready [data-motion-reveal].motion-visible>h2::after{transform:scaleX
 @media(max-width:620px){.content-section{padding:17px 14px;border-radius:14px}.lesson-head{padding:22px 15px 18px;border-radius:17px}.lesson-head:after{font-size:1rem;right:10px}#write-notes{padding:20px 14px 22px 42px}#write-notes:before{left:28px}}
 @media print{.lesson-head{background:#fff!important;box-shadow:none;border:1px solid #aaa}.content-section{break-inside:avoid;box-shadow:none;background:#fff!important;border-color:#aaa}#write-notes{background:#fff!important;box-shadow:none;border-color:#aaa}#write-notes p,#write-notes li{color:#111}.content-section button,.notes-mode-switch{display:none!important}}
 @media(prefers-reduced-motion:reduce){.content-section,.lesson-head{scroll-behavior:auto;transition:none!important}}
+
+
+/* Class 9 interactive component explorer: diagrams are part of the explanation. */
+.system-explorer{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(250px,.9fr);gap:16px;align-items:start;padding:14px;border:1px solid #dce6fa;border-radius:18px;background:linear-gradient(145deg,#f5f8ff,#fff 62%,#f1fbf8)}
+.system-map{width:100%;height:auto;grid-row:span 2}
+.system-map rect{transition:filter .2s,stroke-width .2s}
+.system-map rect.is-selected{stroke:#1b4fb5;stroke-width:5;filter:drop-shadow(0 4px 5px #3159b733)}
+.system-parts{display:flex;gap:8px;flex-wrap:wrap;align-content:start}
+.system-parts button{border:1px solid #c7d6f5;border-radius:999px;background:#fff;color:#244274;padding:8px 11px;font-weight:750}
+.system-parts button[aria-pressed=true]{background:#3159b7;color:#fff;border-color:#3159b7;box-shadow:0 3px 0 #c6d7fa}
+.system-explanation{padding:15px;border:1px solid #dce5f6;border-radius:14px;background:#fff;box-shadow:0 5px 16px #203a680c}
+.system-explanation h3{margin:.5rem 0;color:#1d2b4f}
+.system-explanation p{margin:.55rem 0}
+.system-input-output{display:grid;gap:8px;margin-top:12px}
+.system-input-output>div{display:grid;grid-template-columns:minmax(100px,.7fr) minmax(0,1.3fr);gap:10px;padding:9px 10px;border-radius:9px;background:#f4f7ff}
+.system-input-output strong{color:#244274;font-size:.88rem}
+.system-input-output span{color:#29364d}
+#inside-computer .system-explorer .system-explanation .lang-hi{display:none}
+body[data-lang="hi"] #inside-computer .system-explorer .system-explanation .lang-hi{display:block!important}
+#inside-computer .system-explorer .system-explanation .lang-hi{display:none}
+#exam-answer .exam-answer{margin:14px 0;padding:18px;border-radius:14px;background:#f5f8ff;border:1px solid #cbd9f4}
+#exam-answer .exam-answer h3{color:#244274}
+@media(max-width:700px){.system-explorer{grid-template-columns:minmax(0,1fr)}.system-map{grid-row:auto}.system-input-output>div{grid-template-columns:1fr;gap:2px}}
+@media(prefers-reduced-motion:reduce){.system-map rect{transition:none}}
