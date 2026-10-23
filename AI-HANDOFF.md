@@ -247,3 +247,18 @@ Validation status:
 - Commits: `b44fd488a9c3d1e99e23315f9a26931002805d7c` — `Restructure Chapter 1 exam answers into formatted Q&A`; `bff5c555a1577e5c799a2f75cd6627488e96f6a9` — `Use question and answer wording in study copy`.
 - The Study & Copy section’s remaining “Model answer” label was also changed to “Question and Answer” for consistent wording.
 - GitHub Pages workflow was queued after this commit; deployment and rendered browser appearance must be checked before claiming the new section is live. No browser interaction test was run as part of this content-only edit.
+
+
+## Study & Copy rich examination-content update (2026-10-23)
+
+- Expanded the Study & Copy section in `class09/ch01_hardware_memory.html` from short revision notes into six bilingual, notebook-ready examination answers:
+  1. Computer system and main functional units
+  2. Data versus information
+  3. Input–Process–Output cycle
+  4. Hardware versus software
+  5. RAM versus secondary storage
+  6. Characteristics and one limitation of a computer
+- Each answer now includes a clear question, Answer label, introduction, subheadings, explanatory paragraphs, bullets or a comparison table, ★ important points, a relevant example and a conclusion where appropriate. Hindi explanations accompany the English content.
+- Kept the Clean view / Notebook controls, copy and print controls, the IPO diagram, section anchor, and Quick Revision section. The content remains within Class 9 Chapter 1; no other class or chapter was changed.
+- Commit: `865275ed5bc481633e5c1fe122eaf8ffe5e37b3d` — `Expand Study & Copy into bilingual exam-ready answers`.
+- Static source verification confirmed the Study & Copy heading, six new question blocks, Hindi content, copy/print controls, and following revision section. GitHub Pages deployment and rendered browser behavior still require checking for this commit.
