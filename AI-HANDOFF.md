@@ -114,3 +114,13 @@ The next agent must read `AGENTS.md` and this file first. Do not revert establis
 - The architecture and IPO diagrams use restrained moving arrows and a subtle sequential highlight to help learners follow data flow; reduced-motion preferences disable these animations.
 - The Practice lab section is collapsed by default with an explicit summary control; its activities remain in the page and can be expanded at any time.
 - Verify at desktop and mobile widths, test the open/close interaction and language switch, and check reduced-motion behavior before considering browser QA complete. Connector-based edits alone do not constitute live browser testing.
+
+
+## Site-wide explanatory motion system (2026-10-23)
+
+- The owner explicitly requested an animated teaching experience across the entire project, not just a compact animated hero or one interactive widget.
+- Shared motion is implemented in `assets/css/style.css` and `assets/js/app.js`: lesson sections, diagrams, worked examples, component cards and concept visuals reveal as learners scroll; diagrams receive a subtle motion-aware treatment; cards provide restrained hover feedback.
+- This is a shared baseline, not a mandate to make every page identical. Future topic-specific animations should teach the concept: e.g. data packets travelling through a network, bits toggling in number systems, memory read/write movement, and Python values flowing through functions/lists.
+- Preserve the existing UI and topic-specific teaching layouts. Add motion where it explains change or sequence; avoid motion on every paragraph or continuous distracting animation. Respect reduced-motion preferences, keep content readable without animation, and make all interactive steps keyboard/touch accessible.
+- All HTML pages should use the `site-motion-1` cache-buster for the shared stylesheet and script until the shared motion layer changes again.
+- Browser-level motion QA remains outstanding; verify mobile and desktop, language toggle, keyboard/touch interactions, collapsed details, print mode, and reduced-motion settings before claiming visual QA complete.
