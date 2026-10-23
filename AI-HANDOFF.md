@@ -322,3 +322,23 @@ Validation status:
 - Every chapter needs subject-specific visual teaching and working mobile interactions, using Class IX Chapter 1 as the shared design-system benchmark.
 - The curriculum document is a target map, not evidence that the planned content has already been built. Existing pages still need migration, source-level review, visual/interaction QA, bilingual parity checks, and published-site verification.
 - First curriculum-map commit: `95be30c1d086d694e2b2d5a3da4131c2021b3ff6`.
+
+
+## Class IX NCERT chapter restructure — implementation status
+
+- The student-facing Class IX index now links to eight canonical NCERT ICT chapter pages in the official textbook order:
+  1. `ch01_introduction_ict.html`
+  2. `ch02_textual_communication.html`
+  3. `ch03_visual_communication.html`
+  4. `ch04_audio_video_communication.html`
+  5. `ch05_presenting_ideas.html`
+  6. `ch06_getting_connected_internet.html`
+  7. `ch07_cyber_safety.html`
+  8. `ch08_fun_with_logic.html`
+- Class IX canonical pages use Class IX Chapter 1's shared design system while retaining subject-specific visual models and bilingual content.
+- Legacy chapter URLs now redirect to their canonical replacements so the site does not present hardware, OS, files, bits/bytes and algorithms as additional NCERT chapters. Standalone lab pages remain separate practice resources.
+- Added `class08/index.html` as a separate, clearly labelled CBSE CT & AI foundation track. Its module titles are explicitly marked as proposed, not official chapter names.
+- Updated the root index to distinguish Class VIII from the NCERT-first Classes IX–XII plan, and to mark Classes X–XII as pending realignment.
+- Updated `CURRICULUM.md` with the canonical Class IX chapter file map and source hierarchy.
+- Official source check: NCERT's Class IX ICT textbook has eight chapters; CBSE circular Acad-18/2026 also states that NCERT CT&AI modules for Classes IX–XII are intended for internal assessment in 2026–27. The current applicability of those modules must be checked before claiming that the ICT book alone covers every current assessment requirement.
+- **Not yet complete:** a full content-by-content audit of all eight pages, browser testing of every interaction on mobile/desktop, and final publication verification. Do not claim the Class IX curriculum is fully finished until those checks pass.
