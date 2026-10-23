@@ -21,7 +21,7 @@
 <nav class="lesson-toc" aria-label="Chapter contents">
 <details class="chapter-index"><summary>Chapter contents / अध्याय सूची</summary>
 <div class="toc-grid">
-<a href="#ict-in-life">What is ICT?</a><a href="#what-is-computer">What is a computer?</a><a href="#architecture">Basic architecture</a><a href="#functions">Main functions</a><a href="#characteristics">Characteristics</a><a href="#ipo-cycle">How a computer works</a><a href="#hardware-software">Hardware and software</a><a href="#cpu-memory">CPU, memory and storage</a><a href="#real-life">Everyday examples</a><a href="#visual-guide">Follow the data</a><a href="#virtual-lab">Practice lab</a><a href="#inside-computer">Explore inside the computer</a><a href="#questions-answers">Questions &amp; Answers / प्रश्न और उत्तर</a><a href="#notes">Notes / नोट्स</a>
+<a href="#ict-in-life">What is ICT?</a><a href="#what-is-computer">What is a computer?</a><a href="#architecture">Basic architecture</a><a href="#functions">Main functions</a><a href="#characteristics">Characteristics</a><a href="#ipo-cycle">How a computer works</a><a href="#hardware-software">Hardware and software</a><a href="#cpu-memory">CPU, memory and storage</a><a href="#real-life">Everyday examples</a><a href="#visual-guide">Follow the data</a><a href="#virtual-lab">Practice lab</a><a href="#inside-computer">Explore inside the computer</a><a href="#questions-answers">Questions &amp; Answers / प्रश्न और उत्तर</a>
 </div></details>
 </nav>
 
@@ -195,8 +195,7 @@
 <p class="lang-hi" lang="hi"><strong>महत्वपूर्ण अंतर:</strong> RAM वर्तमान काम की जगह है; SSD या HDD लंबे समय तक फ़ाइलें सुरक्षित रखते हैं। फ़ाइल सेव करने का अर्थ है उसे स्थायी स्टोरेज में सुरक्षित करना, CPU में रखना नही<section class="content-section" id="questions-answers">
 
 <h2>📝 Questions &amp; Answers / प्रश्न और उत्तर</h2>
-<p>Write answers in a clear  format: begin with a direct definition or introduction, use meaningful headings and subheadings, explain each point in a separate paragraph or bullet, mark key facts with ★, and add an example or conclusion when useful.</p>
-<p class="lang-hi" lang="hi">परीक्षा में उत्तर स्पष्ट ढंग से लिखें: शुरुआत परिभाषा या परिचय से करें, उचित शीर्षक और उपशीर्षक दें, हर बिंदु अलग अनुच्छेद या बुलेट में समझाएँ, मुख्य तथ्यों पर ★ लगाएँ और जहाँ उपयोगी हो उदाहरण या निष्कर्ष दें।</p>
+
 
 <article class="answer-panel">
 <h3>Question 1. Explain the main functional units of a computer with their functions.<span class="lang-hi" lang="hi"> / प्रश्न 1. कंप्यूटर की मुख्य कार्यात्मक इकाइयों और उनके कार्यों को समझाएँ।</span></h3>
@@ -269,33 +268,11 @@
 <p class="lang-hi" lang="hi"><strong>निष्कर्ष:</strong> ★ IPO चक्र डेटा से उपयोगी परिणाम तक की मूल प्रक्रिया समझाता है। स्टोरेज परिणाम को भविष्य में उपयोग के लिए सुरक्षित रखने देता है।</p>
 </article>
 </section>
-<section class="content-section" id="notes"><h2>Notes <span class="lang-hi" lang="hi">/ नोट्स</span></h2><ul><li><strong>ICT:</strong> Digital tools and communication systems help people create, process, store and exchange information.<p class="lang-hi" lang="hi"><strong>ICT:</strong> डिजिटल उपकरण और संचार प्रणालियाँ जानकारी बनाने, संसाधित करने, सुरक्षित रखने और साझा करने में मदद करती हैं।</p></li><li><strong>Computer:</strong> A programmable electronic device accepts input, processes data, produces output and can store results.<p class="lang-hi" lang="hi"><strong>कंप्यूटर:</strong> प्रोग्राम के अनुसार काम करने वाला इलेक्ट्रॉनिक उपकरण इनपुट लेता है, डेटा संसाधित करता है, आउटपुट देता है और परिणाम सुरक्षित रख सकता है।</p></li><li><strong>IPO cycle:</strong> Input supplies data, processing follows instructions, and output presents the result. Storage keeps information for later use.<p class="lang-hi" lang="hi"><strong>IPO चक्र:</strong> इनपुट डेटा देता है, प्रोसेसिंग निर्देशों का पालन करती है और आउटपुट परिणाम दिखाता है। स्टोरेज जानकारी को बाद में उपयोग के लिए रखता है।</p></li><li><strong>Hardware and software:</strong> Hardware is the physical equipment; software is the programs and instructions that make it perform tasks.<p class="lang-hi" lang="hi"><strong>हार्डवेयर और सॉफ्टवेयर:</strong> हार्डवेयर भौतिक उपकरण हैं; सॉफ्टवेयर वे प्रोग्राम और निर्देश हैं जो उनसे काम करवाते हैं।</p></li><li><strong>Memory and storage:</strong> RAM holds working data temporarily, while SSDs and hard drives keep files when power is off.<p class="lang-hi" lang="hi"><strong>मेमोरी और स्टोरेज:</strong> RAM काम के दौरान डेटा अस्थायी रूप से रखती है, जबकि SSD और हार्ड ड्राइव बिजली बंद होने पर भी फ़ाइलें सुरक्षित रखते हैं।</p></li></ul></section>
+
 </main>
 <script src="../assets/js/app.js?v=shared-20261023-2"></script>
 <script src="../assets/js/image-zoom.js?v=1" defer></script>
 <script>
-const notesSection=document.querySelector("#write-notes");
-const notesModeButtons=[...document.querySelectorAll("[data-notes-mode]")];
-function setNotesMode(mode){
- if(!notesSection)return;
- notesSection.dataset.notesMode=mode;
- const hint=notesSection.querySelector('[data-notes-mode-hint]');
- if(hint)hint.textContent=mode==='notebook'?'Illustrated notebook: colourful headings, sketch frames, decorative borders and highlighted tables.':'Clean view: clear text and uncluttered diagrams.';
- const notes=notesSection.querySelector(".handwritten-notes");
- if(notes){notes.classList.toggle("notes-mode-notebook",mode==="notebook");notes.classList.toggle("notes-mode-hybrid",mode==="hybrid");}
- notesModeButtons.forEach(button=>{const active=button.dataset.notesMode===mode;button.setAttribute("aria-pressed",String(active));});
-}
-notesModeButtons.forEach(button=>button.addEventListener("click",()=>setNotesMode(button.dataset.notesMode)));
-setNotesMode("notebook");
-const focusButton=document.querySelector("[data-writing-focus]");
-focusButton?.addEventListener("click",()=>{
- const active=document.body.classList.toggle("writing-focus");
- focusButton.setAttribute("aria-pressed",String(active));
- focusButton.textContent=active?"✕ Exit writing view":"⛶ Writing view";
- if(active)document.querySelector("#write-notes .handwritten-notes")?.scrollIntoView({block:"start"});
-});
-document.querySelector("[data-print-notes]")?.addEventListener("click",()=>window.print());
-document.querySelector("[data-copy-notes]")?.addEventListener("click",async()=>{const note=document.querySelector(".handwritten-notes");const status=document.querySelector("[data-notes-status]");try{await navigator.clipboard.writeText(note.innerText);status.textContent="Text copied.";}catch(e){status.textContent="Copy is unavailable in this browser; select the text and copy manually.";}});
 document.querySelectorAll('.worked-example .study-choice').forEach((button)=>button.addEventListener('click',()=>{const group=button.parentElement;const out=group.nextElementSibling;if(out&&out.classList.contains('feedback'))out.textContent=button.dataset.feedbackText||''}));
 
 const systemExplorer=document.querySelector('[data-system-explorer]');
