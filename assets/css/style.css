@@ -764,3 +764,11 @@ button,.lang-switch button,.interactive button,.interactive input,.lab-action,.p
 /* Short topic definitions give notebook notes enough explanation without restoring long prose. */
 #write-notes .notes-definition{margin:5px 0 7px;padding-left:10px;border-left:3px solid #8eb6d8;color:#344b63;line-height:1.65;text-indent:0}
 #write-notes .notes-definition.lang-hi{border-left-color:#d99ab0;color:#4b5368}
+
+
+/* Visual learning inside Study & Copy: one annotated component sketch, not repeated examples. */
+#write-notes .notes-visual-card{margin:14px 0 18px;padding:12px 14px 10px;border:1px solid #bfd3e8;border-radius:10px;background:linear-gradient(145deg,#f7fbff,#eef7f3)}
+#write-notes .notes-visual-card>h4{display:table;margin:0 0 8px;padding:0 0 4px;color:#245783;border-bottom:2px solid #df8aaa;font-size:1rem}
+#write-notes .computer-xray{display:block;width:100%;height:auto;max-width:680px;margin:0 auto}
+#write-notes .notes-visual-explanation{margin:7px 0 5px;padding-left:10px;border-left:3px solid #6d9fc7;color:#344b63;line-height:1.65;text-indent:0}
+#write-notes .notes-visual-explanation.lang-hi{border-left-color:#d99ab0;color:#4b5368}
