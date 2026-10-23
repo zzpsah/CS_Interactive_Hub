@@ -735,3 +735,27 @@ button,.lang-switch button,.interactive button,.interactive input,.lab-action,.p
  #write-notes .theory-topic>p,#write-notes .notebook-example .theory-paragraph{line-height:1.75;text-indent:1em}
  #write-notes .notebook-example{padding:11px 12px 6px}
 }
+
+
+/* Concise, copy-ready Study & Copy notes: clear hierarchy and notebook indentation. */
+#write-notes .theory-topic{margin:12px 0 18px}
+#write-notes .theory-topic>h3.handwritten-subtitle{
+ display:table;margin:12px 0 8px;padding:3px 7px 4px;
+ color:#174f86;background:#edf6ff;border:0;border-bottom:2px solid #3d83c6;
+ border-radius:3px;font-size:1.02rem;text-decoration:underline;
+ text-decoration-color:#e46b91;text-decoration-thickness:1px;text-underline-offset:4px
+}
+#write-notes .theory-topic>h3.handwritten-subtitle:after{content:"";display:none}
+#write-notes .theory-topic ul{margin:7px 0 10px;padding-left:1.6rem;list-style:disc}
+#write-notes .theory-topic li{padding:2px 0 3px 2px;line-height:1.6;margin:2px 0}
+#write-notes .theory-topic li::marker{color:#e46b91}
+#write-notes .theory-topic li.lang-hi{margin-left:.25rem;color:#294d70}
+#write-notes .notebook-example{margin:9px 0 13px;padding:8px 12px 5px;border-left:4px solid #d8a02f;background:#fff8e8;box-shadow:none;border-radius:4px}
+#write-notes .notebook-example>h4{margin:0 0 5px;padding:0 0 2px;background:transparent;color:#80520d;border-radius:0;border-bottom:1px solid #d8a02f;font-size:.92rem}
+#write-notes .notebook-example p{margin:3px 0 7px;line-height:1.55;text-indent:0}
+#write-notes .notebook-example p.lang-hi{color:#294d70}
+#write-notes .ipo-mini-flow{display:flex;align-items:center;justify-content:center;gap:clamp(5px,2vw,16px);margin:10px auto;padding:10px;background:#f6f9ff;border:1px solid #c6d7f0;border-radius:8px;max-width:620px}
+#write-notes .ipo-mini-flow span{flex:1;text-align:center;padding:7px 3px;border-bottom:3px solid #4786bc;background:#fff;color:#174f86;font-weight:700;border-radius:5px}
+#write-notes .ipo-mini-flow span small{font-size:.78em;font-weight:500;color:#465d7c}
+#write-notes .ipo-mini-flow b{color:#d45c82}
+@media(max-width:600px){#write-notes .theory-topic ul{padding-left:1.25rem}#write-notes .theory-topic li{line-height:1.55}#write-notes .ipo-mini-flow{gap:4px;padding:6px}#write-notes .ipo-mini-flow span{font-size:.82rem}}
