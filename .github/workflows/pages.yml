@@ -20,16 +20,36 @@ jobs:
           test -s index.html
           test -s assets/css/style.css
           test -s assets/js/app.js
-          for f in class09/index.html class10/index.html class11/index.html class12/index.html class09/ch01_hardware_memory.html class10/ch01_networks_web.html class11/ch01_number_systems.html class12/ch01_python_functions.html; do test -s "$f" || exit 1; done
+          for f in class08/index.html class09/index.html class10/index.html class11/index.html class12/index.html class09/ch01_introduction_ict.html class09/ch02_textual_communication.html class09/ch03_visual_communication.html class09/ch04_audio_video_communication.html class09/ch05_presenting_ideas.html class09/ch06_getting_connected_internet.html class09/ch07_cyber_safety.html class09/ch08_fun_with_logic.html class10/ch01_networks_web.html class11/ch01_number_systems.html class12/ch01_python_functions.html; do test -s "$f" || exit 1; done
           python - <<'PY'
           from pathlib import Path
-          pages = ['index.html','class09/ch01_hardware_memory.html','class10/ch01_networks_web.html','class11/ch01_number_systems.html','class12/ch01_python_functions.html']
+          pages = [
+              'index.html',
+              'class08/index.html',
+              'class09/index.html',
+              'class09/ch01_introduction_ict.html',
+              'class09/ch02_textual_communication.html',
+              'class09/ch03_visual_communication.html',
+              'class09/ch04_audio_video_communication.html',
+              'class09/ch05_presenting_ideas.html',
+              'class09/ch06_getting_connected_internet.html',
+              'class09/ch07_cyber_safety.html',
+              'class09/ch08_fun_with_logic.html',
+              'class10/index.html',
+              'class10/ch01_networks_web.html',
+              'class11/index.html',
+              'class11/ch01_number_systems.html',
+              'class12/index.html',
+              'class12/ch01_python_functions.html',
+          ]
           for name in pages:
-              s=Path(name).read_text(encoding='utf-8')
-              assert '<!doctype html>' in s.lower(), name
-              assert 'lang-hi' in s, name
-              if name != 'index.html':
-                  assert 'data-quiz' in s, name
+              s = Path(name).read_text(encoding='utf-8')
+              assert '<!doctype html>' in s.lower(), f'{name}: missing doctype'
+              assert 'lang-hi' in s, f'{name}: missing bilingual text'
+              assert 'assets/css/style.css' in s, f'{name}: missing shared stylesheet'
+              assert 'assets/js/app.js' in s, f'{name}: missing shared language script'
+              if name.startswith('class09/ch') and name.endswith('.html'):
+                  assert 'id="write-notes"' in s, f'{name}: missing Study & Copy'
               print('OK', name)
           PY
       - uses: actions/configure-pages@v5
