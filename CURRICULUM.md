@@ -17,7 +17,7 @@ Official references:
 - [CBSE Class X Computer Applications (165), 2026–27](https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart1/Computer_Applications_SecP1X_2026-27.pdf)
 - [CBSE Computer Science (083), Classes XI–XII, 2026–27](https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/Computer_Science_SecP2_2026-27.pdf)
 - [CBSE Informatics Practices (065), Classes XI–XII, 2026–27](https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/Informatics_Practices_SecP2_2026-27.pdf)
-- [CBSE CT & AI framework for Classes III–VIII](https://cbseacademic.nic.in/)
+- [CBSE CT & AI curriculum framework for Classes III–VIII, 2026–27](https://cbseacademic.nic.in/web_material/CurriculumMain27/CTAI_Pri_2026-27.pdf)
 
 ## Curriculum tracks and scope
 
