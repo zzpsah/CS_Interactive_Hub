@@ -839,3 +839,38 @@ body[data-lang="hi"] .lang-hi{font-family:inherit}
  body.print-study-only main>*:not(#study-copy){display:none!important}
  body.print-study-only main #study-copy{display:block!important}
 }
+
+
+/* Restored Study & Copy experience for the canonical Class 9 Chapter 1 page. */
+.study-copy-section .study-view-switch{display:flex;gap:.5rem;flex-wrap:wrap}
+.study-copy-section .study-tools button[data-study-mode],
+.study-copy-section .study-tools button[data-study-focus]{border-color:#b7c9e8;background:#fff;color:#244274}
+.study-copy-section .study-tools button[aria-pressed="true"]{background:#2459a9;color:#fff;border-color:#2459a9}
+.study-copy-section[data-study-mode="clean"] .study-paper{background:#fff!important;background-image:none!important;border:1px solid #d8dee8;box-shadow:none;padding:1.2rem}
+.study-copy-section[data-study-mode="clean"] .study-paper:before{display:none}
+.study-copy-section[data-study-mode="clean"] .study-topic h3{color:#2459a9;border-bottom:1px solid #dce5f2;padding-bottom:.35rem}
+.study-copy-section .study-paper{min-width:0}
+body.writing-focus{overflow:hidden}
+body.writing-focus .topbar,
+body.writing-focus footer,
+body.writing-focus main.wrap>:not(#study-copy){display:none!important}
+body.writing-focus main.wrap{width:100%;max-width:none;padding:0}
+body.writing-focus #study-copy{display:flex;flex-direction:column;position:fixed;inset:0;z-index:1000;overflow:hidden;margin:0;padding:8px clamp(10px,3vw,28px)!important;background:#f5f7fb;border:0}
+body.writing-focus #study-copy>h2,
+body.writing-focus #study-copy>p:not(.study-paper),
+body.writing-focus #study-copy>.section-kicker{display:none!important}
+body.writing-focus #study-copy .study-tools{position:relative;flex:0 0 auto;z-index:2;margin:.2rem 0 .6rem;padding:.35rem 0;background:#f5f7fb}
+body.writing-focus #study-copy .study-paper{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;margin:0 auto 8px;width:min(100%,1000px);padding:1rem 1.2rem 1rem 3.1rem}
+body.writing-focus #study-copy[data-study-mode="clean"] .study-paper{padding:1rem 1.2rem}
+@media(max-width:600px){
+ body.writing-focus #study-copy{padding:6px 8px!important}
+ body.writing-focus #study-copy .study-tools{gap:6px}
+ body.writing-focus #study-copy .study-view-switch{flex:1 1 100%}
+ body.writing-focus #study-copy .study-tools button{flex:1 1 auto;padding:8px 9px;font-size:.88rem}
+ body.writing-focus #study-copy .study-paper{padding:.8rem .7rem .8rem 2rem}
+ body.writing-focus #study-copy[data-study-mode="clean"] .study-paper{padding:.8rem}
+}
+@media print{
+ .study-copy-section .study-view-switch,.study-copy-section [data-study-focus]{display:none!important}
+ body.print-study-only #study-copy .study-paper{max-width:none}
+}
