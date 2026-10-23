@@ -37,9 +37,9 @@ Proposed original learning modules:
 
 These are proposed hub module titles, **not official NCERT chapter names**. Remove or re-scope any item that is not supported by the current framework or school syllabus.
 
-### Class IX — NCERT ICT sequence, cross-checked against CBSE Computer Applications (165)
+### Class IX — NCERT ICT eight-chapter sequence
 
-Use the eight chapters in the official NCERT Class IX ICT textbook as the chapter structure. The 2026–27 CBSE Computer Applications syllabus is a separate current subject curriculum; add cross-reference labels for its Basics of Information Technology, Cyber Safety, Office Tools and practical outcomes. Do not imply that every NCERT ICT chapter is a separately assessed unit in Computer Applications.
+Use the eight chapters in the official NCERT Class IX ICT textbook as the canonical content structure. Also check the current 2026–27 CBSE circular that says NCERT CT&AI modules for Classes IX–XII are intended for internal assessment; add those as a clearly separated module layer only after the official NCERT modules are located and verified. Do not silently add a ninth ICT chapter or claim the eight-chapter textbook alone covers every current assessment requirement.
 
 Canonical chapter sequence and current implementation:
 1. **Introduction to ICT** — ICT in daily life; computer-system concepts and digital tools. [Open chapter](class09/ch01_introduction_ict.html)
