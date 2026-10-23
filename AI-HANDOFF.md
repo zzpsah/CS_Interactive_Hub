@@ -236,3 +236,13 @@ Validation status:
 - Browser QA was run against the published pages in headless Chrome. Hardware lab checks passed: IPO custom value, Next/Previous/Reset; CPU six-step trace, accumulator result 8, Previous/Reset; storage save/edit/power-off persistence/reset; memory hierarchy selector; startup stepper; language toggle; desktop and 390px mobile overflow; reduced-motion CSS. Chapter 1 theory checks passed: system explorer selection, Clean/Notebook mode, Writing view open/exit, image zoom dialog and zoom-in, quiz score feedback, language toggle, and desktop/mobile overflow. No JavaScript page errors occurred after the startup simulator collection bug was fixed.
 - One non-blocking browser console 404 remains for the site's default `/favicon.ico` on both pages. It is not a lesson asset or interaction failure. The Pages workflow itself does not automate these browser interactions; these results came from a separate browser run. Screen-reader testing and physical-device testing have not been performed.
 - Next safe step: review the live experience with the owner. Do not roll the Chapter 1 visual standard out to other Class 9 chapters until the owner approves its teaching quality.
+
+
+## Chapter 1 examination Q&A formatting update (2026-10-23)
+
+- In `class09/ch01_hardware_memory.html`, the Chapter Guide label now reads **Questions and Answers / प्रश्न-उत्तर** instead of “Model exam answers.”
+- The existing `#exam-answer` anchor is preserved so chapter navigation remains valid.
+- Replaced the two short model-answer blocks with three structured examination-style answers: computer functional units, data versus information, and the Input–Process–Output cycle.
+- Each answer uses a question heading, Answer label, introduction or explanation, meaningful subheadings, separate bullet points, ★ key facts, an example and a conclusion where appropriate. Hindi support is included alongside English.
+- Commit: `b44fd488a9c3d1e99e23315f9a26931002805d7c` — `Restructure Chapter 1 exam answers into formatted Q&A`.
+- GitHub Pages workflow was queued after this commit; deployment and rendered browser appearance must be checked before claiming the new section is live. No browser interaction test was run as part of this content-only edit.
