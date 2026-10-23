@@ -168,3 +168,15 @@ Adopt the following principles, independently implemented for our free, bilingua
 - Topic-specific animation coverage is a staged curriculum project. Track it chapter by chapter; do not claim complete coverage until each chapter has a reviewed visual teaching plan and its core process demos implemented and tested.
 - For each completed chapter, record the visual demo(s), learner controls, language support, reduced-motion behavior, and browser tests in this handoff or chapter notes.
 - Existing site contract remains in force: preserve UI/UX and navigation, keep hero sections compact, maintain English–Hindi parity, collapse optional revision/reference/lab launch sections by default, keep essential teaching visible, and respect reduced-motion, keyboard, touch, mobile and print behavior.
+
+
+## Class 9 curriculum implementation update (2026-10-23)
+
+- Class 9 chapters 3–6 now have first-release standalone lessons linked from `class09/index.html`:
+  - `class09/ch03_files_folders.html`: folder-tree explorer, save-process steps, filename check, understanding question.
+  - `class09/ch04_internet_cyber_safety.html`: web-request route trace, changing safety scenarios, account-safety check.
+  - `class09/ch05_algorithms_flowcharts.html`: step-through comparison algorithm, custom numeric input, flowchart symbols and understanding question.
+  - `class09/ch06_data_bits_bytes.html`: interactive 8-bit toggles, decimal readout, presets and stepwise binary-to-decimal addition.
+- `class09/index.html` now links all six Class 9 chapters as published first releases. The site-wide curriculum still must not claim these are officially examinable until the current relevant Bihar SCERT/BSEB syllabus is verified.
+- This is a first implementation pass, not a claim that every chapter has complete bilingual parity or passed browser QA. Follow-up review: run HTML/JS/link/accessibility/mobile/print checks; improve Chapter 2's main theory page and ensure Hindi parity across all interactive feedback; expand Chapter 3 with safe file operations; improve topic-specific visual controls where still static; verify the image zoom dialog on the live Chapter 1 page; inspect GitHub Actions/Pages deployment status.
+- The existing Chapter 1 hardware lesson remains the visual prototype. Shared scroll reveal is only a foundation; topic-specific state changes must be tested independently.
