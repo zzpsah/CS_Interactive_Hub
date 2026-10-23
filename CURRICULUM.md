@@ -9,10 +9,10 @@ This is a bilingual Computer Science learning sequence for Bihar students, not a
 ## Class 9 — Foundations
 1. Computer Systems, Hardware & Memory — published
 2. Software and Operating Systems — published
-3. Files and Folders — planned
-4. Internet and Cyber Safety — planned
-5. Algorithms and Flowcharts — planned
-6. Data, Bits and Bytes — planned
+3. Files and Folders — first interactive release published; review/expand visual coverage
+4. Internet and Cyber Safety — first interactive release published; review/expand visual coverage
+5. Algorithms and Flowcharts — first interactive release published; review/expand visual coverage
+6. Data, Bits and Bytes — first interactive release published; review/expand visual coverage
 
 ## Class 10 — Applied digital skills
 1. Internet, Networks and the Web — published
@@ -57,7 +57,11 @@ Use Log2Base2 as inspiration for animated concept explanation and step-by-step c
 
 ### Visual implementation roadmap
 - **Class 9, Chapter 1 — Computer Systems, Hardware & Memory:** prototype; interactive input-processing-output-storage demo exists, with architecture/IPO motion foundation. Audit and improve each core concept before marking visual coverage complete.
-- **Class 9, Chapter 2 — Software and Operating Systems:** visualize how user actions flow through applications, OS and hardware; show file/process states.
+- **Class 9, Chapter 2 — Software and Operating Systems:** existing application-launch and boot simulators are available in the practical lab; next improvement is to bring a step-controlled OS/process-state visual into the main theory chapter and ensure language parity.
+- **Class 9, Chapter 3 — Files and Folders:** folder-tree explorer, save-process trace, filename validation; next improvement is a true create/move/rename/delete sandbox with undo and bilingual parity.
+- **Class 9, Chapter 4 — Internet and Cyber Safety:** step-through web-request path and scenario-based safety choices with feedback; expand bilingual content parity and accessibility QA.
+- **Class 9, Chapter 5 — Algorithms and Flowcharts:** step-through compare-two-values trace and custom input; improve flowchart branching visualization and test equal/negative inputs.
+- **Class 9, Chapter 6 — Data, Bits and Bytes:** interactive eight-bit toggle and binary-to-decimal addition trace; expand representations beyond unsigned 8-bit integers where syllabus and learner readiness warrant it.
 - **Class 10, Chapter 1 — Networks and the Web:** animate a request and packets across client, router/server, then show response.
 - **Class 10, Chapter 2 — Digital Safety:** build scenario-driven interactions with visible consequences and feedback.
 - **Class 11, Chapter 1 — Number Systems and Binary:** animate place-value columns and bit changes during conversion.
