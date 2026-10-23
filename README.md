@@ -5,7 +5,8 @@ A free bilingual (English–Hindi), student-first Computer Science learning webs
 ## Student experience
 - White background, black text, mobile-friendly layout.
 - English/Hindi language switch.
-- Clear theory, examples, diagrams, interactive activities, quizzes and exam-ready answers.
+- Clear bilingual theory, topic-specific diagrams/animations, interactive activities, quizzes and exam-ready Study & Copy material.
+- Class 9 first-release lessons cover computer systems/hardware, software/operating systems, files/folders, Internet/cyber safety, algorithms/flowcharts, and data/bits/bytes.
 - No account, database, backend or Google Drive dependency.
 
 ## Curriculum policy
