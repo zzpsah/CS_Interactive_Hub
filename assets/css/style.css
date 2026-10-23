@@ -803,7 +803,4 @@ body[data-lang="hi"] td.lang-hi,
 body[data-lang="hi"] th.lang-hi,
 body[data-lang="hi"] td[lang="hi"],
 body[data-lang="hi"] th[lang="hi"]{display:table-cell!important}
-body[data-lang="hi"] h4.lang-hi,
-body[data-lang="hi"] h5.lang-hi,
-body[data-lang="hi"] h6.lang-hi{font:inherit;font-weight:750;line-height:1.3}
 body[data-lang="hi"] .lang-hi{font-family:inherit}
