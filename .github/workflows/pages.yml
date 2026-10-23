@@ -53,9 +53,13 @@ jobs:
               if name != 'index.html':
                   assert 'data-lang-toggle' in s, f'{name}: missing language toggle'
               if name.startswith('class09/ch') and name.endswith('.html'):
-                  assert 'id="notes"' in s, f'{name}: missing Notes section'
+                  if name == 'class09/ch01_introduction_ict.html':
+                      assert 'id="study-copy"' in s, f'{name}: missing Study & Copy section'
+                      assert 'Study &amp; Copy' in s, f'{name}: missing Study & Copy label'
+                  else:
+                      assert 'id="notes"' in s, f'{name}: missing Notes section'
+                      assert 'Study &amp; Copy' not in s and 'Exam Notes' not in s, f'{name}: contains unwanted study-note labels'
                   assert ('Questions &amp; Answers' in s or 'Questions and Answers' in s or 'questions-answers' in s or 'Check your understanding' in s), f'{name}: missing question-answer content'
-                  assert 'Study &amp; Copy' not in s and 'Exam Notes' not in s, f'{name}: contains unwanted exam-note labels'
                   assert not re.search(r'\bexam(?:[- ]?(?:ready|notes|practice|tip))?\b', s, re.I), f'{name}: exam-focused wording should not appear in student pages'
               print('OK', name)
           PY
