@@ -270,3 +270,10 @@ Validation status:
 - Removed the extra “Five points to remember”, “Common mistakes to avoid”, and the duplicate “Question and Answer: Explain a computer system” block from Quick Revision. Examination answers remain in the dedicated Questions and Answers / Study & Copy areas.
 - Commit: `6017ca5c8372c8cc0f47e86ed553b5868d1f3acc` — `Keep Quick Revision focused on key terms`.
 - Static source checks and GitHub Pages workflow status should be checked before claiming the published page is updated.
+
+## Class 9 library cleanup (2026-10-23)
+
+- The Class 9 landing page is intentionally focused on the single current chapter prototype: **Chapter 1 · Computer Systems, Hardware & Memory**.
+- Removed the multi-chapter list, unbuilt/secondary chapter cards, NCERT ICT category labels, reference-book section, and promotional library copy from the student-facing page. These were distracting from the actual lesson and caused chapter numbering/metadata clutter.
+- The landing page now uses a compact Class 9 heading and one chapter card. Keep internal HTML head metadata (such as `<title>` and `<meta name="description">`) for browser/search behavior; it is not student-facing page content and should not be rendered visibly.
+- Do not restore Chapter 2–10 cards or the broad library/category description until the owner explicitly asks to expand beyond the single-chapter review.
