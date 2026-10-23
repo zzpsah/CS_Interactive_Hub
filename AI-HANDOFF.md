@@ -262,3 +262,11 @@ Validation status:
 - Kept the Clean view / Notebook controls, copy and print controls, the IPO diagram, section anchor, and Quick Revision section. The content remains within Class 9 Chapter 1; no other class or chapter was changed.
 - Commit: `865275ed5bc481633e5c1fe122eaf8ffe5e37b3d` — `Expand Study & Copy into bilingual exam-ready answers`.
 - Static source verification confirmed the Study & Copy heading, six new question blocks, Hindi content, copy/print controls, and following revision section. GitHub Pages deployment and rendered browser behavior still require checking for this commit.
+
+
+## Quick Revision key-terms-only update (2026-10-23)
+
+- Updated `class09/ch01_hardware_memory.html` so the collapsible **Quick Revision** section is a glossary of 17 key terms only, with concise English and Hindi definitions.
+- Removed the extra “Five points to remember”, “Common mistakes to avoid”, and the duplicate “Question and Answer: Explain a computer system” block from Quick Revision. Examination answers remain in the dedicated Questions and Answers / Study & Copy areas.
+- Commit: `6017ca5c8372c8cc0f47e86ed553b5868d1f3acc` — `Keep Quick Revision focused on key terms`.
+- Static source checks and GitHub Pages workflow status should be checked before claiming the published page is updated.
