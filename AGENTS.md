@@ -101,7 +101,7 @@ This rule applies to every chapter, not only Class 9 Chapter 1.
 
 ## Mandatory concise, copy-ready Study & Copy notes
 
-- Study & Copy is a compact summary students can copy into their notebooks, not a second full lesson. Keep only essential definitions, facts, comparisons, steps and exam-useful points.
+- Study & Copy is a concise, understandable summary students can copy into their notebooks—not a second full lesson and not a bare list of keywords. Begin each major topic with a clear one- or two-sentence definition/explanation (English and Hindi when the section is bilingual), then add the essential facts, comparisons or steps as bullets.
 - Prefer crisp bullet points over long explanatory paragraphs. Use a clear hierarchy: chapter heading, numbered topic headings, short subheadings and consistently indented bullets.
 - Style topic headings visibly with colour and underlining. Maintain readable spacing, accessible contrast and responsive layout.
 - Put each essential example in a distinct, compact **Example / उदाहरण** box; keep the English and Hindi versions together where bilingual content is provided.
