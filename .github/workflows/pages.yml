@@ -23,6 +23,7 @@ jobs:
           for f in class08/index.html class09/index.html class10/index.html class11/index.html class12/index.html class09/ch01_introduction_ict.html class09/ch02_textual_communication.html class09/ch03_visual_communication.html class09/ch04_audio_video_communication.html class09/ch05_presenting_ideas.html class09/ch06_getting_connected_internet.html class09/ch07_cyber_safety.html class09/ch08_fun_with_logic.html class10/ch01_networks_web.html class11/ch01_number_systems.html class12/ch01_python_functions.html; do test -s "$f" || exit 1; done
           python - <<'PY'
           from pathlib import Path
+          import re
           pages = [
               'index.html',
               'class08/index.html',
@@ -55,6 +56,7 @@ jobs:
                   assert 'id="notes"' in s, f'{name}: missing Notes section'
                   assert ('Questions &amp; Answers' in s or 'Questions and Answers' in s or 'questions-answers' in s or 'Check your understanding' in s), f'{name}: missing question-answer content'
                   assert 'Study &amp; Copy' not in s and 'Exam Notes' not in s, f'{name}: contains unwanted exam-note labels'
+                  assert not re.search(r'\\bexam(?:[- ]?(?:ready|notes|practice|tip))?\\b', s, re.I), f'{name}: exam-focused wording should not appear in student pages'
               print('OK', name)
           PY
       - uses: actions/configure-pages@v5
