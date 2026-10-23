@@ -759,3 +759,8 @@ button,.lang-switch button,.interactive button,.interactive input,.lab-action,.p
 #write-notes .ipo-mini-flow span small{font-size:.78em;font-weight:500;color:#465d7c}
 #write-notes .ipo-mini-flow b{color:#d45c82}
 @media(max-width:600px){#write-notes .theory-topic ul{padding-left:1.25rem}#write-notes .theory-topic li{line-height:1.55}#write-notes .ipo-mini-flow{gap:4px;padding:6px}#write-notes .ipo-mini-flow span{font-size:.82rem}}
+
+
+/* Short topic definitions give notebook notes enough explanation without restoring long prose. */
+#write-notes .notes-definition{margin:5px 0 7px;padding-left:10px;border-left:3px solid #8eb6d8;color:#344b63;line-height:1.65;text-indent:0}
+#write-notes .notes-definition.lang-hi{border-left-color:#d99ab0;color:#4b5368}
