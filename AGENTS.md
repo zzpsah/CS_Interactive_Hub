@@ -90,21 +90,23 @@ This rule applies to every chapter, not only Class 9 Chapter 1.
 - **No content duplication:** The three sections must serve distinct purposes: learn the concepts (Theory / Study & Copy), practise written responses (Questions and Answers), and quickly recall terminology (Quick Revision). Reuse the same subject matter only when needed for a brief cross-reference; do not repeat the same material in another format merely to fill a section.
 - **Before committing any chapter:** inspect all three sections together, confirm their roles are distinct, remove repeated content, and verify that Study & Copy contains actual explanatory theory rather than Q&A. Treat this as a required review check.
 
-## Mandatory notebook-style Study & Copy presentation
+## Class 9 Chapter 1 is the canonical chapter benchmark
 
-- Keep the student-facing section named **Study & Copy** (with the appropriate bilingual label). Do not label it “Study Notes” or replace the notebook experience with a plain article.
-- The complete theory inside Study & Copy must be presented as a notebook-inspired writing sheet: ruled-paper or notebook-like background, handwritten/sketch-style heading treatment, clear topic headings, readable paragraphs and key facts, plus original illustrative diagrams or labelled sketches that explain the chapter concepts.
-- Include meaningful concept-specific sketches where they improve understanding (for example, computer functional units and the IPO cycle in Class 9 Chapter 1). Do not rely on decorative doodles alone; diagrams must teach.
-- Keep the notebook appearance responsive, accessible, bilingual where relevant, and printable. Keep the Writing view, Print and Copy text actions working. The notebook is part of the visible lesson, not a mode that may silently disappear.
-- Before committing changes to Study & Copy, verify the section heading is visible, the notebook styling is active by default, illustrative diagrams render, and the theory remains separate from Q&A and Quick Revision. Never remove or flatten this notebook presentation during content refactors.
+`class09/ch01_hardware_memory.html` is the reference implementation for the student-facing chapter experience. Use its current Study & Copy section as the benchmark for every other chapter page. This is a shared standard, not permission to clone its computer-specific content or force every topic into identical teaching visuals.
 
+### Study & Copy standard for every chapter
 
-## Mandatory concise, copy-ready Study & Copy notes
+- Keep the section named **Study & Copy** with the appropriate bilingual label and a visible notebook-inspired writing sheet. The notebook presentation is the default, not a hidden mode; retain the established Clean/Writing view behavior where present.
+- Start each major topic with a clear one- or two-sentence explanation/definition in English and Hindi when the page is bilingual. Follow with concise, indented bullets for essential facts, comparisons, steps or terms. The notes must be understandable, not just a keyword list, but short enough to copy into a notebook.
+- Use the benchmark’s visual hierarchy: numbered topic headings, consistent coloured/underlined headings, readable spacing, clear bullet indentation, accessible contrast, and responsive styling.
+- Use topic-specific teaching visuals when they improve understanding: a labelled flow diagram, component sketch, annotated illustration or small learner-controlled visual. Include a short explanation of what the student should notice, in both languages where appropriate. Prefer editable text and repository-local SVG/HTML over a decorative or unexplained image.
+- Do **not** add an example to every topic. Include a worked example only when it meaningfully clarifies a concept, process or application. Avoid repeated example boxes, filler, duplicated Q&A, oversized decoration and repeated theory.
+- Keep Questions & Answers and Quick Revision separate from Study & Copy. Preserve each page’s working Writing view, Print and Copy text controls, plus language, quiz, navigation and other existing interactions.
+- Check notebook appearance, diagrams, bilingual parity, mobile layout, writing view, print, accessibility and all existing controls before marking a chapter complete.
 
-- Study & Copy is a concise, understandable summary students can copy into their notebooks—not a second full lesson and not a bare list of keywords. Begin each major topic with a clear one- or two-sentence definition/explanation (English and Hindi when the section is bilingual), then add the essential facts, comparisons or steps as bullets.
-- Prefer crisp bullet points over long explanatory paragraphs. Use a clear hierarchy: chapter heading, numbered topic headings, short subheadings and consistently indented bullets.
-- Style topic headings visibly with colour and underlining. Maintain readable spacing, accessible contrast and responsive layout.
-- Do not add an example to every topic by default. Include an example only when it genuinely clarifies a difficult or abstract idea; avoid repetitive example boxes.
-- Include useful visual learning where it improves understanding: a labelled flow diagram, component sketch, or annotated image with a short explanation of what students should notice. Keep visuals relevant to the topic, responsive, accessible and paired with English/Hindi explanations where appropriate.
-- Avoid filler introductions, repeated theory, duplicated Q&A, oversized decorations and visuals without explanatory text.
-- Preserve Writing view, Print and Copy text actions. Check mobile, writing-view and print layouts before committing.
+### Benchmark-change propagation rule
+
+- When the owner approves a change to Class 9 Chapter 1’s shared chapter or Study & Copy presentation, treat it as a **design-system change**. Identify every other chapter page and the corresponding section, component, CSS rule, or interaction affected by that change.
+- Apply the equivalent change to all affected pages, including Class 10, Class 11 and Class 12, and any additional chapter pages added later. Keep the teaching content and visuals specific to each chapter; propagate the rule and behavior, not unrelated Class 9 content.
+- Update shared CSS/JavaScript once when the behavior is genuinely shared; update page-specific markup/content on each affected page. Do not leave inconsistent versions or implement a change only on the benchmark page without explicitly recording why another page is exempt.
+- Before committing, compare the benchmark and affected pages, verify the corresponding sections and actions, and record any remaining exceptions in `AI-HANDOFF.md`. Do not claim every page has been updated unless each affected page has actually been inspected and changed.
