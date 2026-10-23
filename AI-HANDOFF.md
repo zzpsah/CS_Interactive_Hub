@@ -284,3 +284,10 @@ Validation status:
 - Removed the redundant “Class 9 · Chapter 1” badge above the Chapter 1 title. The lesson title itself remains the primary heading.
 - Removed numeric prefixes from the chapter contents links so “11 · Explore inside the computer” cannot be mistaken for a separate Chapter 11. The list is navigation within Chapter 1, not a set of separate chapters.
 - Keep student-facing pages focused on lesson titles, actual teaching content, useful navigation and interactive practice. Avoid slogans, repeated class/chapter labels, decorative metadata and numbering that can be mistaken for chapter numbers.
+
+## Study & Copy section separation (2026-10-23)
+
+- In Class 9 Chapter 1, Study & Copy is complete connected chapter theory, written in explanatory paragraphs with topic headings, bilingual explanations, examples and key facts. It is not a second question-and-answer bank.
+- Keep exam-style Q&A in the dedicated Questions and Answers section. Avoid duplicating those questions and answers in Study & Copy.
+- Keep Quick Revision concise and focused on key terms. Do not copy the same Q&A or entire theory into revision.
+- Retain useful notebook actions (writing view, print, copy text) for Study & Copy.
