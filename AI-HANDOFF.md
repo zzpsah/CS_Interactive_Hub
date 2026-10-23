@@ -309,3 +309,16 @@ Validation status:
 - **Required before each commit:** compare the benchmark and affected pages; check note length and structure, visual explanations, mobile/print behavior, existing controls, language parity, and tests. Never claim all pages were synchronized unless each affected page was inspected and changed.
 - **Current scope note:** the Class 9 Chapter 1 page is the established benchmark. Class 10, 11 and 12 lesson pages have not yet been retrofitted to the full Study & Copy benchmark; apply this standard as those pages are built or when their corresponding sections are next revised. Do not describe those pages as already synchronized.
 - **Policy commit:** `c1a20d388358e621209780e40ff9f6721d841ef0` — `Make Class 9 Chapter 1 the canonical chapter benchmark`.
+
+
+## Curriculum reset — 2026–27
+
+- The curriculum target and no-duplication policy are now documented in `CURRICULUM.md`; follow it before creating or rewriting chapter content.
+- Official sources checked: NCERT Class IX ICT (eight-chapter sequence); CBSE Computer Applications (165) Classes IX and X 2026–27; CBSE Computer Science (083) and Informatics Practices (065) Classes XI–XII 2026–27; and the current CT & AI framework for Classes III–VIII.
+- Class VIII is a framework-aligned foundation course, not a claim of an official NCERT Class VIII CS textbook.
+- Class IX should converge on the NCERT ICT eight-chapter sequence. Existing hardware/OS/files/bits/algorithms pages are material to consolidate into those canonical chapters or mark as enrichment, not extra official chapters.
+- Class X should follow current Computer Applications (165) units and practical outcomes: Networking, HTML, CSS/web design, Cyber ethics, and integrated practical work.
+- Classes XI–XII must offer separate Computer Science (083) and Informatics Practices (065) tracks. Do not blend the two syllabi.
+- Every chapter needs subject-specific visual teaching and working mobile interactions, using Class IX Chapter 1 as the shared design-system benchmark.
+- The curriculum document is a target map, not evidence that the planned content has already been built. Existing pages still need migration, source-level review, visual/interaction QA, bilingual parity checks, and published-site verification.
+- First curriculum-map commit: `95be30c1d086d694e2b2d5a3da4131c2021b3ff6`.
