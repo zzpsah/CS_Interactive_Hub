@@ -99,3 +99,10 @@ The next agent must read `AGENTS.md` and this file first. Do not revert establis
 - Keep the existing interactive hardware lab available; lab enhancement is a separate next phase after the teaching layout is reviewed.
 - “Add Hindi” means show Hindi translations alongside the English content. It must work consistently across the whole page, including headings, lists, diagrams, tables, activities and feedback, without hiding the English text or duplicating digits/punctuation.
 - Treat Chapter 1 as the layout prototype for review. Do not roll the design out to other chapters until the user approves this chapter’s final structure.
+
+## Visual presentation standard
+
+- Use purposeful topic icons, restrained color coding, labelled diagrams, dashed outlines for diagram/worksheet areas, and responsive cards to improve scanning without clutter.
+- Use subtle motion only when it clarifies progression; always respect `prefers-reduced-motion` and keep all content available without animation.
+- Interactive controls must perform a real action and provide clear feedback; never add decorative or inert buttons. Quizzes should provide score feedback and explain incorrect answers when the behavior is implemented and tested.
+- Maintain sufficient contrast, keyboard access, readable mobile diagrams, and printable study content. Visual effects must not replace academic explanations or examination terminology.
