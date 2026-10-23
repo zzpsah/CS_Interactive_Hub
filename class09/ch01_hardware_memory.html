@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Class 9 Computer Science interactive learning and virtual lab: computer systems, hardware, software, CPU, memory and storage.">
 <title>Class 9 · Computer Systems, Hardware & Memory | CS सीखें</title>
-<link rel="stylesheet" href="../assets/css/style.css?v=class-number-fix-20261023b">
+<link rel="stylesheet" href="../assets/css/style.css?v=beginner-first-layout-1">
 </head>
 <body data-lang="en">
 <div class="topbar"><div class="wrap">
@@ -23,21 +23,43 @@
 </header>
 
 <nav class="lesson-toc content-section" aria-label="Chapter contents">
-<h2>Chapter contents / अध्याय सामग्री</h2>
+<details class="chapter-index"><summary>Chapter contents / अध्याय सूची</summary>
 <div class="toc-grid">
-<a href="#learning-goals"><span>01</span> Learning goals</a><a href="#ipo-cycle"><span>02</span> How a computer works</a><a href="#hardware-software"><span>03</span> Hardware &amp; software</a><a href="#cpu-memory"><span>04</span> CPU, memory &amp; storage</a><a href="#real-life"><span>05</span> Real-life examples</a><a href="#visual-guide"><span>06</span> Illustrated guide</a><a href="#virtual-lab"><span>07</span> Virtual lab</a><a href="#write-notes"><span>08</span> Copy-ready study guide</a><a href="#revision"><span>09</span> Revision &amp; exam practice</a>
-</div>
+<a href="#what-is-computer">01 · What is a computer?</a><a href="#architecture">02 · Basic architecture</a><a href="#functions">03 · Main functions</a><a href="#characteristics">04 · Characteristics</a><a href="#ipo-cycle">05 · How a computer works</a><a href="#hardware-software">06 · Hardware and software</a><a href="#cpu-memory">07 · CPU, memory and storage</a><a href="#real-life">08 · Everyday examples</a><a href="#visual-guide">09 · Follow the data</a><a href="#virtual-lab">10 · Practice lab</a><a href="#write-notes">Study & Copy</a><a href="#revision">Quick revision and exam practice</a>
+</div></details>
 </nav>
 
-<section class="content-section" id="learning-goals">
-<div class="section-kicker">START HERE · शुरुआत</div><h2>🎯 Learning goals</h2>
-<p>By the end of this chapter, you should be able to:</p>
-<ul class="goal-list"><li>Explain the Input–Process–Output (IPO) cycle with an example.</li><li>Tell the difference between hardware and software.</li><li>Describe the basic roles of the CPU, RAM, ROM and secondary storage.</li><li>Classify common devices and explain how they are used in daily life.</li><li>Write a short, clear exam answer using correct terms.</li></ul>
-<div class="callout"><strong>Remember:</strong> A computer system is more than a screen or a CPU. Hardware, software, data and people work together to complete tasks.</div>
-</section>
 
-<section class="content-section" id="ipo-cycle">
-<div class="section-kicker">CONCEPT 01 · अवधारणा 01</div><h2>1. How does a computer work?</h2>
+
+<section class="content-section beginner-section" id="what-is-computer">
+<div class="section-kicker">01 · FIRST IDEA</div><h2>What is a computer?</h2>
+<p class="lang-en">A computer is an electronic device that accepts data and instructions, processes the data, produces information, and can store data and results for later use.</p>
+<p class="lang-hi" lang="hi">कंप्यूटर एक इलेक्ट्रॉनिक उपकरण है जो डेटा और निर्देश लेता है, डेटा को प्रोसेस करता है, जानकारी देता है और डेटा या परिणामों को बाद में उपयोग के लिए सुरक्षित रख सकता है।</p>
+<div class="definition-card"><h3>Remember this definition</h3><p><strong>Data</strong> means raw facts, such as marks: 72, 85 and 91. <strong>Information</strong> is meaningful output, such as the average mark: 82.7.</p><p class="lang-hi" lang="hi"><strong>डेटा</strong> कच्चे तथ्य हैं, जैसे अंक 72, 85 और 91। <strong>जानकारी</strong> उपयोगी परिणाम है, जैसे औसत अंक 82.7।</p></div>
+<figure class="diagram"><svg viewBox="0 0 720 250" role="img" aria-labelledby="computer-overview-title"><title id="computer-overview-title">A desktop computer and its main parts</title><rect x="170" y="24" width="250" height="140" rx="10" fill="#17264b"/><rect x="183" y="37" width="224" height="113" rx="5" fill="#e6f4ff"/><path d="M295 164v22m-45 8h90" stroke="#52627c" stroke-width="8" stroke-linecap="round"/><rect x="450" y="50" width="95" height="145" rx="7" fill="#dce5f5" stroke="#52627c" stroke-width="3"/><circle cx="498" cy="176" r="4" fill="#175cd3"/><rect x="192" y="205" width="200" height="20" rx="5" fill="#dce5f5" stroke="#52627c" stroke-width="2"/><path d="M410 217q30 -20 60 0" fill="none" stroke="#52627c" stroke-width="3"/><text x="295" y="90" font-size="18" fill="#17264b" text-anchor="middle" font-weight="700">MONITOR</text><text x="498" y="115" font-size="15" fill="#17264b" text-anchor="middle" font-weight="700">SYSTEM</text><text x="498" y="134" font-size="15" fill="#17264b" text-anchor="middle" font-weight="700">UNIT</text><text x="292" y="243" font-size="15" fill="#17264b" text-anchor="middle">KEYBOARD</text><text x="462" y="215" font-size="14" fill="#17264b">Mouse</text></svg><figcaption>A desktop setup: the monitor, system unit, keyboard and mouse have different jobs.</figcaption></figure>
+<p><strong>In simple words:</strong> a computer follows instructions to turn data into useful results. The screen is only one part of the complete computer system.</p>
+<p class="lang-hi" lang="hi"><strong>सरल शब्दों में:</strong> कंप्यूटर निर्देशों के अनुसार डेटा को उपयोगी परिणाम में बदलता है। स्क्रीन पूरे कंप्यूटर सिस्टम का केवल एक भाग है।</p>
+</section>
+<section class="content-section beginner-section" id="architecture">
+<div class="section-kicker">02 · THE BIG PICTURE</div><h2>Basic computer architecture</h2>
+<p>Computer architecture describes the main functional units of a computer and how they work together.</p><p class="lang-hi" lang="hi">कंप्यूटर आर्किटेक्चर बताता है कि कंप्यूटर की मुख्य इकाइयाँ कौन-सी हैं और वे मिलकर कैसे काम करती हैं।</p>
+<div class="architecture-flow" role="img" aria-label="Input unit connects to CPU and memory, then output; secondary storage connects to the system">
+<div class="architecture-unit"><strong>Input unit</strong><span>Keyboard, mouse</span></div><span class="arch-arrow">→</span><div class="architecture-unit cpu-unit"><strong>CPU</strong><span>CU · ALU · Registers</span></div><span class="arch-arrow">↔</span><div class="architecture-unit"><strong>Main memory</strong><span>RAM · ROM</span></div><span class="arch-arrow">→</span><div class="architecture-unit"><strong>Output unit</strong><span>Monitor, printer</span></div><div class="architecture-storage"><strong>Secondary storage</strong><span>SSD / HDD — saves files for later</span></div>
+</div>
+<ul><li><strong>Input unit:</strong> sends data and instructions into the computer.</li><li><strong>CPU:</strong> executes instructions and controls processing.</li><li><strong>Main memory:</strong> holds instructions and data needed by the computer.</li><li><strong>Output unit:</strong> presents the results.</li><li><strong>Secondary storage:</strong> keeps files even after the computer is switched off.</li></ul>
+<p class="lang-hi" lang="hi"><strong>मुख्य इकाइयाँ:</strong> इनपुट यूनिट डेटा देती है, CPU निर्देश चलाता है, मेमोरी काम के लिए डेटा रखती है, आउटपुट यूनिट परिणाम दिखाती है और स्टोरेज फाइलें सुरक्षित रखता है।</p>
+</section>
+<section class="content-section beginner-section" id="functions">
+<div class="section-kicker">03 · WHAT IT DOES</div><h2>Main functions of a computer</h2>
+<div class="function-grid"><article class="function-card"><span>1</span><h3>Input</h3><p>Accept data and instructions.</p><p class="lang-hi" lang="hi">डेटा और निर्देश लेना।</p></article><article class="function-card"><span>2</span><h3>Processing</h3><p>Perform operations on data.</p><p class="lang-hi" lang="hi">डेटा पर कार्य करना।</p></article><article class="function-card"><span>3</span><h3>Output</h3><p>Present useful results.</p><p class="lang-hi" lang="hi">उपयोगी परिणाम देना।</p></article><article class="function-card"><span>4</span><h3>Storage</h3><p>Save data and results for future use.</p><p class="lang-hi" lang="hi">डेटा और परिणाम सुरक्षित रखना।</p></article></div>
+</section>
+<section class="content-section beginner-section" id="characteristics">
+<div class="section-kicker">04 · KEY TERMS</div><h2>Characteristics and limitations</h2>
+<div class="characteristics-grid"><article><h3>Speed</h3><p>Performs many operations very quickly.</p></article><article><h3>Accuracy</h3><p>Can produce precise results when the data and instructions are correct.</p></article><article><h3>Diligence</h3><p>Can repeat tasks without becoming tired.</p></article><article><h3>Automation</h3><p>Can perform a task automatically after it is correctly instructed.</p></article><article><h3>Versatility</h3><p>Can be used for many different kinds of tasks.</p></article><article><h3>Reliability</h3><p>Can give consistent results when working correctly.</p></article></div>
+<div class="callout"><strong>Important limitation:</strong> A computer does not guarantee a correct answer if the data or instructions are wrong.</div>
+<p class="lang-hi" lang="hi"><strong>सीमा:</strong> यदि डेटा या निर्देश गलत हों, तो कंप्यूटर का परिणाम भी गलत हो सकता है।</p>
+</section><section class="content-section" id="ipo-cycle">
+<div class="section-kicker">05 · THE PROCESS</div><h2>How does a computer work?</h2>
 <p class="lang-en">A computer accepts data, follows instructions to process it, and presents a result. This basic pattern is called the <strong>Input–Process–Output (IPO) cycle</strong>. Data may also be saved for future use.</p>
 <p class="lang-hi" lang="hi">कंप्यूटर डेटा स्वीकार करता है, निर्देशों के अनुसार उसे प्रोसेस करता है और परिणाम देता है। इस मूल प्रक्रिया को <strong>Input–Process–Output (IPO) cycle</strong> कहते हैं। डेटा को भविष्य के उपयोग के लिए सुरक्षित भी किया जा सकता है।</p>
 <div class="ipo-flow" role="img" aria-label="Input goes to processing, then output; storage can save data for later">
@@ -55,7 +77,7 @@
 </section>
 
 <section class="content-section" id="hardware-software">
-<div class="section-kicker">CONCEPT 02 · अवधारणा 02</div><h2>2. Hardware and software</h2>
+<div class="section-kicker">06 · COMPONENTS</div><h2>Hardware and software</h2>
 <div class="two-column">
 <div class="definition-card hardware-card"><div class="definition-icon">🖱️</div><h3>Hardware</h3><p>The physical parts of a computer that you can touch.</p><p><strong>Examples:</strong> keyboard, monitor, motherboard, RAM, SSD, printer.</p><p class="definition-memory">Think: <em>the equipment</em>.</p></div>
 <div class="definition-card software-card"><div class="definition-icon">🧩</div><h3>Software</h3><p>Programs and instructions that tell the computer what to do.</p><p><strong>Examples:</strong> operating system, calculator app, browser, word processor.</p><p class="definition-memory">Think: <em>the instructions</em>.</p></div>
@@ -65,7 +87,7 @@
 </section>
 
 <section class="content-section" id="cpu-memory">
-<div class="section-kicker">CONCEPT 03 · अवधारणा 03</div><h2>3. CPU, memory and storage</h2>
+<div class="section-kicker">07 · PROCESSING AND MEMORY</div><h2>CPU, memory and storage</h2>
 <p>The computer needs a component to execute instructions, a place to hold the information currently being used, and a way to keep files for later.</p>
 <div class="component-grid">
 <article class="component-card cpu-card"><div class="component-symbol">🧠</div><img class="topic-mini-image cpu-photo" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Cpu_1.jpg/1280px-Cpu_1.jpg" loading="lazy" alt="Photograph of a physical CPU chip viewed from its pin side"><p class="small"><a href="https://commons.wikimedia.org/wiki/File:Cpu_1.jpg" target="_blank" rel="noopener">Real CPU photograph · Wikimedia Commons (CC0)</a></p><h3>CPU</h3><p><strong>Central Processing Unit</strong></p><p>Executes instructions and coordinates processing.</p><ul><li><strong>Control Unit (CU):</strong> directs operations.</li><li><strong>ALU:</strong> performs arithmetic and logical comparisons.</li><li><strong>Registers:</strong> hold tiny amounts of data needed immediately.</li></ul></article>
@@ -80,7 +102,7 @@
 </section>
 
 <section class="content-section" id="real-life">
-<div class="section-kicker">SEE IT IN REAL LIFE · दैनिक जीवन</div><h2>4. Where do we use these ideas?</h2>
+<div class="section-kicker">SEE IT IN REAL LIFE · दैनिक जीवन</div><h2>Everyday examples</h2>
 <p>These examples show that computer science is not just theory. The same concepts are at work in school, at home and while using a phone.</p>
 <div class="real-life-grid">
 <article class="real-life-card report-card"><div class="real-life-art" aria-hidden="true"><svg viewBox="0 0 260 130"><rect x="35" y="12" width="120" height="88" rx="7" fill="#fff" stroke="#3568cc" stroke-width="3"/><path d="M52 34H135M52 49H125M52 64H105M52 79H133" stroke="#78a0f4" stroke-width="5" stroke-linecap="round"/><rect x="142" y="40" width="86" height="63" rx="7" fill="#dff8ec" stroke="#16845b" stroke-width="3"/><path d="M154 83l16-18 14 9 25-25" fill="none" stroke="#16845b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M76 103v12h42v-12" fill="none" stroke="#3568cc" stroke-width="4"/></svg></div><h3>📊 Preparing a school report</h3><ol><li><strong>Input:</strong> type student names and marks.</li><li><strong>Processing:</strong> spreadsheet formulas calculate totals and percentages.</li><li><strong>Output:</strong> the result appears on screen or on paper.</li><li><strong>Storage:</strong> save the spreadsheet to open it later.</li></ol><p class="real-life-lesson">Practical lesson: seeing a result does not guarantee it has been saved.</p></article>
@@ -93,7 +115,7 @@
 </section>
 
 <section class="content-section" id="visual-guide">
-<div class="section-kicker">ILLUSTRATED GUIDE · चित्रों से समझें</div><h2>5. Follow the data through a computer</h2>
+<div class="section-kicker">ILLUSTRATED GUIDE · चित्रों से समझें</div><h2>Follow the data through a computer</h2>
 <p>In a simple task, data comes in through an input device, the CPU processes it using instructions and working memory, and an output device presents the result. Storage keeps files for later.</p>
 <div class="diagram concept-visual"><svg viewBox="0 0 760 265" role="img" aria-label="Computer system diagram connecting input, CPU, RAM, storage and output"><defs><marker id="chapterArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L0 6L7 3Z" fill="#5368d8"/></marker></defs><g stroke-width="2"><rect x="15" y="76" width="135" height="80" rx="13" fill="#e5f2ff" stroke="#3568cc"/><rect x="222" y="62" width="155" height="108" rx="13" fill="#eee9ff" stroke="#7258d6"/><rect x="439" y="17" width="130" height="66" rx="12" fill="#dff8ec" stroke="#16845b"/><rect x="439" y="155" width="130" height="66" rx="12" fill="#fff0d8" stroke="#d47b16"/><rect x="625" y="76" width="120" height="80" rx="13" fill="#ffe8f2" stroke="#cb4d8c"/></g><g font-family="system-ui,sans-serif" fill="#17223b" text-anchor="middle"><text x="82" y="106" font-size="17" font-weight="800">INPUT</text><text x="82" y="128" font-size="12">Keyboard / mouse</text><text x="299" y="103" font-size="20" font-weight="800">CPU</text><text x="299" y="126" font-size="12">Instructions + ALU</text><text x="504" y="43" font-size="17" font-weight="800">RAM</text><text x="504" y="63" font-size="12">Working data</text><text x="504" y="181" font-size="16" font-weight="800">STORAGE</text><text x="504" y="201" font-size="12">SSD / HDD</text><text x="685" y="106" font-size="17" font-weight="800">OUTPUT</text><text x="685" y="128" font-size="12">Screen / sound</text></g><g fill="none" stroke="#5368d8" stroke-width="3" marker-end="url(#chapterArrow)"><path d="M150 116H209"/><path d="M377 91L426 55"/><path d="M377 143L426 184"/><path d="M377 116H613"/></g><text x="380" y="249" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#5368d8">Simplified learning model · actual data paths are more complex</text></svg></div>
 <h3>Zoom in on real components</h3>
@@ -108,7 +130,7 @@
 </section>
 
 <section class="content-section" id="virtual-lab">
-<div class="section-kicker">PRACTISE · अभ्यास</div><h2>6. Virtual lab: learn by doing</h2>
+<div class="section-kicker">PRACTISE · अभ्यास</div><h2>Practice lab</h2>
 <p>Start with the guided lab, then complete the short classification task below. The activities are simulations for learning; they do not control your real computer.</p>
 <div class="lab-reference-collapse"><div class="lab-launch-card"><div class="lab-launch-icon">🧪</div><div><h3>Computer hardware explorer</h3><p>Explore desktop, laptop, tablet and internal system-unit components. Identify ports, practise cable connections, and follow the simulated startup sequence.</p><a class="btn" href="hardware_lab.html">Open the interactive hardware lab →</a></div></div></div>
 <h3>Activity A · Sort the devices</h3><p>Select a device, then select the correct category. You can also drag a device onto a category on a computer.</p>
