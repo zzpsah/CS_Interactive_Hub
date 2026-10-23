@@ -569,3 +569,44 @@ body[data-lang="hi"] #inside-computer .system-explorer .system-explanation .lang
 #exam-answer .exam-answer h3{color:#244274}
 @media(max-width:700px){.system-explorer{grid-template-columns:minmax(0,1fr)}.system-map{grid-row:auto}.system-input-output>div{grid-template-columns:1fr;gap:2px}}
 @media(prefers-reduced-motion:reduce){.system-map rect{transition:none}}
+
+
+/* Class 9 NCERT-inspired visual lesson components: reusable, local and print-safe. */
+.lesson-visual{margin:18px 0;padding:18px;border:1px solid #d9e4f8;border-radius:20px;background:linear-gradient(145deg,#f4f8ff,#fff 58%,#f0fbf8);box-shadow:0 8px 22px rgba(35,64,112,.07)}
+.lesson-visual-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.lesson-visual-icon{display:grid;place-items:center;flex:0 0 46px;width:46px;height:46px;border-radius:14px;background:#e4edff;font-size:1.55rem}
+.lesson-visual-head h3{margin:0;color:#1d2b4f;font-size:1.18rem}
+.lesson-visual-head p{margin:.25rem 0;color:#52627c}
+.visual-studio-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(220px,.7fr);gap:16px;align-items:center}
+.visual-canvas{margin:0;min-width:0;padding:10px;border:1px dashed #b8c9e8;border-radius:15px;background:#fff}
+.visual-canvas svg{display:block;width:100%;height:auto;max-height:340px}
+.visual-canvas figcaption{padding:8px 6px 2px;color:#52627c;font-size:.88rem}
+.visual-node{transition:fill .25s,stroke .25s,opacity .25s,transform .25s;transform-box:fill-box;transform-origin:center}
+.visual-node.trace-active{stroke:#175cd3!important;stroke-width:4!important;filter:drop-shadow(0 3px 3px #175cd333)}
+.visual-node.trace-dim{opacity:.52}
+.trace-panel{display:grid;gap:10px;align-content:center;padding:15px;border:1px solid #dce6f8;border-radius:15px;background:#fff}
+.trace-count{color:#3159b7;font-size:.78rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+.trace-caption{min-height:5.2em;margin:0;color:#253656;font-weight:650}
+.trace-buttons{display:flex;gap:7px;flex-wrap:wrap}
+.trace-buttons button,.lesson-visual button{border:1px solid #b8c9e8;border-radius:10px;background:#f7f9ff;color:#244274;padding:8px 11px;font-weight:750;cursor:pointer}
+.trace-buttons button.primary{background:#2459a9;color:#fff;border-color:#2459a9}
+.trace-buttons button:disabled{opacity:.45;cursor:not-allowed}
+.trace-progress{height:7px;border-radius:99px;overflow:hidden;background:#e8edf6}
+.trace-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#3159b7,#37a995);transition:width .25s}
+.visual-legend{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0;padding:0;list-style:none}
+.visual-legend li{display:flex;align-items:center;gap:6px;margin:0;padding:5px 9px;border-radius:999px;background:#eef3ff;color:#2b426c;font-size:.84rem}
+.visual-legend li:before{content:"";width:9px;height:9px;border-radius:3px;background:#6d8bd4}
+.visual-legend li:nth-child(2):before{background:#50b7a4}.visual-legend li:nth-child(3):before{background:#e9b45e}.visual-legend li:nth-child(4):before{background:#b28be2}
+.content-section .lesson-visual p{max-width:unset}
+.content-section .lesson-visual h3:before{content:none}
+.notes-mode-hint{width:100%;margin:0;color:#52627c;font-size:.9rem}
+#write-notes .notes-mode-switch{padding:0;margin:14px 0}
+#write-notes .notes-mode-switch button{border:2px solid #3568cc;border-radius:999px;background:#fff;color:#2459a9;padding:9px 14px;font-weight:800}
+#write-notes .notes-mode-switch button[aria-pressed=true]{background:#2459a9;color:#fff}
+#write-notes .notes-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:16px}
+#write-notes .notes-actions button{border:1px solid #b8c9e8;border-radius:10px;padding:9px 12px;background:#fff;color:#244274;font-weight:750}
+#write-notes .handwritten-notes h3{margin-top:16px}
+#write-notes .handwritten-notes table{font-family:system-ui,sans-serif;font-size:.92rem}
+@media(max-width:700px){.lesson-visual{padding:12px;border-radius:15px}.visual-studio-grid{grid-template-columns:1fr}.visual-canvas svg{max-height:260px}.trace-caption{min-height:0}}
+@media(prefers-reduced-motion:reduce){.visual-node,.trace-progress span{transition:none!important;transform:none!important}}
+@media print{.lesson-visual{background:#fff!important;box-shadow:none;border:1px solid #aaa;break-inside:avoid}.trace-buttons,.trace-progress{display:none!important}.visual-node{filter:none!important;opacity:1!important}}
