@@ -106,3 +106,11 @@ The next agent must read `AGENTS.md` and this file first. Do not revert establis
 - Use subtle motion only when it clarifies progression; always respect `prefers-reduced-motion` and keep all content available without animation.
 - Interactive controls must perform a real action and provide clear feedback; never add decorative or inert buttons. Quizzes should provide score feedback and explain incorrect answers when the behavior is implemented and tested.
 - Maintain sufficient contrast, keyboard access, readable mobile diagrams, and printable study content. Visual effects must not replace academic explanations or examination terminology.
+
+
+## Animated teaching flow and compact Chapter 1 hero (2026-10-23)
+
+- The Chapter 1 hero is intentionally compact and includes a small, decorative animated gear/circuit motif. The motion is supplementary and hidden from assistive technology.
+- The architecture and IPO diagrams use restrained moving arrows and a subtle sequential highlight to help learners follow data flow; reduced-motion preferences disable these animations.
+- The Practice lab section is collapsed by default with an explicit summary control; its activities remain in the page and can be expanded at any time.
+- Verify at desktop and mobile widths, test the open/close interaction and language switch, and check reduced-motion behavior before considering browser QA complete. Connector-based edits alone do not constitute live browser testing.
