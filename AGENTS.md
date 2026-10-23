@@ -90,6 +90,14 @@ This rule applies to every chapter, not only Class 9 Chapter 1.
 - **No content duplication:** The three sections must serve distinct purposes: learn the concepts (Theory / Study & Copy), practise written responses (Questions and Answers), and quickly recall terminology (Quick Revision). Reuse the same subject matter only when needed for a brief cross-reference; do not repeat the same material in another format merely to fill a section.
 - **Before committing any chapter:** inspect all three sections together, confirm their roles are distinct, remove repeated content, and verify that Study & Copy contains actual explanatory theory rather than Q&A. Treat this as a required review check.
 
+## Mandatory English–Hindi toggle and formatting parity
+
+- The shared **Add Hindi / English only** control must update every supported Hindi translation on the page, including regular HTML text, headings, lists, tables, and labels inside SVG diagrams. Do not leave Hindi text permanently visible in English-only mode or hidden in Hindi mode.
+- Hindi counterparts must preserve the same semantic structure and visual hierarchy as English: headings remain headings, paragraphs remain paragraphs, list items retain bullets/indentation, table rows/cells retain table layout, and SVG labels toggle without breaking diagram positioning.
+- Prefer explicit `lang="hi"` and `.lang-hi` markup for translated content. When the shared script wraps inline bilingual text, preserve English text and isolate only the Hindi segment. Do not flatten formatted content into generic inline text.
+- Before committing language changes, inspect every affected class/chapter page and check the toggle in both directions, including Study & Copy, headings, lists, quizzes, and SVG diagrams. Confirm spacing, indentation, colours, emphasis and responsive behavior remain equivalent in both languages.
+- Shared toggle fixes belong in `assets/js/app.js` and `assets/css/style.css` where appropriate, so they propagate to all chapter pages using the shared assets.
+
 ## Class 9 Chapter 1 is the canonical chapter benchmark
 
 `class09/ch01_hardware_memory.html` is the reference implementation for the student-facing chapter experience. Use its current Study & Copy section as the benchmark for every other chapter page. This is a shared standard, not permission to clone its computer-specific content or force every topic into identical teaching visuals.
