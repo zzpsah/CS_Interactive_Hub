@@ -56,7 +56,7 @@ jobs:
                   assert 'id="notes"' in s, f'{name}: missing Notes section'
                   assert ('Questions &amp; Answers' in s or 'Questions and Answers' in s or 'questions-answers' in s or 'Check your understanding' in s), f'{name}: missing question-answer content'
                   assert 'Study &amp; Copy' not in s and 'Exam Notes' not in s, f'{name}: contains unwanted exam-note labels'
-                  assert not re.search(r'\\bexam(?:[- ]?(?:ready|notes|practice|tip))?\\b', s, re.I), f'{name}: exam-focused wording should not appear in student pages'
+                  assert not re.search(r'\bexam(?:[- ]?(?:ready|notes|practice|tip))?\b', s, re.I), f'{name}: exam-focused wording should not appear in student pages'
               print('OK', name)
           PY
       - uses: actions/configure-pages@v5
