@@ -52,7 +52,9 @@ jobs:
               if name != 'index.html':
                   assert 'data-lang-toggle' in s, f'{name}: missing language toggle'
               if name.startswith('class09/ch') and name.endswith('.html'):
+                  assert 'id="notes"' in s, f'{name}: missing Notes section'
                   assert ('Questions &amp; Answers' in s or 'Questions and Answers' in s or 'questions-answers' in s or 'Check your understanding' in s), f'{name}: missing question-answer content'
+                  assert 'Study &amp; Copy' not in s and 'Exam Notes' not in s, f'{name}: contains unwanted exam-note labels'
               print('OK', name)
           PY
       - uses: actions/configure-pages@v5
