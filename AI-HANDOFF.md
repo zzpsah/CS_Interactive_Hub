@@ -87,3 +87,15 @@ The next agent must read `AGENTS.md` and this file first. Do not revert establis
 - Keep **Quick Revision**, quizzes/question sets, and optional reference links collapsed by default. The main explanations and essential activities remain open.
 - The full virtual-lab launch/reference card is optional and collapsed by default; do not hide the chapter's inline learning activities.
 - Apply these patterns to future chapters while preserving topic-specific teaching UI/UX. Do not flatten every topic into one generic lesson layout.
+
+## Beginner-first teaching standard (approved for Class 9 Chapter 1)
+
+- Assume the learner is starting with no computing knowledge. Do not ask the user to define the chapter or teaching sequence; design the sequence from first principles.
+- Start with “What is a computer?”: an accurate academic definition, then a plain-language explanation, examples of data versus information, and a labelled visual.
+- Teach in this order: definition and familiar computer setup; basic architecture/functional units; input, processing, output and storage; characteristics and limitations; IPO process; hardware versus software; CPU, memory and storage; everyday examples; interactive practice; study-and-copy and examination revision.
+- Remove a standalone learning-goals section when it delays the first explanation. Keep chapter navigation compact/collapsible and remove redundant hero tags, metadata badges, repeated warnings and lengthy introductory prose.
+- Use visuals as teaching aids, not decoration. Label parts and arrows, explain how to read each diagram, make it legible on mobile, and pair it with concise text.
+- Pair simple language with correct academic terminology. Define technical terms on first use and provide short, examination-ready definitions, comparisons, labelled diagrams and practice questions.
+- Keep the existing interactive hardware lab available; lab enhancement is a separate next phase after the teaching layout is reviewed.
+- “Add Hindi” means show Hindi translations alongside the English content. It must work consistently across the whole page, including headings, lists, diagrams, tables, activities and feedback, without hiding the English text or duplicating digits/punctuation.
+- Treat Chapter 1 as the layout prototype for review. Do not roll the design out to other chapters until the user approves this chapter’s final structure.
