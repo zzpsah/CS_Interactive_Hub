@@ -214,3 +214,24 @@ Class 9 Chapter 1 now includes an original ICT overview with a local SVG concept
 Shared CSS cache key for Class 9 pages: `class9-visual-4`. New lessons use the shared `app.js` language toggle and `class9-notes.js` Study & Copy controls. Each new page has an original inline SVG visual with Next/Previous/Reset/Play controls, step highlight, bilingual caption, and reduced-motion handling. Model-answer reveal buttons hide their answers until requested.
 
 Static verification performed in this pass: fetched current GitHub versions of all 10 Class 9 lesson pages and the index; confirmed the Class 9 pages use the current stylesheet/script cache key; checked section open/close counts; parsed inline JavaScript in all Class 9 pages and shared scripts for syntax errors; confirmed each lesson page has a Study & Copy section and the new pages have a visual trace panel. Browser rendering, keyboard/touch interaction, and GitHub Pages deployment were **not** independently verified in this environment. Do not report those as passed until actually tested.
+
+
+## Chapter 1 animated mini-lab enhancement (2026-10-23)
+
+The owner approved upgrading Class 9 Chapter 1 into a connected animated mini-lab before using it as the benchmark for other chapters. Work in this pass is scoped to `class09/hardware_lab.html`; the existing chapter theory page, navigation, shared styles and Study & Copy experience were not redesigned.
+
+New/updated lab experiences:
+- **Input → Processing → Output trace:** learners enter a mark from 0–100, then step forward/back through input, a simple example pass-mark comparison (33 in this simulation), and displayed output. Values and active stage update together; explanations are bilingual.
+- **CPU instruction trace:** expanded from four loose states to six steps across `LOAD A, 5`, `ADD A, 3`, and `STORE A, 03`. Program counter, instruction register, accumulator, ALU result, active memory row, moving data indicator and bilingual step explanation are synchronized. Previous, Next, and Reset controls are available.
+- **RAM vs SSD workflow:** learners save a short text file, load it into RAM, edit the working copy, save changes, and simulate power-off. RAM clears on power-off while the simulated SSD copy persists. The UI explicitly explains this is a teaching model, not a real file system.
+- Responsive styling was added locally to the lab page; reduced-motion behavior is respected for the added stage transitions. Existing lab sections remain available.
+
+Commits:
+- `d74701d308e2668d1f8c6ebeac7226851bea2943` — Build connected IPO and storage mini-labs for Class 9
+- `3394f3baa1a56597f2406ea4c50d121a580136aa` — Improve CPU trace with six synchronized instruction steps
+- `7c52227f0f4b00b2264df466d0c3899a25b2bb96` — Correct CPU fetch state in the visual trace
+
+Validation status:
+- GitHub Actions run for commit `3394f3baa1a56597f2406ea4c50d121a580136aa`, run ID `39909320810`: the existing static student-page validation, Pages configuration, artifact upload and deployment steps reported success. A later small correction commit (`7c52227...`) was pushed afterward; its own deployment must be checked separately.
+- The workflow currently does not parse all inline JavaScript or exercise the controls. Browser-level rendering, console inspection, keyboard/touch operation, language-switch behavior and mobile layout have not been independently verified in this environment. Do not mark Chapter 1's mini-lab benchmark complete until these are tested.
+- Next safe step: inspect the latest GitHub Actions run for `7c52227...`, then perform real browser QA on the published lab. Fix any issues before copying the standard to other Class 9 chapters.
