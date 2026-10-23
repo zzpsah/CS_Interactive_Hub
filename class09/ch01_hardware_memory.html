@@ -141,6 +141,65 @@
 </div></details></section>
 
 
+
+<section class="content-section" id="inside-computer">
+<div class="section-kicker">08 · INSIDE THE SYSTEM / सिस्टम के अंदर</div>
+<h2>🧠 Explore the parts that work together</h2>
+<p>A computer is not a single “thinking box”. Different components perform different jobs and exchange data. Select a component in the diagram to see its job, what it receives, and what it produces.</p>
+<p class="lang-hi" lang="hi">कंप्यूटर कोई एक “सोचने वाला डिब्बा” नहीं है। अलग-अलग भाग अलग काम करते हैं और डेटा का आदान-प्रदान करते हैं। किसी भाग को चुनकर उसका काम, इनपुट और आउटपुट समझें।</p>
+<div class="system-explorer" data-system-explorer>
+<svg class="system-map" viewBox="0 0 760 360" role="img" aria-label="Interactive computer system diagram: input devices send data to CPU, CPU exchanges information with RAM, output devices present results, and SSD stores files persistently">
+<defs><marker id="sys-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L0 6L7 3Z" fill="#3159b7"/></marker></defs>
+<rect x="18" y="28" width="150" height="88" rx="14" fill="#e8f3ff" stroke="#5e8cdb" stroke-width="2"/>
+<rect x="220" y="28" width="150" height="88" rx="14" fill="#eee9ff" stroke="#8e78d6" stroke-width="2"/>
+<rect x="422" y="28" width="150" height="88" rx="14" fill="#e2f8f0" stroke="#43a58c" stroke-width="2"/>
+<rect x="220" y="192" width="150" height="88" rx="14" fill="#fff3d8" stroke="#d6a13e" stroke-width="2"/>
+<rect x="422" y="192" width="150" height="88" rx="14" fill="#fce9ed" stroke="#d77b8a" stroke-width="2"/>
+<g fill="#18294c" text-anchor="middle" font-family="system-ui,sans-serif">
+<text x="93" y="57" font-size="18" font-weight="800">INPUT</text><text x="93" y="81" font-size="13">Keyboard · Mouse</text><text x="93" y="99" font-size="12">Data enters</text>
+<text x="295" y="57" font-size="18" font-weight="800">CPU</text><text x="295" y="81" font-size="13">CU · ALU · Registers</text><text x="295" y="99" font-size="12">Executes instructions</text>
+<text x="497" y="57" font-size="18" font-weight="800">OUTPUT</text><text x="497" y="81" font-size="13">Screen · Speaker</text><text x="497" y="99" font-size="12">Results appear</text>
+<text x="295" y="221" font-size="18" font-weight="800">RAM</text><text x="295" y="245" font-size="13">Working memory</text><text x="295" y="263" font-size="12">Temporary workspace</text>
+<text x="497" y="221" font-size="18" font-weight="800">SSD / HDD</text><text x="497" y="245" font-size="13">Persistent storage</text><text x="497" y="263" font-size="12">Files stay saved</text>
+</g>
+<g stroke="#3159b7" stroke-width="3" fill="none" marker-end="url(#sys-arrow)"><path d="M168 72H210"/><path d="M370 72H412"/><path d="M295 116V182"/><path d="M370 236H412"/><path d="M497 192V128"/></g>
+<text x="380" y="330" fill="#52627c" text-anchor="middle" font-size="14">Arrows show common data movement; real systems have more connections.</text>
+</svg>
+<div class="system-parts" role="group" aria-label="Choose a component">
+<button type="button" data-system-part="cpu" aria-pressed="true">🧠 CPU</button>
+<button type="button" data-system-part="cu" aria-pressed="false">🎛️ Control Unit</button>
+<button type="button" data-system-part="alu" aria-pressed="false">➕ ALU</button>
+<button type="button" data-system-part="ram" aria-pressed="false">⚡ RAM</button>
+<button type="button" data-system-part="rom" aria-pressed="false">📘 ROM</button>
+<button type="button" data-system-part="ssd" aria-pressed="false">💾 SSD / HDD</button>
+</div>
+<article class="system-explanation" aria-live="polite">
+<span class="pill" data-system-kind>PROCESSING</span>
+<h3 data-system-title>Central Processing Unit (CPU)</h3>
+<p data-system-body>The CPU executes program instructions. It repeatedly fetches instructions, interprets what they mean, and carries out the required operation.</p>
+<p class="lang-hi" lang="hi" data-system-hi>CPU प्रोग्राम के निर्देश चलाता है। यह निर्देश प्राप्त करता है, उनका अर्थ समझता है और आवश्यक कार्य करता है।</p>
+<div class="system-input-output"><div><strong>Receives / प्राप्त करता है</strong><span data-system-in>Instructions and data from memory</span></div><div><strong>Does / कार्य</strong><span data-system-do>Coordinates and executes operations</span></div><div><strong>Produces / देता है</strong><span data-system-out>Results and control signals</span></div></div>
+</article>
+</div>
+<div class="callout"><strong>Important distinction:</strong> RAM is the computer’s active workspace; an SSD or HDD is long-term storage. Saving a file copies it to persistent storage—it does not make the CPU a storage device.</div>
+<p class="lang-hi" lang="hi"><strong>महत्वपूर्ण अंतर:</strong> RAM वर्तमान काम की जगह है; SSD या HDD लंबे समय तक फ़ाइलें सुरक्षित रखते हैं। फ़ाइल सेव करने का अर्थ है उसे स्थायी स्टोरेज में सुरक्षित करना, CPU में रखना नहीं।</p>
+</section>
+<section class="content-section" id="exam-answer">
+<div class="section-kicker">EXAM WRITING / परीक्षा लेखन</div>
+<h2>✍️ How to write a complete answer</h2>
+<p>In a long answer, define the term first, explain the function, name the important parts, and finish with a relevant example. This makes the answer precise and easy to mark.</p>
+<p class="lang-hi" lang="hi">लंबे उत्तर में पहले परिभाषा लिखें, फिर कार्य समझाएँ, मुख्य भागों के नाम दें और अंत में उदाहरण लिखें। इससे उत्तर स्पष्ट और जाँचने में आसान होता है।</p>
+<div class="exam-answer">
+<h3>Model answer: Explain the main functional units of a computer.</h3>
+<p>A computer system consists of input, processing, memory, output and storage units that work together to process data. The <strong>input unit</strong> accepts data and instructions through devices such as a keyboard or mouse. The <strong>Central Processing Unit (CPU)</strong> executes instructions; its Control Unit coordinates operations, while the Arithmetic Logic Unit (ALU) performs arithmetic calculations and logical comparisons. <strong>Main memory</strong> holds the data and instructions needed during processing. The <strong>output unit</strong> presents results through a monitor, printer or speaker. <strong>Secondary storage</strong>, such as an SSD or HDD, keeps programs and files for later use, even when power is off. For example, when a student calculates marks, the keyboard supplies the marks, the CPU calculates the total, the screen displays the result, and a saved file keeps the report for future reference.</p>
+<p class="lang-hi" lang="hi"><strong>मॉडल उत्तर: कंप्यूटर की मुख्य कार्यात्मक इकाइयों को समझाइए।</strong> कंप्यूटर प्रणाली में इनपुट, प्रोसेसिंग, मेमोरी, आउटपुट और स्टोरेज इकाइयाँ मिलकर डेटा पर काम करती हैं। इनपुट इकाई कीबोर्ड या माउस जैसे उपकरणों से डेटा और निर्देश लेती है। CPU निर्देश चलाता है। इसकी Control Unit कार्यों का समन्वय करती है और ALU गणना तथा तार्किक तुलना करता है। मुख्य मेमोरी प्रोसेसिंग के दौरान आवश्यक डेटा और निर्देश रखती है। आउटपुट इकाई मॉनिटर, प्रिंटर या स्पीकर से परिणाम दिखाती है। SSD या HDD जैसे सेकेंडरी स्टोरेज बिजली बंद होने पर भी फ़ाइलें सुरक्षित रखते हैं। उदाहरण के लिए, अंक निकालते समय कीबोर्ड अंक देता है, CPU कुल निकालता है, स्क्रीन परिणाम दिखाती है और सेव की गई फ़ाइल रिपोर्ट को भविष्य के लिए रखती है।</p>
+</div>
+<div class="exam-answer">
+<h3>Model answer: Differentiate between data and information.</h3>
+<p><strong>Data</strong> consists of raw facts that have not yet been organised into a meaningful result. <strong>Information</strong> is data that has been processed or arranged so that it is useful for understanding or decision-making. For example, the marks 72, 85 and 91 are data; their total, 248, or average, 82.7, is information when presented for evaluating performance.</p>
+<p class="lang-hi" lang="hi"><strong>डेटा और जानकारी में अंतर:</strong> डेटा कच्चे तथ्य होते हैं जिन्हें अभी उपयोगी रूप में व्यवस्थित नहीं किया गया है। प्रोसेस या व्यवस्थित किया गया डेटा, जो समझने या निर्णय लेने में मदद करे, जानकारी कहलाता है। उदाहरण के लिए 72, 85 और 91 अंक डेटा हैं; उनका कुल 248 या औसत 82.7 प्रदर्शन समझने के लिए उपयोगी जानकारी है।</p>
+</div>
+</section>
 <section class="content-section" id="write-notes">
 <div class="section-kicker">NOTEBOOK COPY · कॉपी में लिखें</div>
 <h2>✍️ Study & Copy</h2>
