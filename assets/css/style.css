@@ -671,3 +671,22 @@ button,.lang-switch button,.interactive button,.interactive input,.lab-action,.p
   .chapter-one .gear-one{font-size:2rem}
   .chapter-one .gear-two{font-size:1.35rem}
 }
+
+
+/* Chapter 1: remove the oversized hero card; keep only a compact lesson heading. */
+.chapter-one .chapter-titlebar{margin:8px 0 6px;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.chapter-one .chapter-label{display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:#52627c;font-size:.76rem;font-weight:800;letter-spacing:.03em}
+.chapter-one .chapter-label span{display:inline-block}
+.chapter-one .chapter-label span+span{color:#7258d6}
+.chapter-one .chapter-titlebar h1{margin:3px 0;font-size:clamp(1.25rem,2.5vw,1.8rem);line-height:1.2;color:#17264b}
+.chapter-one .chapter-titlebar>p{margin:0;font-size:.9rem;line-height:1.35;color:#5c4ab0;font-weight:650}
+.chapter-one .lesson-toc{margin:6px 0 8px;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.chapter-one .lesson-toc .chapter-index{padding:7px 10px;border:1px solid #dce6f8;border-radius:9px;background:#f8faff}
+.chapter-one .lesson-toc .chapter-index>summary{font-size:.88rem}
+.chapter-one .lesson-toc .toc-grid{padding-top:8px}
+@media(max-width:620px){
+ .chapter-one .chapter-titlebar{margin:5px 0 4px}
+ .chapter-one .chapter-titlebar h1{font-size:1.25rem}
+ .chapter-one .chapter-titlebar>p{font-size:.82rem}
+ .chapter-one .lesson-toc{margin:4px 0 6px}
+}
