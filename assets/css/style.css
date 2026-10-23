@@ -772,3 +772,38 @@ button,.lang-switch button,.interactive button,.interactive input,.lab-action,.p
 #write-notes .computer-xray{display:block;width:100%;height:auto;max-width:680px;margin:0 auto}
 #write-notes .notes-visual-explanation{margin:7px 0 5px;padding-left:10px;border-left:3px solid #6d9fc7;color:#344b63;line-height:1.65;text-indent:0}
 #write-notes .notes-visual-explanation.lang-hi{border-left-color:#d99ab0;color:#4b5368}
+
+
+/* Language-toggle parity: Hindi must inherit the same semantic layout as its English counterpart. */
+body[data-lang="hi"] h4.lang-hi,
+body[data-lang="hi"] h5.lang-hi,
+body[data-lang="hi"] h6.lang-hi,
+body[data-lang="hi"] h4[lang="hi"],
+body[data-lang="hi"] h5[lang="hi"],
+body[data-lang="hi"] h6[lang="hi"],
+body[data-lang="hi"] article.lang-hi,
+body[data-lang="hi"] blockquote.lang-hi,
+body[data-lang="hi"] figure.lang-hi,
+body[data-lang="hi"] figcaption.lang-hi,
+body[data-lang="hi"] ul.lang-hi,
+body[data-lang="hi"] ol.lang-hi,
+body[data-lang="hi"] header.lang-hi,
+body[data-lang="hi"] article[lang="hi"],
+body[data-lang="hi"] blockquote[lang="hi"],
+body[data-lang="hi"] figure[lang="hi"],
+body[data-lang="hi"] figcaption[lang="hi"],
+body[data-lang="hi"] ul[lang="hi"],
+body[data-lang="hi"] ol[lang="hi"],
+body[data-lang="hi"] header[lang="hi"]{display:block!important}
+body[data-lang="hi"] li.lang-hi,
+body[data-lang="hi"] li[lang="hi"]{display:list-item!important}
+body[data-lang="hi"] tr.lang-hi,
+body[data-lang="hi"] tr[lang="hi"]{display:table-row!important}
+body[data-lang="hi"] td.lang-hi,
+body[data-lang="hi"] th.lang-hi,
+body[data-lang="hi"] td[lang="hi"],
+body[data-lang="hi"] th[lang="hi"]{display:table-cell!important}
+body[data-lang="hi"] h4.lang-hi,
+body[data-lang="hi"] h5.lang-hi,
+body[data-lang="hi"] h6.lang-hi{font:inherit;font-weight:750;line-height:1.3}
+body[data-lang="hi"] .lang-hi{font-family:inherit}
