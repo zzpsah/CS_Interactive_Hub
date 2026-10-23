@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Class 9 Computer Science interactive learning and virtual lab: computer systems, hardware, software, CPU, memory and storage.">
 <title>Class 9 · Computer Systems, Hardware & Memory | CS सीखें</title>
-<link rel="stylesheet" href="../assets/css/style.css?v=site-motion-3">
+<link rel="stylesheet" href="../assets/css/style.css?v=class9-visual-1">
 </head>
 <body data-lang="en">
 <div class="topbar"><div class="wrap">
@@ -24,7 +24,7 @@
 <nav class="lesson-toc content-section" aria-label="Chapter contents">
 <details class="chapter-index"><summary>Chapter contents / अध्याय सूची</summary>
 <div class="toc-grid">
-<a href="#what-is-computer">01 · What is a computer?</a><a href="#architecture">02 · Basic architecture</a><a href="#functions">03 · Main functions</a><a href="#characteristics">04 · Characteristics</a><a href="#ipo-cycle">05 · How a computer works</a><a href="#hardware-software">06 · Hardware and software</a><a href="#cpu-memory">07 · CPU, memory and storage</a><a href="#real-life">08 · Everyday examples</a><a href="#visual-guide">09 · Follow the data</a><a href="#virtual-lab">10 · Practice lab</a><a href="#write-notes">Study & Copy</a><a href="#revision">Quick revision and exam practice</a>
+<a href="#what-is-computer">01 · What is a computer?</a><a href="#architecture">02 · Basic architecture</a><a href="#functions">03 · Main functions</a><a href="#characteristics">04 · Characteristics</a><a href="#ipo-cycle">05 · How a computer works</a><a href="#hardware-software">06 · Hardware and software</a><a href="#cpu-memory">07 · CPU, memory and storage</a><a href="#real-life">08 · Everyday examples</a><a href="#visual-guide">09 · Follow the data</a><a href="#virtual-lab">10 · Practice lab</a><a href="#inside-computer">11 · Explore inside the computer</a><a href="#exam-answer">12 · Model exam answers</a><a href="#write-notes">Study & Copy</a><a href="#revision">Quick revision and exam practice</a>
 </div></details>
 </nav>
 
@@ -328,5 +328,33 @@ focusButton?.addEventListener("click",()=>{
 document.querySelector("[data-print-notes]")?.addEventListener("click",()=>window.print());
 document.querySelector("[data-copy-notes]")?.addEventListener("click",async()=>{const note=document.querySelector(".handwritten-notes");const status=document.querySelector("[data-notes-status]");try{await navigator.clipboard.writeText(note.innerText);status.textContent="Text copied.";}catch(e){status.textContent="Copy is unavailable in this browser; select the text and copy manually.";}});
 document.querySelectorAll('.worked-example .study-choice').forEach((button)=>button.addEventListener('click',()=>{const group=button.parentElement;const out=group.nextElementSibling;if(out&&out.classList.contains('feedback'))out.textContent=button.dataset.feedbackText||''}));
+
+const systemExplorer=document.querySelector('[data-system-explorer]');
+if(systemExplorer){
+ const parts={
+  cpu:{kind:'PROCESSING',title:'Central Processing Unit (CPU)',body:'The CPU executes program instructions. It repeatedly fetches instructions, interprets what they mean, and carries out the required operation.',hi:'CPU प्रोग्राम के निर्देश चलाता है। यह निर्देश प्राप्त करता है, उनका अर्थ समझता है और आवश्यक कार्य करता है।',input:'Instructions and data from memory',doing:'Coordinates and executes operations',output:'Results and control signals',node:1},
+  cu:{kind:'CONTROL',title:'Control Unit (CU)',body:'The Control Unit coordinates the steps of instruction execution. It directs the movement of data and control signals between components; it is not the part that performs every calculation itself.',hi:'Control Unit निर्देशों के चलने का समन्वय करती है। यह भागों के बीच डेटा और नियंत्रण संकेतों की दिशा तय करती है; हर गणना स्वयं नहीं करती।',input:'Instructions and status signals',doing:'Coordinates and directs operations',output:'Control signals for other units',node:1},
+  alu:{kind:'ARITHMETIC + LOGIC',title:'Arithmetic Logic Unit (ALU)',body:'The ALU performs arithmetic such as addition and subtraction and logical comparisons such as greater than, less than, or equal to. A program may use these results to choose its next step.',hi:'ALU जोड़-घटाव जैसी गणनाएँ और बड़ा, छोटा या बराबर जैसी तार्किक तुलनाएँ करता है। प्रोग्राम इन परिणामों के आधार पर अगला चरण चुन सकता है।',input:'Numbers and comparison operands',doing:'Arithmetic and logical operations',output:'Calculated values and comparison results',node:1},
+  ram:{kind:'WORKING MEMORY',title:'Random Access Memory (RAM)',body:'RAM holds program code and data that the computer is actively using. It is volatile: its contents are normally lost when power is removed. More available RAM can help a device keep more active work in memory, but it does not replace long-term storage.',hi:'RAM उन प्रोग्रामों और डेटा को रखती है जिनका कंप्यूटर अभी उपयोग कर रहा है। यह अस्थायी (volatile) मेमोरी है; बिजली हटने पर इसका डेटा सामान्यतः मिट जाता है। RAM स्थायी स्टोरेज का विकल्प नहीं है।',input:'Code and data needed now',doing:'Provides fast temporary workspace',output:'Data available to the CPU',node:3},
+  rom:{kind:'FIRMWARE STORAGE',title:'Read-Only Memory (ROM)',body:'ROM is a non-volatile memory category used to retain information without ordinary power. Embedded firmware may be stored in ROM or related flash memory. Unlike RAM, it is intended to retain its contents when the device is off.',hi:'ROM ऐसी non-volatile मेमोरी का प्रकार है जो बिजली बंद होने पर भी जानकारी रखती है। डिवाइस का firmware ROM या संबंधित flash memory में हो सकता है।',input:'Firmware or fixed startup instructions',doing:'Retains information without normal power',output:'Startup instructions when required',node:3},
+  ssd:{kind:'PERSISTENT STORAGE',title:'SSD / HDD — secondary storage',body:'An SSD or hard disk stores applications, documents, photos and other files for long-term use. It retains data when the computer is switched off. It is generally slower than RAM but offers much greater persistent capacity.',hi:'SSD या हार्ड डिस्क ऐप, दस्तावेज़, फोटो और अन्य फ़ाइलों को लंबे समय तक सुरक्षित रखती है। कंप्यूटर बंद होने पर भी डेटा रहता है। यह सामान्यतः RAM से धीमी होती है, लेकिन स्थायी क्षमता अधिक देती है।',input:'Files written by an application or user',doing:'Stores data persistently',output:'Saved files read back when needed',node:4}
+ };
+ const buttons=[...systemExplorer.querySelectorAll('[data-system-part]')];
+ const mapRects=[...systemExplorer.querySelectorAll('.system-map rect')];
+ const render=key=>{
+  const d=parts[key]; if(!d)return;
+  buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.systemPart===key)));
+  mapRects.forEach((r,i)=>r.classList.toggle('is-selected',i===d.node));
+  systemExplorer.querySelector('[data-system-kind]').textContent=d.kind;
+  systemExplorer.querySelector('[data-system-title]').textContent=d.title;
+  systemExplorer.querySelector('[data-system-body]').textContent=d.body;
+  systemExplorer.querySelector('[data-system-hi]').textContent=d.hi;
+  systemExplorer.querySelector('[data-system-in]').textContent=d.input;
+  systemExplorer.querySelector('[data-system-do]').textContent=d.doing;
+  systemExplorer.querySelector('[data-system-out]').textContent=d.output;
+ };
+ buttons.forEach((b,i)=>{b.addEventListener('click',()=>render(b.dataset.systemPart));b.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft'].includes(e.key))return;e.preventDefault();buttons[(i+(e.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length].focus()})});
+ render('cpu');
+}
 </script>
 </body></html>
