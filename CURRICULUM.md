@@ -6,13 +6,24 @@ This is a bilingual Computer Science learning sequence for Bihar students, not a
 - Bihar SCERT e-resources: https://scert.bihar.gov.in/eresources
 - Bihar SCERT: https://scert.bihar.gov.in/
 
-## Class 9 — Foundations
-1. Computer Systems, Hardware & Memory — published
-2. Software and Operating Systems — published
-3. Files and Folders — first interactive release published; review/expand visual coverage
-4. Internet and Cyber Safety — first interactive release published; review/expand visual coverage
-5. Algorithms and Flowcharts — first interactive release published; review/expand visual coverage
-6. Data, Bits and Bytes — first interactive release published; review/expand visual coverage
+## Class 9 — Active implementation scope
+**Current focus: Class 9 only.** Do not build or expand Classes 10–12 during this pass. The hub includes foundational computer-science lessons and a new NCERT-inspired ICT skills sequence. It is enrichment material unless the current school/board syllabus confirms a topic is prescribed.
+
+### Computer-science foundations
+1. Computer Systems, Hardware & Memory — visual prototype; content and interaction audit pending
+2. Software and Operating Systems — detailed lesson; visual and bilingual audit pending
+3. Files and Folders — interactive file/folder and save-process lesson; visual and bilingual audit pending
+4. Internet and Cyber Safety — request trace and safety scenarios; visual and bilingual audit pending
+5. Algorithms and Flowcharts — algorithm traces and custom inputs; visual and bilingual audit pending
+6. Data, Bits and Bytes — interactive binary representation; visual and bilingual audit pending
+
+### NCERT-inspired ICT skills
+7. Creating Textual Communication — document structure, editing, formatting, proofreading and saving; new visual lesson
+8. Creating Visual Communication — charts, diagrams, layout, contrast and accessible design; new visual lesson
+9. Creating Audio-Video Communication — planning, recording, editing, captions, export and responsible media use; new visual lesson
+10. Presenting Ideas with Slides — slide structure, visual evidence, rehearsal and delivery; new visual lesson
+
+The official NCERT Class IX ICT textbook also includes Introduction to ICT, Getting Connected: Internet, Safety and Security in the Cyber World, and Fun with Logic. The foundational lessons above cover several related ideas but should not be described as a replacement for the official chapter sequence. Use the official textbook for syllabus alignment and retain original wording and diagrams in this hub.
 
 ## Class 10 — Applied digital skills
 1. Internet, Networks and the Web — published
