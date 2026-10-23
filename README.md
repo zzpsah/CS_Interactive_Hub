@@ -36,3 +36,14 @@ The existing UI/UX and working student workflows are protected project decisions
 - Image files live in `assets/images/class09/`; the chapter does not depend on Google Drive or an external image CDN.
 - See `assets/images/class09/ASSET-MANIFEST.md` for the illustration inventory and portability notes.
 - Keep image references relative to the HTML file so the entire repository can be migrated as a package to Vercel or another static host.
+
+
+## Visual-first, animated curriculum standard
+
+The curriculum is designed to teach through **visible processes and state changes**, not just static prose. Wherever a topic describes something happening, show it happening with an original, topic-specific animation, diagram, step trace, or learner-controlled simulation. Follow the project-wide doctrine in AGENTS.md and AI-HANDOFF.md.
+
+Typical lesson flow: concise English/Hindi explanation → animated visual or process model → worked example → learner-controlled practice → understanding check → Study & Copy/revision. Use step controls when useful, show active states and explain why they change, and map executing code to variable/memory state in programming lessons. Keep animations purposeful, accessible, responsive, reduced-motion aware, printable where relevant, and implemented with portable repository-local assets. Shared scroll reveals alone do not count as a completed visual lesson.
+
+### Reference inspiration
+
+[Log2Base2](https://www.log2base2.com/) is a learning-design reference for short visual lessons, animated concepts, and step-by-step code walkthroughs. We independently implement the underlying teaching principles for our free, bilingual school curriculum. Do not copy its code, course text, brand identity, graphics, or videos.
