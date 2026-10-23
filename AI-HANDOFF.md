@@ -354,3 +354,6 @@ Validation status:
 - Static source audit after the edits found no duplicate HTML IDs or broken in-page anchor targets in the Class IX index and eight canonical chapter pages. Chapter 2–5 retain their interactive visual trace markup and JavaScript event handlers.
 - Not yet verified: live GitHub Pages deployment, real browser rendering, clipboard permission behavior, actual print output, keyboard/screen-reader behavior, or physical mobile-device layout. Do not describe these as passed until tested.
 - Next safe step: perform live browser QA of all eight chapters and expand topic-specific visual demonstrations where an interaction does not yet make the underlying process/state change sufficiently clear. Then audit the Class IX curriculum coverage against the current official NCERT ICT text and the applicable CBSE framework before calling the syllabus complete.
+
+
+- Follow-up in the same Class IX pass: added collapsed Quick Revision glossaries with bilingual term definitions to all eight canonical chapters. The notebook print rule was tightened so Writing/Print focus hides unrelated lesson sections. Static source checks were rerun after these additions: no duplicate IDs, no broken in-page anchors, one Study & Copy section and one Quick Revision section per chapter, balanced list-item tags, and at least three model-answer panels per chapter.
