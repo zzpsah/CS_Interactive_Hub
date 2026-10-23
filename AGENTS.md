@@ -99,10 +99,11 @@ This rule applies to every chapter, not only Class 9 Chapter 1.
 - Before committing changes to Study & Copy, verify the section heading is visible, the notebook styling is active by default, illustrative diagrams render, and the theory remains separate from Q&A and Quick Revision. Never remove or flatten this notebook presentation during content refactors.
 
 
-## Study & Copy paragraph and example formatting
+## Mandatory concise, copy-ready Study & Copy notes
 
-- Write theory in complete, readable paragraphs under clear topic and subtopic headings. Avoid walls of text and avoid turning every sentence into a bullet.
-- Indent explanatory paragraphs, use comfortable line spacing, and keep English and Hindi paragraphs aligned and readable.
-- Put each teaching example in a clearly labelled **Example / उदाहरण** subsection or highlighted notebook box. Keep its explanation and Hindi translation together.
-- Use lists for sequences, classifications, or short groups of points. Do not indent headings, diagrams, or captions as if they were prose.
-- Apply this consistently to every chapter; check mobile, writing-view, and print layouts before committing.
+- Study & Copy is a compact summary students can copy into their notebooks, not a second full lesson. Keep only essential definitions, facts, comparisons, steps and exam-useful points.
+- Prefer crisp bullet points over long explanatory paragraphs. Use a clear hierarchy: chapter heading, numbered topic headings, short subheadings and consistently indented bullets.
+- Style topic headings visibly with colour and underlining. Maintain readable spacing, accessible contrast and responsive layout.
+- Put each essential example in a distinct, compact **Example / उदाहरण** box; keep the English and Hindi versions together where bilingual content is provided.
+- Use only small, useful diagrams when they improve recall. Avoid oversized illustrations, filler introductions, repeated theory, duplicated Q&A, and decorative clutter.
+- Preserve Writing view, Print and Copy text actions. Check mobile, writing-view and print layouts before committing.
