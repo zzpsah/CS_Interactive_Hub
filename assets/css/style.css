@@ -833,3 +833,9 @@ body[data-lang="hi"] .lang-hi{font-family:inherit}
  body.print-study-only .study-topic p,body.print-study-only .study-topic p.lang-hi{color:#000!important}
  body.print-study-only .study-topic{break-inside:avoid}
 }
+
+
+@media print{
+ body.print-study-only main>*:not(#study-copy){display:none!important}
+ body.print-study-only main #study-copy{display:block!important}
+}
