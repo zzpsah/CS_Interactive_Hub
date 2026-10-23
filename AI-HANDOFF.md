@@ -197,3 +197,20 @@ Every chapter must inherit the same established visual language and learning aff
 ## Current active scope (2026-10-23)
 
 The user explicitly requested working on **Class 9 only, one class at a time**. Do not add or expand Class 10, 11, or 12 curriculum while this Class 9 pass is active. Existing pages for other classes may remain untouched. Remove learning-objective/goal blocks from student-facing Class 9 lesson pages; put the space into actual explanations, diagrams, worked examples, interactive traces, and exam-ready bilingual notes. Use official NCERT material as a conceptual reference, not by copying or republishing its textbook wording or pages. The official Class IX NCERT ICT PDF is https://ncert.nic.in/textbook.php?iict1=ps-8; official Class XI and XII Computer Science textbook portals are https://ncert.nic.in/textbook.php?kecs1=0-11 and https://ncert.nic.in/textbook.php?lecs1=0-13. All lessons must use the same notebook-style Study & Copy controls (clean/notebook view, writing focus, copy and print) and visual teaching quality, while diagrams and interactions are topic-specific. Do not call the work complete until rendered browser QA is performed.
+
+
+## Class 9-only NCERT-inspired content pass (2026-10-23)
+
+The active implementation scope is Class 9 only. Do not add or expand Classes 10–12 during this pass. Student-facing standalone learning-goal/objective sections are not wanted; use the space for teaching content, labelled visual explanations, worked examples, interactive exploration, bilingual explanations and exam-ready notebook notes.
+
+New pages created:
+- `class09/ch07_textual_communication.html`: word processing, document structure, editing vs formatting, clipboard operations, notice example, animated five-stage document workflow, model answers and notebook notes.
+- `class09/ch08_visual_communication.html`: visual types, chart selection, hierarchy, alignment, contrast, accessible design, worked bar-chart example, animated visual-planning workflow and exam notes.
+- `class09/ch09_audio_video_communication.html`: multimedia elements, storyboard, timeline, trim/transition/export, accessibility/privacy/consent, worked educational-video plan, animated production workflow and exam notes.
+- `class09/ch10_presenting_ideas.html`: slide structure, readable design, visual evidence, worked four-slide example, rehearsal and responsible sharing, animated presentation workflow and exam notes.
+
+Class 9 Chapter 1 now includes an original ICT overview with a local SVG concept map and examples from education, public services, health, agriculture and banking. The Class 9 index links the four new lessons. `CURRICULUM.md` and the Class 9 index distinguish the foundational Computer Science lessons from NCERT-inspired ICT skills; the hub is supplementary until the current school/board syllabus is checked.
+
+Shared CSS cache key for Class 9 pages: `class9-visual-4`. New lessons use the shared `app.js` language toggle and `class9-notes.js` Study & Copy controls. Each new page has an original inline SVG visual with Next/Previous/Reset/Play controls, step highlight, bilingual caption, and reduced-motion handling. Model-answer reveal buttons hide their answers until requested.
+
+Static verification performed in this pass: fetched current GitHub versions of all 10 Class 9 lesson pages and the index; confirmed the Class 9 pages use the current stylesheet/script cache key; checked section open/close counts; parsed inline JavaScript in all Class 9 pages and shared scripts for syntax errors; confirmed each lesson page has a Study & Copy section and the new pages have a visual trace panel. Browser rendering, keyboard/touch interaction, and GitHub Pages deployment were **not** independently verified in this environment. Do not report those as passed until actually tested.
