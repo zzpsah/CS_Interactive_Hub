@@ -244,5 +244,6 @@ Validation status:
 - The existing `#exam-answer` anchor is preserved so chapter navigation remains valid.
 - Replaced the two short model-answer blocks with three structured examination-style answers: computer functional units, data versus information, and the Input–Process–Output cycle.
 - Each answer uses a question heading, Answer label, introduction or explanation, meaningful subheadings, separate bullet points, ★ key facts, an example and a conclusion where appropriate. Hindi support is included alongside English.
-- Commit: `b44fd488a9c3d1e99e23315f9a26931002805d7c` — `Restructure Chapter 1 exam answers into formatted Q&A`.
+- Commits: `b44fd488a9c3d1e99e23315f9a26931002805d7c` — `Restructure Chapter 1 exam answers into formatted Q&A`; `bff5c555a1577e5c799a2f75cd6627488e96f6a9` — `Use question and answer wording in study copy`.
+- The Study & Copy section’s remaining “Model answer” label was also changed to “Question and Answer” for consistent wording.
 - GitHub Pages workflow was queued after this commit; deployment and rendered browser appearance must be checked before claiming the new section is live. No browser interaction test was run as part of this content-only edit.
