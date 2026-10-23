@@ -291,3 +291,10 @@ Validation status:
 - Keep exam-style Q&A in the dedicated Questions and Answers section. Avoid duplicating those questions and answers in Study & Copy.
 - Keep Quick Revision concise and focused on key terms. Do not copy the same Q&A or entire theory into revision.
 - Retain useful notebook actions (writing view, print, copy text) for Study & Copy.
+
+## Illustrated Study & Copy restored (2026-10-23)
+
+- Restored a visible notebook-style Study & Copy heading and bilingual chapter title in Class 9 Chapter 1; removed the unwanted “STUDY NOTES” kicker.
+- Added two original responsive SVG teaching sketches: computer functional units and the IPO cycle. Styled all six theory topic headings with notebook-style highlighted labels.
+- Preserved connected explanatory theory, separate exam Q&A, Quick Revision, and Writing view / Print / Copy text actions.
+- Commits: lesson `e2aeba28`, shared styles `5994f210`. Verify GitHub Pages workflow and live appearance before claiming deployment.
