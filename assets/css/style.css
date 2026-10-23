@@ -511,3 +511,37 @@ html.motion-ready [data-motion-reveal].motion-visible>h2::after{transform:scaleX
 .diagram,.concept-visual{position:relative}
 .diagram::before,.concept-visual::before{content:"";position:absolute;inset:0;pointer-events:none;border:1px dashed #a8bde4;border-radius:inherit;opacity:.4}
 @media(prefers-reduced-motion:reduce){html.motion-ready [data-motion-reveal],html.motion-ready [data-motion-reveal].motion-visible{opacity:1;transform:none;transition:none}.content-section>h2::after,.section h2::after{transition:none;transform:scaleX(1)}.card,.component-card,.diagram,.concept-visual,.interactive,.quiz-option,.study-choice,.bit-toggle{transition:none}}
+
+
+/* Project-wide chapter standard: every lesson inherits the Chapter 1 visual language. */
+.content-section{position:relative;margin:12px 0;padding:22px 20px;border:1px solid #e0e7f4;border-radius:18px;background:linear-gradient(145deg,#fff 0%,#fbfcff 100%);box-shadow:0 4px 14px rgba(37,62,108,.045)}
+.content-section>h2{display:flex;align-items:flex-start;gap:10px;color:#1d2b4f;font-size:clamp(1.18rem,2.8vw,1.55rem);line-height:1.35}
+.content-section>h2:before{content:"✦";display:inline-grid;place-items:center;flex:0 0 30px;width:30px;height:30px;margin-top:1px;border-radius:9px;background:#e8efff;color:#3159b7;font-size:1rem;box-shadow:inset 0 0 0 1px #d6e2ff}
+.content-section>h2:after{display:none}
+.content-section p{max-width:78ch}
+.content-section ul,.content-section ol{padding-left:1.5rem}
+.content-section li{margin:.45rem 0;padding-left:.15rem}
+.content-section li::marker{color:#3159b7}
+.content-section .definition-card,.content-section .diagram,.content-section .interactive,.content-section .concept-visual,.content-section .worked-example{box-shadow:0 5px 16px rgba(31,54,94,.055)}
+.content-section .diagram,.content-section .concept-visual{background:linear-gradient(145deg,#f8fbff,#fff)}
+.content-section .callout{margin:16px 0}
+.lesson-head{position:relative;padding:28px 22px 22px;margin:20px 0 16px;border:1px solid #dce6fa;border-radius:22px;background:radial-gradient(circle at 94% 12%,#dff7f2 0,transparent 28%),linear-gradient(125deg,#f2f6ff,#fff 62%,#f5fffc);overflow:hidden}
+.lesson-head:after{content:"✧  ◇  ✦";position:absolute;right:20px;top:12px;color:#8ca7e7;font-size:1.35rem;letter-spacing:.25em;pointer-events:none}
+.lesson-head .eyebrow{display:inline-block;padding:5px 10px;border-radius:999px;background:#e4edff;color:#2e52a2;font-size:.76rem;font-weight:850;letter-spacing:.06em}
+.lesson-head h1{position:relative;z-index:1;max-width:850px;margin:.45rem 0;color:#18294c;line-height:1.16}
+.lesson-head .lead{max-width:70ch;color:#40516f}
+#write-notes{margin:28px 0;padding:24px 24px 26px 68px;border:2px solid #d6e2f5;border-radius:18px;background-color:#fffef8;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,#dbe7f8 32px,#dbe7f8 33px);box-shadow:0 5px 0 #e6edf8,0 10px 24px rgba(35,64,112,.08);position:relative}
+#write-notes:before{content:"";position:absolute;top:0;bottom:0;left:46px;border-left:2px solid #eaa0a0}
+#write-notes>h2,#write-notes>.section-kicker{color:#214f9b}
+#write-notes>h2{font-family:"Comic Sans MS","Segoe Print",cursive}
+#write-notes p,#write-notes li{color:#214f9b;line-height:1.9}
+#write-notes h3{color:#244274}
+#write-notes table{background:#fffefb}
+#write-notes th{background:#eaf0ff}
+#write-notes .definition-card,#write-notes .callout,#write-notes .exam-answer{background:rgba(255,255,255,.86)}
+.content-section details,.content-section .collapsible-learning{border:1px dashed #b7c7e5;border-radius:13px;padding:12px 15px;background:#fbfcff}
+.content-section summary{cursor:pointer;font-weight:750;color:#244274}
+.content-section button{cursor:pointer}
+@media(max-width:620px){.content-section{padding:17px 14px;border-radius:14px}.lesson-head{padding:22px 15px 18px;border-radius:17px}.lesson-head:after{font-size:1rem;right:10px}#write-notes{padding:20px 14px 22px 42px}#write-notes:before{left:28px}}
+@media print{.lesson-head{background:#fff!important;box-shadow:none;border:1px solid #aaa}.content-section{break-inside:avoid;box-shadow:none;background:#fff!important;border-color:#aaa}#write-notes{background:#fff!important;box-shadow:none;border-color:#aaa}#write-notes p,#write-notes li{color:#111}.content-section button,.notes-mode-switch{display:none!important}}
+@media(prefers-reduced-motion:reduce){.content-section,.lesson-head{scroll-behavior:auto;transition:none!important}}
