@@ -118,3 +118,14 @@ This rule applies to every chapter, not only Class 9 Chapter 1.
 - Apply the equivalent change to all affected pages, including Class 10, Class 11 and Class 12, and any additional chapter pages added later. Keep the teaching content and visuals specific to each chapter; propagate the rule and behavior, not unrelated Class 9 content.
 - Update shared CSS/JavaScript once when the behavior is genuinely shared; update page-specific markup/content on each affected page. Do not leave inconsistent versions or implement a change only on the benchmark page without explicitly recording why another page is exempt.
 - Before committing, compare the benchmark and affected pages, verify the corresponding sections and actions, and record any remaining exceptions in `AI-HANDOFF.md`. Do not claim every page has been updated unless each affected page has actually been inspected and changed.
+
+
+## Official curriculum alignment and no-duplication policy
+
+- Treat `CURRICULUM.md` as the source-of-truth map for the target chapter architecture. Use current official curriculum sources and record the academic year and subject code when applicable.
+- Do not label a hub-designed module as an official NCERT chapter. For Class VIII, verify against the current CT & AI framework; for Class IX, distinguish the NCERT ICT textbook sequence from the current CBSE Computer Applications syllabus.
+- Class XI and XII Computer Science (083) and Informatics Practices (065) must be separate learning tracks, not merged into one chapter sequence.
+- Each concept must have one canonical chapter. If existing pages overlap, consolidate and cross-link rather than adding another full duplicate lesson. Revisit a concept in a later class only to teach a clearly stated new level of depth or skill.
+- The Class IX target sequence follows the eight NCERT ICT chapters listed in `CURRICULUM.md`. Existing pages on hardware, OS, files, bits/bytes and algorithms should be consolidated into appropriate canonical chapters or marked as optional enrichment, not treated as extra NCERT chapters.
+- Every chapter must be visually instructional: topic-specific diagrams/animations, working touch-friendly interactions, meaningful feedback, concise bilingual explanation, useful practice, and Study & Copy. Hover-only effects or decorative motion do not satisfy this requirement.
+- Update `CURRICULUM.md` whenever a chapter map changes. Keep the live site, class index pages and curriculum map consistent; never mark planned pages as complete before they are implemented and checked.
