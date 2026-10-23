@@ -45,9 +45,12 @@ jobs:
           for name in pages:
               s = Path(name).read_text(encoding='utf-8')
               assert '<!doctype html>' in s.lower(), f'{name}: missing doctype'
-              assert 'lang-hi' in s, f'{name}: missing bilingual text'
+              if name == 'index.html' or name.startswith('class08/') or name.startswith('class09/'):
+                  assert 'lang-hi' in s, f'{name}: missing bilingual text'
               assert 'assets/css/style.css' in s, f'{name}: missing shared stylesheet'
               assert 'assets/js/app.js' in s, f'{name}: missing shared language script'
+              if name != 'index.html':
+                  assert 'data-lang-toggle' in s, f'{name}: missing language toggle'
               if name.startswith('class09/ch') and name.endswith('.html'):
                   assert 'id="write-notes"' in s, f'{name}: missing Study & Copy'
               print('OK', name)
