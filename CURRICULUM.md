@@ -5,16 +5,18 @@
 This hub is an original, bilingual, visual-learning companion. Use current official curriculum documents as the authority for scope; write original explanations, examples, diagrams, animations, questions and code. Do not reproduce NCERT textbook prose, textbook diagrams, or page layouts.
 
 **Source hierarchy**
-1. Current CBSE curriculum for the relevant academic year and subject code, where the course is a CBSE elective.
-2. Official NCERT textbook chapters and learning sequence where NCERT publishes a relevant textbook.
-3. For Class VIII, the current CBSE/NCERT Computational Thinking and AI framework and applicable school curriculum. Do not falsely label locally designed modules as official NCERT textbook chapters.
-4. Bihar SCERT/BSEB syllabus when the hub is specifically used for a Bihar-board examination; mark any differences explicitly.
+1. For Classes IX–XII, use the relevant official NCERT textbook or NCERT-published module as the primary content sequence wherever one is published; for Classes XI–XII, keep the NCERT Computer Science and Informatics Practices books as separate tracks.
+2. Check the current academic-year CBSE subject curriculum and circulars for applicability, exclusions, assessment requirements and any newly introduced modules. This is a cross-check, not permission to replace the requested NCERT-first chapter structure with an unrelated syllabus.
+3. Class VIII is a separate CBSE Computational Thinking & Artificial Intelligence (CT&AI) track for 2026–27. Do not label it NCERT ICT.
+4. If a current NCERT subject textbook/module is not available for a class, state that gap clearly and use the nearest official published ICT resource only as a documented fallback; do not falsely call it an NCERT textbook.
+5. Bihar SCERT/BSEB syllabus is a separate board alignment if needed; mark any differences explicitly.
 
 Official references:
 - [CBSE Curriculum 2026–27](https://cbseacademic.nic.in/curriculum_2027.html)
 - [NCERT Class IX ICT textbook](https://ncert.nic.in/textbook.php?iict1=ps-8)
-- [CBSE Class IX Computer Applications (165), 2026–27](https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart1/Computer_Applications_SecP1IX_2026-27.pdf)
-- [CBSE Class X Computer Applications (165), 2026–27](https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart1/Computer_Applications_SecP1X_2026-27.pdf)
+- [CBSE Class IX–XII curriculum, 2026–27](https://cbseacademic.nic.in/curriculum_2027.html) — use to cross-check current scope and newly introduced modules, not to mislabel a CBSE subject as an NCERT textbook.
+- [CBSE official ICT e-books for Classes IX and X](https://cbseacademic.nic.in/publication_ebooks.html) — Class X ICT is listed in the CBSE e-book catalogue; it must not be misrepresented as an NCERT-authored Computer Science textbook.
+- [CBSE circular Acad-18/2026 on CT&AI modules for Classes IX–XII](https://cbseacademic.nic.in/web_material/Circulars/2026/18_Circular_2026.pdf) — verify the availability and scope of NCERT modules before finalising the full 2026–27 Classes IX–XII map.
 - [CBSE Computer Science (083), Classes XI–XII, 2026–27](https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/Computer_Science_SecP2_2026-27.pdf)
 - [CBSE Informatics Practices (065), Classes XI–XII, 2026–27](https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/Informatics_Practices_SecP2_2026-27.pdf)
 - [CBSE CT & AI curriculum framework for Classes III–VIII, 2026–27](https://cbseacademic.nic.in/web_material/CurriculumMain27/CTAI_Pri_2026-27.pdf)
@@ -39,26 +41,28 @@ These are proposed hub module titles, **not official NCERT chapter names**. Remo
 
 Use the eight chapters in the official NCERT Class IX ICT textbook as the chapter structure. The 2026–27 CBSE Computer Applications syllabus is a separate current subject curriculum; add cross-reference labels for its Basics of Information Technology, Cyber Safety, Office Tools and practical outcomes. Do not imply that every NCERT ICT chapter is a separately assessed unit in Computer Applications.
 
-Canonical chapter sequence:
-1. **Introduction to ICT** — ICT in daily life; computer-system concepts and digital tools as supporting concepts, without expanding into a duplicate standalone hardware chapter.
-2. **Creating Textual Communication** — create, format, review and share text documents.
-3. **Creating Visual Communication** — images, visual composition, diagrams and charts.
-4. **Creating Audio–Video Communication** — plan, record, edit, caption and responsibly share media.
-5. **Presenting Ideas** — organise information into clear, accessible presentations and animate meaningfully.
-6. **Getting Connected: Internet** — internet, web, browsers, services and safe information search.
-7. **Safety and Security in the Cyber World** — privacy, security threats, safe practices and responses.
-8. **Fun with Logic** — logic, patterns, reasoning and introductory computational problem-solving.
+Canonical chapter sequence and current implementation:
+1. **Introduction to ICT** — ICT in daily life; computer-system concepts and digital tools. [Open chapter](class09/ch01_introduction_ict.html)
+2. **Creating Textual Communication** — create, format, review and share text documents. [Open chapter](class09/ch02_textual_communication.html)
+3. **Creating Visual Communication** — images, visual composition, diagrams and charts. [Open chapter](class09/ch03_visual_communication.html)
+4. **Creating Audio-Video Communication** — plan, record, edit, caption and responsibly share media. [Open chapter](class09/ch04_audio_video_communication.html)
+5. **Presenting Ideas** — organise information into clear, accessible presentations. [Open chapter](class09/ch05_presenting_ideas.html)
+6. **Getting Connected: Internet** — Internet, Web, browsers, servers and web-request traces. [Open chapter](class09/ch06_getting_connected_internet.html)
+7. **Safety and Security in the Cyber World** — privacy, phishing, malware, safe practices and responses. [Open chapter](class09/ch07_cyber_safety.html)
+8. **Fun with Logic** — patterns, reasoning, algorithms, flowcharts and problem-solving. [Open chapter](class09/ch08_fun_with_logic.html)
 
 **Consolidation rule:** existing Class IX pages on hardware/memory, software/OS, files/folders, bits/bytes and algorithms/flowcharts are not allowed to become extra competing chapters. Reuse their accurate teaching material as relevant subsections, labs or interactive demonstrations inside the canonical eight chapters, or mark genuinely advanced content as optional enrichment. Each concept has one canonical home and may link to it from other chapters rather than repeat its full lesson.
 
-### Class X — CBSE Computer Applications (165), 2026–27
+### Class X — NCERT-first ICT continuation (source verification gate)
 
-Organise content around the current official units and practical work:
-1. **Networking and Internet Services** — WWW, clients/servers, URLs, protocols, web services and mobile technologies. This advances Class IX internet literacy; it must not repeat the introductory safety lesson.
-2. **HTML: Build a Web Page** — document structure, semantic elements, text, images, lists, tables, links, forms, audio/video and accessible alternatives.
-3. **CSS and Page Design** — styling, layout, spacing, typography, colour and responsive presentation, aligned to the prescribed scope.
-4. **Cyber Ethics and Responsible Web Publishing** — netiquette, open-source software, intellectual property, plagiarism, privacy, fraud and responsible publishing.
-5. **Integrated Practical: Build and Explain a Small Website** — a practical/project space that combines the official skills, not a new theory unit.
+Do not automatically copy the current Class X Computer Applications (165) chapter list into this hub. The official CBSE e-book catalogue lists an ICT textbook for Class X, while the current 2026–27 subject curriculum has its own scope. The final Class X chapter map must be checked against the official Class X ICT book and current NCERT modules/circulars before it is labelled NCERT-aligned.
+
+Target progression once source-verified:
+1. Continue digital creation and ICT skills at a higher level, without repeating Class IX document/visual/media/presentation lessons.
+2. Develop the next level of web, network and digital-safety skills only where supported by the selected official source.
+3. Include practical work and integrated projects as activities, not duplicate theory chapters.
+
+**Status: source audit pending; do not publish a final Class X chapter list yet.**
 
 ### Class XI — Students choose one senior-secondary track
 
@@ -127,11 +131,11 @@ A chapter is not complete merely because it contains text, decorative animation,
 
 ## Delivery plan
 
-1. **Curriculum audit and map** — this document is the source-of-truth proposal; confirm official subject/version and one canonical home per concept.
-2. **Class IX benchmark alignment** — restructure the chapter list to the NCERT ICT eight-chapter sequence, reusing existing work rather than preserving duplicate standalone chapters.
-3. **Build Class VIII foundation** — only after mapping module outcomes to the current CT & AI framework.
-4. **Class X** — rebuild around the 2026–27 Computer Applications units and practicals.
-5. **Class XI/XII tracks** — create separate CS and IP paths; build and validate one chapter at a time against the Class IX Chapter 1 design system.
-6. **Quality gates** — verify links, content completeness, bilingual parity, touch controls, keyboard access, reduced motion, mobile layout, print, quizzes, and GitHub Pages build before marking each chapter complete.
+1. **Class IX — active implementation:** eight canonical NCERT ICT chapters now have dedicated pages and the class index links only to those eight. Continue auditing content, interactions, bilingual parity and mobile behaviour before calling the class complete.
+2. **Legacy cleanup:** older noncanonical Class IX chapter URLs redirect to their canonical chapter. Preserve genuinely useful standalone labs as optional practice, not as duplicate chapters.
+3. **Class VIII:** keep its separate CBSE CT&AI framework page clearly labelled as a proposed module map; build lessons only after checking the Grade 8 handbook outcomes.
+4. **Class X:** complete the NCERT/official ICT source audit before finalising its chapter map.
+5. **Classes XI–XII:** build separate NCERT Computer Science and Informatics Practices tracks, one chapter at a time.
+6. **Quality gates:** verify links, content completeness, bilingual parity, touch controls, keyboard access, reduced motion, mobile layout, print, quizzes, and GitHub Pages build before marking a chapter complete.
 
 The chapter lists above are the proposed target architecture. Existing published pages are not automatically compliant until their content and interactions have been audited and updated.
