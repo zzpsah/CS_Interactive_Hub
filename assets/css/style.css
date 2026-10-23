@@ -690,3 +690,22 @@ button,.lang-switch button,.interactive button,.interactive input,.lab-action,.p
  .chapter-one .chapter-titlebar>p{font-size:.82rem}
  .chapter-one .lesson-toc{margin:4px 0 6px}
 }
+
+/* Study & Copy: visible notebook treatment and original sketch diagrams. */
+#write-notes .notes-sketch{
+  margin:14px auto 20px;padding:12px 14px 9px;max-width:760px;
+  border:2px dashed #e8b64d;border-radius:15px;background:#fffdf5;
+  transform:rotate(-.15deg);
+}
+#write-notes .notes-sketch svg{display:block;width:100%;height:auto;max-width:720px;margin:0 auto}
+#write-notes .notes-sketch figcaption{margin:8px 2px 0;text-align:center;color:#475779;font-size:.9rem;line-height:1.5}
+#write-notes .theory-topic{margin:18px 0 24px}
+#write-notes .theory-topic>h3.handwritten-subtitle{display:table;position:relative;padding:5px 12px 7px;margin:17px 0 10px;border:1.5px dashed #58a98b;border-radius:10px;background:#effbf5;color:#174f43;font-size:1.08rem;line-height:1.5}
+#write-notes .theory-topic>h3.handwritten-subtitle:after{content:"  ✎";color:#e05a47}
+#write-notes .theory-topic>h4{color:#2459a9;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:#e46b91;text-underline-offset:4px}
+#write-notes .handwritten-title span{font-size:.78em;font-weight:600}
+@media(max-width:600px){
+ #write-notes .notes-sketch{padding:6px 4px;margin:12px 0 16px}
+ #write-notes .notes-sketch figcaption{font-size:.8rem}
+ #write-notes .theory-topic>h3.handwritten-subtitle{display:block;font-size:1rem;padding:6px 9px}
+}
