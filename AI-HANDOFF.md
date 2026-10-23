@@ -342,3 +342,15 @@ Validation status:
 - Updated `CURRICULUM.md` with the canonical Class IX chapter file map and source hierarchy.
 - Official source check: NCERT's Class IX ICT textbook has eight chapters; CBSE circular Acad-18/2026 also states that NCERT CT&AI modules for Classes IX–XII are intended for internal assessment in 2026–27. The current applicability of those modules must be checked before claiming that the ICT book alone covers every current assessment requirement.
 - **Not yet complete:** a full content-by-content audit of all eight pages, browser testing of every interaction on mobile/desktop, and final publication verification. Do not claim the Class IX curriculum is fully finished until those checks pass.
+
+
+## Class IX content expansion — 2026-10-23
+
+- Scope of this implementation batch: Class IX canonical eight-chapter sequence only. No other class curriculum pages were edited.
+- Added a dedicated Study & Copy section to each canonical chapter (class09/ch01_introduction_ict.html through class09/ch08_fun_with_logic.html). Each section contains chapter-specific explanatory theory with English/Hindi paragraphs, clear topic headings and copy/print actions.
+- Added a dedicated written Questions & Answers bank with bilingual model answers for the chapters. Kept Chapter 1's existing longer answer set; removed overlapping legacy Q&A blocks from Chapters 2–5 so the written-answer material is not duplicated in two places.
+- Added responsive notebook-paper styling and print-only focus styling in assets/css/style.css; updated Class IX page cache keys to class9-study-1.
+- Existing topic-specific interactions remain: Chapter 1 hardware/IPO explorer and lab activities; Chapters 2–5 document/visual/media/presentation process traces; Chapter 6 network-request/data-travel interaction; Chapter 7 safety decision scenarios; Chapter 8 algorithm/decision traces and logic challenges.
+- Static source audit after the edits found no duplicate HTML IDs or broken in-page anchor targets in the Class IX index and eight canonical chapter pages. Chapter 2–5 retain their interactive visual trace markup and JavaScript event handlers.
+- Not yet verified: live GitHub Pages deployment, real browser rendering, clipboard permission behavior, actual print output, keyboard/screen-reader behavior, or physical mobile-device layout. Do not describe these as passed until tested.
+- Next safe step: perform live browser QA of all eight chapters and expand topic-specific visual demonstrations where an interaction does not yet make the underlying process/state change sufficiently clear. Then audit the Class IX curriculum coverage against the current official NCERT ICT text and the applicable CBSE framework before calling the syllabus complete.
