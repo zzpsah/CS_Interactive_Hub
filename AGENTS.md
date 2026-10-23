@@ -89,3 +89,11 @@ This rule applies to every chapter, not only Class 9 Chapter 1.
 - **Quick Revision:** Keep it concise and revision-focused—key terms with brief definitions. Do not put full theory, duplicate Q&A, extra question banks, “points to remember,” or “common mistakes” here unless explicitly requested.
 - **No content duplication:** The three sections must serve distinct purposes: learn the concepts (Theory / Study & Copy), practise written responses (Questions and Answers), and quickly recall terminology (Quick Revision). Reuse the same subject matter only when needed for a brief cross-reference; do not repeat the same material in another format merely to fill a section.
 - **Before committing any chapter:** inspect all three sections together, confirm their roles are distinct, remove repeated content, and verify that Study & Copy contains actual explanatory theory rather than Q&A. Treat this as a required review check.
+
+## Mandatory notebook-style Study & Copy presentation
+
+- Keep the student-facing section named **Study & Copy** (with the appropriate bilingual label). Do not label it “Study Notes” or replace the notebook experience with a plain article.
+- The complete theory inside Study & Copy must be presented as a notebook-inspired writing sheet: ruled-paper or notebook-like background, handwritten/sketch-style heading treatment, clear topic headings, readable paragraphs and key facts, plus original illustrative diagrams or labelled sketches that explain the chapter concepts.
+- Include meaningful concept-specific sketches where they improve understanding (for example, computer functional units and the IPO cycle in Class 9 Chapter 1). Do not rely on decorative doodles alone; diagrams must teach.
+- Keep the notebook appearance responsive, accessible, bilingual where relevant, and printable. Keep the Writing view, Print and Copy text actions working. The notebook is part of the visible lesson, not a mode that may silently disappear.
+- Before committing changes to Study & Copy, verify the section heading is visible, the notebook styling is active by default, illustrative diagrams render, and the theory remains separate from Q&A and Quick Revision. Never remove or flatten this notebook presentation during content refactors.
