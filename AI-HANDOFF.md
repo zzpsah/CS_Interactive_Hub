@@ -298,3 +298,14 @@ Validation status:
 - Added two original responsive SVG teaching sketches: computer functional units and the IPO cycle. Styled all six theory topic headings with notebook-style highlighted labels.
 - Preserved connected explanatory theory, separate exam Q&A, Quick Revision, and Writing view / Print / Copy text actions.
 - Commits: lesson `e2aeba28`, shared styles `5994f210`. Verify GitHub Pages workflow and live appearance before claiming deployment.
+
+
+## Canonical chapter benchmark and change propagation (2026-10-23)
+
+- **Benchmark:** `class09/ch01_hardware_memory.html` (Class 9, Chapter 1 — Computer Systems, Hardware & Memory) is the canonical reference for chapter presentation and Study & Copy. Use its current implementation as the source of truth for the student-facing notebook experience and note hierarchy.
+- **Study & Copy baseline:** each topic starts with a brief one- or two-sentence explanation/definition (English and Hindi when supported), followed by concise, indented bullets. Use coloured/underlined numbered headings, readable spacing, and topic-specific labelled visuals with explanations where they genuinely improve understanding. Include examples only when useful; never add an example box mechanically to every section.
+- **Visuals:** prefer relevant editable SVG/HTML diagrams or illustrations paired with concise explanations over decorative images. Preserve the notebook appearance, Writing view, Print and Copy actions, bilingual content, responsiveness, accessibility, and separation from Questions & Answers and Quick Revision.
+- **Change propagation:** when an approved design, note-format, shared component, or interaction change is made to the benchmark, inspect every other chapter page for the corresponding section/component. Apply the equivalent change to all affected pages and shared CSS/JavaScript where appropriate. Adapt subject matter and visuals to each chapter; do not copy Class 9 computer-system content into unrelated topics. Document deliberate exceptions.
+- **Required before each commit:** compare the benchmark and affected pages; check note length and structure, visual explanations, mobile/print behavior, existing controls, language parity, and tests. Never claim all pages were synchronized unless each affected page was inspected and changed.
+- **Current scope note:** the Class 9 Chapter 1 page is the established benchmark. Class 10, 11 and 12 lesson pages have not yet been retrofitted to the full Study & Copy benchmark; apply this standard as those pages are built or when their corresponding sections are next revised. Do not describe those pages as already synchronized.
+- **Policy commit:** `c1a20d388358e621209780e40ff9f6721d841ef0` — `Make Class 9 Chapter 1 the canonical chapter benchmark`.
