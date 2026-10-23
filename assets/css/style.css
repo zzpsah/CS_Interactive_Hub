@@ -610,3 +610,24 @@ body[data-lang="hi"] #inside-computer .system-explorer .system-explanation .lang
 @media(max-width:700px){.lesson-visual{padding:12px;border-radius:15px}.visual-studio-grid{grid-template-columns:1fr}.visual-canvas svg{max-height:260px}.trace-caption{min-height:0}}
 @media(prefers-reduced-motion:reduce){.visual-node,.trace-progress span{transition:none!important;transform:none!important}}
 @media print{.lesson-visual{background:#fff!important;box-shadow:none;border:1px solid #aaa;break-inside:avoid}.trace-buttons,.trace-progress{display:none!important}.visual-node{filter:none!important;opacity:1!important}}
+
+
+/* Class 9 visual-learning polish: preserve the existing layout while improving touch, depth and inspection feedback. */
+:root{--card-shadow:0 4px 14px rgba(15,23,42,.07);--card-shadow-hover:0 9px 24px rgba(15,23,42,.11)}
+.card,.exam-answer,.interactive,.diagram,.lab-panel,.hardware-figure{box-shadow:var(--card-shadow)}
+.card,.exam-answer,.interactive,.diagram,.lab-panel{border-radius:14px}
+.card{transition:box-shadow .18s ease,transform .18s ease}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.card:hover{box-shadow:var(--card-shadow-hover);transform:translateY(-2px)}}
+button,input,select,textarea{font-family:inherit}
+button,.lang-switch button,.interactive button,.interactive input,.lab-action,.part-grid button,.port,.wire-card select{min-height:48px}
+.lang-switch{position:sticky;top:8px;z-index:20;background:#fff;box-shadow:0 2px 8px rgba(15,23,42,.06)}
+.lang-switch button{padding:8px 14px}
+.device-stage{overflow:hidden;border-radius:14px;background:radial-gradient(ellipse at 50% 15%,#fff 0%,#f4f8fc 72%);padding:clamp(8px,2vw,18px)}
+.device-stage svg{display:block;width:100%;height:auto;max-height:420px}
+.device-stage [data-part]{cursor:pointer;transition:filter .18s ease,stroke-width .18s ease}
+.device-stage [data-part]:focus-visible{outline:none;filter:drop-shadow(0 0 5px rgba(23,92,211,.85))}
+.device-stage [data-part].is-selected{filter:drop-shadow(0 0 6px rgba(23,92,211,.65));stroke:#175cd3!important;stroke-width:5!important}
+.part-grid button[aria-pressed=true]{border-color:#175cd3!important;background:#edf4ff!important;box-shadow:inset 0 0 0 1px #175cd3}
+.port:focus-visible,.lab-action:focus-visible,.part-grid button:focus-visible{outline:3px solid #e7a000;outline-offset:3px}
+@media(max-width:480px){.device-stage{padding:4px}.part-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.part-grid button{padding:9px;overflow-wrap:anywhere}.lab-tabs{display:flex;overflow-x:auto;gap:8px;padding:4px 2px 10px}.lab-tabs button{flex:0 0 auto;min-height:48px}.wire-board{grid-template-columns:1fr}.port-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.card,.device-stage [data-part]{transition:none!important}}
