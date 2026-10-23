@@ -129,3 +129,23 @@ This rule applies to every chapter, not only Class 9 Chapter 1.
 - The Class IX target sequence follows the eight NCERT ICT chapters listed in `CURRICULUM.md`. Existing pages on hardware, OS, files, bits/bytes and algorithms should be consolidated into appropriate canonical chapters or marked as optional enrichment, not treated as extra NCERT chapters.
 - Every chapter must be visually instructional: topic-specific diagrams/animations, working touch-friendly interactions, meaningful feedback, concise bilingual explanation, useful practice, and Study & Copy. Hover-only effects or decorative motion do not satisfy this requirement.
 - Update `CURRICULUM.md` whenever a chapter map changes. Keep the live site, class index pages and curriculum map consistent; never mark planned pages as complete before they are implemented and checked.
+
+
+## Class IX NCERT ICT canonical chapter set
+
+The Class IX index must link to exactly these eight canonical chapter files, in this order:
+1. `class09/ch01_introduction_ict.html` — Introduction to ICT
+2. `class09/ch02_textual_communication.html` — Creating Textual Communication
+3. `class09/ch03_visual_communication.html` — Creating Visual Communication
+4. `class09/ch04_audio_video_communication.html` — Creating Audio-Video Communication
+5. `class09/ch05_presenting_ideas.html` — Presenting Ideas
+6. `class09/ch06_getting_connected_internet.html` — Getting Connected: Internet
+7. `class09/ch07_cyber_safety.html` — Safety and Security in the Cyber World
+8. `class09/ch08_fun_with_logic.html` — Fun with Logic
+
+- `class09/index.html` is the student-facing canonical chapter list. Do not add old hardware/OS/files/bits/algorithm pages as extra NCERT chapters.
+- Legacy `ch01_hardware_memory.html`, `ch02_software_os.html`, `ch03_files_folders.html`, `ch04_internet_cyber_safety.html`, `ch05_algorithms_flowcharts.html`, `ch06_data_bits_bytes.html`, and old `ch07`–`ch10` topic pages redirect to the appropriate canonical chapter. Keep standalone labs as optional practice where linked.
+- Class VIII is a separate CBSE CT & AI track (2026–27) and must be clearly labelled as such. Do not mix it into the Class IX NCERT ICT chapter list.
+- CBSE circular Acad-18/2026 says NCERT CT&AI modules for Classes IX–XII are intended for internal assessment in 2026–27. Verify module availability and applicability before claiming the eight-chapter ICT sequence is the complete current assessment syllabus.
+- For Classes IX–XII, follow the user's NCERT-first requirement. Use current CBSE documents as a scope/applicability cross-check, not as a reason to merge distinct subject tracks or mislabel a resource.
+- Do not mark Class IX complete until all eight canonical pages have been individually checked for source alignment, complete content, working interactions, English/Hindi formatting, mobile/touch behaviour, reduced-motion accessibility, Study & Copy, print, and internal links.
