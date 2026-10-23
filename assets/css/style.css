@@ -709,3 +709,29 @@ button,.lang-switch button,.interactive button,.interactive input,.lab-action,.p
  #write-notes .notes-sketch figcaption{font-size:.8rem}
  #write-notes .theory-topic>h3.handwritten-subtitle{display:block;font-size:1rem;padding:6px 9px}
 }
+
+/* Notebook theory typography: readable paragraphs, indentation and labelled examples. */
+#write-notes .theory-topic>p,
+#write-notes .notebook-example p{line-height:1.85}
+#write-notes .theory-topic>p,
+#write-notes .notebook-example .theory-paragraph{
+ text-indent:1.5em;margin:0 0 12px;text-align:left;overflow-wrap:anywhere
+}
+#write-notes .theory-topic>p.lang-hi,
+#write-notes .notebook-example p.lang-hi{margin-top:2px;margin-bottom:15px}
+#write-notes .notebook-example{
+ margin:16px 0 20px;padding:13px 17px 8px;
+ border:1.5px dashed #d99a32;border-left:5px solid #e4b34e;
+ border-radius:10px 15px 15px 10px;background:#fffaf0;
+ box-shadow:2px 3px 0 rgba(219,174,79,.12)
+}
+#write-notes .notebook-example>h4{
+ display:table;margin:0 0 10px;padding:3px 9px;border-radius:7px;
+ background:#ffedc2;color:#754510;font-size:1rem;line-height:1.5
+}
+#write-notes .notebook-example p:last-child{margin-bottom:6px}
+#write-notes .notes-sketch figcaption{text-indent:0;font-style:italic}
+@media(max-width:600px){
+ #write-notes .theory-topic>p,#write-notes .notebook-example .theory-paragraph{line-height:1.75;text-indent:1em}
+ #write-notes .notebook-example{padding:11px 12px 6px}
+}
