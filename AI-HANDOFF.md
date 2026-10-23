@@ -277,3 +277,10 @@ Validation status:
 - Removed the multi-chapter list, unbuilt/secondary chapter cards, NCERT ICT category labels, reference-book section, and promotional library copy from the student-facing page. These were distracting from the actual lesson and caused chapter numbering/metadata clutter.
 - The landing page now uses a compact Class 9 heading and one chapter card. Keep internal HTML head metadata (such as `<title>` and `<meta name="description">`) for browser/search behavior; it is not student-facing page content and should not be rendered visibly.
 - Do not restore Chapter 2–10 cards or the broad library/category description until the owner explicitly asks to expand beyond the single-chapter review.
+
+## Class 9 clutter reduction follow-up (2026-10-23)
+
+- Removed footer slogans and the syllabus disclaimer from the Class 9 landing page and Chapter 1 lesson; the footer was not contributing to learning.
+- Removed the redundant “Class 9 · Chapter 1” badge above the Chapter 1 title. The lesson title itself remains the primary heading.
+- Removed numeric prefixes from the chapter contents links so “11 · Explore inside the computer” cannot be mistaken for a separate Chapter 11. The list is navigation within Chapter 1, not a set of separate chapters.
+- Keep student-facing pages focused on lesson titles, actual teaching content, useful navigation and interactive practice. Avoid slogans, repeated class/chapter labels, decorative metadata and numbering that can be mistaken for chapter numbers.
