@@ -124,3 +124,47 @@ The next agent must read `AGENTS.md` and this file first. Do not revert establis
 - Preserve the existing UI and topic-specific teaching layouts. Add motion where it explains change or sequence; avoid motion on every paragraph or continuous distracting animation. Respect reduced-motion preferences, keep content readable without animation, and make all interactive steps keyboard/touch accessible.
 - All HTML pages should use the `site-motion-1` cache-buster for the shared stylesheet and script until the shared motion layer changes again.
 - Browser-level motion QA remains outstanding; verify mobile and desktop, language toggle, keyboard/touch interactions, collapsed details, print mode, and reduced-motion settings before claiming visual QA complete.
+
+
+## Owner-approved visual curriculum doctrine and Log2Base2 reference (2026-10-23)
+
+### Non-negotiable project-wide direction
+The owner wants the entire Classes 9–12 curriculum and future project work to feel like a visual learning show: when a concept explains something happening, learners should be able to see the process unfold. This applies to every chapter and all supporting documentation—not only the hero or one demonstration. A few global reveal effects are only foundational motion, not fulfillment of this goal.
+
+Use this teaching pattern as the default, adapting to the topic:
+1. **Explain** the idea in concise, student-friendly English and Hindi.
+2. **Show** it with a topic-specific animated diagram, simulation, or step-by-step visual trace.
+3. **Walk through** one concrete worked example with the active component/state/line highlighted.
+4. **Let the learner control it** with appropriate Play/Pause, Next/Previous, Reset, value input, or toggles.
+5. **Check understanding** with a short prediction or question and feedback.
+6. **Consolidate** with accurate Study & Copy and revision material.
+
+### Reference study: Log2Base2
+Reference: https://www.log2base2.com/ and https://www.log2base2.com/dsa. Publicly indexed descriptions emphasize animated visual teaching, short focused lessons, step-by-step code walkthroughs, seeing changes in computer memory as code executes, and linking complex ideas to real-world examples. The reference is useful for learning design principles, not for copying its expression. Its full interactive experience is JavaScript-driven and could not be inspected through a static page open, so conclusions here are limited to publicly visible page descriptions and course listings.
+
+Adopt the following principles, independently implemented for our free, bilingual, beginner-first school curriculum:
+- **Show state changes:** values, nodes, bits, packets, memory cells, components and outputs visibly change at each step.
+- **One step at a time:** learners can advance/rewind/reset a process and see what changed and why; keep the current step and result explicit.
+- **Code-to-state mapping:** for programming topics, highlight the executing line and show variable/list/memory state side-by-side.
+- **Short, purposeful visual lessons:** break complicated processes into focused, manageable demonstrations rather than one long video or long page intro.
+- **Real-life anchors:** use familiar examples (marks, school records, messages, files, classroom networks) before increasing abstraction.
+- **Active learning:** ask learners to predict the next state, try their own input when suitable, then give clear feedback and explain errors.
+- **Curriculum-wide consistency with topic-specific visuals:** shared controls, accessibility, spacing and interaction conventions; different visual metaphors for different concepts.
+- **Original, open and portable implementation:** keep source text editable, use local SVG/HTML/CSS/JS, avoid paid-service dependencies, and create original visuals and wording. Do not reuse Log2Base2's protected video, text, branding, graphics, or code.
+
+### Topic implementation map
+- Class 9 hardware: moving data through input, CPU/ALU, memory, output and persistent storage; component focus and state.
+- Class 9 software/OS: user action → operating system → application/hardware, process and file-state walkthroughs.
+- Class 10 networks/web: packet travel, router hops, client/server request-response, browser-to-webpage flow.
+- Class 10 digital safety: interactive scenario choices with visible consequences and safe explanations.
+- Class 11 number systems: place-value columns, toggling bits, stepwise decimal/binary conversion.
+- Class 11 computer memory: address/cell selection, read/write and volatile-vs-persistent state.
+- Class 12 Python functions: line-by-line execution, call stack/arguments/return values and variable state.
+- Class 12 lists/data: index-based access, insertion/deletion and before/after state.
+- Future algorithms, loops, databases and files: trace iterations, rows/records, data movement and state changes step by step.
+
+### Implementation status discipline
+- The shared motion layer in assets/css/style.css and assets/js/app.js provides a foundation for scroll reveals and subtle interaction feedback. It does **not** mean every concept is animated yet.
+- Topic-specific animation coverage is a staged curriculum project. Track it chapter by chapter; do not claim complete coverage until each chapter has a reviewed visual teaching plan and its core process demos implemented and tested.
+- For each completed chapter, record the visual demo(s), learner controls, language support, reduced-motion behavior, and browser tests in this handoff or chapter notes.
+- Existing site contract remains in force: preserve UI/UX and navigation, keep hero sections compact, maintain English–Hindi parity, collapse optional revision/reference/lab launch sections by default, keep essential teaching visible, and respect reduced-motion, keyboard, touch, mobile and print behavior.
