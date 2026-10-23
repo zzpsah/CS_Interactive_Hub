@@ -97,3 +97,12 @@ This rule applies to every chapter, not only Class 9 Chapter 1.
 - Include meaningful concept-specific sketches where they improve understanding (for example, computer functional units and the IPO cycle in Class 9 Chapter 1). Do not rely on decorative doodles alone; diagrams must teach.
 - Keep the notebook appearance responsive, accessible, bilingual where relevant, and printable. Keep the Writing view, Print and Copy text actions working. The notebook is part of the visible lesson, not a mode that may silently disappear.
 - Before committing changes to Study & Copy, verify the section heading is visible, the notebook styling is active by default, illustrative diagrams render, and the theory remains separate from Q&A and Quick Revision. Never remove or flatten this notebook presentation during content refactors.
+
+
+## Study & Copy paragraph and example formatting
+
+- Write theory in complete, readable paragraphs under clear topic and subtopic headings. Avoid walls of text and avoid turning every sentence into a bullet.
+- Indent explanatory paragraphs, use comfortable line spacing, and keep English and Hindi paragraphs aligned and readable.
+- Put each teaching example in a clearly labelled **Example / उदाहरण** subsection or highlighted notebook box. Keep its explanation and Hindi translation together.
+- Use lists for sequences, classifications, or short groups of points. Do not indent headings, diagrams, or captions as if they were prose.
+- Apply this consistently to every chapter; check mobile, writing-view, and print layouts before committing.
