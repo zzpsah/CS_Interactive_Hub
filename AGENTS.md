@@ -104,6 +104,7 @@ This rule applies to every chapter, not only Class 9 Chapter 1.
 - Study & Copy is a concise, understandable summary students can copy into their notebooks—not a second full lesson and not a bare list of keywords. Begin each major topic with a clear one- or two-sentence definition/explanation (English and Hindi when the section is bilingual), then add the essential facts, comparisons or steps as bullets.
 - Prefer crisp bullet points over long explanatory paragraphs. Use a clear hierarchy: chapter heading, numbered topic headings, short subheadings and consistently indented bullets.
 - Style topic headings visibly with colour and underlining. Maintain readable spacing, accessible contrast and responsive layout.
-- Put each essential example in a distinct, compact **Example / उदाहरण** box; keep the English and Hindi versions together where bilingual content is provided.
-- Use only small, useful diagrams when they improve recall. Avoid oversized illustrations, filler introductions, repeated theory, duplicated Q&A, and decorative clutter.
+- Do not add an example to every topic by default. Include an example only when it genuinely clarifies a difficult or abstract idea; avoid repetitive example boxes.
+- Include useful visual learning where it improves understanding: a labelled flow diagram, component sketch, or annotated image with a short explanation of what students should notice. Keep visuals relevant to the topic, responsive, accessible and paired with English/Hindi explanations where appropriate.
+- Avoid filler introductions, repeated theory, duplicated Q&A, oversized decorations and visuals without explanatory text.
 - Preserve Writing view, Print and Copy text actions. Check mobile, writing-view and print layouts before committing.
