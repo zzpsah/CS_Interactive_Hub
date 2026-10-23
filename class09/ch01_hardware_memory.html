@@ -13,7 +13,7 @@
 <div class="nav"><a href="index.html">Class 9</a><div class="lang-switch"><button type="button" data-lang-toggle aria-pressed="false">Add Hindi</button></div></div>
 </div></div>
 <main class="wrap chapter-one">
-<header class="lesson-head chapter-hero">
+<header class="lesson-head chapter-hero"><div class="hero-motion" aria-hidden="true"><span class="hero-gear gear-one">⚙</span><span class="hero-gear gear-two">⚙</span><span class="hero-circuit circuit-one"></span><span class="hero-circuit circuit-two"></span><span class="hero-pulse"></span></div><div class="hero-copy">
 <span class="eyebrow">CLASS 9 · CHAPTER 1</span><span class="eyebrow lang-hi" lang="hi">कक्षा 9 · अध्याय 1</span>
 <h1>Computer Systems,<br>Hardware &amp; Memory</h1>
 <p class="hero-hindi lang-hi" lang="hi">कंप्यूटर प्रणाली, हार्डवेयर और मेमोरी</p>
@@ -43,8 +43,8 @@
 <section class="content-section beginner-section" id="architecture">
 <div class="section-kicker">02 · THE BIG PICTURE</div><h2>Basic computer architecture</h2>
 <p>Computer architecture describes the main functional units of a computer and how they work together.</p><p class="lang-hi" lang="hi">कंप्यूटर आर्किटेक्चर बताता है कि कंप्यूटर की मुख्य इकाइयाँ कौन-सी हैं और वे मिलकर कैसे काम करती हैं।</p>
-<div class="architecture-flow" role="img" aria-label="Input unit connects to CPU and memory, then output; secondary storage connects to the system">
-<div class="architecture-unit"><strong>Input unit</strong><span>Keyboard, mouse</span></div><span class="arch-arrow">→</span><div class="architecture-unit cpu-unit"><strong>CPU</strong><span>CU · ALU · Registers</span></div><span class="arch-arrow">↔</span><div class="architecture-unit"><strong>Main memory</strong><span>RAM · ROM</span></div><span class="arch-arrow">→</span><div class="architecture-unit"><strong>Output unit</strong><span>Monitor, printer</span></div><div class="architecture-storage"><strong>Secondary storage</strong><span>SSD / HDD — saves files for later</span></div>
+<div class="architecture-flow animated-system-flow" role="img" aria-label="Animated data path: input sends data to the CPU, the CPU exchanges data with main memory, results go to output, and secondary storage saves files">
+<div class="architecture-unit"><strong>Input unit</strong><span>Keyboard, mouse</span></div><span class="arch-arrow" aria-hidden="true">➜</span><div class="architecture-unit cpu-unit"><strong>CPU</strong><span>CU · ALU · Registers</span></div><span class="arch-arrow arch-memory-arrow" aria-hidden="true">↔</span><div class="architecture-unit"><strong>Main memory</strong><span>RAM · ROM</span></div><span class="arch-arrow">→</span><div class="architecture-unit"><strong>Output unit</strong><span>Monitor, printer</span></div><div class="architecture-storage"><strong>Secondary storage</strong><span>SSD / HDD — saves files for later</span></div>
 </div>
 <ul><li><strong>Input unit:</strong> sends data and instructions into the computer.</li><li><strong>CPU:</strong> executes instructions and controls processing.</li><li><strong>Main memory:</strong> holds instructions and data needed by the computer.</li><li><strong>Output unit:</strong> presents the results.</li><li><strong>Secondary storage:</strong> keeps files even after the computer is switched off.</li></ul>
 <p class="lang-hi" lang="hi"><strong>मुख्य इकाइयाँ:</strong> इनपुट यूनिट डेटा देती है, CPU निर्देश चलाता है, मेमोरी काम के लिए डेटा रखती है, आउटपुट यूनिट परिणाम दिखाती है और स्टोरेज फाइलें सुरक्षित रखता है।</p>
@@ -130,7 +130,7 @@
 </section>
 
 <section class="content-section" id="virtual-lab">
-<div class="section-kicker">PRACTISE · अभ्यास</div><h2>Practice lab</h2>
+<details class="activity-collapse"><summary><span><span class="section-kicker">PRACTISE · अभ्यास</span><strong>Practice lab / अभ्यास</strong><small>Expand when you are ready to practise.</small></span><span class="activity-summary-icon" aria-hidden="true">＋</span></summary><div class="activity-content"><h2>Practice lab</h2>
 <p>Start with the guided lab, then complete the short classification task below. The activities are simulations for learning; they do not control your real computer.</p>
 <div class="lab-reference-collapse"><div class="lab-launch-card"><div class="lab-launch-icon">🧪</div><div><h3>Computer hardware explorer</h3><p>Explore desktop, laptop, tablet and internal system-unit components. Identify ports, practise cable connections, and follow the simulated startup sequence.</p><a class="btn" href="hardware_lab.html">Open the interactive hardware lab →</a></div></div></div>
 <h3>Activity A · Sort the devices</h3><p>Select a device, then select the correct category. You can also drag a device onto a category on a computer.</p>
@@ -139,7 +139,7 @@
 <h3>Activity B · Simulate the startup sequence</h3><p>When a computer is switched on, several stages happen before the sign-in screen appears. Step through this simplified model.</p>
 <div class="interactive boot-steps" data-step-sim><ol><li>Power is switched on and the system receives power.</li><li>Firmware starts and checks/initialises essential hardware.</li><li>The firmware locates a bootable device and starts the boot manager.</li><li>The operating system loader loads the necessary system components into memory.</li><li>The operating system initialises services and devices, then shows the sign-in screen.</li></ol><p class="step-output" data-step-output aria-live="polite"></p><div class="controls"><button type="button" data-step-prev>← Previous</button><button type="button" data-step-next>Next step →</button><button type="button" data-step-reset>Start again</button></div><p class="small">This is a simplified educational sequence. Exact screens and steps vary by device and operating system.</p></div>
 <h3>Activity C · Check your understanding</h3><div class="interactive" data-choice-panel><p><strong>Which component normally holds the files you want to open again tomorrow?</strong></p><div class="controls"><button type="button" class="study-choice" data-feedback-text="Correct! An SSD or HDD is persistent storage for saved files.">SSD / HDD</button><button type="button" class="study-choice" data-feedback-text="Not quite. RAM is working memory and normally loses its contents when power is removed.">RAM</button><button type="button" class="study-choice" data-feedback-text="Not quite. The CPU executes instructions; it is not the usual place for saved files.">CPU</button></div><p class="feedback" data-choice-output aria-live="polite"></p></div>
-</section>
+</div></details></section>
 
 
 <section class="content-section" id="write-notes">
