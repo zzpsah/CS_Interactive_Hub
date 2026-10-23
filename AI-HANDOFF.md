@@ -180,3 +180,10 @@ Adopt the following principles, independently implemented for our free, bilingua
 - `class09/index.html` now links all six Class 9 chapters as published first releases. The site-wide curriculum still must not claim these are officially examinable until the current relevant Bihar SCERT/BSEB syllabus is verified.
 - This is a first implementation pass, not a claim that every chapter has complete bilingual parity or passed browser QA. Follow-up review: run HTML/JS/link/accessibility/mobile/print checks; improve Chapter 2's main theory page and ensure Hindi parity across all interactive feedback; expand Chapter 3 with safe file operations; improve topic-specific visual controls where still static; verify the image zoom dialog on the live Chapter 1 page; inspect GitHub Actions/Pages deployment status.
 - The existing Chapter 1 hardware lesson remains the visual prototype. Shared scroll reveal is only a foundation; topic-specific state changes must be tested independently.
+
+
+## Class 9 detailed-content corrective pass (2026-10-23)
+
+The initial Class 9 chapters 3–6 were too thin to count as detailed visual learning. Following user feedback, each now has expanded concept explanations, worked examples, Hindi explanations, more substantial Study & Copy notes, short-answer questions and model long answers. Chapters 2–6 now also include additional topic-specific visual controls or animations: OS/app launch stages (Ch. 2), saving flow (Ch. 3), web request path (Ch. 4), conditional branch trace (Ch. 5), and bit toggling with decimal place values (Ch. 6). This is a correction in progress, not a claim of finished quality.
+
+Next required work: test every control and animation in a browser; fix any JS, language-switch, print, mobile or accessibility problems; review Chapter 1 for any external image dependencies and ensure all illustrations are locally portable; add equivalent depth and Hindi feedback where missing; only then mark the Class 9 curriculum visually complete. Keep the static site and existing UI/navigation; no backend or new dependencies.
