@@ -430,3 +430,23 @@ body.writing-focus #write-notes .notes-actions .small{color:#24334c}
 @media print{
  #write-notes .notes-mode-switch{display:none!important}
 }
+
+/* Beginner-first Chapter 1 layout */
+.chapter-index{border:1px solid var(--line);border-radius:14px;padding:12px 15px;background:#fff}
+.chapter-index>summary{cursor:pointer;font-weight:800;color:#17264b}
+.chapter-index .toc-grid{margin-top:12px}
+.beginner-section>h2{margin-top:6px}
+.beginner-section .definition-card{border-left:5px solid var(--blue);background:#f3f7ff;border-radius:12px;padding:16px 18px;margin:18px 0}
+.beginner-section .definition-card h3{margin-top:0}
+.beginner-section figure figcaption{font-size:.9rem;color:var(--muted);padding:6px 8px}
+.architecture-flow{display:flex;align-items:stretch;justify-content:center;gap:8px;flex-wrap:wrap;padding:16px;border:1px solid #d5def3;border-radius:16px;background:#f7faff;margin:18px 0}
+.architecture-unit{display:flex;flex-direction:column;justify-content:center;gap:7px;min-width:115px;max-width:180px;flex:1;text-align:center;padding:15px 10px;border:2px solid #b9ccef;border-radius:12px;background:#fff;color:#17264b}
+.architecture-unit span{font-size:.83rem;color:var(--muted)}
+.architecture-unit.cpu-unit{background:#eaf2ff;border-color:#175cd3}
+.arch-arrow{align-self:center;font-size:1.5rem;font-weight:900;color:#175cd3}
+.architecture-storage{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;width:100%;padding:11px;background:#fff0d8;border:1px solid #f2d19c;border-radius:10px;color:#78410b}
+.function-grid,.characteristics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px;margin:18px 0}
+.function-card,.characteristics-grid article{border:1px solid var(--line);border-radius:13px;padding:15px;background:#fff}
+.function-card>span{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--bluebg);color:#123e87;font-weight:850}
+.function-card h3,.characteristics-grid h3{margin:.55rem 0}
+@media(max-width:600px){.architecture-flow{gap:6px;padding:10px}.architecture-unit{min-width:42%;max-width:none}.arch-arrow{font-size:1.2rem}.architecture-storage{flex-direction:column;gap:4px;text-align:center}}
