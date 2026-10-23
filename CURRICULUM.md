@@ -69,3 +69,8 @@ Use Log2Base2 as inspiration for animated concept explanation and step-by-step c
 - **Class 12, Chapter 1 — Python Functions:** step through line execution, arguments, local variables and return values.
 - **Class 12, Chapter 2 — Lists and Data Handling:** animate indexed access, insertion/deletion and before/after list state.
 - Planned chapters should define their visual model before implementation begins, alongside syllabus accuracy and bilingual content checks.
+
+
+## Shared chapter design system — mandatory for every chapter
+
+Every chapter must inherit the same established visual language and learning affordances as Class 9 Chapter 1. This is a project-wide implementation rule, not an optional topic-level preference. Use the shared stylesheet and shared lesson patterns for the notebook-inspired Study & Copy area, coloured hierarchy, consistent heading treatment, accessible icons, explanatory callouts, bullets/lists, diagrams, interactive states, bilingual labels, responsive layouts, print and reduced-motion support. Topic-specific visuals and animations must differ when the concept differs, while typography, spacing, colour tokens, section framing, and study-note experience remain coherent. Do not mark a chapter complete because it has text and one animation. Inspect the rendered page against Chapter 1, check every control and notes section, and fix cross-chapter drift before adding more isolated features.
