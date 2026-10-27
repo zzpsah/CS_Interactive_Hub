@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Bilingual visual demo lesson: how a CPU runs an instruction through the fetch–decode–execute cycle, with animated memory and registers, step controls and bilingual explanations.">
+<title>CPU: The Fetch–Decode–Execute Cycle · Class 9 Visual Lesson | CS सीखें</title>
+<link rel="stylesheet" href="../assets/css/style.css?v=class9-study-2">
+<style>
+/* Page-scoped styles for the CPU cycle demo lesson; shared tokens and layout come from style.css. */
+.lesson-panel{border:1px solid var(--line);border-radius:16px;padding:16px;margin:18px 0;background:#fff}
+.lab-action{border:1px solid #9aa4b2;border-radius:10px;padding:9px 14px;background:#fff;color:#151515;cursor:pointer;font-weight:650}
+.lab-action:disabled{opacity:.45;cursor:not-allowed}
+.lab-action.primary{background:#151515;color:#fff}
+.lab-action[aria-pressed="true"]{background:#175cd3;border-color:#175cd3;color:#fff}
+.memory-cell-active{background:#edf4ff;border-radius:8px;padding:8px!important;border:1px solid #175cd3!important;box-shadow:inset 3px 0 #175cd3}
+.execution-node.loop-node{background:#f8fafc}
+.execution-node .loop-back{font-size:.72rem;color:var(--muted)}
+.chip-part{transition:filter .2s ease}
+.chip-part rect{fill:#fff;stroke:#64748b;stroke-width:2}
+.chip-part[data-chip-part="alu"] rect{fill:#d1fae5;stroke:#047857;stroke-width:2}
+.chip-part[data-chip-part="reg"] rect{fill:#fef3c7;stroke:#b45309;stroke-width:2}
+.chip-part.is-active rect{stroke:#b45309;stroke-width:4;filter:drop-shadow(0 0 6px #f0a726)}
+.execution-registers .reg-row.is-lit{background:#edf4ff;border-radius:8px;box-shadow:inset 3px 0 #175cd3;padding-left:10px}
+.data-packet.packet-pulse{animation:packet-pulse 1.1s ease-in-out infinite}
+@keyframes packet-pulse{0%,100%{box-shadow:0 0 0 3px rgba(23,92,211,.12)}50%{box-shadow:0 0 0 9px rgba(23,92,211,.22)}}
+@media(prefers-reduced-motion:reduce){.data-packet.packet-pulse{animation:none}.chip-part{transition:none}}
+@media(max-width:650px){.lesson-panel{padding:10px}}
+</style>
+</head>
+<body data-lang="en">
+<div class="topbar"><div class="wrap">
+<a class="brand" href="../index.html">📘 CS सीखें · Learn Computer Science</a>
+<div class="nav"><a href="index.html">Class 9</a><a href="ch01_introduction_ict.html">Chapter 1</a><div class="lang-switch"><button type="button" data-lang-toggle aria-pressed="false">Add Hindi</button></div></div>
+</div></div>
+<main class="wrap">
+<header class="lesson-head">
+<span class="eyebrow">CLASS 9 · VISUAL DEMO LESSON · <span class="lang-hi" lang="hi">अध्याय 1 से जुड़ा पाठ</span></span>
+<h1>Inside the CPU: The Fetch–Decode–Execute Cycle<br><span class="lang-hi" lang="hi">सीपीयू के अंदर: फ़ेच–डीकोड–एग्ज़ीक्यूट चक्र</span></h1>
+<p class="lead lang-en">Every program, from a calculator to a game, is a long list of simple instructions. The CPU runs them one at a time in the same repeating cycle: <strong>fetch</strong> the instruction, <strong>decode</strong> what it means, <strong>execute</strong> it. Step through the animation below and watch memory, the registers and the ALU change together.</p>
+<p class="lead lang-hi" lang="hi">कैलकुलेटर हो या गेम, हर प्रोग्राम सरल निर्देशों की लंबी सूची है। CPU उन्हें एक-एक करके उसी घूमते चक्र से चलाता है: निर्देश <strong>फ़ेच (प्राप्त)</strong> करना, उसका अर्थ <strong>डीकोड</strong> करना और उसे <strong>एग्ज़ीक्यूट</strong> करना। नीचे का एनिमेशन चरण-दर-चरण चलाकर मेमोरी, रजिस्टर और ALU में साथ-साथ बदलाव देखें।</p>
+</header>
+
+<section class="content-section" id="what-is-instruction">
+<h2>What is a machine instruction?<span class="lang-hi" lang="hi"> / मशीन निर्देश क्या है?</span></h2>
+<p>A <strong>machine instruction</strong> is one command that the CPU understands and can carry out directly. Instructions live in <strong>main memory (RAM)</strong>, each at its own address, just like houses on a street have house numbers. A small program is simply several instructions stored one after another.</p>
+<p class="lang-hi" lang="hi"><strong>मशीनिर्देश</strong> CPU की भाषा का एक ही आदेश है, जिसे वह सीधे समझकर चला सकता है। सभी निर्देश <strong>मुख्य मेमोरी (RAM)</strong> में अपने-अपने पते पर रखे होते हैं, जैसे किसी गली में मकानों के नंबर होते हैं। छोटा प्रोग्राम मतलब एक के बाद एक रखे गए कई निर्देश।</p>
+<div class="definition-card" style="border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0;background:#f7faff">
+<h3>The three parts you will watch<span class="lang-hi" lang="hi"> / देखे जाने वाले तीन मुख्य भाग</span></h3>
+<ul>
+<li><strong>Program Counter (PC):</strong> keeps the address of the <em>next</em> instruction to fetch.<p class="lang-hi" lang="hi"><strong>प्रोग्राम काउंटर (PC):</strong> अगले निर्देश का पता रखता है, यानी बताता है कि अब कहाँ से पढ़ना है।</p></li>
+<li><strong>Instruction Register (IR):</strong> holds the instruction that was just fetched.<p class="lang-hi" lang="hi"><strong>इनस्ट्रक्शन रजिस्टर (IR):</strong> अभी-अभी फ़ेच किया गया निर्देश यहाँ आता है।</p></li>
+<li><strong>Control Unit (CU) &amp; ALU:</strong> the CU works out what the instruction means and directs each step; the ALU does the arithmetic and comparisons.<p class="lang-hi" lang="hi"><strong>कंट्रोल यूनिट (CU) और ALU:</strong> CU निर्देश का अर्थ समझकर हर चरण का निर्देशन करती है; ALU जोड़-तुलना जैसी गणना करता है।</p></li>
+</ul>
+</div>
+<div class="diagram"><svg viewBox="0 0 760 330" role="img" aria-labelledby="cycle-svg-title"><title id="cycle-svg-title">The fetch-decode-execute cycle: the CPU fetches an instruction from memory, the control unit decodes it, the ALU or registers execute it, then the program counter moves to the next instruction</title>
+<defs><marker id="cycArrow" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0L0 6L7 3Z" fill="#5368d8"/></marker></defs>
+<rect x="24" y="96" width="180" height="150" rx="14" fill="#e2f7f1" stroke="#16845b" stroke-width="3"/>
+<text x="114" y="128" font-size="17" font-weight="800" text-anchor="middle" fill="#0d4b3c">MEMORY (RAM)</text>
+<g font-size="12" fill="#0d4b3c" text-anchor="start" font-family="ui-monospace,monospace"><rect x="44" y="142" width="140" height="24" rx="4" fill="#fff" stroke="#95c9b8"/><text x="52" y="158">00 · LOAD A, 120</text><rect x="44" y="172" width="140" height="24" rx="4" fill="#fff" stroke="#95c9b8"/><text x="52" y="188">01 · ADD A, 80</text><rect x="44" y="202" width="140" height="24" rx="4" fill="#fff" stroke="#95c9b8"/><text x="52" y="218">02 · STORE A, 03</text></g>
+<rect x="330" y="30" width="400" height="270" rx="18" fill="#eee9ff" stroke="#7258d6" stroke-width="3"/>
+<text x="530" y="60" font-size="17" font-weight="800" text-anchor="middle" fill="#3d2f7d">CPU</text>
+<rect x="352" y="80" width="170" height="62" rx="10" fill="#fff" stroke="#64748b" stroke-width="2"/><text x="437" y="106" font-size="14" font-weight="800" text-anchor="middle" fill="#17223b">1 · FETCH</text><text x="437" y="126" font-size="12" text-anchor="middle" fill="#43518a">read instruction</text>
+<rect x="540" y="80" width="170" height="62" rx="10" fill="#fff" stroke="#64748b" stroke-width="2"/><text x="625" y="106" font-size="14" font-weight="800" text-anchor="middle" fill="#17223b">2 · DECODE</text><text x="625" y="126" font-size="12" text-anchor="middle" fill="#43518a">CU works it out</text>
+<rect x="540" y="190" width="170" height="62" rx="10" fill="#fff" stroke="#64748b" stroke-width="2"/><text x="625" y="216" font-size="14" font-weight="800" text-anchor="middle" fill="#17223b">3 · EXECUTE</text><text x="625" y="236" font-size="12" text-anchor="middle" fill="#43518a">ALU / registers act</text>
+<rect x="352" y="190" width="170" height="62" rx="10" fill="#fff" stroke="#64748b" stroke-width="2"/><text x="437" y="216" font-size="14" font-weight="800" text-anchor="middle" fill="#17223b">PC + 1</text><text x="437" y="236" font-size="12" text-anchor="middle" fill="#43518a">next instruction</text>
+<g fill="none" stroke="#5368d8" stroke-width="3" marker-end="url(#cycArrow)">
+<path d="M204 136L344 116"/>
+<path d="M522 111H536"/>
+<path d="M625 142V186"/>
+<path d="M540 221H526"/>
+<path d="M437 190V146"/>
+<path d="M400 252Q340 300 260 250" />
+</g>
+<text x="255" y="88" font-size="12" fill="#43518a">instruction goes to CPU</text>
+<text x="288" y="296" font-size="12" fill="#43518a">results may be written back to memory</text>
+</svg><figcaption>The same three steps repeat for every instruction. The Program Counter is what stops the CPU from losing its place.</figcaption>
+<p class="lang-hi" lang="hi" style="margin-top:6px">हर निर्देश पर यही तीन चरण घूमते हैं: फ़ेच → डीकोड → एग्ज़ीक्यूट। Program Counter बताता है कि अगला निर्देश कहाँ से आना है, इसलिए CPU अपना क्रम नहीं भूलता।</p></div>
+</section>
+
+<section class="content-section" id="cycle-simulation">
+<h2>🧪 Run the cycle step by step<span class="lang-hi" lang="hi"> / चक्र को चरण-दर-चरण चलाएँ</span></h2>
+<p>The program below solves a real school problem: <strong>Mona pays ₹120 for a notebook and ₹80 for a pen. What is the total bill?</strong> The CPU runs three instructions; the simulation follows each one through the full cycle. Use <strong>Play</strong> for automatic steps or <strong>Next / Previous</strong> to go at your own speed.</p>
+<p class="lang-hi" lang="hi">नीचे का प्रोग्राम एक असली स्कूली समस्या हल करता है: <strong>मोना ने कॉपी पर ₹120 और कलम पर ₹80 खर्च किए। कुल बिल कितना?</strong> CPU तीन निर्देश चलाता है और यह मॉडल हर निर्देश को पूरे चक्र (फ़ेच → डीकोड → एग्ज़ीक्यूट) में से गुज़ारता है। अपनी गति से देखने के लिए <strong>Next / Previous</strong> उपयोग करें।</p>
+<div class="lesson-panel">
+<div class="execution-toolbar"><span class="pill">PROGRAM · TOTAL BILL = 120 + 80</span><span class="execution-step-count" data-cpu-instruction>Instruction 1 of 3</span></div>
+<div class="execution-flow" aria-label="The three stages of the cycle for the current instruction">
+<div class="execution-node" data-stage-node="fetch"><span>STEP A</span><strong>Fetch</strong><small>Read the instruction from memory</small><small class="loop-back lang-hi" lang="hi">मेमोरी से निर्देश पढ़ना</small></div>
+<span class="execution-arrow" aria-hidden="true">→</span>
+<div class="execution-node" data-stage-node="decode"><span>STEP B</span><strong>Decode</strong><small>CU works out what it means</small><small class="loop-back lang-hi" lang="hi">CU अर्थ समझती है</small></div>
+<span class="execution-arrow" aria-hidden="true">→</span>
+<div class="execution-node" data-stage-node="execute"><span>STEP C</span><strong>Execute</strong><small>ALU / registers / memory act</small><small class="loop-back lang-hi" lang="hi">ALU, रजिस्टर या मेमोरी कार्य करती हैं</small></div>
+<span class="execution-arrow" aria-hidden="true">↻</span>
+<div class="execution-node loop-node"><span>THEN</span><strong>Repeat</strong><small>PC moves to the next instruction</small><small class="loop-back lang-hi" lang="hi">PC अगले निर्देश पर जाता है</small></div>
+</div>
+<div class="execution-visual" data-cpu-visual>
+<div class="execution-memory"><h3>Memory / मेमोरी</h3>
+<div class="memory-cell" data-mem-cell="0"><span class="cell-label">Address 00</span><code>LOAD A, 120</code></div>
+<div class="memory-cell" data-mem-cell="1"><span class="cell-label">Address 01</span><code>ADD A, 80</code></div>
+<div class="memory-cell" data-mem-cell="2"><span class="cell-label">Address 02</span><code>STORE A, 03</code></div>
+<div class="memory-cell" data-mem-cell="3"><span class="cell-label">Address 03</span><code data-result-cell>— empty —</code></div>
+</div>
+<svg class="execution-chip" viewBox="0 0 300 230" role="img" aria-label="CPU chip showing the control unit, the arithmetic logic unit and the accumulator register">
+<rect x="55" y="38" width="190" height="158" rx="18" fill="#dbeafe" stroke="#1d4ed8" stroke-width="4"/>
+<path d="M70 18v20m25-20v20m25-20v20m25-20v20m25-20v20m25-20v20m25-20v20M70 192v20m25-20v20m25-20v20m25-20v20m25-20v20m25-20v20m25-20v20M38 58h17m-17 25h17m-17 25h17m-17 25h17m-17 25h17M245 58h17m-17 25h17m-17 25h17m-17 25h17m-17 25h17" stroke="#64748b" stroke-width="5" stroke-linecap="round"/>
+<g class="chip-part" data-chip-part="cu"><rect x="74" y="52" width="152" height="44" rx="8"/><text x="150" y="70" font-size="11" font-weight="700" text-anchor="middle" fill="#334155">CONTROL UNIT (CU)</text><text x="150" y="87" font-size="10" text-anchor="middle" fill="#475569" data-cu-state>idle</text></g>
+<g class="chip-part" data-chip-part="alu"><rect x="74" y="106" width="152" height="46" rx="8" fill="#d1fae5" stroke="#047857" stroke-width="2"/><text x="150" y="124" font-size="11" font-weight="700" text-anchor="middle" fill="#065f46">ALU</text><text x="150" y="143" font-size="12" font-weight="800" text-anchor="middle" fill="#065f46" data-alu-value>WAITING</text></g>
+<g class="chip-part" data-chip-part="reg"><rect x="74" y="162" width="152" height="30" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="2"/><text x="150" y="182" font-size="11" font-weight="800" text-anchor="middle" fill="#7c4a03">REGISTER A = <tspan data-acc-in-chip>—</tspan></text></g>
+<text x="150" y="222" font-size="10" text-anchor="middle" fill="#64748b">simplified teaching model</text>
+</svg>
+<div class="execution-registers"><h3>CPU registers / रजिस्टर</h3>
+<div class="reg-row" data-reg-row="pc"><span>Program Counter (PC)</span><strong data-pc-value>00</strong></div>
+<div class="reg-row" data-reg-row="ir"><span>Instruction Register (IR)</span><strong data-ir-value>—</strong></div>
+<div class="reg-row" data-reg-row="acc"><span>Accumulator (A)</span><strong data-acc-value>—</strong></div>
+</div>
+</div>
+<div class="execution-data-path" aria-hidden="true"><span class="data-packet" data-packet></span><span class="data-path-label" data-path-label>Ready. Press Play or Next to fetch the first instruction.</span></div>
+<div class="execution-controls"><button type="button" class="lab-action" data-cpu-prev disabled>← Previous</button><button type="button" class="lab-action" data-cpu-play aria-pressed="false">▶ Play</button><button type="button" class="lab-action primary" data-cpu-next>Next step →</button><button type="button" class="lab-action" data-cpu-reset>⟲ Reset</button><span class="execution-step-count" data-cpu-count>Step 0 of 9</span></div>
+<div class="lab-feedback" style="min-height:3em;background:#f7faff;padding:12px;border-radius:10px;margin-top:10px" aria-live="polite">
+<p><strong data-title-en>Start the simulation.</strong> <span data-copy-en>Press Next to fetch the first instruction, or Play to watch the whole cycle run.</span></p>
+<p class="lang-hi" lang="hi"><strong data-title-hi>सिमुलेशन शुरू करें।</strong> <span data-copy-hi>पहला निर्देश फ़ेच करने के लिए Next दबाएँ, या पूरा चक्र देखने के लिए Play दबाएँ।</span></p>
+<p class="small">Simplified teaching model: real CPUs add pipelining, cache and many more registers, but every instruction still follows fetch → decode → execute. / <span class="lang-hi" lang="hi">यह सरल शिक्षण-मॉडल है; वास्तविक CPU में pipeline, cache आदि होते हैं, फिर भी हर निर्देश फ़ेच → डीकोड → एग्ज़ीक्यूट चक्र ही चलता है।</span></p>
+</div>
+</div>
+</section>
+
+<section class="content-section" id="worked-trace">
+<h2>📋 Worked example: the same trace in words<span class="lang-hi" lang="hi"> / हल किया उदाहरण: वही यात्रा शब्दों में</span></h2>
+<p>Here is the complete run of the bill program as a table. Read a row, then check that the simulation shows the same values.</p>
+<p class="lang-hi" lang="hi">नीचे बिल-प्रोग्राम की पूरी चाल सारणी में है। एक पंक्ति पढ़ें, फिर सिमुलेशन में वही मान मिलाकर देखें।</p>
+<div class="table-scroll"><table class="color-table">
+<thead><tr><th>Instruction</th><th>Fetch<span class="lang-hi" lang="hi"> / प्राप्त करना</span></th><th>Decode<span class="lang-hi" lang="hi"> / अर्थ</span></th><th>Execute<span class="lang-hi" lang="hi"> / क्रियान्वयन</span></th><th>Register A after</th></tr></thead>
+<tbody>
+<tr><td><code>LOAD A, 120</code></td><td>PC = 00 → read address 00 → IR</td><td>CU: put 120 into A</td><td>A = 120, PC → 01</td><td>120</td></tr>
+<tr><td><code>ADD A, 80</code></td><td>PC = 01 → read address 01 → IR</td><td>CU: ALU must add A and 80</td><td>ALU: 120 + 80 = 200 → A, PC → 02</td><td>200</td></tr>
+<tr><td><code>STORE A, 03</code></td><td>PC = 02 → read address 02 → IR</td><td>CU: write A to memory address 03</td><td>Memory[03] = 200, PC → 03</td><td>200</td></tr>
+</tbody></table></div>
+<div class="callout"><strong>Notice the pattern:</strong> the fetch step is always the same — read the instruction where the Program Counter points. Only the <em>execute</em> step changes: LOAD moves data, ADD calculates, STORE writes back. That is why the cycle can run any program at all.</div>
+<p class="lang-hi" lang="hi"><strong>ध्यान दें:</strong> फ़ेच चरण हमेशा एक जैसा — PC जिस पते पर है, वहाँ से निर्देश पढ़ना। बदलता केवल एग्ज़ीक्यूट चरण है: LOAD डेटा लाता है, ADD जोड़ता है, STORE मेमोरी में लिखता है। इसीलिए एक ही चक्र किसी भी प्रोग्राम को चला सकता है।</p>
+<div class="worked-example"><h3>How fast does this cycle repeat?<span class="lang-hi" lang="hi"> / यह चक्र कितनी तेज़ी से घूमता है?</span></h3><p>A modern CPU is clocked in gigahertz: billions of cycles per second. Even so, it still handles <strong>one instruction at a time</strong> through fetch, decode and execute — speed comes from doing the cycle very fast, not from skipping steps.</p><p class="lang-hi" lang="hi">आधुनिक CPU गीगाहर्ट्ज़ घड़ी में चलता है — प्रति सेकंड अरबों चक्र। फिर भी वह एक समय में <strong>एक ही निर्देश</strong> फ़ेच, डीकोड और एग्ज़ीक्यूट चरणों से गुज़ारता है; गति चक्र को बहुत तेज़ी से दोहराने से आती है, चरण छोड़ने से नहीं।</p></div>
+</section>
+
+<section class="content-section" id="understanding-quiz">
+<h2>✅ Check your understanding<span class="lang-hi" lang="hi"> / अपनी समझ जाँचें</span></h2>
+<p>Answer, then press <strong>Check answers</strong>. Each question shows an explanation.</p>
+<p class="lang-hi" lang="hi">उत्तर चुनें, फिर <strong>Check answers</strong> दबाएँ। हर प्रश्न पर व्याख्या दिखेगी।</p>
+<div class="interactive quiz-panel" data-quiz>
+<div class="quiz-question" data-answer="b" data-explain="The Program Counter always holds the address of the next instruction to fetch, so the CPU knows where to read next. / प्रोग्राम काउंटर में हमेशा अगले निर्देश का पता रहता है; इसी से CPU जानता है कि आगे कहाँ पढ़ना है।">
+<p><strong>1. What does the Program Counter (PC) store?</strong> <span class="lang-hi" lang="hi">/ Program Counter क्या रखता है?</span></p>
+<label class="quiz-option"><input type="radio" name="q1" value="a"> The result of the last calculation / पिछली गणना का परिणाम</label>
+<label class="quiz-option"><input type="radio" name="q1" value="b"> The address of the next instruction / अगले निर्देश का पता</label>
+<label class="quiz-option"><input type="radio" name="q1" value="c"> The clock speed of the CPU / CPU की घड़ी गति</label>
+<p class="feedback" data-feedback aria-live="polite"></p>
+</div>
+<div class="quiz-question" data-answer="c" data-explain="The cycle order is fixed: fetch the instruction from memory, decode it in the Control Unit, then execute it. / चक्र का क्रम निश्चित है: पहले निर्देश मेमोरी से फ़ेच करना, फिर CU से उसका अर्थ करना, फिर एग्ज़ीक्यूट करना।">
+<p><strong>2. Which order shows the cycle correctly?</strong> <span class="lang-hi" lang="hi">/ चक्र का सही क्रम कौन-सा है?</span></p>
+<label class="quiz-option"><input type="radio" name="q2" value="a"> Execute → Fetch → Decode / एग्ज़ीक्यूट → फ़ेच → डीकोड</label>
+<label class="quiz-option"><input type="radio" name="q2" value="b"> Decode → Execute → Fetch / डीकोड → एग्ज़ीक्यूट → फ़ेच</label>
+<label class="quiz-option"><input type="radio" name="q2" value="c"> Fetch → Decode → Execute / फ़ेच → डीकोड → एग्ज़ीक्यूट</label>
+<p class="feedback" data-feedback aria-live="polite"></p>
+</div>
+<div class="quiz-question" data-answer="a" data-explain="During fetch, the CPU copies the instruction from main memory (RAM) into the Instruction Register. Instructions live in RAM, not in the ALU or a storage drive. / फ़ेच चरण में CPU निर्देश को मुख्य मेमोरी (RAM) से पढ़कर IR में रखता है। निर्देश RAM में होते हैं, ALU या स्टोरेज ड्राइव में नहीं।">
+<p><strong>3. Where does the CPU fetch an instruction from?</strong> <span class="lang-hi" lang="hi">/ CPU निर्देश कहाँ से फ़ेच करता है?</span></p>
+<label class="quiz-option"><input type="radio" name="q3" value="a"> Main memory (RAM) / मुख्य मेमोरी (RAM)</label>
+<label class="quiz-option"><input type="radio" name="q3" value="b"> The ALU / ALU से</label>
+<label class="quiz-option"><input type="radio" name="q3" value="c"> The SSD / SSD से</label>
+<p class="feedback" data-feedback aria-live="polite"></p>
+</div>
+<div class="quiz-question" data-answer="c" data-explain="Decoding happens in the Control Unit, which interprets the instruction in the IR and plans the steps. / डीकोड Control Unit में होता है; वह IR वाले निर्देश का अर्थ समझकर चरण तय करती है।">
+<p><strong>4. Which part decodes the instruction?</strong> <span class="lang-hi" lang="hi">/ निर्देश का डीकोड कौन करता है?</span></p>
+<label class="quiz-option"><input type="radio" name="q4" value="a"> The ALU / ALU</label>
+<label class="quiz-option"><input type="radio" name="q4" value="b"> The Program Counter / Program Counter</label>
+<label class="quiz-option"><input type="radio" name="q4" value="c"> The Control Unit / Control Unit</label>
+<p class="feedback" data-feedback aria-live="polite"></p>
+</div>
+<div class="quiz-question" data-answer="a" data-explain="Register A already holds 120; ADD A, 80 makes the ALU compute 120 + 80 = 200 and put the result back in A. Memory address 03 is only touched by the STORE instruction. / रजिस्टर A में पहले से 120 है; ADD A, 80 से ALU 120 + 80 = 200 निकालकर परिणाम A में रखता है। पता 03 पर STORE से ही लिखा जाता है।">
+<p><strong>5. A = 120 and the instruction is ADD A, 80. What is in A after execute?</strong> <span class="lang-hi" lang="hi">/ A में 120 है और निर्देश ADD A, 80 है। एग्ज़ीक्यूट के बाद A में क्या होगा?</span></p>
+<label class="quiz-option"><input type="radio" name="q5" value="a"> 200</label>
+<label class="quiz-option"><input type="radio" name="q5" value="b"> 80</label>
+<label class="quiz-option"><input type="radio" name="q5" value="c"> 120</label>
+<p class="feedback" data-feedback aria-live="polite"></p>
+</div>
+<div class="quiz-actions"><button type="button" class="lab-action primary" data-check>Check answers / उत्तर जाँचें</button></div>
+<p class="quiz-result" data-score aria-live="polite"></p>
+</div>
+</section>
+
+<section class="content-section" id="cycle-summary">
+<details class="activity-collapse"><summary><span><strong>Quick Revision / त्वरित पुनरावृत्ति</strong><small>Key terms from this lesson.</small></span><span class="activity-summary-icon" aria-hidden="true">＋</span></summary>
+<div class="activity-content">
+<ul>
+<li><strong>Machine instruction:</strong> one command the CPU can carry out directly, stored at a memory address.<p class="lang-hi" lang="hi"><strong>मशीनिर्देश:</strong> CPU की भाषा का एक आदेश, जो मेमोरी के किसी पते पर रखा होता है।</p></li>
+<li><strong>Fetch:</strong> read the instruction at the PC address into the IR.<p class="lang-hi" lang="hi"><strong>फ़ेच:</strong> PC के पते पर रखा निर्देश पढ़कर IR में लाना।</p></li>
+<li><strong>Decode:</strong> the CU works out what the instruction means.<p class="lang-hi" lang="hi"><strong>डीकोड:</strong> CU निर्देश का अर्थ समझना।</p></li>
+<li><strong>Execute:</strong> the operation happens — data moves, the ALU calculates, or a result is written back.<p class="lang-hi" lang="hi"><strong>एग्ज़ीक्यूट:</strong> कार्य होना — डेटा आना, ALU का जोड़ना, या परिणाम का वापस लिखा जाना।</p></li>
+<li><strong>Program Counter:</strong> address of the next instruction; it makes the cycle repeat in order.<p class="lang-hi" lang="hi"><strong>प्रोग्राम काउंटर:</strong> अगले निर्देश का पता; यही क्रम बनाए रखता है।</p></li>
+<li><strong>Volatile:</strong> RAM contents are lost when power is removed — run the cycle again after startup with a new program.<p class="lang-hi" lang="hi"><strong>वोलेटाइल:</strong> बिजली हटने पर RAM का डेटा मिट जाता है।</p></li>
+</ul>
+</div></details>
+<a class="backlink" href="ch01_introduction_ict.html">← Back to Chapter 1: Introduction to ICT / अध्याय 1 पर वापस</a>
+<a class="backlink" href="hardware_lab.html">Hardware practice lab / हार्डवेयर अभ्यास प्रयोगशाला →</a>
+</section>
+</main>
+<footer><div class="wrap">CS सीखें · Class 9 visual demo lesson<p class="small">This is a simplified educational model of CPU operation, not a full processor emulator.</p></div></footer>
+<script src="../assets/js/app.js?v=shared-20261023-2"></script>
+<script>
+(()=>{'use strict';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const steps=[
+{stage:'fetch',part:'mem',mem:0,pc:'00',ir:'LOAD A, 120',acc:'—',alu:'WAITING',cu:'DIRECTING',instruction:1,pathEn:'Memory [00] → Instruction Register',pathHi:'मेमोरी [00] → Instruction Register',titleEn:'FETCH instruction 1',titleHi:'निर्देश 1 फ़ेच',copyEn:'The Program Counter says 00, so the CPU reads address 00 and copies LOAD A, 120 into the Instruction Register.',copyHi:'Program Counter 00 कहता है, इसलिए CPU पता 00 पढ़कर LOAD A, 120 को IR में ले आता है।'},
+{stage:'decode',part:'cu',mem:0,pc:'00',ir:'LOAD A, 120',acc:'—',alu:'WAITING',cu:'DECODING',instruction:1,pathEn:'Instruction Register → Control Unit',pathHi:'IR → Control Unit',titleEn:'DECODE instruction 1',titleHi:'निर्देश 1 डीकोड',copyEn:'The Control Unit interprets LOAD A, 120: the value 120 must be placed into register A. No arithmetic is needed, so the ALU waits.',copyHi:'CU निर्देश का अर्थ समझती है: मान 120 रजिस्टर A में रखना है। गणना नहीं चाहिए, अतः ALU प्रतीक्षा करता है।'},
+{stage:'execute',part:'reg',mem:0,pc:'01',ir:'LOAD A, 120',acc:'120',alu:'—',cu:'DIRECTING',instruction:1,pathEn:'Value 120 → Register A · PC 00 → 01',pathHi:'मान 120 → रजिस्टर A · PC 00 → 01',titleEn:'EXECUTE instruction 1',titleHi:'निर्देश 1 एग्ज़ीक्यूट',copyEn:'Register A now holds 120 (the notebook price). The PC advances to 01, pointing at the next instruction. Cycle complete — repeat.',copyHi:'अब रजिस्टर A में 120 (कॉपी का मूल्य) है। PC बढ़कर 01 हो गया। पहला चक्र पूरा — अब दोहराएँ।'},
+{stage:'fetch',part:'mem',mem:1,pc:'01',ir:'ADD A, 80',acc:'120',alu:'WAITING',cu:'DIRECTING',instruction:2,pathEn:'Memory [01] → Instruction Register',pathHi:'मेमोरी [01] → IR',titleEn:'FETCH instruction 2',titleHi:'निर्देश 2 फ़ेच',copyEn:'The CPU reads address 01: ADD A, 80 is copied into the IR.',copyHi:'CPU पता 01 पढ़ता है: ADD A, 80 IR में आता है।'},
+{stage:'decode',part:'cu',mem:1,pc:'01',ir:'ADD A, 80',acc:'120',alu:'WAITING',cu:'DECODING',instruction:2,pathEn:'Instruction Register → Control Unit',pathHi:'IR → Control Unit',titleEn:'DECODE instruction 2',titleHi:'निर्देश 2 डीकोड',copyEn:'The CU works it out: this is an arithmetic instruction — the ALU must add the current value of A and the number 80.',copyHi:'CU समझती है: यह गणना का निर्देश है — ALU को A के वर्तमान मान में 80 जोड़ना है।'},
+{stage:'execute',part:'alu',mem:1,pc:'02',ir:'ADD A, 80',acc:'200',alu:'120 + 80 = 200',cu:'DIRECTING',instruction:2,pathEn:'A and 80 → ALU → Register A · PC 01 → 02',pathHi:'A और 80 → ALU → रजिस्टर A · PC 01 → 02',titleEn:'EXECUTE instruction 2',titleHi:'निर्देश 2 एग्ज़ीक्यूट',copyEn:'The ALU calculates 120 + 80 = 200 (the total bill!) and the result replaces the value in A. The PC advances to 02.',copyHi:'ALU 120 + 80 = 200 (कुल बिल!) निकालता है और परिणाम A में आ जाता है। PC 02 पर जाता है।'},
+{stage:'fetch',part:'mem',mem:2,pc:'02',ir:'STORE A, 03',acc:'200',alu:'WAITING',cu:'DIRECTING',instruction:3,pathEn:'Memory [02] → Instruction Register',pathHi:'मेमोरी [02] → IR',titleEn:'FETCH instruction 3',titleHi:'निर्देश 3 फ़ेच',copyEn:'The CPU reads address 02: STORE A, 03 is copied into the IR.',copyHi:'CPU पता 02 पढ़ता है: STORE A, 03 IR में आता है।'},
+{stage:'decode',part:'cu',mem:2,pc:'02',ir:'STORE A, 03',acc:'200',alu:'WAITING',cu:'DECODING',instruction:3,pathEn:'Instruction Register → Control Unit',pathHi:'IR → Control Unit',titleEn:'DECODE instruction 3',titleHi:'निर्देश 3 डीकोड',copyEn:'The CU plans a write-back: the value in A must be written into memory address 03, which is currently empty.',copyHi:'CU लिखने की योजना बनाती है: A का मान मेमोरी पते 03 पर लिखा जाए, जो अभी खाली है।'},
+{stage:'execute',part:'mem',mem:3,pc:'03',ir:'STORE A, 03',acc:'200',alu:'RESULT = 200',cu:'DIRECTING',instruction:3,pathEn:'Register A → Memory [03] · PC 02 → 03',pathHi:'रजिस्टर A → मेमोरी [03] · PC 02 → 03',titleEn:'EXECUTE instruction 3 — the bill is stored',titleHi:'निर्देश 3 एग्ज़ीक्यूट — बिल सुरक्षित',copyEn:'Memory address 03 now holds 200: the total bill is kept in memory. The PC points to 03; with no further instruction there, this example program ends. In a real program the cycle simply continues with the next instruction.',copyHi:'अब पता 03 में 200 है — कुल बिल मेमोरी में सुरक्षित। PC 03 पर है; वहाँ कोई निर्देश न होने से यह उदाहरण समाप्त। वास्तविक प्रोग्राम में चक्र अगले निर्देश से चलता रहता है।'}
+];
+let step=-1,timer=null;
+const playBtn=$('[data-cpu-play]');
+const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function stopPlay(){if(timer){clearInterval(timer);timer=null}playBtn.setAttribute('aria-pressed','false');playBtn.textContent='▶ Play'}
+function render(){
+ const nodes=[...document.querySelectorAll('[data-stage-node]')];
+ document.querySelectorAll('.memory-cell').forEach((c,i)=>c.classList.toggle('memory-cell-active',step>=0&&i===steps[step].mem));
+ document.querySelectorAll('[data-reg-row]').forEach(r=>r.classList.remove('is-lit'));
+ document.querySelectorAll('[data-chip-part]').forEach(p=>p.classList.remove('is-active'));
+ const prev=$('[data-cpu-prev]'),next=$('[data-cpu-next]');
+ prev.disabled=step<=0;
+ $('[data-cpu-count]').textContent='Step '+(step+1)+' of '+steps.length;
+ if(step<0){
+  nodes.forEach(n=>n.classList.remove('active','done'));
+  $('[data-pc-value]').textContent='00';$('[data-ir-value]').textContent='—';$('[data-acc-value]').textContent='—';$('[data-acc-in-chip]').textContent='—';$('[data-alu-value]').textContent='WAITING';$('[data-cu-state]').textContent='idle';
+  $('[data-result-cell]').textContent='— empty —';
+  $('[data-cpu-instruction]').textContent='Instruction 1 of 3';
+  $('[data-path-label]').textContent='Ready. Press Play or Next to fetch the first instruction.';
+  $('[data-title-en]').textContent='Start the simulation.';$('[data-copy-en]').textContent='Press Next to fetch the first instruction, or Play to watch the whole cycle run.';
+  $('[data-title-hi]').textContent='सिमुलेशन शुरू करें।';$('[data-copy-hi]').textContent='पहला निर्देश फ़ेच करने के लिए Next दबाएँ, या पूरा चक्र देखने के लिए Play दबाएँ।';
+  next.textContent='Next step →';stopPlay();return;
+ }
+ const s=steps[step];
+ const order=['fetch','decode','execute'];
+ nodes.forEach(n=>{const k=n.dataset.stageNode;n.classList.toggle('active',k===s.stage);n.classList.toggle('done',order.indexOf(k)<order.indexOf(s.stage)&&s.instruction>=1)});
+ $('[data-pc-value]').textContent=s.pc;$('[data-ir-value]').textContent=s.ir;$('[data-acc-value]').textContent=s.acc;$('[data-acc-in-chip]').textContent=s.acc;$('[data-alu-value]').textContent=s.alu;$('[data-cu-state]').textContent=s.cu.toLowerCase();
+ const chipPart=$('[data-chip-part="'+s.part+'"]');if(chipPart)chipPart.classList.add('is-active');
+ if(s.part==='cu')$('[data-reg-row="ir"]').classList.add('is-lit');
+ if(s.part==='reg')$('[data-reg-row="acc"]').classList.add('is-lit');
+ $('[data-result-cell]').textContent=(s.instruction===3&&s.stage==='execute')?'200 (total bill)':'— empty —';
+ $('[data-cpu-instruction]').textContent='Instruction '+s.instruction+' of 3';
+ $('[data-path-label]').innerHTML='<span>'+esc(s.pathEn)+'</span> <span class="lang-hi" lang="hi">/ '+esc(s.pathHi)+'</span>';
+ $('[data-title-en]').textContent=s.titleEn;$('[data-copy-en]').textContent=s.copyEn;
+ $('[data-title-hi]').textContent=s.titleHi;$('[data-copy-hi]').textContent=s.copyHi;
+ next.textContent=step===steps.length-1?'Restart cycle ↻':'Next step →';
+ const packet=$('[data-packet]');
+ if(packet&&!reduced){packet.classList.remove('packet-run');void packet.offsetWidth;packet.classList.add('packet-run');packet.classList.toggle('packet-pulse',s.stage==='fetch'||s.stage==='execute');}
+}
+function advance(){if(step>=steps.length-1){stopPlay();return}step++;render();if(step>=steps.length-1)stopPlay();}
+$('[data-cpu-next]').addEventListener('click',()=>{if(step>=steps.length-1)step=-1;advance();});
+$('[data-cpu-prev]').addEventListener('click',()=>{stopPlay();if(step>0){step--;render()}});
+$('[data-cpu-reset]').addEventListener('click',()=>{step=-1;render()});
+playBtn.addEventListener('click',()=>{
+ if(timer){stopPlay();return}
+ if(step>=steps.length-1){step=-1;render()}
+ playBtn.setAttribute('aria-pressed','true');playBtn.textContent='⏸ Pause';
+ timer=setInterval(advance,2200);advance();
+});
+document.addEventListener('keydown',e=>{
+ const inPanel=e.target.closest&&e.target.closest('.lesson-panel');
+ if(!inPanel)return;
+ if(e.key==='ArrowRight'&&e.target!==$('[data-cpu-next]')){$('[data-cpu-next]').focus()}
+});
+render();
+})();
+</script>
+</body>
+</html>

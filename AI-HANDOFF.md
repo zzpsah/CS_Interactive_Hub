@@ -357,3 +357,14 @@ Validation status:
 
 
 - Follow-up in the same Class IX pass: added collapsed Quick Revision glossaries with bilingual term definitions to all eight canonical chapters. The notebook print rule was tightened so Writing/Print focus hides unrelated lesson sections. Static source checks were rerun after these additions: no duplicate IDs, no broken in-page anchors, one Study & Copy section and one Quick Revision section per chapter, balanced list-item tags, and at least three model-answer panels per chapter.
+
+
+## CPU Fetch–Decode–Execute demo lesson — 2026-10-27
+
+- Added `class09/cpu_cycle_lesson.html`: a standalone bilingual visual demo lesson (optional practice, linked from Chapter 1's collapsed Practice lab launch cards and from `hardware_lab.html` section 6 — not a ninth NCERT chapter, consistent with the lab-page convention).
+- Lesson structure follows the visual doctrine: short theory (machine instruction, PC/IR/CU/ALU) → static labelled cycle diagram → learner-controlled cycle simulation → worked trace table (₹120 + ₹80 bill example: `LOAD A, 120` / `ADD A, 80` / `STORE A, 03`) → 5-question quiz with bilingual explanations via the shared `data-quiz` system → collapsed Quick Revision.
+- Simulation: 9 steps (3 instructions × fetch/decode/execute) with Play/Pause auto-advance, Next/Previous, Reset, step counter, active stage nodes, animated data packet, highlighted memory cell, CU/ALU/register highlighting and bilingual `aria-live` feedback. Uses shared `execution-*` classes from `assets/css/style.css`; page-scoped styles only for chip-part highlight states.
+- Language parity: all static Hindi uses `.lang-hi`/`lang="hi"`; dynamic path labels are written as explicit English + `.lang-hi` spans; a page-local observer re-runs the quiz check when the language toggles so English mode never shows leftover Hindi fragments from a check performed in Hindi mode.
+- Fixed a pre-existing unclosed `<p>` in `class09/ch01_introduction_ict.html` (the "Important distinction" Hindi paragraph swallowed the Questions & Answers section); the completed sentence now ends "…CPU में रखना नहीं है।</p>".
+- Tests actually run (2026-10-27, local `python3 -m http.server` + headless Google Chrome 154 via puppeteer-core, outside the repo): 38/38 automated assertions passed, covering all 9 simulation steps and register values, play/pause/reset/previous, quiz scoring and English/Hindi explanation rendering, language toggle both directions, 390px mobile layout (no horizontal overflow), console-error check (only the site-wide pre-existing `/favicon.ico` 404), and entry links from ch01/hardware_lab. Reduced-motion smoke test passed (content visible, packet animation disabled, no errors). Full-page screenshots reviewed in English, Hindi and mobile.
+- Not verified: physical device touch behavior, screen-reader announcements, actual print output, clipboard, and GitHub Pages deployment (branch not merged to `main`).
