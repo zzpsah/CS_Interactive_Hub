@@ -391,3 +391,5 @@ Validation status:
 ### Expression and interaction detail (2026-10-27)
 
 The course-wide buddy should have many distinct, purposeful moods and gestures, not only happy/sad. Include happy, proud, excited, laughing, curious, thinking, concentrating, confused, surprised, celebrating, encouraging, empathetic/sad, playful/mischievous, sleepy, bored, relieved, and cheering reactions as appropriate. Tapping the character may trigger a short playful response (including gentle mock annoyance/grumpy face), but never threatening or shaming. Vary reactions contextually; avoid rapid random mood swings. Respect reduced motion and provide a quiet/minimal-motion behavior. Full details and acceptance rules are in `INTERACTIVE-LEARNING-STANDARD.md`.
+
+- **Character roster update:** add an original humanoid monkey buddy as a fourth selectable option alongside the cat-like buddy, robot, and fox-like buddy. The monkey should have a complete body, varied contextual expressions/gestures, and playful but kind reactions. Selection is course-wide and switching must preserve progress. Do not copy existing famous characters.
