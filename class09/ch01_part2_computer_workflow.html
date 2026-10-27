@@ -32,7 +32,13 @@
 #questions-answers .answer-panel h4{margin:.55rem 0 .2rem}
 #questions-answers .answer-panel ul{margin:.3rem 0;padding-left:1.2rem}
 @media(max-width:600px){.chapter-one .study-copy-section .study-paper{padding:.7rem .65rem .75rem 1.7rem}.chapter-one .study-copy-section .study-paper:before{left:1.25rem}.note-diagram text{font-size:13px}.note-diagram figcaption{font-size:.74rem}}
-</style>
+
+/* Optional, lightweight simulation sound controls */
+.simulation-sound-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:.65rem 0;padding:.65rem .8rem;border:1px solid #d8e2f2;border-radius:10px;background:#fff}
+.simulation-sound-bar p{margin:0;font-size:.9rem;color:#52627c}
+.simulation-sound-bar button{min-height:44px;border:1px solid #9bb3df;border-radius:9px;background:#f0f5ff;color:#1d2b4f;padding:8px 12px;font-weight:700;cursor:pointer}
+.simulation-sound-bar button:focus-visible{outline:3px solid #3568cc;outline-offset:2px}
+\n</style>
 </head>
 <body data-lang="en">
 <div class="topbar"><div class="wrap"><a class="brand" href="../index.html">📘 CS सीखें · Learn Computer Science</a><div class="nav"><a href="index.html">Class 9</a><div class="lang-switch"><button type="button" data-lang-toggle aria-pressed="false">Add Hindi</button></div></div></div></div>
@@ -49,6 +55,11 @@
 </section>
 <section class="content-section beginner-section" id="functions">
 <h2>Main functions of a computer<span class="lang-hi" lang="hi"> / कंप्यूटर के मुख्य कार्य</span></h2>
+
+<div class="simulation-sound-bar" data-simulation-sound>
+  <p><strong>Simulation sounds / सिमुलेशन की आवाज़ें</strong><br><span data-simulation-sound-status aria-live="polite">Sound is off. Turn it on when you want audio feedback. / आवाज़ बंद है।</span></p>
+  <button type="button" data-simulation-sound-toggle aria-pressed="false">🔇 Sound off / आवाज़ बंद</button>
+</div>
 <div class="function-demo" data-function-demo><p class="function-demo-instruction">Select or hover over a step to see how data moves through a computer.</p><div class="function-grid"><button type="button" class="function-card is-active" data-function-step="input" aria-pressed="true"><span class="function-number">1</span><span class="function-icon" aria-hidden="true">⌨️</span><strong>Input</strong><span>Enter marks: 72, 85, 91</span></button><button type="button" class="function-card" data-function-step="processing" aria-pressed="false"><span class="function-number">2</span><span class="function-icon" aria-hidden="true">⚙️</span><strong>Processing</strong><span>Calculate the average</span></button><button type="button" class="function-card" data-function-step="output" aria-pressed="false"><span class="function-number">3</span><span class="function-icon" aria-hidden="true">🖥️</span><strong>Output</strong><span>Show the result: 82.7</span></button><button type="button" class="function-card" data-function-step="storage" aria-pressed="false"><span class="function-number">4</span><span class="function-icon" aria-hidden="true">💾</span><strong>Storage</strong><span>Save the report</span></button></div><div class="function-demo-stage" aria-live="polite"><div class="function-demo-visual" data-function-visual><span class="demo-icon" data-demo-icon>⌨️</span><div class="demo-screen"><span class="demo-label" data-demo-label>INPUT · DATA ENTERED</span><strong data-demo-value>72, 85, 91</strong><span data-demo-description>Marks are entered using the keyboard.</span></div></div><div class="function-demo-track" aria-label="Data flow"><span class="flow-node is-current" data-flow-node="input">Input</span><span class="flow-arrow" aria-hidden="true">➜</span><span class="flow-node" data-flow-node="processing">Process</span><span class="flow-arrow" aria-hidden="true">➜</span><span class="flow-node" data-flow-node="output">Output</span><span class="flow-arrow" aria-hidden="true">➜</span><span class="flow-node" data-flow-node="storage">Save</span></div><p class="lang-hi" lang="hi">इनपुट में अंक दर्ज करें, प्रोसेसिंग में औसत निकालें, आउटपुट में परिणाम देखें और स्टोरेज में रिपोर्ट सुरक्षित रखें।</p></div></div>
 </section>
 <section class="content-section" id="ipo-cycle">
@@ -128,5 +139,60 @@ print?.addEventListener('click',()=>{document.body.classList.add('print-study-on
 })();
 </script>
 
-</body>
+
+<script>
+/* Course-ready sound prototype: generated locally with Web Audio; no downloads or external audio files. */
+(()=> {
+ const bar=document.querySelector('[data-simulation-sound]');
+ if(!bar || bar.dataset.initialized==='true') return;
+ bar.dataset.initialized='true';
+ const toggle=bar.querySelector('[data-simulation-sound-toggle]');
+ const status=bar.querySelector('[data-simulation-sound-status]');
+ let enabled=false, audioContext=null, lastSoundAt=0;
+ const getContext=()=>{
+  const Ctx=window.AudioContext||window.webkitAudioContext;
+  if(!Ctx) return null;
+  if(!audioContext) audioContext=new Ctx();
+  if(audioContext.state==='suspended') audioContext.resume().catch(()=>{});
+  return audioContext;
+ };
+ const tone=(frequency,start,duration,type='sine',volume=.045)=>{
+  const ctx=getContext(); if(!ctx)return;
+  const osc=ctx.createOscillator(), gain=ctx.createGain();
+  osc.type=type; osc.frequency.setValueAtTime(frequency,ctx.currentTime+start);
+  gain.gain.setValueAtTime(.0001,ctx.currentTime+start);
+  gain.gain.exponentialRampToValueAtTime(volume,ctx.currentTime+start+.015);
+  gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+start+duration);
+  osc.connect(gain);gain.connect(ctx.destination);
+  osc.start(ctx.currentTime+start);osc.stop(ctx.currentTime+start+duration+.02);
+ };
+ const play=(kind='tap')=>{
+  if(!enabled)return;
+  const now=Date.now();if(now-lastSoundAt<100)return;lastSoundAt=now;
+  if(kind==='processing'){tone(440,0,.09,'triangle',.025);tone(590,.11,.1,'triangle',.025);}
+  else if(kind==='success'){tone(660,0,.12,'sine',.04);tone(880,.12,.2,'sine',.04);}
+  else if(kind==='oops'){tone(330,0,.12,'triangle',.035);tone(247,.12,.16,'triangle',.03);}
+  else if(kind==='complete'){tone(523,0,.12);tone(659,.13,.12);tone(784,.26,.2);}
+  else {tone(720,0,.055,'sine',.025);}
+ };
+ toggle.addEventListener('click',()=>{
+  enabled=!enabled;
+  toggle.setAttribute('aria-pressed',String(enabled));
+  toggle.textContent=enabled?'🔊 Sound on / आवाज़ चालू':'🔇 Sound off / आवाज़ बंद';
+  status.textContent=enabled?'Audio feedback is on. Tap a simulation step to hear it. / आवाज़ चालू है। किसी चरण पर टैप करें।':'Sound is off. Turn it on when you want audio feedback. / आवाज़ बंद है।';
+  if(enabled){const ctx=getContext();if(ctx){play('success');}else{enabled=false;toggle.setAttribute('aria-pressed','false');toggle.textContent='🔇 Sound off / आवाज़ बंद';status.textContent='This browser does not support sound effects. / इस ब्राउज़र में साउंड सपोर्ट नहीं है।';}}
+ });
+ document.querySelectorAll('[data-function-step]').forEach(button=>button.addEventListener('click',()=>{
+  const step=button.dataset.functionStep;
+  play(step==='processing'?'processing':step==='output'?'success':step==='storage'?'complete':'tap');
+ }));
+ document.addEventListener('click',event=>{
+  if(!enabled)return;
+  const button=event.target.closest('.part-sim button, [data-quiz-answer], .quiz-option, [data-check-answer], [data-run-simulation]');
+  if(!button || button===toggle || button.closest('[data-function-demo]'))return;
+  play('tap');
+ },true);
+})();
+</script>
+\n</body>
 </html>
