@@ -368,3 +368,13 @@ Validation status:
 - Fixed a pre-existing unclosed `<p>` in `class09/ch01_introduction_ict.html` (the "Important distinction" Hindi paragraph swallowed the Questions & Answers section); the completed sentence now ends "…CPU में रखना नहीं है।</p>".
 - Tests actually run (2026-10-27, local `python3 -m http.server` + headless Google Chrome 154 via puppeteer-core, outside the repo): 38/38 automated assertions passed, covering all 9 simulation steps and register values, play/pause/reset/previous, quiz scoring and English/Hindi explanation rendering, language toggle both directions, 390px mobile layout (no horizontal overflow), console-error check (only the site-wide pre-existing `/favicon.ico` 404), and entry links from ch01/hardware_lab. Reduced-motion smoke test passed (content visible, packet animation disabled, no errors). Full-page screenshots reviewed in English, Hindi and mobile.
 - Not verified: physical device touch behavior, screen-reader announcements, actual print output, clipboard, and GitHub Pages deployment (branch not merged to `main`).
+
+## Interactive simulation and original cartoon buddy (2026-10-27)
+
+- Mandatory specification: [INTERACTIVE-LEARNING-STANDARD.md](INTERACTIVE-LEARNING-STANDARD.md); also linked from README and required by AGENTS.md.
+- User likes the interactive “information journey” prototype and wants processes to visibly move/change rather than relying on static diagrams alone.
+- First implementation target: `class09/ch01_part2_computer_workflow.html`. Show a data token moving through Input → Processing (CPU) → Output → Storage with learner-controlled steps/replay, clear bilingual explanations, and a meaningful result.
+- Character direction: an original, friendly cat-like computer buddy with contextual moods (happy/proud, thinking, gently confused, encouraging, surprised, optional brief idle/sleepy joke). Reactions must follow real events, be lightweight, and never shame a learner.
+- Do not copy Talking Tom, named anime characters, or other protected character designs/voices/branding. No autoplay audio; voice/sound requires explicit product approval and opt-in controls. First version should work offline with deterministic reactions.
+- Ensure drag has a tap/click alternative, keyboard accessibility, reduced-motion support, compact Android layout, and working reset/step controls.
+- Important: the ChatGPT inline prototype shown in conversation is not the same as a deployed repository implementation. Do not claim the site is updated until files are changed, tests run, Pages deployment is confirmed, and live output is checked.
