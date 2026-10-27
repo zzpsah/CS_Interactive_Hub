@@ -386,3 +386,8 @@ Validation status:
 - Preferred starting direction: an original cute cat-like humanoid mascot with expressive face, gestures, and body poses. Mood/reactions should change contextually during learning, with lightweight animations.
 - This requirement is recorded in `INTERACTIVE-LEARNING-STANDARD.md` and `AGENTS.md`.
 - **New owner requirement:** provide 2–3 original, full-body humanoid learning buddies (suggested starting concepts: cat-like character, robot, fox-like character) that can be switched by tapping/clicking. Keep switching accessible and preserve the current lesson/simulation state. This is specified in `INTERACTIVE-LEARNING-STANDARD.md` and `AGENTS.md`.
+
+
+### Expression and interaction detail (2026-10-27)
+
+The course-wide buddy should have many distinct, purposeful moods and gestures, not only happy/sad. Include happy, proud, excited, laughing, curious, thinking, concentrating, confused, surprised, celebrating, encouraging, empathetic/sad, playful/mischievous, sleepy, bored, relieved, and cheering reactions as appropriate. Tapping the character may trigger a short playful response (including gentle mock annoyance/grumpy face), but never threatening or shaming. Vary reactions contextually; avoid rapid random mood swings. Respect reduced motion and provide a quiet/minimal-motion behavior. Full details and acceptance rules are in `INTERACTIVE-LEARNING-STANDARD.md`.
