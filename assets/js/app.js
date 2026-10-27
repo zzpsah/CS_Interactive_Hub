@@ -24,3 +24,40 @@ document.querySelectorAll('[data-function-demo]').forEach(panel=>{const steps=[.
 
 // Shared lesson choreography: reveal teaching sections and diagrams as they enter view.
 (function(){const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduced||!('IntersectionObserver' in window))return;const items=[...document.querySelectorAll('main .content-section,main .section,main .diagram,main .concept-visual,main .worked-example,main .definition-card,main .architecture-flow,main .ipo-flow,main .component-card')].filter(el=>!el.closest('details:not([open])'));if(!items.length)return;items.forEach((el,i)=>{el.dataset.motionReveal=(el.matches('.diagram,.concept-visual,.architecture-flow,.ipo-flow')?'diagram':'section');el.style.transitionDelay=(Math.min(i%4,3)*65)+'ms'});document.documentElement.classList.add('motion-ready');const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('motion-visible');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -30px 0px'});items.forEach(el=>io.observe(el));document.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)d.querySelectorAll('[data-motion-reveal]').forEach(el=>{el.classList.add('motion-visible');io.unobserve(el)})}))})();
+
+// Shared lesson sound feedback for interactive simulations (opt-in; generated locally).
+(function(){
+ 'use strict';
+ const selectors='[data-function-demo],[data-simulation],[data-sim],[data-simulator],.simulation,.interactive-simulation,.interactive-demo,.part-sim,.simulation-container,.simulator';
+ const roots=[...document.querySelectorAll(selectors)].filter(el=>!el.closest('[data-study-paper]'));
+ if(!roots.length)return;
+ const root=roots[0];
+ if(document.querySelector('[data-simulation-sound]'))return; // Part 2 has its own sound control.
+ const style=document.createElement('style');
+ style.textContent='.shared-sound-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px;margin:10px 0;border:1px solid #cbd8ed;border-radius:12px;background:#f7f9ff;color:#1d2b4f}.shared-sound-bar button,.shared-sound-bar input{min-height:42px}.shared-sound-bar button{border:1px solid #91a8d0;border-radius:9px;padding:8px 12px;font-weight:700;background:#e8efff;color:#1d2b4f}.shared-sound-bar label{display:flex;align-items:center;gap:7px;font-size:.92rem}.shared-sound-bar [data-sound-status]{font-size:.9rem;color:#43516b}';
+ document.head.appendChild(style);
+ const bar=document.createElement('div');bar.className='shared-sound-bar';bar.dataset.sharedSoundBar='';
+ bar.innerHTML='<button type="button" data-sound-toggle aria-pressed="false">🔇 Sound off / आवाज़ बंद</button><label>Volume / आवाज़ <input data-sound-volume type="range" min="20" max="100" value="80" aria-label="Sound volume"></label><span data-sound-status aria-live="polite">Sound is off. Turn it on for feedback. / आवाज़ बंद है।</span>';
+ root.parentNode.insertBefore(bar,root);
+ const toggle=bar.querySelector('[data-sound-toggle]'),volume=bar.querySelector('[data-sound-volume]'),status=bar.querySelector('[data-sound-status]');
+ let enabled=false,ctx=null,last=0;
+ function audio(){const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!ctx)ctx=new C();if(ctx.state==='suspended')ctx.resume().catch(()=>{});return ctx}
+ function note(freq,delay,dur,wave='sine',level=.1,endFreq=null){
+  const a=audio();if(!a)return;const o=a.createOscillator(),g=a.createGain(),t=a.currentTime+delay,amp=level*(Number(volume.value)/100);
+  o.type=wave;o.frequency.setValueAtTime(freq,t);if(endFreq)o.frequency.exponentialRampToValueAtTime(endFreq,t+dur);
+  g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(.0002,amp),t+.018);g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+  o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+dur+.025);
+ }
+ function play(kind){
+  if(!enabled||Date.now()-last<85)return;last=Date.now();
+  if(kind==='success'||kind==='correct'){note(660,0,.13,'sine',.16);note(880,.12,.2,'sine',.15)}
+  else if(kind==='error'||kind==='wrong'){note(260,0,.13,'triangle',.12,210);note(205,.13,.16,'triangle',.11,165)}
+  else if(kind==='processing'||kind==='run'){note(420,0,.11,'triangle',.09,500);note(560,.12,.13,'triangle',.09,680);note(740,.26,.12,'sine',.08)}
+  else if(kind==='complete'||kind==='finish'){note(523,0,.13,'sine',.13);note(659,.13,.13,'sine',.13);note(784,.26,.24,'sine',.15)}
+  else if(kind==='select'){note(500,0,.07,'sine',.09);note(720,.06,.1,'sine',.1)}
+  else{note(620,0,.065,'sine',.08)}
+ }
+ toggle.addEventListener('click',()=>{enabled=!enabled;toggle.setAttribute('aria-pressed',String(enabled));toggle.textContent=enabled?'🔊 Sound on / आवाज़ चालू':'🔇 Sound off / आवाज़ बंद';status.textContent=enabled?'Sound effects enabled. / आवाज़ चालू है।':'Sound is off. / आवाज़ बंद है।';if(enabled){if(audio())play('success');else{enabled=false;toggle.setAttribute('aria-pressed','false');toggle.textContent='🔇 Sound off / आवाज़ बंद';status.textContent='Sound is not supported by this browser. / ब्राउज़र में sound support नहीं है।'}}});
+ roots.forEach(container=>container.addEventListener('click',e=>{const b=e.target.closest('button,[role="button"],input[type="submit"]');if(!b||b.closest('[data-shared-sound-bar]'))return;const label=((b.innerText||'')+' '+(b.getAttribute('aria-label')||'')).toLowerCase();let kind='select';if(/check|submit|answer|verify|जांच|उत्तर/.test(label))kind='success';if(/run|start|process|चलाएं|शुरू|प्रोसेस/.test(label))kind='processing';if(/reset|clear|restart|रीसेट/.test(label))kind='complete';play(kind)},true));
+ document.addEventListener('visibilitychange',()=>{if(document.hidden&&ctx&&ctx.state==='running')ctx.suspend().catch(()=>{})});
+})();
