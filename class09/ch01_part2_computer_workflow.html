@@ -156,10 +156,10 @@ print?.addEventListener('click',()=>{document.body.classList.add('print-study-on
   if(audioContext.state==='suspended') audioContext.resume().catch(()=>{});
   return audioContext;
  };
- const tone=(frequency,start,duration,type='sine',volume=.045)=>{
+ const tone=(frequency,start,duration,type='sine',volume=.11,endFrequency=null)=>{
   const ctx=getContext(); if(!ctx)return;
   const osc=ctx.createOscillator(), gain=ctx.createGain();
-  osc.type=type; osc.frequency.setValueAtTime(frequency,ctx.currentTime+start);
+  osc.type=type; osc.frequency.setValueAtTime(frequency,ctx.currentTime+start); if(endFrequency)osc.frequency.exponentialRampToValueAtTime(endFrequency,ctx.currentTime+start+duration);
   gain.gain.setValueAtTime(.0001,ctx.currentTime+start);
   gain.gain.exponentialRampToValueAtTime(volume,ctx.currentTime+start+.015);
   gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+start+duration);
@@ -169,11 +169,11 @@ print?.addEventListener('click',()=>{document.body.classList.add('print-study-on
  const play=(kind='tap')=>{
   if(!enabled)return;
   const now=Date.now();if(now-lastSoundAt<100)return;lastSoundAt=now;
-  if(kind==='processing'){tone(440,0,.09,'triangle',.025);tone(590,.11,.1,'triangle',.025);}
-  else if(kind==='success'){tone(660,0,.12,'sine',.04);tone(880,.12,.2,'sine',.04);}
-  else if(kind==='oops'){tone(330,0,.12,'triangle',.035);tone(247,.12,.16,'triangle',.03);}
-  else if(kind==='complete'){tone(523,0,.12);tone(659,.13,.12);tone(784,.26,.2);}
-  else {tone(720,0,.055,'sine',.025);}
+  if(kind==='processing'){tone(420,0,.11,'triangle',.09,500);tone(570,.12,.13,'triangle',.09,690);tone(740,.27,.12,'sine',.075);}
+  else if(kind==='success'){tone(660,0,.13,'sine',.12);tone(880,.13,.21,'sine',.13);}
+  else if(kind==='oops'){tone(310,0,.13,'triangle',.1,240);tone(205,.13,.17,'triangle',.09,170);}
+  else if(kind==='complete'){tone(523,0,.13,'sine',.12);tone(659,.13,.13,'sine',.12);tone(784,.26,.24,'sine',.14);}
+  else {tone(520,0,.06,'sine',.085);tone(740,.065,.09,'sine',.09);}
  };
  toggle.addEventListener('click',()=>{
   enabled=!enabled;
