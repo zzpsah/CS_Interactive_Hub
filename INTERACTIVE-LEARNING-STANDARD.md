@@ -22,7 +22,7 @@ Teach processes by showing them in motion. A learner should be able to see what 
 
 ## 2. Original mascot / cartoon buddy
 
-- An original, friendly cartoon companion may guide lessons and react to learner actions. Default direction: a small expressive cat-like computer buddy with a simple silhouette, readable face, and lightweight CSS/SVG animation. The owner may choose a different original animal or character later.
+- An original, friendly cartoon companion may guide lessons and react to learner actions. **It must be a complete, visibly humanoid character**: expressive face/head, torso/body, two arms with hands, and two legs with feet. The default direction is a cute, approachable cat-like humanoid computer buddy (anthropomorphic cat-person/mascot), not merely a floating cat head, emoji, or icon. Give it readable facial expressions, clear hand/arm gestures, and body poses that can support lightweight CSS/SVG animation. Keep the silhouette and details original; the owner may later choose a different original humanoid animal character.
 - Do not copy a famous character's distinctive appearance, name, voice, animation, costume, or branding (for example, Talking Tom or a specific anime character). Popularity is not permission to reproduce protected characters. Make an original character inspired only by broad traits such as friendliness, humor, and expressiveness.
 - The mascot must support learning rather than interrupt it. Keep it small, non-blocking, dismissible or quiet when needed, and never cover instructions, controls, or content.
 - Reactions must be contextual and age-appropriate. Suggested moods include: happy/proud for success; curious/thinking while processing; gently confused for an incorrect choice; encouraging after a mistake; surprised at a discovery; sleepy/bored only as a brief optional joke during a pause or idle state. Never shame, mock, or label a learner as bad or stupid.
@@ -38,7 +38,7 @@ Implement a small, complete learning interaction in `class09/ch01_part2_computer
 2. The learner starts the journey or advances one step at a time.
 3. The token visibly moves/highlights through Processing (CPU), Output, and Storage; stage labels and explanations update in English and Hindi.
 4. A learner can change the input and replay the flow.
-5. Add an original cat-like buddy with contextual happy, thinking, encouraging, surprised, and optional idle/sleepy reactions. Keep reactions short and tied to real events.
+5. Add an original, complete humanoid cat-like buddy with a head/face, torso, arms/hands, and legs/feet, using contextual happy, thinking, encouraging, surprised, and optional idle/sleepy poses/reactions. Keep reactions short and tied to real events.
 6. Provide tap-to-select as an alternative to dragging; explain an incorrect sequence without punishment.
 7. Provide pause/step/reset controls, reduced-motion behavior, keyboard access, and a compact mobile layout.
 
