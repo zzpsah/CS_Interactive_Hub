@@ -48,3 +48,7 @@ Typical lesson flow: concise English/Hindi explanation → animated visual or pr
 ### Reference inspiration
 
 [Log2Base2](https://www.log2base2.com/) is a learning-design reference for short visual lessons, animated concepts, and step-by-step code walkthroughs. We independently implement the underlying teaching principles for our free, bilingual school curriculum. Do not copy its code, course text, brand identity, graphics, or videos.
+
+## Interactive learning standard
+
+- **Mandatory specification for simulations, animation, and original cartoon buddy:** [INTERACTIVE-LEARNING-STANDARD.md](INTERACTIVE-LEARNING-STANDARD.md). It defines visible process animation, student controls, mobile/touch and keyboard access, reduced-motion behavior, contextual mascot reactions, copyright boundaries, and acceptance tests.
