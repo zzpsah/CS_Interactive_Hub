@@ -385,3 +385,4 @@ Validation status:
 - It must look at least somewhat human-like and have a complete body: head/face, torso, two arms with hands, and two legs with feet. Avoid using only an emoji, floating head, or small icon as the mascot.
 - Preferred starting direction: an original cute cat-like humanoid mascot with expressive face, gestures, and body poses. Mood/reactions should change contextually during learning, with lightweight animations.
 - This requirement is recorded in `INTERACTIVE-LEARNING-STANDARD.md` and `AGENTS.md`.
+- **New owner requirement:** provide 2–3 original, full-body humanoid learning buddies (suggested starting concepts: cat-like character, robot, fox-like character) that can be switched by tapping/clicking. Keep switching accessible and preserve the current lesson/simulation state. This is specified in `INTERACTIVE-LEARNING-STANDARD.md` and `AGENTS.md`.
