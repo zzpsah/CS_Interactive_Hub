@@ -139,52 +139,6 @@
 <p class="lang-hi" lang="hi"><strong>ध्यान दें:</strong> फ़ेच चरण हमेशा एक जैसा — PC जिस पते पर है, वहाँ से निर्देश पढ़ना। बदलता केवल एग्ज़ीक्यूट चरण है: LOAD डेटा लाता है, ADD जोड़ता है, STORE मेमोरी में लिखता है। इसीलिए एक ही चक्र किसी भी प्रोग्राम को चला सकता है।</p>
 <div class="worked-example"><h3>How fast does this cycle repeat?<span class="lang-hi" lang="hi"> / यह चक्र कितनी तेज़ी से घूमता है?</span></h3><p>A modern CPU is clocked in gigahertz: billions of cycles per second. Even so, it still handles <strong>one instruction at a time</strong> through fetch, decode and execute — speed comes from doing the cycle very fast, not from skipping steps.</p><p class="lang-hi" lang="hi">आधुनिक CPU गीगाहर्ट्ज़ घड़ी में चलता है — प्रति सेकंड अरबों चक्र। फिर भी वह एक समय में <strong>एक ही निर्देश</strong> फ़ेच, डीकोड और एग्ज़ीक्यूट चरणों से गुज़ारता है; गति चक्र को बहुत तेज़ी से दोहराने से आती है, चरण छोड़ने से नहीं।</p></div>
 </section>
-
-<section class="content-section" id="understanding-quiz">
-<h2>✅ Check your understanding<span class="lang-hi" lang="hi"> / अपनी समझ जाँचें</span></h2>
-<p>Answer, then press <strong>Check answers</strong>. Each question shows an explanation.</p>
-<p class="lang-hi" lang="hi">उत्तर चुनें, फिर <strong>Check answers</strong> दबाएँ। हर प्रश्न पर व्याख्या दिखेगी।</p>
-<div class="interactive quiz-panel" data-quiz>
-<div class="quiz-question" data-answer="b" data-explain="The Program Counter always holds the address of the next instruction to fetch, so the CPU knows where to read next. / प्रोग्राम काउंटर में हमेशा अगले निर्देश का पता रहता है; इसी से CPU जानता है कि आगे कहाँ पढ़ना है।">
-<p><strong>1. What does the Program Counter (PC) store?</strong> <span class="lang-hi" lang="hi">/ Program Counter क्या रखता है?</span></p>
-<label class="quiz-option"><input type="radio" name="q1" value="a"> The result of the last calculation / पिछली गणना का परिणाम</label>
-<label class="quiz-option"><input type="radio" name="q1" value="b"> The address of the next instruction / अगले निर्देश का पता</label>
-<label class="quiz-option"><input type="radio" name="q1" value="c"> The clock speed of the CPU / CPU की घड़ी गति</label>
-<p class="feedback" data-feedback aria-live="polite"></p>
-</div>
-<div class="quiz-question" data-answer="c" data-explain="The cycle order is fixed: fetch the instruction from memory, decode it in the Control Unit, then execute it. / चक्र का क्रम निश्चित है: पहले निर्देश मेमोरी से फ़ेच करना, फिर CU से उसका अर्थ करना, फिर एग्ज़ीक्यूट करना।">
-<p><strong>2. Which order shows the cycle correctly?</strong> <span class="lang-hi" lang="hi">/ चक्र का सही क्रम कौन-सा है?</span></p>
-<label class="quiz-option"><input type="radio" name="q2" value="a"> Execute → Fetch → Decode / एग्ज़ीक्यूट → फ़ेच → डीकोड</label>
-<label class="quiz-option"><input type="radio" name="q2" value="b"> Decode → Execute → Fetch / डीकोड → एग्ज़ीक्यूट → फ़ेच</label>
-<label class="quiz-option"><input type="radio" name="q2" value="c"> Fetch → Decode → Execute / फ़ेच → डीकोड → एग्ज़ीक्यूट</label>
-<p class="feedback" data-feedback aria-live="polite"></p>
-</div>
-<div class="quiz-question" data-answer="a" data-explain="During fetch, the CPU copies the instruction from main memory (RAM) into the Instruction Register. Instructions live in RAM, not in the ALU or a storage drive. / फ़ेच चरण में CPU निर्देश को मुख्य मेमोरी (RAM) से पढ़कर IR में रखता है। निर्देश RAM में होते हैं, ALU या स्टोरेज ड्राइव में नहीं।">
-<p><strong>3. Where does the CPU fetch an instruction from?</strong> <span class="lang-hi" lang="hi">/ CPU निर्देश कहाँ से फ़ेच करता है?</span></p>
-<label class="quiz-option"><input type="radio" name="q3" value="a"> Main memory (RAM) / मुख्य मेमोरी (RAM)</label>
-<label class="quiz-option"><input type="radio" name="q3" value="b"> The ALU / ALU से</label>
-<label class="quiz-option"><input type="radio" name="q3" value="c"> The SSD / SSD से</label>
-<p class="feedback" data-feedback aria-live="polite"></p>
-</div>
-<div class="quiz-question" data-answer="c" data-explain="Decoding happens in the Control Unit, which interprets the instruction in the IR and plans the steps. / डीकोड Control Unit में होता है; वह IR वाले निर्देश का अर्थ समझकर चरण तय करती है।">
-<p><strong>4. Which part decodes the instruction?</strong> <span class="lang-hi" lang="hi">/ निर्देश का डीकोड कौन करता है?</span></p>
-<label class="quiz-option"><input type="radio" name="q4" value="a"> The ALU / ALU</label>
-<label class="quiz-option"><input type="radio" name="q4" value="b"> The Program Counter / Program Counter</label>
-<label class="quiz-option"><input type="radio" name="q4" value="c"> The Control Unit / Control Unit</label>
-<p class="feedback" data-feedback aria-live="polite"></p>
-</div>
-<div class="quiz-question" data-answer="a" data-explain="Register A already holds 120; ADD A, 80 makes the ALU compute 120 + 80 = 200 and put the result back in A. Memory address 03 is only touched by the STORE instruction. / रजिस्टर A में पहले से 120 है; ADD A, 80 से ALU 120 + 80 = 200 निकालकर परिणाम A में रखता है। पता 03 पर STORE से ही लिखा जाता है।">
-<p><strong>5. A = 120 and the instruction is ADD A, 80. What is in A after execute?</strong> <span class="lang-hi" lang="hi">/ A में 120 है और निर्देश ADD A, 80 है। एग्ज़ीक्यूट के बाद A में क्या होगा?</span></p>
-<label class="quiz-option"><input type="radio" name="q5" value="a"> 200</label>
-<label class="quiz-option"><input type="radio" name="q5" value="b"> 80</label>
-<label class="quiz-option"><input type="radio" name="q5" value="c"> 120</label>
-<p class="feedback" data-feedback aria-live="polite"></p>
-</div>
-<div class="quiz-actions"><button type="button" class="lab-action primary" data-check>Check answers / उत्तर जाँचें</button></div>
-<p class="quiz-result" data-score aria-live="polite"></p>
-</div>
-</section>
-
 <section class="content-section" id="cycle-summary">
 <details class="activity-collapse"><summary><span><strong>Quick Revision / त्वरित पुनरावृत्ति</strong><small>Key terms from this lesson.</small></span><span class="activity-summary-icon" aria-hidden="true">＋</span></summary>
 <div class="activity-content">
