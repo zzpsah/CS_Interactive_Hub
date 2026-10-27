@@ -378,3 +378,10 @@ Validation status:
 - Do not copy Talking Tom, named anime characters, or other protected character designs/voices/branding. No autoplay audio; voice/sound requires explicit product approval and opt-in controls. First version should work offline with deterministic reactions.
 - Ensure drag has a tap/click alternative, keyboard accessibility, reduced-motion support, compact Android layout, and working reset/step controls.
 - Important: the ChatGPT inline prototype shown in conversation is not the same as a deployed repository implementation. Do not claim the site is updated until files are changed, tests run, Pages deployment is confirmed, and live output is checked.
+
+### Character refinement from owner (2026-10-27)
+
+- The buddy should be present throughout the learning page/site experience, not only inside a simulation.
+- It must look at least somewhat human-like and have a complete body: head/face, torso, two arms with hands, and two legs with feet. Avoid using only an emoji, floating head, or small icon as the mascot.
+- Preferred starting direction: an original cute cat-like humanoid mascot with expressive face, gestures, and body poses. Mood/reactions should change contextually during learning, with lightweight animations.
+- This requirement is recorded in `INTERACTIVE-LEARNING-STANDARD.md` and `AGENTS.md`.
