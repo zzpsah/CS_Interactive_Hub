@@ -26,6 +26,8 @@
 @keyframes packet-pulse{0%,100%{box-shadow:0 0 0 3px rgba(23,92,211,.12)}50%{box-shadow:0 0 0 9px rgba(23,92,211,.22)}}
 @media(prefers-reduced-motion:reduce){.data-packet.packet-pulse{animation:none}.chip-part{transition:none}}
 @media(max-width:650px){.lesson-panel{padding:10px}}
+.cycle-notes-diagram{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:12px}.cycle-notes-diagram span{display:inline-block;text-align:center;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-weight:700}.cycle-notes-diagram span small{font-weight:400}.cycle-notes-diagram b{font-size:1.2rem}.cycle-notes-diagram .cycle-return{flex-basis:100%;text-align:center;font-size:.95rem}
+
 
 .notes-panel h3{margin:22px 0 8px}.notes-panel h3:first-child{margin-top:0}.notes-lines{margin:10px 0 20px}.notes-lines span{display:block;height:26px;border-bottom:1px solid #cbd5e1}.notes-panel p{line-height:1.65}.notes-panel .small{padding:12px;background:#f7faff;border-radius:10px}
 
@@ -157,30 +159,33 @@
 
 <section class="content-section" id="student-notes">
 <h2>📝 Notebook Notes / कॉपी में लिखने के नोट्स</h2>
-<p>Use the diagram and simulation above, then write these points in your notebook. The bilingual prompts are here to help you form complete answers—not just copy a definition.</p>
-<p class="lang-hi" lang="hi">ऊपर दिए गए diagram और simulation को देखकर ये बातें अपनी कॉपी में लिखें। हिंदी और English के प्रश्न पूरे उत्तर लिखने में मदद करेंगे—केवल परिभाषा उतारने के लिए नहीं हैं।</p>
+<p>These are the actual short notes students can copy into their notebooks. The teacher’s oral questions can be asked separately.</p>
+<p class="lang-hi" lang="hi">ये छोटे और पूरे नोट्स हैं जिन्हें विद्यार्थी सीधे अपनी कॉपी में लिख सकते हैं। शिक्षक द्वारा पूछे जाने वाले मौखिक प्रश्न अलग होंगे।</p>
 <div class="lesson-panel notes-panel">
-<h3>1. Draw and label / चित्र बनाकर नाम लिखें</h3>
-<p><strong>English:</strong> Draw the fetch–decode–execute cycle. Label Memory (RAM), Program Counter (PC), Instruction Register (IR), Control Unit (CU), ALU and Register A. Add arrows to show the flow.</p>
-<p class="lang-hi" lang="hi"><strong>हिंदी:</strong> Fetch–Decode–Execute चक्र का चित्र बनाइए। Memory (RAM), Program Counter (PC), Instruction Register (IR), Control Unit (CU), ALU और Register A के नाम लिखिए। प्रवाह दिखाने के लिए तीर बनाइए।</p>
-<div class="notes-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-<h3>2. Write the three stages / तीनों चरण लिखें</h3>
-<p><strong>English:</strong> What happens during Fetch? What does the Control Unit do during Decode? What can happen during Execute?</p>
-<p class="lang-hi" lang="hi"><strong>हिंदी:</strong> Fetch में क्या होता है? Decode के समय Control Unit क्या करती है? Execute में कौन-कौन से काम हो सकते हैं?</p>
-<div class="notes-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-<h3>3. Explain the example / उदाहरण समझाइए</h3>
-<p><strong>English:</strong> The CPU runs LOAD A, 120; ADD A, 80; STORE A, 03. Write what each instruction does and explain how the final answer ₹200 is stored.</p>
-<p class="lang-hi" lang="hi"><strong>हिंदी:</strong> CPU ये निर्देश चलाता है: LOAD A, 120; ADD A, 80; STORE A, 03। हर निर्देश का काम लिखिए और समझाइए कि अंतिम उत्तर ₹200 मेमोरी में कैसे सुरक्षित होता है।</p>
-<div class="notes-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-<h3>4. Key words / मुख्य शब्द</h3>
-<p><strong>English:</strong> Write one sentence each for Program Counter, Instruction Register, Control Unit and ALU.</p>
-<p class="lang-hi" lang="hi"><strong>हिंदी:</strong> Program Counter, Instruction Register, Control Unit और ALU—हर एक के बारे में एक वाक्य लिखिए।</p>
-<div class="notes-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-<h3>5. What I understood / मैंने क्या समझा?</h3>
-<p><strong>English:</strong> Explain in your own words why the CPU repeats the same cycle for each instruction.</p>
-<p class="lang-hi" lang="hi"><strong>हिंदी:</strong> अपने शब्दों में समझाइए कि CPU हर निर्देश के लिए यही चक्र बार-बार क्यों दोहराता है।</p>
-<div class="notes-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-<p class="small">Notebook reminder / कॉपी में याद रखें: draw a neat labelled diagram, write the three stages in order, and include the ₹120 + ₹80 = ₹200 example. / साफ़ नामांकित चित्र बनाएँ, तीनों चरण क्रम से लिखें और ₹120 + ₹80 = ₹200 वाला उदाहरण शामिल करें।</p>
+<h3>CPU Instruction Cycle / CPU निर्देश चक्र</h3>
+<p><strong>Definition (English):</strong> The CPU instruction cycle is the sequence of steps the CPU follows to fetch, decode and execute an instruction.</p>
+<p class="lang-hi" lang="hi"><strong>परिभाषा:</strong> CPU निर्देश चक्र वह प्रक्रिया है जिसमें CPU किसी निर्देश को प्राप्त करता है, उसका अर्थ समझता है और उसे पूरा करता है।</p>
+<h3>Three stages / तीन चरण</h3>
+<ol>
+<li><strong>Fetch:</strong> The CPU fetches the next instruction from memory. The PC stores its address and the instruction is placed in the IR.<p class="lang-hi" lang="hi"><strong>फ़ेच:</strong> CPU मेमोरी से अगला निर्देश लाता है। PC उसका पता रखता है और निर्देश IR में रखा जाता है।</p></li>
+<li><strong>Decode:</strong> The Control Unit (CU) interprets the instruction and decides what operation is needed.<p class="lang-hi" lang="hi"><strong>डीकोड:</strong> Control Unit (CU) निर्देश का अर्थ समझती है और तय करती है कि कौन-सा कार्य करना है।</p></li>
+<li><strong>Execute:</strong> The CPU performs the operation. Data may move, the ALU may calculate, or a result may be stored in memory.<p class="lang-hi" lang="hi"><strong>एग्ज़ीक्यूट:</strong> CPU निर्देश के अनुसार कार्य करता है। डेटा स्थानांतरित हो सकता है, ALU गणना कर सकता है या परिणाम मेमोरी में रखा जा सकता है।</p></li>
+</ol>
+<h3>Important parts / मुख्य भाग</h3>
+<ul>
+<li><strong>PC (Program Counter):</strong> Holds the address of the next instruction. / अगले निर्देश का पता रखता है।</li>
+<li><strong>IR (Instruction Register):</strong> Holds the current instruction. / वर्तमान निर्देश रखता है।</li>
+<li><strong>CU (Control Unit):</strong> Decodes instructions and coordinates the CPU. / निर्देश समझती है और CPU के कार्यों को नियंत्रित करती है।</li>
+<li><strong>ALU:</strong> Performs arithmetic and logical operations. / अंकगणितीय और तार्किक कार्य करता है।</li>
+</ul>
+<h3>Example / उदाहरण</h3>
+<p><strong>LOAD A, 120</strong> puts 120 in register A.<br><strong>ADD A, 80</strong> adds 80 to A: 120 + 80 = 200.<br><strong>STORE A, 03</strong> stores 200 at memory address 03.</p>
+<p class="lang-hi" lang="hi"><strong>LOAD A, 120:</strong> 120 को रजिस्टर A में रखता है।<br><strong>ADD A, 80:</strong> A में 80 जोड़ता है: 120 + 80 = 200।<br><strong>STORE A, 03:</strong> 200 को मेमोरी पते 03 पर सुरक्षित करता है।</p>
+<h3>Diagram to draw / कॉपी में बनाने वाला चित्र</h3>
+<p>Draw this cycle and label the three stages:</p>
+<p class="lang-hi" lang="hi">नीचे दिया गया चक्र कॉपी में बनाकर तीनों चरणों के नाम लिखें:</p>
+<div class="cycle-notes-diagram" role="img" aria-label="Fetch then Decode then Execute then repeat / फ़ेच फिर डीकोड फिर एग्ज़ीक्यूट और दोहराएँ"><span>FETCH<br><small>निर्देश लाना</small></span><b>→</b><span>DECODE<br><small>अर्थ समझना</small></span><b>→</b><span>EXECUTE<br><small>कार्य करना</small></span><b class="cycle-return">↻ Repeat / दोहराएँ</b></div>
+<p class="small">Remember / याद रखें: Fetch → Decode → Execute → Repeat. / फ़ेच → डीकोड → एग्ज़ीक्यूट → दोहराएँ।</p>
 </div>
 </section>
 
