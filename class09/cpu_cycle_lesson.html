@@ -26,6 +26,9 @@
 @keyframes packet-pulse{0%,100%{box-shadow:0 0 0 3px rgba(23,92,211,.12)}50%{box-shadow:0 0 0 9px rgba(23,92,211,.22)}}
 @media(prefers-reduced-motion:reduce){.data-packet.packet-pulse{animation:none}.chip-part{transition:none}}
 @media(max-width:650px){.lesson-panel{padding:10px}}
+
+.notes-panel h3{margin:22px 0 8px}.notes-panel h3:first-child{margin-top:0}.notes-lines{margin:10px 0 20px}.notes-lines span{display:block;height:26px;border-bottom:1px solid #cbd5e1}.notes-panel p{line-height:1.65}.notes-panel .small{padding:12px;background:#f7faff;border-radius:10px}
+
 </style>
 </head>
 <body data-lang="en">
@@ -151,6 +154,36 @@
 <p class="lang-hi" lang="hi"><strong>ध्यान दें:</strong> फ़ेच चरण हमेशा एक जैसा — PC जिस पते पर है, वहाँ से निर्देश पढ़ना। बदलता केवल एग्ज़ीक्यूट चरण है: LOAD डेटा लाता है, ADD जोड़ता है, STORE मेमोरी में लिखता है। इसीलिए एक ही चक्र किसी भी प्रोग्राम को चला सकता है।</p>
 <div class="worked-example"><h3>How fast does this cycle repeat?<span class="lang-hi" lang="hi"> / यह चक्र कितनी तेज़ी से घूमता है?</span></h3><p>A modern CPU is clocked in gigahertz: billions of cycles per second. Even so, it still handles <strong>one instruction at a time</strong> through fetch, decode and execute — speed comes from doing the cycle very fast, not from skipping steps.</p><p class="lang-hi" lang="hi">आधुनिक CPU गीगाहर्ट्ज़ घड़ी में चलता है — प्रति सेकंड अरबों चक्र। फिर भी वह एक समय में <strong>एक ही निर्देश</strong> फ़ेच, डीकोड और एग्ज़ीक्यूट चरणों से गुज़ारता है; गति चक्र को बहुत तेज़ी से दोहराने से आती है, चरण छोड़ने से नहीं।</p></div>
 </section>
+
+<section class="content-section" id="student-notes">
+<h2>📝 Notebook Notes / कॉपी में लिखने के नोट्स</h2>
+<p>Use the diagram and simulation above, then write these points in your notebook. The bilingual prompts are here to help you form complete answers—not just copy a definition.</p>
+<p class="lang-hi" lang="hi">ऊपर दिए गए diagram और simulation को देखकर ये बातें अपनी कॉपी में लिखें। हिंदी और English के प्रश्न पूरे उत्तर लिखने में मदद करेंगे—केवल परिभाषा उतारने के लिए नहीं हैं।</p>
+<div class="lesson-panel notes-panel">
+<h3>1. Draw and label / चित्र बनाकर नाम लिखें</h3>
+<p><strong>English:</strong> Draw the fetch–decode–execute cycle. Label Memory (RAM), Program Counter (PC), Instruction Register (IR), Control Unit (CU), ALU and Register A. Add arrows to show the flow.</p>
+<p class="lang-hi" lang="hi"><strong>हिंदी:</strong> Fetch–Decode–Execute चक्र का चित्र बनाइए। Memory (RAM), Program Counter (PC), Instruction Register (IR), Control Unit (CU), ALU और Register A के नाम लिखिए। प्रवाह दिखाने के लिए तीर बनाइए।</p>
+<div class="notes-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<h3>2. Write the three stages / तीनों चरण लिखें</h3>
+<p><strong>English:</strong> What happens during Fetch? What does the Control Unit do during Decode? What can happen during Execute?</p>
+<p class="lang-hi" lang="hi"><strong>हिंदी:</strong> Fetch में क्या होता है? Decode के समय Control Unit क्या करती है? Execute में कौन-कौन से काम हो सकते हैं?</p>
+<div class="notes-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<h3>3. Explain the example / उदाहरण समझाइए</h3>
+<p><strong>English:</strong> The CPU runs LOAD A, 120; ADD A, 80; STORE A, 03. Write what each instruction does and explain how the final answer ₹200 is stored.</p>
+<p class="lang-hi" lang="hi"><strong>हिंदी:</strong> CPU ये निर्देश चलाता है: LOAD A, 120; ADD A, 80; STORE A, 03। हर निर्देश का काम लिखिए और समझाइए कि अंतिम उत्तर ₹200 मेमोरी में कैसे सुरक्षित होता है।</p>
+<div class="notes-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<h3>4. Key words / मुख्य शब्द</h3>
+<p><strong>English:</strong> Write one sentence each for Program Counter, Instruction Register, Control Unit and ALU.</p>
+<p class="lang-hi" lang="hi"><strong>हिंदी:</strong> Program Counter, Instruction Register, Control Unit और ALU—हर एक के बारे में एक वाक्य लिखिए।</p>
+<div class="notes-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<h3>5. What I understood / मैंने क्या समझा?</h3>
+<p><strong>English:</strong> Explain in your own words why the CPU repeats the same cycle for each instruction.</p>
+<p class="lang-hi" lang="hi"><strong>हिंदी:</strong> अपने शब्दों में समझाइए कि CPU हर निर्देश के लिए यही चक्र बार-बार क्यों दोहराता है।</p>
+<div class="notes-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<p class="small">Notebook reminder / कॉपी में याद रखें: draw a neat labelled diagram, write the three stages in order, and include the ₹120 + ₹80 = ₹200 example. / साफ़ नामांकित चित्र बनाएँ, तीनों चरण क्रम से लिखें और ₹120 + ₹80 = ₹200 वाला उदाहरण शामिल करें।</p>
+</div>
+</section>
+
 <section class="content-section" id="cycle-summary">
 <details class="activity-collapse"><summary><span><strong>Quick Revision / त्वरित पुनरावृत्ति</strong><small>Key terms from this lesson.</small></span><span class="activity-summary-icon" aria-hidden="true">＋</span></summary>
 <div class="activity-content">
