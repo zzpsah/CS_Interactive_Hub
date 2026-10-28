@@ -27,20 +27,56 @@
 .ewaste-glossary>div{border:1px solid #d8e1ed;border-radius:10px;padding:12px}
 @media(max-width:640px){.ewaste-diagram{grid-template-columns:repeat(2,minmax(0,1fr))}.ewaste-diagram-step:not(:last-child):after{display:none}.ewaste-impact-grid,.ewaste-glossary{grid-template-columns:1fr}}@media(max-width:640px){.ewaste-grid{grid-template-columns:1fr}.ewaste-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.ewaste-stage{padding:10px 6px}.ewaste-stage .symbol{font-size:1.5rem}}
 @media(prefers-reduced-motion:reduce){.ewaste-stage{transition:none}.ewaste-stage.active{transform:none}}
+
+/* E-waste lesson visual refinement: scoped so other CS pages remain unchanged */
+.ewaste-wrap{--ew-green:#176b4d;--ew-green-dark:#104b37;--ew-mint:#eaf7ef;--ew-amber:#f5b942;max-width:1040px}
+.ewaste-hero{position:relative;isolation:isolate;overflow:hidden;margin:22px 0 10px;padding:clamp(22px,5vw,42px);border:1px solid #cfe5d8;border-radius:24px;background:radial-gradient(circle at 92% 12%,rgba(245,185,66,.24),transparent 24%),linear-gradient(135deg,#f0faf3 0%,#fff 62%,#edf7ff 100%)}
+.ewaste-hero:after{content:"♻️";position:absolute;right:clamp(10px,4vw,34px);bottom:-20px;font-size:clamp(4rem,12vw,8rem);opacity:.10;z-index:-1}
+.ewaste-hero .eyebrow{color:var(--ew-green);font-size:.78rem}
+.ewaste-hero h1{max-width:760px;margin:.35rem 0 1rem}
+.ewaste-intro{max-width:72ch;font-size:clamp(1.05rem,2.4vw,1.2rem);line-height:1.8;color:#334155}
+.ewaste-wrap .card{border-color:#d7e5dc;box-shadow:0 5px 20px rgba(19,65,45,.045)}
+.ewaste-wrap .ewaste-card{border-top:4px solid var(--ew-green);background:linear-gradient(180deg,#fff,#fcfefc)}
+.ewaste-wrap .ewaste-card h2,.ewaste-wrap .card>h2{color:#173d2c}
+.ewaste-wrap .ewaste-card li{padding:.18rem 0}
+.ewaste-diagram-step{background:linear-gradient(180deg,#fff,#f0faf4);border-color:#cce2d4;box-shadow:0 4px 12px rgba(20,80,52,.05)}
+.ewaste-diagram-step .diagram-icon{background:#dff3e6;color:var(--ew-green)}
+.ewaste-impact{background:#fff;border-color:#d7e5dc;transition:transform .18s,box-shadow .18s}
+.ewaste-impact:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(19,65,45,.09)}
+.ewaste-glossary>div{background:#fbfefc;border-color:#d7e5dc}
+.ewaste-glossary>div strong{color:#174b35;font-size:1.03rem}
+.ewaste-callout{border-left-color:var(--ew-green);background:#eaf7ef;color:#17432f}
+.ewaste-stage{border-color:#cfe0d5;background:#fbfefc}
+.ewaste-stage.active{border-color:var(--ew-green);background:#e5f7eb;box-shadow:0 5px 15px rgba(23,107,77,.12)}
+.ewaste-controls .btn{border-color:var(--ew-green-dark);background:var(--ew-green-dark);color:#fff}
+.ewaste-controls .btn:hover{background:var(--ew-green);border-color:var(--ew-green)}
+.ewaste-feedback{border:1px solid #d5e5dc;background:#f3faf5;color:#17432f}
+.quiz-summary{background:#eaf7ef;border:1px solid #cfe5d8;color:#17432f}
+.quiz-option{transition:background .15s,border-color .15s,transform .15s}
+.quiz-option:hover{border-color:var(--ew-green);background:#f3faf5}
+.quiz-option[aria-pressed=true]{border-color:var(--ew-green);background:#eaf7ef;color:#123e2b}
+.quiz-feedback[data-result="correct"]{border:1px solid #b8dfc4}
+.quiz-feedback[data-result="wrong"]{border:1px solid #f0c2bd}
+.ewaste-wrap .small-note{line-height:1.65}
+.ewaste-wrap a:not(.btn){color:#145b40}
+.ewaste-wrap :focus-visible{outline-color:#b77908}
+@media(max-width:640px){.ewaste-hero{border-radius:18px;padding:22px 18px}.ewaste-hero:after{font-size:4.5rem;right:8px;bottom:-12px}.ewaste-wrap .ewaste-controls .btn{flex:1 1 145px;justify-content:center}.ewaste-diagram-step{padding:12px 8px}.ewaste-diagram-step .diagram-icon{width:48px;height:48px;font-size:1.65rem}}
+@media(prefers-reduced-motion:reduce){.ewaste-impact,.quiz-option{transition:none}.ewaste-impact:hover,.quiz-option:hover{transform:none}}
+
 </style>
 </head>
 <body data-lang="en">
 <div class="topbar"><div class="wrap"><a class="brand" href="index.html">📘 CS सीखें · Learn Computer Science</a><div class="nav"><a href="index.html">Home</a><div class="lang-switch"><button type="button" data-lang-toggle aria-pressed="false">Add Hindi</button></div></div></div></div>
 <main class="wrap ewaste-wrap">
-<header class="ewaste-hero"><p class="eyebrow">MISCELLANEOUS TOPICS · DIGITAL RESPONSIBILITY</p><h1>E-Waste Management<br><span class="lang-hi" lang="hi">ई-कचरा प्रबंधन</span></h1><p>Learn what electronic waste is, why it matters, and how to handle old devices safely. Then guide a device through a responsible recycling journey.</p><p class="lang-hi" lang="hi">इलेक्ट्रॉनिक कचरा क्या है, यह क्यों महत्वपूर्ण है और पुराने उपकरणों को सुरक्षित तरीके से कैसे संभालें—जानें। फिर किसी उपकरण को जिम्मेदार पुनर्चक्रण की प्रक्रिया से गुजारें।</p></header>
+<header class="ewaste-hero"><p class="eyebrow">MISCELLANEOUS TOPICS · DIGITAL RESPONSIBILITY</p><h1>E-Waste Management<br><span class="lang-hi" lang="hi">ई-कचरा प्रबंधन</span></h1><p class="ewaste-intro">Every old phone, charger, battery or computer has a next step. Learn how to <strong>reduce e-waste, repair and reuse devices, protect personal data, and recycle safely</strong>—then practise with a guided activity and a 20-question challenge.</p><p class="lang-hi ewaste-intro" lang="hi">हर पुराने फोन, चार्जर, बैटरी या कंप्यूटर का सही अगला कदम होता है। जानें कि <strong>ई-कचरा कैसे कम करें, उपकरणों की मरम्मत व पुनः उपयोग कैसे करें, निजी डेटा कैसे सुरक्षित रखें और सुरक्षित पुनर्चक्रण कैसे चुनें</strong>—फिर गतिविधि और 20 प्रश्नों की चुनौती से अभ्यास करें।</p></header>
 <section class="section ewaste-grid">
 <article class="card ewaste-card"><h2>1. What is e-waste? <span class="lang-hi" lang="hi">ई-कचरा क्या है?</span></h2><p>E-waste is discarded electrical or electronic equipment, such as broken phones, computers, chargers, batteries and televisions.</p><p class="lang-hi" lang="hi">फेंके गए विद्युत या इलेक्ट्रॉनिक उपकरण—जैसे खराब फोन, कंप्यूटर, चार्जर, बैटरी और टीवी—ई-कचरा कहलाते हैं।</p><p><strong>Why manage it?</strong> Some parts contain useful recoverable materials, while unsafe handling can release harmful substances or cause fires.</p><p class="lang-hi" lang="hi"><strong>प्रबंधन क्यों?</strong> कुछ हिस्सों से उपयोगी सामग्री वापस मिल सकती है, जबकि गलत तरीके से संभालने पर हानिकारक पदार्थ निकल सकते हैं या आग लग सकती है।</p></article>
 <article class="card ewaste-card"><h2>2. The responsible 4-step rule <span class="lang-hi" lang="hi">चार जिम्मेदार कदम</span></h2><ol><li><strong>Reduce:</strong> maintain devices and buy only what you need.</li><li><strong>Reuse/repair:</strong> repair, donate or pass on working devices safely.</li><li><strong>Protect data:</strong> back up what you need, sign out and securely erase personal data before handing over a device.</li><li><strong>Recycle:</strong> give unusable electronics to an authorized collection point or recycler.</li></ol><ol class="lang-hi" lang="hi"><li><strong>कम करें:</strong> उपकरणों की देखभाल करें और जरूरत भर ही खरीदें।</li><li><strong>दोबारा उपयोग/मरम्मत:</strong> ठीक उपकरण की मरम्मत करें या सुरक्षित रूप से दान करें।</li><li><strong>डेटा सुरक्षित करें:</strong> जरूरी डेटा का बैकअप लें, साइन आउट करें और सौंपने से पहले निजी डेटा सुरक्षित रूप से मिटाएँ।</li><li><strong>पुनर्चक्रण:</strong> अनुपयोगी इलेक्ट्रॉनिक्स अधिकृत संग्रह केंद्र या पुनर्चक्रक को दें।</li></ol></article>
 </section>
 <section class="section card">
 <h2>Visual guide: from old device to recovered materials <span class="lang-hi" lang="hi">पुराने उपकरण से उपयोगी सामग्री तक</span></h2>
-<p>A responsible pathway starts with prevention and reuse. Only devices that cannot be safely reused should move to an authorized recycling route.</p>
-<p class="lang-hi" lang="hi">जिम्मेदार प्रक्रिया की शुरुआत कचरा कम करने और दोबारा उपयोग से होती है। जो उपकरण सुरक्षित रूप से उपयोग नहीं हो सकते, उन्हें अधिकृत पुनर्चक्रण केंद्र तक पहुँचाएँ।</p>
+<p>Think of recycling as the last step—not the first. Keep a device in use for longer when it is safe and practical. If it cannot be repaired or reused, prepare it carefully and hand it to an authorized collection or recycling service.</p>
+<p class="lang-hi" lang="hi">पुनर्चक्रण पहला नहीं, बल्कि अंतिम कदम है। जब तक सुरक्षित और व्यावहारिक हो, उपकरण का उपयोग जारी रखें। यदि मरम्मत या पुनः उपयोग संभव न हो, तो उसे सावधानी से तैयार करके अधिकृत संग्रह केंद्र या पुनर्चक्रण सेवा को दें।</p>
 <div class="ewaste-diagram" role="img" aria-label="E-waste process diagram: reduce and repair, protect data, authorized collection, safe material recovery">
 <div class="ewaste-diagram-step"><span class="diagram-icon" aria-hidden="true">🛠️</span><strong>1. Reduce &amp; repair</strong><p>Maintain, repair or reuse a device when practical.</p><p class="lang-hi" lang="hi">देखभाल, मरम्मत या दोबारा उपयोग करें।</p></div>
 <div class="ewaste-diagram-step"><span class="diagram-icon" aria-hidden="true">🔐</span><strong>2. Protect data</strong><p>Back up needed files, sign out and erase personal data.</p><p class="lang-hi" lang="hi">बैकअप लें, साइन आउट करें और निजी डेटा मिटाएँ।</p></div>
@@ -52,9 +88,9 @@
 <section class="section card">
 <h2>Why e-waste matters <span class="lang-hi" lang="hi">/ ई-कचरा क्यों महत्वपूर्ण है?</span></h2>
 <div class="ewaste-impact-grid">
-<div class="ewaste-impact"><span class="symbol" aria-hidden="true">🌱</span><h3>Environmental protection</h3><p>Improper dumping or burning can pollute soil, water and air. Responsible collection helps reduce these risks.</p><p class="lang-hi" lang="hi">गलत तरीके से फेंकने या जलाने से मिट्टी, पानी और हवा प्रदूषित हो सकते हैं।</p></div>
-<div class="ewaste-impact"><span class="symbol" aria-hidden="true">⛏️</span><h3>Save resources</h3><p>Electronics may contain recoverable metals, glass and plastics. Recovery can reduce demand for some new raw materials.</p><p class="lang-hi" lang="hi">इलेक्ट्रॉनिक्स से धातु, काँच और प्लास्टिक वापस मिल सकते हैं।</p></div>
-<div class="ewaste-impact"><span class="symbol" aria-hidden="true">🧤</span><h3>People and safety</h3><p>Unsafe dismantling can expose people to hazardous substances, sharp parts and battery fires. Use trained recyclers.</p><p class="lang-hi" lang="hi">गलत तरीके से खोलने पर हानिकारक पदार्थ, नुकीले हिस्से और बैटरी में आग का खतरा हो सकता है।</p></div>
+<div class="ewaste-impact"><span class="symbol" aria-hidden="true">🌱</span><h3>Environmental protection</h3><p>Dumping electronics with ordinary rubbish or burning wires can contaminate soil, water and air. Batteries may leak or ignite. Separate collection and professional treatment help prevent avoidable harm.</p><p class="lang-hi" lang="hi">गलत तरीके से फेंकने या जलाने से मिट्टी, पानी और हवा प्रदूषित हो सकते हैं।</p></div>
+<div class="ewaste-impact"><span class="symbol" aria-hidden="true">⛏️</span><h3>Save resources</h3><p>Phones and computers can contain metals, glass and plastics that specialists may recover. Reusing components and recovering materials can conserve resources and reduce the need for some newly mined materials.</p><p class="lang-hi" lang="hi">इलेक्ट्रॉनिक्स से धातु, काँच और प्लास्टिक वापस मिल सकते हैं।</p></div>
+<div class="ewaste-impact"><span class="symbol" aria-hidden="true">🧤</span><h3>People and safety</h3><p>Breaking devices apart without training can expose people to hazardous substances, sharp edges and battery-fire risks. Do not burn, crush or open electronics at home; use trained handlers and authorized recyclers.</p><p class="lang-hi" lang="hi">गलत तरीके से खोलने पर हानिकारक पदार्थ, नुकीले हिस्से और बैटरी में आग का खतरा हो सकता है।</p></div>
 </div>
 </section>
 <section class="section card">
@@ -66,7 +102,7 @@
 <div><strong>📺 Home electronics</strong><p>Televisions, audio devices and other electrical equipment.</p><p class="lang-hi" lang="hi">टीवी, ऑडियो उपकरण और अन्य इलेक्ट्रॉनिक सामान।</p></div>
 </div>
 </section>
-<section class="section card"><h2>Interactive animation: follow an old phone <span class="lang-hi" lang="hi">इंटरैक्टिव एनीमेशन: पुराने फोन की यात्रा</span></h2><p>Use Next or Previous to move the phone through each responsible step. The active stage and explanation change as you progress.</p><p class="lang-hi" lang="hi">फोन को जिम्मेदार प्रक्रिया के हर चरण से गुजारने के लिए अगला या पिछला दबाएँ। हर चरण पर सक्रिय स्थिति और व्याख्या बदलेगी।</p>
+<section class="section card ewaste-activity"><h2>Interactive animation: follow an old phone <span class="lang-hi" lang="hi">इंटरैक्टिव एनीमेशन: पुराने फोन की यात्रा</span></h2><p>Use Next or Previous to move the phone through each responsible step. The active stage and explanation change as you progress.</p><p class="lang-hi" lang="hi">फोन को जिम्मेदार प्रक्रिया के हर चरण से गुजारने के लिए अगला या पिछला दबाएँ। हर चरण पर सक्रिय स्थिति और व्याख्या बदलेगी।</p>
 <div class="ewaste-item"><span class="symbol" id="phone-symbol" aria-hidden="true">📱</span><div><strong id="phone-status">An old phone is no longer needed</strong><p id="phone-status-hi" class="lang-hi" lang="hi">पुराने फोन की अब जरूरत नहीं है</p></div></div>
 <div class="ewaste-flow" id="ewaste-flow" aria-label="E-waste management steps">
 <div class="ewaste-stage active" data-stage="0"><span class="symbol" aria-hidden="true">🔧</span><strong>Reduce / Repair</strong><span class="lang-hi" lang="hi">कम करें / मरम्मत</span></div>
