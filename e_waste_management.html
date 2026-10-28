@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Bilingual e-waste management overview with an interactive sorting animation and quiz.">
+<title>E-Waste Management | Computer Science</title>
+<link rel="stylesheet" href="assets/css/style.css?v=class9-study-1">
+<style>
+.ewaste-wrap{max-width:980px;margin:auto}.ewaste-hero{padding:24px 0 14px}.ewaste-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2}.ewaste-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ewaste-card{min-width:0}.ewaste-card h2{margin-top:0}.ewaste-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:18px 0}.ewaste-stage{border:2px solid #d8e1ed;border-radius:12px;padding:12px 8px;text-align:center;background:#fff;min-width:0;transition:border-color .2s,background .2s,transform .2s}.ewaste-stage .symbol{font-size:1.8rem;display:block;margin-bottom:5px}.ewaste-stage.active{border-color:#176b4d;background:#eaf8f0;transform:translateY(-3px)}.ewaste-stage.done{border-color:#8bbda4;background:#f4fbf6}.ewaste-controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.ewaste-controls button,.quiz-option{min-height:42px}.ewaste-feedback{padding:12px;border-radius:10px;background:#f0f5ff;min-height:48px}.ewaste-item{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid #d8e1ed;border-radius:12px;background:#fff}.ewaste-item .symbol{font-size:2rem}.quiz-question{padding:14px 0;border-top:1px solid #d8e1ed}.quiz-options{display:grid;gap:8px;margin:10px 0}.quiz-option{text-align:left;border:1px solid #b9c7d9;background:#fff;border-radius:10px;padding:10px 12px;color:inherit;cursor:pointer}.quiz-option[aria-pressed=true]{border-color:#17449b;background:#edf3ff}.quiz-feedback{min-height:24px;font-weight:600}.small-note{font-size:.92rem;color:#44546a}@media(max-width:640px){.ewaste-grid{grid-template-columns:1fr}.ewaste-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.ewaste-stage{padding:10px 6px}.ewaste-stage .symbol{font-size:1.5rem}}
+@media(prefers-reduced-motion:reduce){.ewaste-stage{transition:none}.ewaste-stage.active{transform:none}}
+</style>
+</head>
+<body data-lang="en">
+<div class="topbar"><div class="wrap"><a class="brand" href="index.html">📘 CS सीखें · Learn Computer Science</a><div class="nav"><a href="index.html">Home</a><div class="lang-switch"><button type="button" data-lang-toggle aria-pressed="false">Add Hindi</button></div></div></div></div>
+<main class="wrap ewaste-wrap">
+<header class="ewaste-hero"><p class="eyebrow">DIGITAL RESPONSIBILITY · STANDALONE MODULE</p><h1>E-Waste Management<br><span class="lang-hi" lang="hi">ई-कचरा प्रबंधन</span></h1><p>Learn what electronic waste is, why it matters, and how to handle old devices safely. Then guide a device through a responsible recycling journey.</p><p class="lang-hi" lang="hi">इलेक्ट्रॉनिक कचरा क्या है, यह क्यों महत्वपूर्ण है और पुराने उपकरणों को सुरक्षित तरीके से कैसे संभालें—जानें। फिर किसी उपकरण को जिम्मेदार पुनर्चक्रण की प्रक्रिया से गुजारें।</p></header>
+<section class="section ewaste-grid">
+<article class="card ewaste-card"><h2>1. What is e-waste? <span class="lang-hi" lang="hi">ई-कचरा क्या है?</span></h2><p>E-waste is discarded electrical or electronic equipment, such as broken phones, computers, chargers, batteries and televisions.</p><p class="lang-hi" lang="hi">फेंके गए विद्युत या इलेक्ट्रॉनिक उपकरण—जैसे खराब फोन, कंप्यूटर, चार्जर, बैटरी और टीवी—ई-कचरा कहलाते हैं।</p><p><strong>Why manage it?</strong> Some parts contain useful recoverable materials, while unsafe handling can release harmful substances or cause fires.</p><p class="lang-hi" lang="hi"><strong>प्रबंधन क्यों?</strong> कुछ हिस्सों से उपयोगी सामग्री वापस मिल सकती है, जबकि गलत तरीके से संभालने पर हानिकारक पदार्थ निकल सकते हैं या आग लग सकती है।</p></article>
+<article class="card ewaste-card"><h2>2. The responsible 4-step rule <span class="lang-hi" lang="hi">चार जिम्मेदार कदम</span></h2><ol><li><strong>Reduce:</strong> maintain devices and buy only what you need.</li><li><strong>Reuse/repair:</strong> repair, donate or pass on working devices safely.</li><li><strong>Protect data:</strong> back up what you need, sign out and securely erase personal data before handing over a device.</li><li><strong>Recycle:</strong> give unusable electronics to an authorized collection point or recycler.</li></ol><ol class="lang-hi" lang="hi"><li><strong>कम करें:</strong> उपकरणों की देखभाल करें और जरूरत भर ही खरीदें।</li><li><strong>दोबारा उपयोग/मरम्मत:</strong> ठीक उपकरण की मरम्मत करें या सुरक्षित रूप से दान करें।</li><li><strong>डेटा सुरक्षित करें:</strong> जरूरी डेटा का बैकअप लें, साइन आउट करें और सौंपने से पहले निजी डेटा सुरक्षित रूप से मिटाएँ।</li><li><strong>पुनर्चक्रण:</strong> अनुपयोगी इलेक्ट्रॉनिक्स अधिकृत संग्रह केंद्र या पुनर्चक्रक को दें।</li></ol></article>
+</section>
+<section class="section card"><h2>Interactive animation: follow an old phone <span class="lang-hi" lang="hi">इंटरैक्टिव एनीमेशन: पुराने फोन की यात्रा</span></h2><p>Use Next or Previous to move the phone through each responsible step. The active stage and explanation change as you progress.</p><p class="lang-hi" lang="hi">फोन को जिम्मेदार प्रक्रिया के हर चरण से गुजारने के लिए अगला या पिछला दबाएँ। हर चरण पर सक्रिय स्थिति और व्याख्या बदलेगी।</p>
+<div class="ewaste-item"><span class="symbol" id="phone-symbol" aria-hidden="true">📱</span><div><strong id="phone-status">An old phone is no longer needed</strong><p id="phone-status-hi" class="lang-hi" lang="hi">पुराने फोन की अब जरूरत नहीं है</p></div></div>
+<div class="ewaste-flow" id="ewaste-flow" aria-label="E-waste management steps">
+<div class="ewaste-stage active" data-stage="0"><span class="symbol" aria-hidden="true">🔧</span><strong>Reduce / Repair</strong><span class="lang-hi" lang="hi">कम करें / मरम्मत</span></div>
+<div class="ewaste-stage" data-stage="1"><span class="symbol" aria-hidden="true">🔐</span><strong>Protect data</strong><span class="lang-hi" lang="hi">डेटा सुरक्षा</span></div>
+<div class="ewaste-stage" data-stage="2"><span class="symbol" aria-hidden="true">♻️</span><strong>Authorized collection</strong><span class="lang-hi" lang="hi">अधिकृत संग्रह</span></div>
+<div class="ewaste-stage" data-stage="3"><span class="symbol" aria-hidden="true">⚙️</span><strong>Recover materials</strong><span class="lang-hi" lang="hi">सामग्री की वापसी</span></div>
+</div>
+<div class="ewaste-controls"><button class="btn" type="button" id="ewaste-prev">← Previous / पिछला</button><button class="btn" type="button" id="ewaste-next">Next step / अगला चरण →</button><button class="btn" type="button" id="ewaste-reset">Restart / फिर शुरू करें</button></div>
+<p id="ewaste-explanation" class="ewaste-feedback" role="status" aria-live="polite">First, check whether the phone can be repaired or safely reused.</p>
+<p id="ewaste-explanation-hi" class="ewaste-feedback lang-hi" lang="hi" role="status">पहले देखें कि फोन की मरम्मत या सुरक्षित दोबारा उपयोग हो सकता है या नहीं।</p>
+<p class="small-note">Safety: never open batteries, burn wires, or dismantle electronics at home. Ask a trusted adult and use an authorized collection/recycling service.</p><p class="small-note lang-hi" lang="hi">सुरक्षा: बैटरी न खोलें, तार न जलाएँ और घर पर इलेक्ट्रॉनिक्स न खोलें। किसी विश्वसनीय वयस्क की मदद लें और अधिकृत संग्रह/पुनर्चक्रण सेवा का उपयोग करें।</p>
+</section>
+<section class="section card"><h2>Quick quiz <span class="lang-hi" lang="hi">छोटी प्रश्नोत्तरी</span></h2><p>Choose an answer for each question. Feedback appears immediately.</p><p class="lang-hi" lang="hi">हर प्रश्न का उत्तर चुनें। प्रतिक्रिया तुरंत दिखाई देगी।</p>
+<div class="quiz-question" data-correct="B"><h3>1. What is the safest choice for a broken, unusable phone?</h3><p class="lang-hi" lang="hi">खराब और अनुपयोगी फोन के लिए सबसे सुरक्षित विकल्प क्या है?</p><div class="quiz-options"><button class="quiz-option" data-value="A" aria-pressed="false">A. Burn it with household rubbish / घरेलू कचरे के साथ जलाएँ</button><button class="quiz-option" data-value="B" aria-pressed="false">B. Give it to an authorized e-waste collection point / अधिकृत ई-कचरा केंद्र को दें</button><button class="quiz-option" data-value="C" aria-pressed="false">C. Throw it into a river / नदी में फेंकें</button></div><p class="quiz-feedback" role="status" aria-live="polite"></p></div>
+<div class="quiz-question" data-correct="A"><h3>2. Before handing over a phone for reuse or recycling, what should you do with personal data?</h3><p class="lang-hi" lang="hi">फोन दोबारा उपयोग या पुनर्चक्रण के लिए देने से पहले निजी डेटा के साथ क्या करना चाहिए?</p><div class="quiz-options"><button class="quiz-option" data-value="A" aria-pressed="false">A. Back up needed files, sign out and securely erase data / जरूरी फाइलों का बैकअप, साइन आउट और डेटा सुरक्षित रूप से मिटाएँ</button><button class="quiz-option" data-value="B" aria-pressed="false">B. Leave every account signed in / सभी खाते खुले छोड़ दें</button><button class="quiz-option" data-value="C" aria-pressed="false">C. Share passwords with the collector / पासवर्ड संग्रहकर्ता को दें</button></div><p class="quiz-feedback" role="status" aria-live="polite"></p></div>
+<div class="quiz-question" data-correct="C"><h3>3. Why should electronics not be burned or dismantled at home?</h3><p class="lang-hi" lang="hi">इलेक्ट्रॉनिक्स को घर पर जलाना या खोलना क्यों नहीं चाहिए?</p><div class="quiz-options"><button class="quiz-option" data-value="A" aria-pressed="false">A. It always makes devices work again / इससे उपकरण हमेशा ठीक हो जाते हैं</button><button class="quiz-option" data-value="B" aria-pressed="false">B. It is the only way to recover materials / सामग्री वापस पाने का यही एक तरीका है</button><button class="quiz-option" data-value="C" aria-pressed="false">C. It can cause injury, fires or harmful exposure / इससे चोट, आग या हानिकारक पदार्थों का संपर्क हो सकता है</button></div><p class="quiz-feedback" role="status" aria-live="polite"></p></div>
+<div class="ewaste-controls"><button class="btn" id="quiz-reset" type="button">Reset quiz / क्विज़ रीसेट करें</button><strong id="quiz-score" role="status" aria-live="polite">Score: 0 / 3</strong></div>
+</section>
+<p><a href="index.html">← Back to Home / मुख्य पृष्ठ पर वापस जाएँ</a></p>
+</main>
+<script src="assets/js/app.js?v=shared-20261023-2"></script>
+<script>
+(function(){
+ const stages=[
+  {en:"Check whether the phone can be repaired or safely reused.",hi:"देखें कि फोन की मरम्मत या सुरक्षित दोबारा उपयोग हो सकता है या नहीं।",status:"An old phone is no longer needed",statusHi:"पुराने फोन की अब जरूरत नहीं है"},
+  {en:"Back up needed files, sign out and securely erase personal data before handing it over.",hi:"फोन सौंपने से पहले जरूरी फाइलों का बैकअप लें, साइन आउट करें और निजी डेटा सुरक्षित रूप से मिटाएँ।",status:"Protect personal data first",statusHi:"पहले निजी डेटा सुरक्षित करें"},
+  {en:"Take the device to an authorized collection point or recycler; do not put it in ordinary rubbish.",hi:"उपकरण को अधिकृत संग्रह केंद्र या पुनर्चक्रक को दें; इसे सामान्य कचरे में न डालें।",status:"Device reaches authorized collection",statusHi:"उपकरण अधिकृत संग्रह केंद्र पहुँचता है"},
+  {en:"A qualified recycler can separate and recover useful materials using appropriate processes.",hi:"प्रशिक्षित पुनर्चक्रक उचित प्रक्रिया से उपयोगी सामग्री अलग करके वापस प्राप्त कर सकता है।",status:"Materials can be recovered safely",statusHi:"सामग्री सुरक्षित रूप से वापस प्राप्त की जा सकती है"}
+ ];
+ let step=0;
+ const stagesEls=[...document.querySelectorAll(".ewaste-stage")];
+ const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+ function render(){
+  stagesEls.forEach((el,i)=>{el.classList.toggle("active",i===step);el.classList.toggle("done",i<step);});
+  document.getElementById("phone-status").textContent=stages[step].status;
+  document.getElementById("phone-status-hi").textContent=stages[step].statusHi;
+  document.getElementById("ewaste-explanation").textContent=stages[step].en;
+  document.getElementById("ewaste-explanation-hi").textContent=stages[step].hi;
+  document.getElementById("ewaste-prev").disabled=step===0;
+  document.getElementById("ewaste-next").disabled=step===stages.length-1;
+  document.getElementById("phone-symbol").textContent=step===3?"♻️":"📱";
+ }
+ document.getElementById("ewaste-prev").addEventListener("click",()=>{if(step>0){step--;render();}});
+ document.getElementById("ewaste-next").addEventListener("click",()=>{if(step<stages.length-1){step++;render();}});
+ document.getElementById("ewaste-reset").addEventListener("click",()=>{step=0;render();});
+ document.querySelectorAll(".quiz-question").forEach(q=>{
+  q.querySelectorAll(".quiz-option").forEach(btn=>btn.addEventListener("click",()=>{
+   q.querySelectorAll(".quiz-option").forEach(b=>b.setAttribute("aria-pressed",String(b===btn)));
+   const feedback=q.querySelector(".quiz-feedback");
+   const correct=btn.dataset.value===q.dataset.correct;
+   feedback.textContent=correct?"Correct — "+({B:"Authorized recyclers handle e-waste more safely.",A:"Protecting personal data reduces privacy risks.",C:"Unsafe dismantling can cause injury, fire or harmful exposure."}[q.dataset.correct]):"Not quite. Try again and think about safety, privacy and proper recycling.";
+   feedback.dataset.result=correct?"correct":"try-again";
+   updateScore();
+  }));
+ });
+ function updateScore(){
+  let score=0;
+  document.querySelectorAll(".quiz-question").forEach(q=>{const chosen=q.querySelector('[aria-pressed="true"]');if(chosen&&chosen.dataset.value===q.dataset.correct)score++;});
+  document.getElementById("quiz-score").textContent="Score: "+score+" / 3";
+ }
+ document.getElementById("quiz-reset").addEventListener("click",()=>{
+  document.querySelectorAll(".quiz-question").forEach(q=>{q.querySelectorAll(".quiz-option").forEach(b=>b.setAttribute("aria-pressed","false"));q.querySelector(".quiz-feedback").textContent="";});
+  updateScore();
+ });
+ render();
+})();
+</script>
+</body>
+</html>
