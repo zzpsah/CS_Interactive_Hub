@@ -30,6 +30,12 @@
   .sheet thead th{
     font-weight:700!important;
   }
+  /* Keep these specific column headings regular weight. */
+  .sheet thead th:nth-child(5),
+  .sheet thead th:nth-child(6),
+  .sheet thead th:nth-child(7){
+    font-weight:400!important;
+  }
 }
 /* Print readability: centered values, responsive text sizing, and safe wrapping. */
 @media print{
