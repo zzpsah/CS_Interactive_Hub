@@ -16,6 +16,19 @@
 @media(max-width:520px){.dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi-value{font-size:17px}.rule-grid{grid-template-columns:1fr}}
 @media print{.dashboard,.dashboard-detail{display:none!important}}
 @media(max-width:950px){.workspace{display:block}}
+/* Emphasize key identity and service values in print. */
+@media print{
+  .sheet td.name,.sheet td.name .teacher-select,
+  .sheet td:nth-child(3) .rowinput,
+  .sheet td:nth-child(4) .rowinput,
+  .sheet td:nth-child(5) .rowinput,
+  .sheet td:nth-child(6) .rowinput,
+  .sheet td:nth-child(7) .rowinput{
+    font-size:clamp(9pt,0.78vw,11pt)!important;
+    font-weight:700!important;
+    line-height:1.22!important;
+  }
+}
 /* Print readability: centered values, responsive text sizing, and safe wrapping. */
 @media print{
   html,body{width:100%;-webkit-print-color-adjust:exact;print-color-adjust:exact}
