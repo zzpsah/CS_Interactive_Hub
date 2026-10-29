@@ -164,7 +164,7 @@
 </table>
 </div>
 <div class="sheet-footer" id="sheetFooter"><div class="signature-block"><div>प्रधानाध्यापक का हस्ताक्षर</div><div>एवं मुहर</div></div></div>
-<div class="no-print mobile-download" style="display:flex;justify-content:center;gap:8px;padding:12px 0"><button type="button" onclick="downloadPDF()">Save / Download PDF</button></div>
+<div class="no-print mobile-download" style="display:flex;justify-content:center;gap:8px;padding:12px 0"><button type="button" onclick="downloadPDF()">Download PDF (A4)</button></div>
 </section>
 </div>
 </main>
@@ -212,7 +212,12 @@ async function downloadPDF(){
     clone.style.cssText+=';display:block!important;width:1320px!important;min-width:1320px!important;max-width:none!important;margin:0!important;padding:8px!important;border:0!important;border-radius:0!important;background:#fff!important;color:#000!important;overflow:visible!important;font-family:"Nirmala UI","Noto Sans Devanagari","Mangal","Kohinoor Devanagari",sans-serif!important;';
     clone.querySelectorAll('.table-wrap').forEach(el=>{el.style.cssText+=';width:100%!important;min-width:0!important;overflow:visible!important;';});
     const table=clone.querySelector('table');
-    if(table){table.style.cssText+=';width:100%!important;min-width:0!important;table-layout:fixed!important;border-collapse:collapse!important;font-size:10px!important;';}
+    if(table){table.style.cssText+=';width:100%!important;min-width:0!important;table-layout:fixed!important;border-collapse:collapse!important;font-size:10px!important;';
+      const cols=[...table.querySelectorAll('colgroup col')];
+      const widths=cols.map(col=>parseFloat(col.style.width)||0);
+      const total=widths.reduce((sum,width)=>sum+width,0);
+      if(total>100){cols.forEach((col,i)=>{col.style.width=(widths[i]/total*100).toFixed(4)+'%';});}
+    }
     clone.querySelectorAll('th,td').forEach(el=>{
       el.style.overflow='visible';el.style.textOverflow='clip';el.style.whiteSpace='pre-wrap';el.style.wordBreak='normal';el.style.overflowWrap='anywhere';el.style.height='auto';el.style.maxHeight='none';el.style.padding='3px 2px';el.style.lineHeight='1.15';el.style.border='1px solid #222';el.style.color='#000';el.style.backgroundColor='#fff';
     });
