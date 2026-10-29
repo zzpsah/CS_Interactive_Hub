@@ -51,6 +51,29 @@
   .sheet .sheet-top,.sheet .sheet-title{font-size:11pt}
 }
 @media print{@page{size:A4 landscape;margin:8mm 5mm 5mm}body{background:#fff;font-size:9px}.toolbar,.roster,.no-print,main>.notice{display:none!important}main{padding:0;max-width:none}.workspace{display:block}.panel{border:0;border-radius:0;padding:0}.sheet-top{font-size:10px;min-height:70px;padding:5px 0 4px;line-height:1.3}.sheet-title{font-size:12px;margin-bottom:4px}.heading-month-line{gap:4px;margin-bottom:3px}.heading-school-line{gap:4px;grid-template-columns:auto minmax(0,1fr) auto minmax(35px,.3fr) auto minmax(40px,.35fr)}.school-name-group{gap:3px}.school-name-group #printSchool{font-size:inherit}.heading-month-line{gap:7px;margin-bottom:6px}.heading-month-line .fill-month{width:145px;min-width:145px}.heading-month-line .fill-year{width:60px;min-width:60px}.heading-school-line{gap:5px}.table-wrap{overflow:visible}table{min-width:0;width:100%;font-size:8pt;table-layout:fixed}th,td{padding:3px 2px;border:1px solid #222;overflow-wrap:anywhere}thead tr:nth-child(2) th{height:50px}thead tr.number-row th{height:18px}td{height:35px}.teacher-select,.rowinput{font-size:clamp(7pt,0.62vw,9pt)!important;padding:1px!important;appearance:none;border:0!important;min-width:0;width:100%!important;max-width:100%!important;height:auto!important;min-height:1.25em!important;white-space:normal!important;overflow-wrap:anywhere!important;word-break:normal!important;text-align:center!important;text-align-last:center!important;line-height:1.15!important}.sheet-footer{min-height:55px;padding-top:16px;font-size:9px}.signature-block{width:170px;line-height:1.45}}
+
+/* Compact A4 landscape print: keep the complete 15-row statement on one page. */
+@media print{
+  @page{size:A4 landscape;margin:4mm}
+  html,body,main,.workspace,.panel,.sheet{margin:0!important;padding:0!important;width:100%!important;max-width:none!important;overflow:visible!important}
+  .sheet-top{min-height:0!important;padding:2px 0 3px!important;line-height:1.1!important;font-size:8pt!important}
+  .sheet-title{font-size:10pt!important;margin:0 0 2px!important}
+  .heading-month-line{margin:0 auto 2px!important;gap:4px!important}
+  .heading-month-line .fill-month{width:100px!important;min-width:100px!important}
+  .heading-month-line .fill-year{width:45px!important;min-width:45px!important}
+  .heading-school-line{gap:3px!important;font-size:7pt!important}
+  .sheet table{width:100%!important;min-width:0!important;table-layout:fixed!important;font-size:7pt!important}
+  .sheet th,.sheet td{padding:1px!important;line-height:1.05!important;overflow-wrap:anywhere!important;word-break:normal!important}
+  .sheet thead tr:nth-child(1) th{height:17px!important}
+  .sheet thead tr:nth-child(2) th{height:34px!important;font-size:6.5pt!important}
+  .sheet thead tr.number-row th{height:14px!important;font-size:6.5pt!important}
+  .sheet tbody tr{height:24px!important;break-inside:avoid!important;page-break-inside:avoid!important}
+  .sheet tbody td{height:24px!important;min-height:0!important;max-height:24px!important}
+  .sheet .teacher-select,.sheet .rowinput{font-size:7pt!important;line-height:1!important;min-height:0!important;height:auto!important;padding:0!important}
+  .sheet-footer{min-height:0!important;padding:8px 4px 0!important;font-size:8pt!important}
+  .signature-block{line-height:1.2!important;width:150px!important}
+  .mobile-download{display:none!important}
+}
 </style>
 </head>
 <body>
