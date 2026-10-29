@@ -98,7 +98,7 @@
   <div class="field"><label for="cellAlign">Cell alignment</label><select id="cellAlign" onchange="alignCell(this.value)"><option value="">Alignment…</option><option value="left">Left</option><option value="center">Center</option><option value="right">Right</option></select></div>
 </div>
 <div class="action-row">
-  <button onclick="window.print()">Print sheet</button>
+  <button onclick="printSheet()">Print sheet</button>
   <button class="secondary" onclick="downloadPDF()">Download PDF</button>
   <button onclick="fillAllDays()">Fill All</button>
   <button class="secondary" onclick="formatCell('bold')">Bold</button>
@@ -152,9 +152,7 @@
 <div class="sheet-top" id="sheetHeading"><div class="sheet-title" contenteditable="true">शिक्षक अनुपस्थिति विवरणी</div><div class="heading-month-line"><span contenteditable="true">माह का नाम :</span><b id="printMonth" class="fill-month"></b><span contenteditable="true">वर्ष :</span><b id="printYear" class="fill-year">2026</b></div><div class="heading-school-line"><span contenteditable="true">विद्यालय का नाम :</span><span class="school-name-group"><b id="printSchool">UCHCH MADHYAMIK VIDYALAY TETAHALI</b></span><span contenteditable="true">पत्रांक :</span><b id="printRef"></b><span contenteditable="true">दिनांक :</span><b id="printDate"></b></div></div>
 <div class="table-wrap">
 <table id="sheetTable">
-<colgroup>
-<col style="width:3.5%"><col style="width:15%"><col style="width:11.5%"><col style="width:9%"><col style="width:5.5%"><col style="width:7.5%"><col style="width:6.2%"><col style="width:6.5%"><col style="width:7.2%"><col style="width:6.2%"><col style="width:6.2%"><col style="width:6.5%"><col style="width:5.5%"><col style="width:3.8%"><col style="width:4%"><col style="width:5%"><col style="width:6.5%">
-</colgroup>
+<colgroup><col style="width:3.028%"><col style="width:12.976%"><col style="width:9.948%"><col style="width:7.785%"><col style="width:4.758%"><col style="width:6.488%"><col style="width:5.363%"><col style="width:5.623%"><col style="width:6.228%"><col style="width:5.363%"><col style="width:5.363%"><col style="width:5.623%"><col style="width:4.758%"><col style="width:3.287%"><col style="width:3.46%"><col style="width:4.325%"><col style="width:5.623%"></colgroup>
 <thead>
 <tr><th colspan="12">Entitlement</th><th colspan="4">Deductions</th><th rowspan="2">NET PAY</th></tr>
 <tr><th>क्रम सं0</th><th>शिक्षक/शिक्षिका का नाम</th><th>प्रान नम्बर/जी0पी0<br>एफ0 नम्बर</th><th>ई0 शिक्षा कोष आई0डी0</th><th>वर्ग</th><th>नियुक्ति की तिथि</th><th>कुल<br>उपस्थिति दिनों<br>की सं0</th><th>मूल वेतन</th><th>महंगाई भत्ता</th><th>आवास भत्ता</th><th>चिकित्सा भत्ता</th><th>कुल</th><th>NPS<br>कटौती</th><th>GIS<br>कटौती</th><th>IT<br>कटौती</th><th>कुल कटौती</th></tr>
@@ -186,60 +184,84 @@ function showTeacherDetails(i){const t=teachers[i];if(!t)return;const pairs=t.de
 function changeRosterPage(delta){rosterPage=Math.max(1,rosterPage+delta);renderRoster();}
 function assign(i,v){let tr=tbody.querySelector('tr[data-row="'+i+'"]');if(v===''||v==null){clearRow(i);return;}let t=teachers[Number(v)];if(!t){clearRow(i);return;}const duplicate=[...tbody.rows].find(other=>Number(other.dataset.row)!==i&&other.querySelector('.teacher-select').value!==''&&(()=>{const chosen=teachers[Number(other.querySelector('.teacher-select').value)];return chosen&&(Number(other.querySelector('.teacher-select').value)===Number(v)||chosen.name.trim().toLocaleLowerCase()===t.name.trim().toLocaleLowerCase());})());if(duplicate){alert('Duplicate entry: '+t.name+' is already filled in row '+(Number(duplicate.dataset.row)+1)+'. Please select a different teacher.');clearRow(i);return;}tr.querySelector('[data-field="pran"]').value=t.pran||t.gpf||'';tr.querySelector('[data-field="login"]').value=t.login||'';tr.querySelector('[data-field="category"]').value=t.category||'';tr.querySelector('[data-field="joined"]').value=t.joined||'';const daysInput=tr.querySelector('[data-field="days"]');if(!daysInput.value)daysInput.value=String(Math.max(1,Math.min(31,Number(document.getElementById('workingDays').value)||30)));let basic=tr.querySelector('[data-field="basic"]');basic.value=matrixBasic(t);basic.placeholder='Auto from BPSC fitment matrix';recalc(tr);}
 function moveRow(button,direction){const tr=button.closest('tr');if(!tr)return;const next=direction<0?tr.previousElementSibling:tr.nextElementSibling;if(!next)return;if(direction<0)tbody.insertBefore(tr,next);else tbody.insertBefore(next,tr);[...tbody.rows].forEach((row,i)=>{row.dataset.row=i;row.querySelector('.row-number').textContent=i+1;row.querySelector('.name').dataset.drop=i;});syncRowHeights();}
+function buildExportSheet(){
+  header();
+  syncRowHeights();
+  const clone=document.querySelector('.sheet').cloneNode(true);
+  clone.querySelectorAll('.no-print,.row-order,button').forEach(el=>el.remove());
+  clone.querySelectorAll('select,input,textarea').forEach(el=>{
+    let value='';
+    if(el.tagName==='SELECT')value=el.selectedOptions[0]?.textContent||'';
+    else value=el.value??'';
+    const span=document.createElement('span');
+    span.className=((el.className||'')+' export-value').trim();
+    span.textContent=value;
+    const cs=getComputedStyle(el);
+    ['font','fontFamily','fontSize','fontWeight','fontStyle','lineHeight','letterSpacing','color','textAlign','textAlignLast','verticalAlign','whiteSpace','overflowWrap','wordBreak','boxSizing'].forEach(k=>{try{span.style[k]=cs[k]}catch(_){}});
+    span.style.display='block';span.style.width='100%';span.style.minWidth='0';span.style.height='auto';span.style.minHeight='0';span.style.border='0';span.style.background='transparent';span.style.padding='0';span.style.margin='0';span.style.overflow='visible';span.style.whiteSpace='pre-wrap';span.style.overflowWrap='anywhere';span.style.wordBreak='normal';
+    el.replaceWith(span);
+  });
+  clone.querySelectorAll('[contenteditable]').forEach(el=>el.removeAttribute('contenteditable'));
+  clone.style.cssText+=';display:block!important;width:1320px!important;min-width:1320px!important;max-width:none!important;margin:0!important;padding:8px!important;border:0!important;border-radius:0!important;background:#fff!important;color:#000!important;overflow:visible!important;font-family:"Nirmala UI","Noto Sans Devanagari","Mangal","Kohinoor Devanagari",sans-serif!important;';
+  clone.querySelectorAll('.table-wrap').forEach(el=>el.style.cssText+=';width:100%!important;min-width:0!important;overflow:visible!important;');
+  const table=clone.querySelector('table');
+  if(table)table.style.cssText+=';width:100%!important;min-width:0!important;table-layout:fixed!important;border-collapse:collapse!important;';
+  clone.querySelectorAll('th,td').forEach(el=>{
+    el.style.overflow='visible';el.style.textOverflow='clip';el.style.whiteSpace='pre-wrap';el.style.wordBreak='normal';el.style.overflowWrap='anywhere';el.style.height='auto';el.style.maxHeight='none';el.style.padding='3px 2px';el.style.lineHeight='1.15';el.style.border='1px solid #222';el.style.color='#000';el.style.backgroundColor='#fff';
+  });
+  clone.querySelectorAll('tbody tr').forEach(el=>{el.style.height='auto';el.style.minHeight='0';el.style.maxHeight='none';el.style.breakInside='avoid';});
+  clone.querySelectorAll('.sheet-top').forEach(el=>{el.style.minHeight='85px';el.style.padding='5px 3px 10px';el.style.overflow='visible';});
+  clone.querySelectorAll('.sheet-footer').forEach(el=>{el.style.minHeight='85px';el.style.padding='28px 10px 5px';el.style.overflow='visible';});
+  return clone;
+}
+function exportPrintStyles(){
+  return '@page{size:A3 landscape;margin:5mm}'+
+    'html,body{margin:0!important;padding:0!important;width:100%!important;background:#fff!important;color:#000!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;font-family:"Nirmala UI","Noto Sans Devanagari","Mangal","Kohinoor Devanagari",sans-serif!important}'+
+    'main,.workspace{display:block!important;margin:0!important;padding:0!important;width:auto!important;max-width:none!important}.panel{border:0!important;border-radius:0!important;padding:0!important}.sheet{display:block!important;width:1320px!important;min-width:1320px!important;max-width:none!important;margin:0!important;padding:8px!important;overflow:visible!important}.table-wrap{width:100%!important;overflow:visible!important}.sheet table{width:100%!important;min-width:0!important;table-layout:fixed!important;border-collapse:collapse!important}.export-value{display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;box-sizing:border-box!important;white-space:pre-wrap!important;overflow-wrap:anywhere!important;word-break:normal!important;color:#000!important;background:transparent!important;border:0!important;padding:0!important;margin:0!important}'+
+    '@media print{@page{size:A3 landscape;margin:5mm}.sheet-top{min-height:85px!important;padding:5px 3px 10px!important;line-height:1.5!important;font-size:14px!important}.sheet-title{font-size:16px!important;margin:0 0 7px!important}.heading-month-line{gap:8px!important;margin:0 auto 7px!important}.heading-month-line .fill-month{width:190px!important;min-width:190px!important}.heading-month-line .fill-year{width:85px!important;min-width:85px!important}.sheet table{font-size:12px!important}.sheet th,.sheet td{padding:3px 2px!important;line-height:1.15!important;white-space:pre-wrap!important;overflow-wrap:anywhere!important}.sheet thead tr:nth-child(1) th{height:25px!important}.sheet thead tr:nth-child(2) th{height:70px!important;font-size:12px!important}.sheet thead tr.number-row th{height:22px!important;font-size:12px!important}.sheet tbody td{height:50px!important;min-height:0!important;max-height:none!important}.sheet-footer{min-height:85px!important;padding:28px 10px 5px!important;font-size:13px!important}.signature-block{width:230px!important;line-height:1.6!important}}';
+}
+function printSheet(){
+  const popup=window.open('','_blank');
+  if(!popup){alert('The print window was blocked. Allow pop-ups for this page and try again.');return;}
+  const clone=buildExportSheet();
+  popup.document.open();
+  popup.document.write('<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>शिक्षक अनुपस्थिति विवरणी</title><style>'+document.querySelector('style').textContent+'\n'+exportPrintStyles()+'</style></head><body><main><div class="workspace">'+clone.outerHTML+'</div></main></body></html>');
+  popup.document.close();
+  popup.focus();
+  const run=()=>{try{popup.focus();popup.print();}catch(e){alert('Print could not be opened: '+(e.message||e));}};
+  if(popup.document.readyState==='complete')run();else popup.addEventListener('load',run,{once:true});
+}
 async function downloadPDF(){
-  const button=[...document.querySelectorAll('button')].find(b=>/Download PDF/.test(b.textContent));
+  const buttons=[...document.querySelectorAll('button')].filter(b=>/Download PDF/.test(b.textContent));
   if(!window.html2pdf){alert('PDF generator did not load. Please check your internet connection and reload the page.');return;}
-  const sheet=document.querySelector('.sheet');
-  if(!sheet){alert('The attendance sheet could not be found.');return;}
-  const originalText=button?button.textContent:'';
+  let wrapper=null;
   try{
-    if(button){button.disabled=true;button.textContent='Preparing PDF…';}
-    header();
-    const clone=sheet.cloneNode(true);
-    clone.querySelectorAll('.no-print,.row-order,button').forEach(el=>el.remove());
-    clone.querySelectorAll('select,input,textarea').forEach(el=>{
-      const span=document.createElement('span');
-      let value='';
-      if(el.tagName==='SELECT') value=el.selectedOptions[0]?.textContent||'';
-      else value=el.value||'';
-      span.textContent=value;
-      const cs=getComputedStyle(el);
-      ['font','fontFamily','fontSize','fontWeight','fontStyle','lineHeight','letterSpacing','color','textAlign','textAlignLast','verticalAlign','padding','margin','width','minWidth','maxWidth','height','minHeight','whiteSpace','overflowWrap','wordBreak','border','backgroundColor','display','boxSizing'].forEach(k=>{try{span.style[k]=cs[k]}catch(_){}});
-      span.style.display='block';span.style.width='100%';span.style.minWidth='0';span.style.height='auto';span.style.minHeight='0';span.style.border='0';span.style.background='transparent';span.style.padding='0';span.style.margin='0';span.style.overflow='visible';span.style.whiteSpace='pre-wrap';span.style.overflowWrap='anywhere';span.style.wordBreak='normal';
-      el.replaceWith(span);
-    });
-    clone.querySelectorAll('[contenteditable]').forEach(el=>el.removeAttribute('contenteditable'));
-    clone.style.cssText+=';display:block!important;width:1320px!important;min-width:1320px!important;max-width:none!important;margin:0!important;padding:8px!important;border:0!important;border-radius:0!important;background:#fff!important;color:#000!important;overflow:visible!important;font-family:"Nirmala UI","Noto Sans Devanagari","Mangal","Kohinoor Devanagari",sans-serif!important;';
-    clone.querySelectorAll('.table-wrap').forEach(el=>{el.style.cssText+=';width:100%!important;min-width:0!important;overflow:visible!important;';});
-    const table=clone.querySelector('table');
-    if(table){table.style.cssText+=';width:100%!important;min-width:0!important;table-layout:fixed!important;border-collapse:collapse!important;font-size:10px!important;';}
-    clone.querySelectorAll('th,td').forEach(el=>{
-      el.style.overflow='visible';el.style.textOverflow='clip';el.style.whiteSpace='pre-wrap';el.style.wordBreak='normal';el.style.overflowWrap='anywhere';el.style.height='auto';el.style.maxHeight='none';el.style.padding='3px 2px';el.style.lineHeight='1.15';el.style.border='1px solid #222';el.style.color='#000';el.style.backgroundColor='#fff';
-    });
-    clone.querySelectorAll('tbody tr').forEach(el=>{el.style.height='auto';el.style.minHeight='32px';el.style.maxHeight='none';el.style.breakInside='avoid';});
-    clone.querySelectorAll('.sheet-top').forEach(el=>{el.style.minHeight='0';el.style.padding='5px 3px 8px';el.style.overflow='visible';});
-    clone.querySelectorAll('.sheet-footer').forEach(el=>{el.style.minHeight='70px';el.style.padding='22px 10px 5px';el.style.overflow='visible';});
-    const wrapper=document.createElement('div');
+    buttons.forEach(b=>{b.disabled=true;if(/Download PDF/.test(b.textContent))b.dataset.originalText=b.textContent;});
+    buttons.forEach(b=>{if(b.dataset.originalText)b.textContent='Preparing PDF…';});
+    const clone=buildExportSheet();
+    wrapper=document.createElement('div');
     wrapper.style.cssText='position:fixed;left:-20000px;top:0;width:1320px;background:#fff;z-index:-1;overflow:visible;';
     wrapper.appendChild(clone);document.body.appendChild(wrapper);
-    if(document.fonts?.ready) await document.fonts.ready;
+    if(document.fonts?.ready)await document.fonts.ready;
     const month=document.getElementById('month')?.value||'';
     const year=document.getElementById('year')?.value||new Date().getFullYear();
     const filename='teacher-absence-'+(month?month.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'-':'')+year+'.pdf';
     await window.html2pdf().set({
-      margin:[3,3,3,3],
-      filename,
+      margin:[5,5,5,5],filename,
       image:{type:'jpeg',quality:0.98},
-      html2canvas:{scale:2,useCORS:true,backgroundColor:'#ffffff',logging:false,scrollX:0,scrollY:0,windowWidth:1320},
-      jsPDF:{unit:'mm',format:'a4',orientation:'landscape',compress:true},
+      html2canvas:{scale:2,useCORS:true,backgroundColor:'#ffffff',logging:false,scrollX:0,scrollY:0,windowWidth:1400},
+      jsPDF:{unit:'mm',format:'a3',orientation:'landscape',compress:true},
       pagebreak:{mode:['css','legacy'],avoid:['tr','td','.sheet-footer']}
     }).from(clone).save();
-    wrapper.remove();
   }catch(err){
     console.error('PDF export failed:',err);
     alert('PDF could not be generated. Please try again or use Print sheet. Details: '+(err?.message||err));
-    document.querySelectorAll('body > div').forEach(el=>{if(el.style.left==='-20000px')el.remove();});
-  }finally{if(button){button.disabled=false;button.textContent=originalText;}}
+  }finally{
+    if(wrapper)wrapper.remove();
+    buttons.forEach(b=>{b.disabled=false;if(b.dataset.originalText){b.textContent=b.dataset.originalText;delete b.dataset.originalText;}});
+  }
+}
+utton.textContent=originalText;}}
 }
 function addNext(j){let tr=[...tbody.rows].find(r=>!r.querySelector('.teacher-select').value);if(!tr){alert('All 15 rows are occupied. Clear a row first.');return;}tr.querySelector('.teacher-select').value=String(j);assign(Number(tr.dataset.row),String(j));}
 function fillAllDays(){const settingInput=document.getElementById("workingDays");const raw=Number(settingInput&&settingInput.value);const n=Math.max(1,Math.min(31,Number.isFinite(raw)&&raw>0?Math.floor(raw):30));let filled=0;[...tbody.rows].forEach(tr=>{const el=tr.querySelector('[data-field="days"]');if(!el)return;el.max=String(n);el.value=String(n);el.dispatchEvent(new Event("input",{bubbles:true}));filled++;});syncRowHeights();const status=document.getElementById("importStatus");if(status)status.textContent="Filled attendance days for all "+filled+" rows with "+n+" working days. Change any row individually if needed.";return filled;}
