@@ -99,7 +99,7 @@
 </div>
 <div class="action-row">
   <button onclick="printSheet()">Print sheet</button>
-  <button class="secondary" onclick="downloadPDF()">Download PDF</button>
+  <button class="secondary" onclick="downloadPDF()">Save / Download PDF</button>
   <button onclick="fillAllDays()">Fill All</button>
   <button class="secondary" onclick="formatCell('bold')">Bold</button>
   <button class="secondary" onclick="formatCell('underline')">Underline</button>
@@ -162,7 +162,7 @@
 </table>
 </div>
 <div class="sheet-footer" id="sheetFooter"><div class="signature-block"><div>प्रधानाध्यापक का हस्ताक्षर</div><div>एवं मुहर</div></div></div>
-<div class="no-print mobile-download" style="display:flex;justify-content:center;gap:8px;padding:12px 0"><button type="button" onclick="downloadPDF()">Download PDF (A4)</button></div>
+<div class="no-print mobile-download" style="display:flex;justify-content:center;gap:8px;padding:12px 0"><button type="button" onclick="downloadPDF()">Save / Download PDF</button></div>
 </section>
 </div>
 </main>
@@ -231,38 +231,8 @@ function printSheet(){
   const run=()=>{try{popup.focus();popup.print();}catch(e){alert('Print could not be opened: '+(e.message||e));}};
   if(popup.document.readyState==='complete')run();else popup.addEventListener('load',run,{once:true});
 }
-async function downloadPDF(){
-  const buttons=[...document.querySelectorAll('button')].filter(b=>/Download PDF/.test(b.textContent));
-  if(!window.html2pdf){alert('PDF generator did not load. Please check your internet connection and reload the page.');return;}
-  let wrapper=null;
-  try{
-    buttons.forEach(b=>{b.disabled=true;if(/Download PDF/.test(b.textContent))b.dataset.originalText=b.textContent;});
-    buttons.forEach(b=>{if(b.dataset.originalText)b.textContent='Preparing PDF…';});
-    const clone=buildExportSheet();
-    wrapper=document.createElement('div');
-    wrapper.style.cssText='position:fixed;left:-20000px;top:0;width:1320px;background:#fff;z-index:-1;overflow:visible;';
-    wrapper.appendChild(clone);document.body.appendChild(wrapper);
-    if(document.fonts?.ready)await document.fonts.ready;
-    const month=document.getElementById('month')?.value||'';
-    const year=document.getElementById('year')?.value||new Date().getFullYear();
-    const filename='teacher-absence-'+(month?month.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'-':'')+year+'.pdf';
-    await window.html2pdf().set({
-      margin:[5,5,5,5],filename,
-      image:{type:'jpeg',quality:0.98},
-      html2canvas:{scale:2,useCORS:true,backgroundColor:'#ffffff',logging:false,scrollX:0,scrollY:0,windowWidth:1400},
-      jsPDF:{unit:'mm',format:'a3',orientation:'landscape',compress:true},
-      pagebreak:{mode:['css','legacy'],avoid:['tr','td','.sheet-footer']}
-    }).from(clone).save();
-  }catch(err){
-    console.error('PDF export failed:',err);
-    alert('PDF could not be generated. Please try again or use Print sheet. Details: '+(err?.message||err));
-  }finally{
-    if(wrapper)wrapper.remove();
-    buttons.forEach(b=>{b.disabled=false;if(b.dataset.originalText){b.textContent=b.dataset.originalText;delete b.dataset.originalText;}});
-  }
-}
-utton.textContent=originalText;}}
-}
+function downloadPDF(){ printSheet(); }
+
 function addNext(j){let tr=[...tbody.rows].find(r=>!r.querySelector('.teacher-select').value);if(!tr){alert('All 15 rows are occupied. Clear a row first.');return;}tr.querySelector('.teacher-select').value=String(j);assign(Number(tr.dataset.row),String(j));}
 function fillAllDays(){const settingInput=document.getElementById("workingDays");const raw=Number(settingInput&&settingInput.value);const n=Math.max(1,Math.min(31,Number.isFinite(raw)&&raw>0?Math.floor(raw):30));let filled=0;[...tbody.rows].forEach(tr=>{const el=tr.querySelector('[data-field="days"]');if(!el)return;el.max=String(n);el.value=String(n);el.dispatchEvent(new Event("input",{bubbles:true}));filled++;});syncRowHeights();const status=document.getElementById("importStatus");if(status)status.textContent="Filled attendance days for all "+filled+" rows with "+n+" working days. Change any row individually if needed.";return filled;}
 function syncRowHeights(){const rows=[...tbody.rows];rows.forEach(tr=>tr.style.height='');let max=0;rows.forEach(tr=>{max=Math.max(max,tr.getBoundingClientRect().height);});if(max>0)rows.forEach(tr=>tr.style.height=Math.ceil(max)+'px');}
