@@ -439,3 +439,12 @@ The course-wide buddy should have many distinct, purposeful moods and gestures, 
 - Completed the device-sorting interaction: select a device then a category (with drag-and-drop as an optional desktop alternative), receive encouraging correct/try-again feedback, see the score update, and reset. Six device examples cover input, processing, primary memory, output and storage.
 - Changed Quick Revision to start collapsed, following the student-content rule. Existing supplementary lab remains collapsed by default.
 - Checks: all inline scripts passed JavaScript syntax parsing; headless Chrome rendered the page and initial boot state; no duplicate IDs or missing local assets/links; `git diff --check` passed. Full browser-driven interaction assertions and physical Android/screen-reader/print checks were not run.
+
+
+## Class IX Chapter 2 — live notice-building practical lab (2026-11-03)
+
+- Expanded `class09/ch02_textual_communication.html` with a bilingual, learner-editable school-notice workshop. Eight fields cover school, heading, date, time, venue, audience, action/instructions and contact person; the document preview updates as the learner types.
+- Added a formal/simple heading-style choice, character count for the instruction field, Restore sample, and Check my notice validation. Missing fields are identified and focused; a complete form prompts the learner to verify facts with the school before publishing. No data is sent or stored.
+- The exercise reinforces document structure and accuracy rather than treating visual decoration as a substitute for correct information. The sample is explicitly labelled as practice content, not an official notice.
+- Preserved the existing five-stage document workflow, Study & Copy, written Q&A, Quick Revision, and print/copy tools.
+- Checks performed: all three inline scripts passed JavaScript syntax parsing; no duplicate IDs; all four local asset/link references resolve; `git diff --check` passed; headless Chrome loaded the local page and rendered the initial workshop preview and sample text. Physical Android, screen-reader, print-output and full automated form-interaction tests remain outstanding.

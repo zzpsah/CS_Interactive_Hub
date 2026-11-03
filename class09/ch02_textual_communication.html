@@ -9,6 +9,61 @@
 <section class="content-section"><h2>🧱 The parts of a well-made document<br><span class="lang-hi" lang="hi">अच्छे दस्तावेज़ के भाग</span></h2><div class="two-column"><article class="definition-card hardware-card"><h3>Structure<span class="lang-hi" lang="hi"> / संरचना</span></h3><p>Use a title, headings, short paragraphs and lists so readers can find information quickly. Put related ideas together and keep the order logical.</p><p class="lang-hi" lang="hi">शीर्षक, उपशीर्षक, छोटे अनुच्छेद और सूचियाँ उपयोग करें ताकि पाठक जानकारी जल्दी खोज सकें। संबंधित विचार साथ रखें।</p></article><article class="definition-card software-card"><h3>Formatting<span class="lang-hi" lang="hi"> / फ़ॉर्मेटिंग</span></h3><p>Formatting changes appearance, not the underlying meaning. Bold can emphasise a key term; alignment can organise a heading; spacing separates sections. Too many fonts and colours make a page harder to read.</p><p class="lang-hi" lang="hi">फ़ॉर्मेटिंग रूप बदलती है, मूल अर्थ नहीं। बोल्ड शब्द पर ज़ोर देता है, संरेखण शीर्षक व्यवस्थित करता है और स्पेसिंग अनुभाग अलग करती है। बहुत अधिक फ़ॉन्ट और रंग पढ़ना कठिन बनाते हैं।</p></article></div><h3>Common editing operations<span class="lang-hi" lang="hi"> / सामान्य संपादन क्रियाएँ</span></h3><ul><li><strong>Select:</strong> choose the text or object to change.</li><li><strong>Cut:</strong> remove selected content and place it on the clipboard.</li><li><strong>Copy:</strong> place a duplicate on the clipboard while keeping the original.</li><li><strong>Paste:</strong> insert clipboard content at the cursor.</li><li><strong>Undo / Redo:</strong> reverse or restore a recent action when supported.</li><li><strong>Find / Replace:</strong> locate repeated text and replace it carefully.</li></ul><p class="lang-hi" lang="hi"><strong>संपादन:</strong> Select से सामग्री चुनते हैं, Cut हटाकर क्लिपबोर्ड में रखता है, Copy मूल को रखते हुए प्रतिलिपि बनाता है, Paste सामग्री जोड़ता है, Undo/Redo क्रिया बदलते हैं और Find/Replace पाठ खोजकर बदलता है।</p></section>
 <section class="content-section"><h2>📐 Example: a school notice<br><span class="lang-hi" lang="hi">उदाहरण: विद्यालय की सूचना</span></h2><p>Imagine a notice announcing a science exhibition. It should include the school name, a clear heading, date and time, venue, who may participate, what students should bring, and a contact person. A colourful title cannot compensate for missing facts.</p><p class="lang-hi" lang="hi">विज्ञान प्रदर्शनी की सूचना में विद्यालय का नाम, स्पष्ट शीर्षक, तिथि और समय, स्थान, भाग लेने वाले विद्यार्थी, लाने वाली सामग्री और संपर्क व्यक्ति होना चाहिए। केवल रंगीन शीर्षक अधूरी जानकारी की भरपाई नहीं कर सकता।</p><div class="answer-panel"><h3>Model notice structure<span class="lang-hi" lang="hi"> / सूचना का नमूना</span></h3><p><strong>SCIENCE EXHIBITION — NOTICE</strong><br>Date: 12 November<br>Time: 10:00 a.m.–1:00 p.m.<br>Venue: School Hall<br>Who: Classes IX–X<br>Action: Register with the science teacher by 8 November.</p><p class="lang-hi" lang="hi">विज्ञान प्रदर्शनी — सूचना। दिनांक: 12 नवंबर। समय: सुबह 10:00 से दोपहर 1:00 बजे। स्थान: विद्यालय सभागार। प्रतिभागी: कक्षा IX–X। कार्य: 8 नवंबर तक विज्ञान शिक्षक के पास पंजीकरण करें।</p><p class="lang-hi" lang="hi">यह केवल समझाने के लिए उदाहरण है। तारीख और विवरण अपने विद्यालय की वास्तविक जानकारी के अनुसार बदलें।</p></div></section>
 
+
+<section class="content-section" id="notice-workshop">
+<h2>🛠️ Practical Lab: Build a school notice <span class="lang-hi" lang="hi">/ अभ्यास: विद्यालय की सूचना बनाएँ</span></h2>
+<p>Change the details below. The preview updates as you type. Then check whether the notice contains the information a student needs.</p>
+<p class="lang-hi" lang="hi">नीचे दिए गए विवरण बदलें। टाइप करते ही नमूना अपडेट होगा। फिर जाँचें कि सूचना में विद्यार्थी के लिए आवश्यक जानकारी है या नहीं।</p>
+<div class="two-column notice-lab-grid">
+<div class="definition-card">
+<h3>1. Enter the details <span class="lang-hi" lang="hi">/ विवरण भरें</span></h3>
+<label for="notice-school">School name / विद्यालय का नाम</label>
+<input id="notice-school" type="text" value="UCHCH MADHYAMIK VIDYALAY TETAHALI" maxlength="90">
+<label for="notice-title">Notice heading / सूचना का शीर्षक</label>
+<input id="notice-title" type="text" value="SCIENCE EXHIBITION" maxlength="70">
+<label for="notice-date">Date / दिनांक</label>
+<input id="notice-date" type="text" value="12 November" maxlength="40">
+<label for="notice-time">Time / समय</label>
+<input id="notice-time" type="text" value="10:00 a.m. – 1:00 p.m." maxlength="50">
+<label for="notice-venue">Venue / स्थान</label>
+<input id="notice-venue" type="text" value="School Hall" maxlength="70">
+<label for="notice-audience">Who can participate? / कौन भाग ले सकता है?</label>
+<input id="notice-audience" type="text" value="Students of Classes IX–X" maxlength="90">
+<label for="notice-action">What should students do? / विद्यार्थियों को क्या करना है?</label>
+<textarea id="notice-action" rows="3" maxlength="220">Register with the science teacher by 8 November. Bring your project model.</textarea>
+<label for="notice-contact">Contact person / संपर्क व्यक्ति</label>
+<input id="notice-contact" type="text" value="Science Teacher" maxlength="70">
+<label for="notice-style">Heading style / शीर्षक शैली</label>
+<select id="notice-style"><option value="formal">Formal / औपचारिक</option><option value="simple">Simple / सरल</option></select>
+<p class="notice-count" id="notice-count" aria-live="polite">0 characters</p>
+<div class="trace-buttons"><button type="button" id="notice-sample">Restore sample / नमूना पुनः रखें</button><button type="button" class="primary" id="notice-check">Check my notice / सूचना जाँचें</button></div>
+<p id="notice-feedback" role="status" aria-live="polite"></p>
+</div>
+<div class="definition-card notice-preview-wrap">
+<h3>2. Live document preview <span class="lang-hi" lang="hi">/ दस्तावेज़ का नमूना</span></h3>
+<article class="notice-preview" id="notice-preview" aria-label="Live school notice preview">
+<p class="notice-school" id="preview-school">UCHCH MADHYAMIK VIDYALAY TETAHALI</p>
+<h3 id="preview-title">SCIENCE EXHIBITION</h3>
+<p><strong>Date / दिनांक:</strong> <span id="preview-date">12 November</span></p>
+<p><strong>Time / समय:</strong> <span id="preview-time">10:00 a.m. – 1:00 p.m.</span></p>
+<p><strong>Venue / स्थान:</strong> <span id="preview-venue">School Hall</span></p>
+<p><strong>For / किसके लिए:</strong> <span id="preview-audience">Students of Classes IX–X</span></p>
+<p id="preview-action">Register with the science teacher by 8 November. Bring your project model.</p>
+<p><strong>Contact / संपर्क:</strong> <span id="preview-contact">Science Teacher</span></p>
+</article>
+<p class="lang-hi" lang="hi">यह अभ्यास का नमूना है, वास्तविक सूचना नहीं। जारी करने से पहले सभी विवरण सत्यापित करें।</p>
+</div>
+</div>
+<div class="callout"><strong>Document quality rule / दस्तावेज़ गुणवत्ता नियम:</strong> Correct facts come before attractive formatting. A notice with a wrong date or missing venue is not ready to publish. / सुंदर फ़ॉर्मेटिंग से पहले सही तथ्य आवश्यक हैं। गलत तारीख या बिना स्थान वाली सूचना जारी करने योग्य नहीं है।</div>
+</section>
+<style>
+#notice-workshop label{display:block;font-weight:650;margin:.65rem 0 .25rem}#notice-workshop input,#notice-workshop textarea,#notice-workshop select{box-sizing:border-box;width:100%;max-width:100%;padding:.65rem;border:1px solid #aebbd0;border-radius:8px;background:#fff;color:#17233b;font:inherit}#notice-workshop input:focus-visible,#notice-workshop textarea:focus-visible,#notice-workshop select:focus-visible{outline:3px solid #82a9f5;outline-offset:2px}.notice-preview{background:#fff;color:#17233b;border:1px solid #c7d1e2;border-radius:10px;padding:1.2rem;box-shadow:0 3px 12px #17233b12;overflow-wrap:anywhere}.notice-preview h3{text-align:center;text-decoration:underline;margin:1rem 0}.notice-school{text-align:center;font-weight:750}.notice-preview p{margin:.7rem 0}.notice-preview.simple h3{text-decoration:none}.notice-count{font-size:.9rem;color:#53627a}.notice-lab-grid{align-items:start}
+@media(max-width:700px){.notice-lab-grid{display:block}.notice-preview-wrap{margin-top:1rem}.notice-preview{padding:.85rem}}
+</style>
+<script>
+(()=>{const ids=['school','title','date','time','venue','audience','action','contact'];const fields=Object.fromEntries(ids.map(k=>[k,document.getElementById('notice-'+k)]));const outputs={school:'preview-school',title:'preview-title',date:'preview-date',time:'preview-time',venue:'preview-venue',audience:'preview-audience',action:'preview-action',contact:'preview-contact'};const preview=document.getElementById('notice-preview'),count=document.getElementById('notice-count'),feedback=document.getElementById('notice-feedback'),style=document.getElementById('notice-style');if(!preview||ids.some(k=>!fields[k]))return;const sample={school:'UCHCH MADHYAMIK VIDYALAY TETAHALI',title:'SCIENCE EXHIBITION',date:'12 November',time:'10:00 a.m. – 1:00 p.m.',venue:'School Hall',audience:'Students of Classes IX–X',action:'Register with the science teacher by 8 November. Bring your project model.',contact:'Science Teacher'};function update(){for(const k of ids)document.getElementById(outputs[k]).textContent=fields[k].value.trim()||'—';preview.classList.toggle('simple',style.value==='simple');count.textContent=fields.action.value.length+' / 220 characters';}for(const k of ids)fields[k].addEventListener('input',update);style.addEventListener('change',update);document.getElementById('notice-sample').addEventListener('click',()=>{for(const k of ids)fields[k].value=sample[k];style.value='formal';feedback.textContent='Sample restored. / नमूना फिर से रखा गया।';update()});document.getElementById('notice-check').addEventListener('click',()=>{const missing=ids.filter(k=>!fields[k].value.trim());if(missing.length){feedback.textContent='Please complete: '+missing.join(', ')+'. / कृपया खाली विवरण भरें।';fields[missing[0]].focus();return;}feedback.textContent='All eight notice fields are filled. Now verify every fact, especially date, time, venue and deadline, with the school before sharing. / सूचना के सभी आठ विवरण भरे हैं। साझा करने से पहले तारीख, समय, स्थान और अंतिम तिथि विद्यालय से सत्यापित करें।';});update()})();
+</script>
+
 <section class="content-section" id="example"><h2>Apply the idea <span class="lang-hi" lang="hi">/ अवधारणा लागू करें</span></h2><p>Before sharing a document, which three checks would matter most for your intended reader?</p><p class="lang-hi" lang="hi">दस्तावेज़ साझा करने से पहले अपने पाठक के लिए कौन-सी तीन जाँच सबसे महत्वपूर्ण होंगी?</p></section>
 
 
