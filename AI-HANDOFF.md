@@ -403,3 +403,13 @@ The course-wide buddy should have many distinct, purposeful moods and gestures, 
 - Corrected the Part 1 Quick Revision disclosure to start collapsed, matching the project-wide student-content rule.
 - Browser tests with headless Chrome/DevTools: 10 desktop assertions passed (load, collapsed revision, initial state, sum, average, previous, invalid input, reset, Hindi toggle, no overflow); mobile 390px test passed (no horizontal overflow, keyboard focus, simulation reaches 82.7). git diff --check passed.
 - This is a scoped content/activity improvement to the existing Class IX Part 1, not a claim that the full Class IX curriculum or all chapter interactions have passed QA. Physical-device, screen-reader and print-output checks remain outstanding.
+
+
+## Class IX Part 2 — IPO theory and assessment expansion (2026-11-03)
+
+- Expanded Study & Copy in class09/ch01_part2_computer_workflow.html from one short topic into four connected bilingual theory topics: functional units, IPO cycle, processing/instructions, and the difference between output and persistent storage.
+- Added a labelled IPO/storage diagram and concise examples, including school marks and spreadsheet work. Kept the material explanatory rather than duplicating the question bank.
+- Replaced three oral-only prompts with five bilingual questions and expandable model answers. Quick Revision now starts collapsed; each model answer remains closed until requested.
+- Retained the existing clickable four-stage data-flow demonstration, QR-payment/report examples, and quick practice activity.
+- Browser checks: 13 assertions passed (page load, collapsed revision, four theory topics, five answer panels, answer disclosure, processing/storage interaction, keyboard focus reachability, practice feedback, Hindi toggle, desktop/mobile overflow). Static HTML audit found no duplicate IDs or missing local links. git diff --check passed.
+- Scope remains one lesson page; physical-device, screen-reader and print-output QA are still outstanding.
