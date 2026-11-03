@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "project": {
+    "name": "CS_Interactive_Hub",
+    "productType": "bilingual interactive computer-science learning portal",
+    "stack": [
+      "static HTML",
+      "CSS",
+      "vanilla JavaScript"
+    ]
+  },
+  "sources": {
+    "tokens": [],
+    "components": [],
+    "assets": [
+      "assets"
+    ],
+    "instructions": [
+      "AGENTS.md"
+    ]
+  },
+  "design": {
+    "colorMode": "light",
+    "colors": {
+      "primary": "#175cd3 (existing --blue token)",
+      "background": "white (existing project baseline)",
+      "surface": "#f6f6f6 (existing --soft token)",
+      "text": "#151515 (existing --ink token)"
+    },
+    "typography": {
+      "family": "system-ui with Noto Sans Devanagari fallback",
+      "body": "16px / 1.7 (existing site baseline)"
+    },
+    "spacing": {},
+    "radius": {
+      "cards": "16px (existing shared system)"
+    },
+    "shadows": {},
+    "motion": {
+      "transitions": "subtle 180ms hover; reduced-motion respected"
+    },
+    "density": "comfortable"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [
+      "Preserve bilingual English-Hindi language toggle",
+      "Keep the existing class and miscellaneous-topic destinations",
+      "Mobile-first responsive layout",
+      "Keyboard-visible focus and reduced-motion support",
+      "Use existing shared CSS tokens and static assets"
+    ],
+    "avoid": [
+      "Framework migration or new dependencies",
+      "Changing lesson functionality or curriculum structure",
+      "Replacing existing site navigation or language behavior"
+    ]
+  },
+  "decisions": [
+    {
+      "date": "2026-11-03",
+      "scope": "homepage",
+      "choice": "Refine the homepage hero and class discovery hierarchy while preserving the established white, blue-accent learning-site identity and all existing destinations.",
+      "rationale": "Make the learning approach and primary class entry clearer without changing the established curriculum or interactions."
+    }
+  ],
+  "evidence": [
+    {
+      "fact": "project.instructions",
+      "source": "AGENTS.md"
+    }
+  ],
+  "generatedAt": "2026-11-03T17:12:02.174Z"
+}

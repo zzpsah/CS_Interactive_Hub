@@ -1,0 +1,40 @@
+/* UI21 homepage refinement — preserves the shared learning-site system. */
+.home-main{max-width:1120px}
+.home-hero{position:relative;overflow:hidden;margin-top:22px;padding:clamp(28px,5vw,54px);border:1px solid var(--line);border-radius:24px;background:radial-gradient(ellipse at 92% 12%,var(--bluebg) 0,transparent 34%),linear-gradient(125deg,var(--bluebg) 0%,white 58%,var(--soft) 100%)}
+.home-hero h1{max-width:850px;margin:.45rem 0 1rem;color:var(--ink)}
+.hero-accent{color:var(--blue)}
+.home-hero .lead{max-width:68ch}
+.home-hero .hero-actions{margin:22px 0 26px}
+.learning-path{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:760px;padding-top:18px;border-top:1px solid var(--line)}
+.learning-path>div{display:grid;grid-template-columns:34px 1fr;align-items:center;column-gap:9px;min-width:0}
+.path-number{grid-row:span 2;display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--bluebg);color:var(--blue);font-size:.8rem;font-weight:850}
+.learning-path strong{color:var(--ink);font-size:.94rem}
+.learning-path .lang-hi{font-size:.84rem;color:var(--muted)}
+.home-classes{padding-top:30px}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}
+.section-heading h2{margin:.2rem 0}
+.section-heading>p{max-width:34ch;margin:0 0 5px;font-size:.94rem}
+.class-card{min-height:220px;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.class-card:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:0 0 0 1px var(--line)}
+.class-kicker{color:var(--muted);font-size:.72rem;font-weight:850;letter-spacing:.075em}
+.current-focus-card{background:linear-gradient(145deg,var(--bluebg),white 75%);border-color:var(--blue);box-shadow:0 0 0 1px var(--line)}
+.class-card-foundation{background:linear-gradient(145deg,var(--soft),white 75%)}
+.topic-symbol{font-size:1.8rem;line-height:1.3}
+a.btn,button{cursor:pointer}
+a.btn{min-height:44px;align-items:center;gap:6px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media(max-width:700px){
+ .home-hero{margin-top:14px;padding:25px 19px;border-radius:18px}
+ .home-hero h1{font-size:clamp(2rem,9vw,3rem)}
+ .learning-path{gap:7px}
+ .learning-path>div{grid-template-columns:29px 1fr;column-gap:6px}
+ .path-number{width:28px;height:28px}
+ .learning-path strong{font-size:.8rem}
+ .learning-path .lang-hi{font-size:.76rem}
+ .section-heading{display:block}
+ .section-heading>p{margin-top:6px}
+ .class-card{min-height:205px}
+}
+@media(max-width:390px){.learning-path{grid-template-columns:1fr}.learning-path>div{grid-template-columns:32px 1fr}.learning-path strong{font-size:.9rem}}
+@media(hover:none){.class-card:hover{transform:none;box-shadow:none}}
+@media(prefers-reduced-motion:reduce){.class-card{transition:none}.class-card:hover{transform:none}}
