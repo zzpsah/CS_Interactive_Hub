@@ -431,3 +431,11 @@ The course-wide buddy should have many distinct, purposeful moods and gestures, 
 - The learner can use Play/Pause, Next/Previous, Reset, or select any numbered stage. The active component and file marker move together; each step explains the state change in English and Hindi, including the risk of unsaved edits.
 - The simulation is topic-specific and supplements (does not replace) the existing component explorer, CPU/RAM/ROM/SSD explanations, diagrams, Study & Copy, Q&A, and revision. It respects `prefers-reduced-motion`, stops timed playback when the tab is hidden, and has a compact mobile layout.
 - Static checks performed: inline JavaScript syntax, duplicate-ID check, local asset/link existence, and `git diff --check`. Browser rendering was attempted with headless Chrome but did not return a rendered DOM; do not claim browser interaction/mobile QA for this slice until a successful browser test is completed.
+
+
+## Class 9 Part 4 — animated startup and device sorting (2026-11-03)
+
+- `class09/ch01_part4_ict_practical_lab.html` now shows a five-stage startup pathway (power → firmware → boot device/manager → OS loader → sign-in) with a moving marker, active/completed states, step explanations in English and Hindi, and working Previous/Next/Start again controls. The page labels this as a simplified model because real startup differs by device/firmware/OS.
+- Completed the device-sorting interaction: select a device then a category (with drag-and-drop as an optional desktop alternative), receive encouraging correct/try-again feedback, see the score update, and reset. Six device examples cover input, processing, primary memory, output and storage.
+- Changed Quick Revision to start collapsed, following the student-content rule. Existing supplementary lab remains collapsed by default.
+- Checks: all inline scripts passed JavaScript syntax parsing; headless Chrome rendered the page and initial boot state; no duplicate IDs or missing local assets/links; `git diff --check` passed. Full browser-driven interaction assertions and physical Android/screen-reader/print checks were not run.
