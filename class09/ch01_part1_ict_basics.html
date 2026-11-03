@@ -31,6 +31,21 @@
 #questions-answers .answer-panel h3{font-size:1.05rem;margin:.1rem 0 .45rem}
 #questions-answers .answer-panel h4{margin:.55rem 0 .2rem}
 #questions-answers .answer-panel ul{margin:.3rem 0;padding-left:1.2rem}
+.data-inputs{align-items:end;gap:10px}
+.data-inputs label{display:grid;gap:5px;font-weight:650}
+.data-inputs input{width:100%;min-width:76px;min-height:42px;padding:7px 9px;border:1px solid #9aaccb;border-radius:8px;background:#fff;color:#17264b;font:inherit}
+.data-process{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
+.data-stage{display:grid;align-content:start;gap:6px;min-width:0;padding:12px;border:1px solid #d7e0ef;border-radius:11px;background:#fff;opacity:.72}
+.data-stage>span:first-child{font-size:.75rem;font-weight:850;color:#526da6}
+.data-stage strong{color:#17264b}
+.data-stage .lang-hi{font-size:.88rem;color:#52627c}
+.data-stage output{display:block;overflow-wrap:anywhere;margin-top:5px;padding:8px;border-radius:7px;background:#f3f6fc;font-weight:750;color:#17264b}
+.data-stage.is-current{opacity:1;border:2px solid #175cd3;background:#edf4ff}
+.data-stage.is-complete{opacity:1;border-color:#69a995;background:#effaf5}
+.data-process-controls{flex-wrap:wrap}
+.data-process-controls button{min-height:42px}
+.data-process-controls button:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:600px){.data-process{grid-template-columns:1fr}.data-stage{grid-template-columns:34px 1fr;align-items:center;column-gap:8px}.data-stage>span:first-child{grid-row:span 3}.data-stage output{grid-column:2;margin-top:0}.data-inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.data-inputs label{font-size:.85rem}.data-inputs input{min-width:0}}
 @media(max-width:600px){.chapter-one .study-copy-section .study-paper{padding:.7rem .65rem .75rem 1.7rem}.chapter-one .study-copy-section .study-paper:before{left:1.25rem}.note-diagram text{font-size:13px}.note-diagram figcaption{font-size:.74rem}}
 </style>
 </head>
@@ -49,7 +64,23 @@
 <div class="callout"><strong>Responsible ICT use:</strong> check information before sharing it, protect passwords and personal details, respect other people's work, and remember that access to devices and reliable Internet is not equal for everyone.</div>
 <p class="lang-hi" lang="hi"><strong>जिम्मेदार उपयोग:</strong> जानकारी साझा करने से पहले जाँचें, पासवर्ड और निजी विवरण सुरक्षित रखें, दूसरों के काम का सम्मान करें और याद रखें कि सभी को उपकरण व भरोसेमंद इंटरनेट समान रूप से उपलब्ध नहीं हैं।</p>
 </section>
-<section class="content-section part-sim" id="data-information-sim"><h2>🔬 Try it: Data → Information <span class="lang-hi" lang="hi">/ अभ्यास: डेटा → जानकारी</span></h2><p>Change the marks and calculate the average. / <span class="lang-hi" lang="hi">अंक बदलें और औसत निकालें।</span></p><div class="controls"><label>Mark 1 <input type="number" min="0" max="100" value="72" data-mark="a" style="width:76px"></label><label>Mark 2 <input type="number" min="0" max="100" value="85" data-mark="b" style="width:76px"></label><label>Mark 3 <input type="number" min="0" max="100" value="91" data-mark="c" style="width:76px"></label><button type="button" data-calc-average>Process data / गणना करें</button></div><p class="sim-output" data-average-result aria-live="polite">Raw data: 72, 85, 91. Press Process to produce information. / कच्चा डेटा: 72, 85, 91। जानकारी पाने के लिए गणना करें।</p></section>
+<section class="content-section part-sim" id="data-information-sim" data-information-sim>
+<h2>🔬 Try it: Data → Information <span class="lang-hi" lang="hi">/ अभ्यास: डेटा → जानकारी</span></h2>
+<p>Change the marks, then move through the steps to see how raw data becomes useful information. <span class="lang-hi" lang="hi">अंक बदलें और चरणों से देखें कि कच्चा डेटा उपयोगी जानकारी कैसे बनता है।</span></p>
+<div class="controls data-inputs">
+<label>Mark 1 / <span class="lang-hi" lang="hi">अंक 1</span> <input type="number" min="0" max="100" step="1" value="72" data-mark="a" inputmode="numeric"></label>
+<label>Mark 2 / <span class="lang-hi" lang="hi">अंक 2</span> <input type="number" min="0" max="100" step="1" value="85" data-mark="b" inputmode="numeric"></label>
+<label>Mark 3 / <span class="lang-hi" lang="hi">अंक 3</span> <input type="number" min="0" max="100" step="1" value="91" data-mark="c" inputmode="numeric"></label>
+</div>
+<div class="data-process" aria-label="Three stages of turning data into information">
+<div class="data-stage is-current" data-data-stage="0" aria-current="step"><span>01</span><strong>Collect data</strong><span class="lang-hi" lang="hi">डेटा एकत्र करें</span><output data-stage-value="0">72, 85, 91</output></div>
+<div class="data-stage" data-data-stage="1"><span>02</span><strong>Process data</strong><span class="lang-hi" lang="hi">डेटा संसाधित करें</span><output data-stage-value="1">72 + 85 + 91 = 248</output></div>
+<div class="data-stage" data-data-stage="2"><span>03</span><strong>Present information</strong><span class="lang-hi" lang="hi">जानकारी प्रस्तुत करें</span><output data-stage-value="2">Average = 82.7</output></div>
+</div>
+<div class="controls data-process-controls"><button type="button" data-data-prev disabled>Previous / <span class="lang-hi" lang="hi">पिछला</span></button><button type="button" data-calc-average>Next step / <span class="lang-hi" lang="hi">अगला चरण</span></button><button type="button" data-data-reset>Reset / <span class="lang-hi" lang="hi">रीसेट</span></button></div>
+<p class="sim-output" data-average-result aria-live="polite">Step 1: The three marks are raw data. <span class="lang-hi" lang="hi">चरण 1: तीनों अंक कच्चा डेटा हैं।</span></p>
+<p class="small">The average is one useful summary; it does not show every student's individual result. <span class="lang-hi" lang="hi">औसत एक उपयोगी सारांश है; यह प्रत्येक विद्यार्थी का अलग-अलग परिणाम नहीं बताता।</span></p>
+</section>
 <section class="content-section beginner-section" id="what-is-computer">
 <h2>What is a computer?<span class="lang-hi" lang="hi"> / कंप्यूटर क्या है?</span></h2>
 <p class="lang-en">A computer is an electronic device that accepts data and instructions, processes the data, produces information, and can store data and results for later use.</p>
@@ -66,7 +97,7 @@
 <p class="lang-hi" lang="hi"><strong>सीमा:</strong> यदि डेटा या निर्देश गलत हों, तो कंप्यूटर का परिणाम भी गलत हो सकता है।</p>
 </section>
 <section class="content-section study-copy-section" id="study-copy"><h2>📒 Study &amp; Copy <span class="lang-hi" lang="hi">/ कॉपी में लिखने योग्य नोट्स</span></h2><p>Short bilingual notes for your notebook. / <span class="lang-hi" lang="hi">कॉपी में लिखने के लिए छोटे द्विभाषी नोट्स।</span></p><div class="study-actions"><button type="button" data-copy-study>Copy study material / सामग्री कॉपी करें</button><button type="button" data-print-study>Print study material / सामग्री प्रिंट करें</button><span data-study-feedback role="status" aria-live="polite"></span></div><div class="study-paper" data-study-paper><article class="study-topic"><h3>1. Information and Communication Technology (ICT)<span class="lang-hi" lang="hi"> / सूचना एवं संचार प्रौद्योगिकी (ICT)</span></h3><figure class="note-diagram"><svg viewBox="0 0 600 100" role="img" aria-label="ICT connects people, devices, software and networks"><rect x="8" y="20" width="130" height="54" rx="10"/><rect x="160" y="20" width="130" height="54" rx="10"/><rect x="312" y="20" width="130" height="54" rx="10"/><rect x="464" y="20" width="128" height="54" rx="10"/><g><text x="73" y="43">People</text><text x="73" y="61">लोग</text><text x="225" y="43">Devices</text><text x="225" y="61">उपकरण</text><text x="377" y="43">Software</text><text x="377" y="61">सॉफ्टवेयर</text><text x="528" y="43">Networks</text><text x="528" y="61">नेटवर्क</text></g><path d="M138 47h20m-6 -5 6 5 -6 5 M290 47h20m-6 -5 6 5 -6 5 M442 47h20m-6 -5 6 5 -6 5"/></svg><figcaption>ICT connects people and technology / ICT लोगों और तकनीक को जोड़ता है।</figcaption></figure><p>ICT is the use of digital devices, software and communication networks to create, process, store and exchange information. It connects people, information and services across distance.</p><p class="lang-hi" lang="hi">सूचना एवं संचार प्रौद्योगिकी (ICT) डिजिटल उपकरणों, सॉफ्टवेयर और संचार नेटवर्क का उपयोग करके जानकारी बनाने, संसाधित करने, सुरक्षित रखने और साझा करने की प्रक्रिया है।</p></article><article class="study-topic"><h3>2. Computer<span class="lang-hi" lang="hi"> / कंप्यूटर</span></h3><figure class="note-diagram"><svg viewBox="0 0 600 100" role="img" aria-label="Computer accepts data, processes it and gives information"><rect x="10" y="20" width="165" height="55" rx="10"/><rect x="218" y="20" width="165" height="55" rx="10"/><rect x="426" y="20" width="164" height="55" rx="10"/><g><text x="92" y="42">Data / डेटा</text><text x="92" y="59">72, 85, 91</text><text x="300" y="42">Process / प्रोसेस</text><text x="300" y="59">Calculate / गणना</text><text x="508" y="42">Information</text><text x="508" y="59">औसत 82.7</text></g><path d="M175 47h43m-7 -5 7 5 -7 5 M383 47h43m-7 -5 7 5 -7 5"/></svg><figcaption>Raw data becomes meaningful information / कच्चा डेटा उपयोगी जानकारी बनता है।</figcaption></figure><p>A computer is a programmable electronic device that accepts data and instructions, processes the data, produces meaningful output and stores results when required.</p><p class="lang-hi" lang="hi">कंप्यूटर एक प्रोग्राम योग्य इलेक्ट्रॉनिक उपकरण है जो डेटा और निर्देश स्वीकार करता है, डेटा को संसाधित करता है, उपयोगी परिणाम देता है और आवश्यकता होने पर परिणाम सुरक्षित रखता है।</p></article><article class="study-topic"><h3>6. Characteristics and limits<span class="lang-hi" lang="hi"> / विशेषताएँ और सीमाएँ</span></h3><figure class="note-diagram"><svg viewBox="0 0 600 78" role="img" aria-label="Computer strengths and limitation"><rect x="8" y="10" width="180" height="55" rx="9"/><rect x="210" y="10" width="180" height="55" rx="9"/><rect x="412" y="10" width="180" height="55" rx="9"/><text x="98" y="32">Fast / तेज़</text><text x="98" y="49">Accurate* / सटीक*</text><text x="300" y="32">Repeatable</text><text x="300" y="49">लगातार काम</text><text x="502" y="32">Wrong input?</text><text x="502" y="49">Wrong result!</text></svg><figcaption>*Accuracy depends on correct data and instructions / सटीकता सही डेटा व निर्देशों पर निर्भर है।</figcaption></figure><p>Computers can work quickly, consistently and automatically when given correct instructions. They do not independently guarantee that input data, program logic or conclusions are correct.</p><p class="lang-hi" lang="hi">सही निर्देश मिलने पर कंप्यूटर तेज़ी से, लगातार और स्वचालित रूप से काम कर सकते हैं। लेकिन वे स्वयं यह सुनिश्चित नहीं करते कि इनपुट डेटा, प्रोग्राम का तर्क या निष्कर्ष सही ही हों।</p></article></div></section>
-<section class="content-section quick-revision" id="quick-revision"><details open><summary>⚡ Quick Revision / त्वरित पुनरावृत्ति</summary><ul><li>What does ICT stand for?<p class="lang-hi" lang="hi">ICT का पूरा नाम क्या है?</p></li><li>How is data different from information?<p class="lang-hi" lang="hi">डेटा और जानकारी में क्या अंतर है?</p></li><li>Give two responsible ICT-use rules.<p class="lang-hi" lang="hi">ICT के जिम्मेदार उपयोग के दो नियम बताइए।</p></li></ul><p>Explain the key idea in your own words before moving to the next part. / <span class="lang-hi" lang="hi">अगले भाग पर जाने से पहले मुख्य विचार अपने शब्दों में समझाएँ।</span></p></details></section>
+<section class="content-section quick-revision" id="quick-revision"><details><summary>⚡ Quick Revision / त्वरित पुनरावृत्ति</summary><ul><li>What does ICT stand for?<p class="lang-hi" lang="hi">ICT का पूरा नाम क्या है?</p></li><li>How is data different from information?<p class="lang-hi" lang="hi">डेटा और जानकारी में क्या अंतर है?</p></li><li>Give two responsible ICT-use rules.<p class="lang-hi" lang="hi">ICT के जिम्मेदार उपयोग के दो नियम बताइए।</p></li></ul><p>Explain the key idea in your own words before moving to the next part. / <span class="lang-hi" lang="hi">अगले भाग पर जाने से पहले मुख्य विचार अपने शब्दों में समझाएँ।</span></p></details></section>
 <section class="content-section" id="questions-answers"><h2>🎯 Questions &amp; Answers — ask your students <span class="lang-hi" lang="hi">/ बच्चों से पूछने के प्रश्न</span></h2><p>Use these as oral questions, class discussion or a quick exit ticket. / <span class="lang-hi" lang="hi">इन प्रश्नों का उपयोग मौखिक अभ्यास, चर्चा या कक्षा के अंत में करें।</span><ol><li><strong>What does ICT stand for?</strong><p class="lang-hi" lang="hi">ICT का पूरा नाम क्या है?</p></li><li><strong>How is data different from information?</strong><p class="lang-hi" lang="hi">डेटा और जानकारी में क्या अंतर है?</p></li><li><strong>Give two responsible ICT-use rules.</strong><p class="lang-hi" lang="hi">ICT के जिम्मेदार उपयोग के दो नियम बताइए।</p></li></ol></section>
 <nav class="lesson-toc" aria-label="Previous and next lesson"><a href="ch01_introduction_ict.html">← ICT Unit overview</a> · <a href="ch01_part2_computer_workflow.html">Next part →</a></nav>
 </main>
@@ -114,7 +145,34 @@ print?.addEventListener('click',()=>{document.body.classList.add('print-study-on
 </script>
 
 <script>
-(()=>{const root=document.querySelector('#data-information-sim');if(!root)return;const out=root.querySelector('[data-average-result]');root.querySelector('[data-calc-average]').addEventListener('click',()=>{const vals=['a','b','c'].map(k=>Number(root.querySelector(`[data-mark="${k}"]`).value));if(vals.some((v,i)=>!Number.isFinite(v)||v<0||v>100||root.querySelector(`[data-mark="${['a','b','c'][i]}" ]`)?.value==='')){out.textContent='Enter marks from 0 to 100. / 0 से 100 के बीच अंक भरें।';return;}const avg=vals.reduce((a,b)=>a+b,0)/vals.length;out.textContent=`Data / डेटा: ${vals.join(', ')} → Information / जानकारी: average = ${avg.toFixed(1)}. / औसत = ${avg.toFixed(1)}।`;});})();
+(()=>{
+ const root=document.querySelector('[data-information-sim]');if(!root)return;
+ const out=root.querySelector('[data-average-result]'),next=root.querySelector('[data-calc-average]'),prev=root.querySelector('[data-data-prev]'),reset=root.querySelector('[data-data-reset]');
+ const fields=['a','b','c'].map(k=>root.querySelector(`[data-mark="${k}"]`));
+ const stages=[...root.querySelectorAll('[data-data-stage]')];let step=0,values=[72,85,91];
+ const messages=[
+  ['Step 1: Collect the three marks. They are raw data.','चरण 1: तीनों अंक एकत्र करें। ये कच्चा डेटा हैं।'],
+  ['Step 2: Add the marks: {sum}. The computer follows the calculation instruction.','चरण 2: अंकों को जोड़ें: {sum}। कंप्यूटर गणना के निर्देश का पालन करता है।'],
+  ['Step 3: Divide {sum} by 3. The average is {avg}; this is useful information.','चरण 3: {sum} को 3 से भाग दें। औसत {avg} है; यह उपयोगी जानकारी है।']
+ ];
+ function valid(){values=fields.map(f=>f.value.trim()===''?NaN:Number(f.value));return values.every((v,i)=>Number.isInteger(v)&&v>=0&&v<=100&&fields[i].value.trim()!=='')}
+ function bilingual(en,hi){out.replaceChildren();const a=document.createElement('span');a.textContent=en;out.append(a);const b=document.createElement('span');b.className='lang-hi';b.lang='hi';b.textContent=' '+hi;out.append(b)}
+ function render(){
+  if(!valid()){bilingual('Enter a whole-number mark from 0 to 100 in every box.','हर बॉक्स में 0 से 100 के बीच पूर्णांक अंक भरें।');next.disabled=false;prev.disabled=step===0;return}
+  const sum=values.reduce((a,b)=>a+b,0),avg=sum/3;
+  stages.forEach((el,i)=>{el.classList.toggle('is-current',i===step);el.classList.toggle('is-complete',i<step);if(i===step)el.setAttribute('aria-current','step');else el.removeAttribute('aria-current')});
+  root.querySelector('[data-stage-value="0"]').textContent=values.join(', ');
+  root.querySelector('[data-stage-value="1"]').textContent=values.join(' + ')+' = '+sum;
+  root.querySelector('[data-stage-value="2"]').textContent='Average = '+avg.toFixed(1);
+  bilingual(messages[step][0].replace('{sum}',sum).replace('{avg}',avg.toFixed(1)),messages[step][1].replace('{sum}',sum).replace('{avg}',avg.toFixed(1)));
+  prev.disabled=step===0;next.disabled=step===2;
+  next.innerHTML=step===2?'Completed / <span class="lang-hi" lang="hi">पूरा हुआ</span>':'Next step / <span class="lang-hi" lang="hi">अगला चरण</span>';
+ }
+ next.addEventListener('click',()=>{if(!valid()){render();fields.find(f=>f.value.trim()===''||!Number.isInteger(Number(f.value))||Number(f.value)<0||Number(f.value)>100)?.focus();return}if(step<2){step++;render()}});
+ prev.addEventListener('click',()=>{if(step>0){step--;render()}});
+ reset.addEventListener('click',()=>{step=0;fields.forEach((f,i)=>f.value=[72,85,91][i]);render()});
+ fields.forEach(f=>f.addEventListener('input',()=>{step=0;render()}));render();
+})();
 </script>
 </body>
 </html>

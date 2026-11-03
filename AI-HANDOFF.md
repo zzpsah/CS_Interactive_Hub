@@ -393,3 +393,13 @@ Validation status:
 The course-wide buddy should have many distinct, purposeful moods and gestures, not only happy/sad. Include happy, proud, excited, laughing, curious, thinking, concentrating, confused, surprised, celebrating, encouraging, empathetic/sad, playful/mischievous, sleepy, bored, relieved, and cheering reactions as appropriate. Tapping the character may trigger a short playful response (including gentle mock annoyance/grumpy face), but never threatening or shaming. Vary reactions contextually; avoid rapid random mood swings. Respect reduced motion and provide a quiet/minimal-motion behavior. Full details and acceptance rules are in `INTERACTIVE-LEARNING-STANDARD.md`.
 
 - **Character roster update:** add an original humanoid monkey buddy as a fourth selectable option alongside the cat-like buddy, robot, and fox-like buddy. The monkey should have a complete body, varied contextual expressions/gestures, and playful but kind reactions. Selection is course-wide and switching must preserve progress. Do not copy existing famous characters.
+
+
+## Class IX Part 1 — data-to-information learning activity (2026-11-03)
+
+- Updated class09/ch01_part1_ict_basics.html without changing the Class IX curriculum structure or shared site design.
+- Reworked the marks example into a learner-controlled, three-stage process: collect raw marks → add/process the values → present the average as useful information. Learners can edit three marks, move forward/back, and reset the example.
+- Added whole-number validation (0–100), visible active/completed stages, bilingual dynamic feedback, and a reminder that an average is a summary rather than each learner's individual result.
+- Corrected the Part 1 Quick Revision disclosure to start collapsed, matching the project-wide student-content rule.
+- Browser tests with headless Chrome/DevTools: 10 desktop assertions passed (load, collapsed revision, initial state, sum, average, previous, invalid input, reset, Hindi toggle, no overflow); mobile 390px test passed (no horizontal overflow, keyboard focus, simulation reaches 82.7). git diff --check passed.
+- This is a scoped content/activity improvement to the existing Class IX Part 1, not a claim that the full Class IX curriculum or all chapter interactions have passed QA. Physical-device, screen-reader and print-output checks remain outstanding.
