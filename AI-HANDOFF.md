@@ -413,3 +413,13 @@ The course-wide buddy should have many distinct, purposeful moods and gestures, 
 - Retained the existing clickable four-stage data-flow demonstration, QR-payment/report examples, and quick practice activity.
 - Browser checks: 13 assertions passed (page load, collapsed revision, four theory topics, five answer panels, answer disclosure, processing/storage interaction, keyboard focus reachability, practice feedback, Hindi toggle, desktop/mobile overflow). Static HTML audit found no duplicate IDs or missing local links. git diff --check passed.
 - Scope remains one lesson page; physical-device, screen-reader and print-output QA are still outstanding.
+
+
+## Class IX Part 2 — guided architecture animation and explanation (2026-11-03)
+
+- Responded to the feedback that the lesson's animation and explanations were missing. Added a learner-controlled five-stage data journey to class09/ch01_part2_computer_workflow.html: input → main memory → CPU → output → secondary storage.
+- Added a moving data-packet marker, active/completed stage states, Play/Pause, Next, Previous, Start again, direct stage selection and arrow-key navigation. The animation runs for a finite sequence and can be paused/replayed; it stops when the tab is hidden.
+- Added detailed bilingual explanations for each stage, with correct distinctions between RAM and persistent storage, CPU/Control Unit/ALU/registers, output and saving. Explicitly labels the diagram as a simplified model because CPU and RAM exchange data repeatedly in real systems.
+- Followed the project's saved static HTML/CSS/vanilla JS design context. Applied UI/UX Pro Max guidance for native button semantics, focus, touch sizing, concise purposeful motion and prefers-reduced-motion. 21st.dev CLI reference search was attempted but requires a 21st login/token, so no 21st-generated component was claimed or used.
+- Browser QA: 14 assertions passed, including stage sequence, bilingual text, controls, auto-play, pause/resume, replay completion, keyboard-accessible native buttons, 390px mobile no-overflow and reduced-motion. Inline JavaScript syntax, duplicate-ID, local-link and git diff checks passed.
+- Still needs physical Android device, screen-reader and print QA.

@@ -38,7 +38,37 @@
 .simulation-sound-bar p{margin:0;font-size:.9rem;color:#52627c}
 .simulation-sound-bar button{min-height:44px;border:1px solid #9bb3df;border-radius:9px;background:#f0f5ff;color:#1d2b4f;padding:8px 12px;font-weight:700;cursor:pointer}
 .simulation-sound-bar button:focus-visible{outline:3px solid #3568cc;outline-offset:2px}
-\n</style>
+\n
+/* Guided architecture animation: meaningful state changes, not decorative motion. */
+.architecture-explorer{margin:20px 0;padding:18px;border:1px solid #cbd8ec;border-radius:16px;background:linear-gradient(145deg,#f7faff,#fff 70%);color:#17264b}
+.architecture-explorer-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.architecture-explorer-heading h3{margin:.4rem 0;font-size:1.2rem}
+.architecture-explorer-heading p{margin:.35rem 0;color:#52627c}
+.architecture-explorer-symbol{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:12px;background:#e7efff;color:#2459a9;font-size:1.6rem}
+.architecture-stage-track{--packet-step:0;position:relative;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));align-items:center;gap:5px;margin:18px 0 14px;padding:9px 7px 18px;border-radius:13px;background:#eef3fb}
+.architecture-stage{appearance:none;font:inherit;cursor:pointer;grid-column:span 1;display:grid;justify-items:center;align-content:center;gap:5px;min-width:0;min-height:92px;padding:8px 4px;border:1px solid #c8d5e9;border-radius:10px;background:#fff;text-align:center;transition:background .25s,border-color .25s,transform .25s,box-shadow .25s}
+.architecture-stage-icon{font-size:1.5rem;color:#3159b7}.architecture-stage strong{font-size:.82rem;line-height:1.2}.architecture-stage small{font-size:.7rem;line-height:1.2;color:#52627c}
+.architecture-stage.is-active{border:2px solid #175cd3;background:#e8f1ff;box-shadow:0 0 0 3px #175cd31a;transform:translateY(-2px)}
+.architecture-stage.is-complete{border-color:#62a78d;background:#effaf5}
+.architecture-stage-arrow{grid-row:1;justify-self:center;color:#526da6;font-size:1.1rem;font-weight:900}
+.architecture-data-packet{position:absolute;z-index:2;left:calc(10% + var(--packet-step)*20%);top:calc(100% - 13px);width:13px;height:13px;border:2px solid #fff;border-radius:50%;background:#e49a26;box-shadow:0 0 0 4px #e49a2630;transform:translateX(-50%);transition:left .55s cubic-bezier(.2,.75,.25,1)}
+.architecture-data-packet.is-moving{animation:architecture-packet-pulse .55s ease}
+@keyframes architecture-packet-pulse{0%{scale:.65;box-shadow:0 0 0 0 #e49a2640}55%{scale:1.35;box-shadow:0 0 0 9px #e49a2620}100%{scale:1;box-shadow:0 0 0 4px #e49a2630}}
+.architecture-explanation{min-height:156px;padding:14px 16px;border-left:4px solid #3159b7;border-radius:0 11px 11px 0;background:#fff}
+.architecture-step-label{font-size:.74rem;font-weight:900;letter-spacing:.07em;color:#2459a9}
+.architecture-explanation h4{margin:.35rem 0;font-size:1.08rem;color:#17264b}
+.architecture-explanation p{margin:.35rem 0;color:#465773;line-height:1.55}
+.architecture-explanation .architecture-key-point{padding:8px 10px;border-radius:8px;background:#f1f6ff;color:#173d7b;font-weight:700}
+.architecture-explorer-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.architecture-explorer-controls button{min-height:44px;padding:8px 12px;border:1px solid #a8bad7;border-radius:9px;background:#fff;color:#17264b;font:inherit;font-weight:700;cursor:pointer}
+.architecture-explorer-controls button:disabled{opacity:.45;cursor:not-allowed}
+.architecture-explorer-controls .architecture-run-button{background:#175cd3;color:#fff;border-color:#175cd3}
+.architecture-explorer-controls button:focus-visible{outline:3px solid #e7a000;outline-offset:3px}
+.architecture-explorer-controls [data-architecture-status]{margin-left:auto;font-size:.84rem;font-weight:700;color:#52627c}
+.architecture-model-note{margin:.75rem 0 .2rem;font-size:.88rem;color:#52627c}
+@media(max-width:640px){.architecture-explorer{padding:12px}.architecture-stage-track{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;padding:7px 3px 16px}.architecture-stage{grid-column:auto!important;min-height:84px;padding:5px 2px}.architecture-stage strong{font-size:.68rem}.architecture-stage small{font-size:.59rem}.architecture-stage-icon{font-size:1.2rem}.architecture-stage-arrow{display:none}.architecture-explanation{min-height:0}.architecture-explorer-controls button{flex:1 1 calc(50% - 8px)}.architecture-explorer-controls [data-architecture-status]{width:100%;margin:0}}
+@media(prefers-reduced-motion:reduce){.architecture-stage,.architecture-data-packet{transition:none!important}.architecture-data-packet.is-moving{animation:none!important}}
+</style>
 </head>
 <body data-lang="en">
 <div class="topbar"><div class="wrap"><a class="brand" href="../index.html">📘 CS सीखें · Learn Computer Science</a><div class="nav"><a href="index.html">Class 9</a><div class="lang-switch"><button type="button" data-lang-toggle aria-pressed="false">Add Hindi</button></div></div></div></div>
@@ -50,6 +80,40 @@
 <div class="architecture-flow animated-system-flow" role="img" aria-label="Animated data path: input sends data to the CPU, the CPU exchanges data with main memory, results go to output, and secondary storage saves files">
 <div class="architecture-unit"><strong>Input unit</strong><span>Keyboard, mouse</span></div><span class="arch-arrow" aria-hidden="true">➜</span><div class="architecture-unit cpu-unit"><strong>CPU</strong><span>CU · ALU · Registers</span></div><span class="arch-arrow arch-memory-arrow" aria-hidden="true">↔</span><div class="architecture-unit"><strong>Main memory</strong><span>RAM · ROM</span></div><span class="arch-arrow">→</span><div class="architecture-unit"><strong>Output unit</strong><span>Monitor, printer</span></div><div class="architecture-storage"><strong>Secondary storage</strong><span>SSD / HDD — saves files for later</span></div>
 </div>
+<section class="architecture-explorer" data-architecture-explorer aria-labelledby="architecture-explorer-title">
+  <div class="architecture-explorer-heading">
+    <div><span class="section-kicker">WATCH THE DATA MOVE</span><h3 id="architecture-explorer-title">Follow one instruction through a computer</h3><p>Run the animation or select any stage. Notice what each unit does and where the data goes next.</p><p class="lang-hi" lang="hi">एनीमेशन चलाएँ या कोई चरण चुनें। देखें कि प्रत्येक इकाई क्या करती है और डेटा आगे कहाँ जाता है।</p></div>
+    <span class="architecture-explorer-symbol" aria-hidden="true">↗</span>
+  </div>
+  <div class="architecture-stage-track" aria-label="Simplified data journey">
+    <button type="button" class="architecture-stage is-active" data-architecture-stage="0" aria-pressed="true"><span class="architecture-stage-icon" aria-hidden="true">⌨</span><strong>Input</strong><small>Enter marks</small></button>
+    <span class="architecture-stage-arrow" aria-hidden="true">→</span>
+    <button type="button" class="architecture-stage" data-architecture-stage="1" aria-pressed="false"><span class="architecture-stage-icon" aria-hidden="true">▤</span><strong>Main memory</strong><small>Hold working data</small></button>
+    <span class="architecture-stage-arrow" aria-hidden="true">→</span>
+    <button type="button" class="architecture-stage" data-architecture-stage="2" aria-pressed="false"><span class="architecture-stage-icon" aria-hidden="true">⚙</span><strong>CPU</strong><small>Run instructions</small></button>
+    <span class="architecture-stage-arrow" aria-hidden="true">→</span>
+    <button type="button" class="architecture-stage" data-architecture-stage="3" aria-pressed="false"><span class="architecture-stage-icon" aria-hidden="true">▣</span><strong>Output</strong><small>Show result</small></button>
+    <span class="architecture-stage-arrow" aria-hidden="true">→</span>
+    <button type="button" class="architecture-stage" data-architecture-stage="4" aria-pressed="false"><span class="architecture-stage-icon" aria-hidden="true">▰</span><strong>Storage</strong><small>Save report</small></button>
+    <span class="architecture-data-packet" data-architecture-packet aria-hidden="true"></span>
+  </div>
+  <div class="architecture-explanation" aria-live="polite" aria-atomic="true">
+    <span class="architecture-step-label" data-architecture-label>STAGE 1 OF 5 · INPUT</span>
+    <h4 data-architecture-title>Enter the marks</h4>
+    <p data-architecture-description>A student or teacher types 72, 85 and 91 using a keyboard. The input unit converts the key presses into signals the computer can work with.</p>
+    <p class="lang-hi" lang="hi" data-architecture-hi>विद्यार्थी या शिक्षक कीबोर्ड से 72, 85 और 91 अंक दर्ज करते हैं। इनपुट यूनिट कुंजी दबाने की क्रिया को ऐसे संकेतों में बदलती है जिन पर कंप्यूटर काम कर सकता है।</p>
+    <p class="architecture-key-point" data-architecture-key>Key idea: input supplies data and instructions; it does not calculate the average.</p>
+  </div>
+  <div class="architecture-explorer-controls">
+    <button type="button" data-architecture-prev disabled>← Previous</button>
+    <button type="button" class="architecture-run-button" data-architecture-run>▶ Play animation</button>
+    <button type="button" data-architecture-next>Next stage →</button>
+    <button type="button" data-architecture-reset>↺ Start again</button>
+    <span data-architecture-status role="status" aria-live="polite">Ready · 1 of 5</span>
+  </div>
+  <p class="architecture-model-note">This is a simplified learning model. In a real computer, the CPU and RAM exchange data repeatedly; storage is not simply a final step in every operation.</p>
+  <p class="lang-hi" lang="hi">यह सीखने के लिए बनाया गया सरल मॉडल है। वास्तविक कंप्यूटर में CPU और RAM बार-बार डेटा का आदान-प्रदान करते हैं; हर कार्य में स्टोरेज केवल अंतिम चरण नहीं होता।</p>
+</section>
 <ul><li><strong>Input unit:</strong> sends data and instructions into the computer.</li><li><strong>CPU:</strong> executes instructions and controls processing.</li><li><strong>Main memory:</strong> holds instructions and data needed by the computer.</li><li><strong>Output unit:</strong> presents the results.</li><li><strong>Secondary storage:</strong> keeps files even after the computer is switched off.</li></ul>
 <p class="lang-hi" lang="hi"><strong>मुख्य इकाइयाँ:</strong> इनपुट यूनिट डेटा देती है, CPU निर्देश चलाता है, मेमोरी काम के लिए डेटा रखती है, आउटपुट यूनिट परिणाम दिखाती है और स्टोरेज फाइलें सुरक्षित रखता है।</p>
 </section>
@@ -208,5 +272,59 @@ print?.addEventListener('click',()=>{document.body.classList.add('print-study-on
  },true);
 })();
 </script>
-\n</body>
+\n
+<script>
+(()=> {
+ const root=document.querySelector('[data-architecture-explorer]');
+ if(!root || root.dataset.ready==='true') return;
+ root.dataset.ready='true';
+ const data=[
+  {name:'INPUT',title:'Enter the marks',en:'A student or teacher types 72, 85 and 91 using a keyboard. The input unit converts the key presses into signals the computer can work with.',hi:'विद्यार्थी या शिक्षक कीबोर्ड से 72, 85 और 91 अंक दर्ज करते हैं। इनपुट यूनिट कुंजी दबाने की क्रिया को ऐसे संकेतों में बदलती है जिन पर कंप्यूटर काम कर सकता है।',key:'Key idea: input supplies data and instructions; it does not calculate the average.'},
+  {name:'MAIN MEMORY',title:'Keep the working data ready',en:'The input data and the program instructions are placed in main memory. RAM gives the CPU fast access to the information currently needed. RAM is temporary (volatile) working memory.',hi:'इनपुट डेटा और प्रोग्राम के निर्देश मुख्य मेमोरी में रखे जाते हैं। RAM CPU को अभी आवश्यक जानकारी तक तेज़ पहुँच देती है। RAM अस्थायी (volatile) कार्यशील मेमोरी है।',key:'Key idea: RAM is the computer’s working space; it is not the same as an SSD or hard disk.'},
+  {name:'CPU',title:'Follow instructions and calculate',en:'The Control Unit coordinates instruction execution. The ALU performs arithmetic and logical operations. Registers hold small amounts of data the CPU needs immediately. Here, the CPU adds 72 + 85 + 91 and divides by 3 to get 82.7.',hi:'Control Unit निर्देशों के चलने का समन्वय करती है। ALU गणितीय और तार्किक कार्य करता है। Registers CPU के लिए तुरंत आवश्यक थोड़ी जानकारी रखते हैं। यहाँ CPU 72 + 85 + 91 जोड़कर 3 से भाग देता है और 82.7 प्राप्त करता है।',key:'Key idea: the CPU executes instructions; the ALU is the part that performs arithmetic and logic.'},
+  {name:'OUTPUT',title:'Present the processed result',en:'The computer sends the result to an output device. A monitor can display “Average = 82.7”; a printer can produce a paper report. Output makes information available to a person.',hi:'कंप्यूटर परिणाम को आउटपुट उपकरण तक भेजता है। मॉनिटर “Average = 82.7” दिखा सकता है और प्रिंटर रिपोर्ट निकाल सकता है। आउटपुट जानकारी को व्यक्ति तक पहुँचाता है।',key:'Key idea: displaying or printing a result is output; it does not automatically save the file.'},
+  {name:'SECONDARY STORAGE',title:'Save the report for later',en:'When the user saves the report, it is written to persistent storage such as an SSD or hard disk. The file remains available after the computer is switched off and can be opened later.',hi:'जब उपयोगकर्ता रिपोर्ट सेव करता है, तो वह SSD या हार्ड डिस्क जैसे स्थायी स्टोरेज में लिखी जाती है। कंप्यूटर बंद होने के बाद भी फ़ाइल उपलब्ध रहती है और बाद में खोली जा सकती है।',key:'Key idea: storage keeps files for future use; it is different from temporary RAM.'}
+ ];
+ const stages=[...root.querySelectorAll('[data-architecture-stage]')];
+ const packet=root.querySelector('[data-architecture-packet]');
+ const label=root.querySelector('[data-architecture-label]');
+ const title=root.querySelector('[data-architecture-title]');
+ const desc=root.querySelector('[data-architecture-description]');
+ const hi=root.querySelector('[data-architecture-hi]');
+ const key=root.querySelector('[data-architecture-key]');
+ const prev=root.querySelector('[data-architecture-prev]');
+ const next=root.querySelector('[data-architecture-next]');
+ const play=root.querySelector('[data-architecture-run]');
+ const reset=root.querySelector('[data-architecture-reset]');
+ const status=root.querySelector('[data-architecture-status]');
+ let step=0,timer=null;
+ function stop(){if(timer!==null){clearInterval(timer);timer=null;}play.textContent='▶ Play animation';}
+ function render(announce=true){
+  const d=data[step];
+  stages.forEach((el,i)=>{el.classList.toggle('is-active',i===step);el.classList.toggle('is-complete',i<step);el.setAttribute('aria-pressed',String(i===step));if(i===step)el.setAttribute('aria-current','step');else el.removeAttribute('aria-current')});
+  packet.style.setProperty('--packet-step',String(step));
+  packet.classList.remove('is-moving');void packet.offsetWidth;packet.classList.add('is-moving');
+  label.textContent='STAGE '+(step+1)+' OF '+data.length+' · '+d.name;
+  title.textContent=d.title;desc.textContent=d.en;hi.textContent=d.hi;key.textContent=d.key;
+  prev.disabled=step===0;next.disabled=step===data.length-1;
+  status.textContent='Stage '+(step+1)+' of '+data.length;
+  if(announce)root.querySelector('.architecture-explanation').setAttribute('aria-label',d.name+': '+d.title+'. '+d.en);
+ }
+ function move(delta){step=Math.max(0,Math.min(data.length-1,step+delta));render();}
+ stages.forEach((el,i)=>{el.setAttribute('aria-label','Show stage '+(i+1)+': '+data[i].name);el.addEventListener('click',()=>{stop();step=i;render()});el.addEventListener('keydown',e=>{if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;e.preventDefault();const target=Math.max(0,Math.min(stages.length-1,i+(e.key==='ArrowRight'?1:-1)));stages[target].focus();stop();step=target;render()});el.style.setProperty('grid-column',String(i*2+1));});
+ root.querySelectorAll('.architecture-stage-arrow').forEach((el,i)=>el.style.setProperty('grid-column',String(i*2+2)));
+ prev.addEventListener('click',()=>{stop();move(-1)});
+ next.addEventListener('click',()=>{stop();move(1)});
+ reset.addEventListener('click',()=>{stop();step=0;render()});
+ play.addEventListener('click',()=>{
+  if(timer!==null){stop();status.textContent='Animation paused at stage '+(step+1);return;}
+  if(step===data.length-1)step=0;
+  render(false);play.textContent='Ⅱ Pause animation';status.textContent='Animation playing';
+  timer=setInterval(()=>{if(step>=data.length-1){stop();status.textContent='Animation complete · select Play to replay';return;}step++;render(false);},1900);
+ });
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
+ render();
+})();
+</script>
+</body>
 </html>
