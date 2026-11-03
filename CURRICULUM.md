@@ -106,6 +106,16 @@ Computer Science (083) and Informatics Practices (065) are **different CBSE subj
 6. **Societal Impacts of Technology** — digital footprint, netiquette, data protection, IPR, plagiarism, FOSS/licensing, cybercrime, IT Act, e-waste and health.
 7. **Data Project and Practical Portfolio** — analyse a real, safe dataset, visualise findings and document an original application.
 
+## Class IX outcome and assessment blueprint
+
+The chapter map above defines the official NCERT chapter sequence, but the sequence alone is not a sufficiently detailed teaching plan. Use [CLASS09_CURRICULUM_BLUEPRINT.md](CLASS09_CURRICULUM_BLUEPRINT.md) as the active Class IX implementation blueprint. It records original chapter-level learning outcomes, practical evidence, progression, cross-chapter project, assessment design, common rubric, quality gates and a repository audit snapshot.
+
+The NCERT preface explicitly organises the eight-chapter textbook under four learning strands: Connecting with the World, Connecting with Each Other, Creating with ICT, and Interacting with ICT. Preserve those strands as the conceptual frame; do not invent a new official chapter structure from them. The official contents list and chapter order are recorded in the blueprint.
+
+**2026–27 separation rule:** CBSE Circular Acad-18/2026 states that NCERT CT&AI modules for Classes IX–XII are to be transacted as modules for internal assessment. Treat this as a separate module layer, not an extra NCERT ICT chapter. The actual Class IX module and assessment guidance must be obtained and checked before adding official module titles, outcomes, weightage or dates. CBSE-specific requirements must not be presented as confirmed BSEB requirements.
+
+**Bihar alignment:** the NCERT ICT sequence is a national reference. It does not establish BSEB/SCERT prescription or marks. The hub remains NCERT-based supplementary learning until a current official Bihar syllabus crosswalk is documented.
+
 ## No-repetition and progression rules
 
 - Give each concept one canonical chapter. Cross-links and short prerequisite refreshers are allowed; repeating a full lesson is not.

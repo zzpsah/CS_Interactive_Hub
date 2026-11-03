@@ -448,3 +448,13 @@ The course-wide buddy should have many distinct, purposeful moods and gestures, 
 - The exercise reinforces document structure and accuracy rather than treating visual decoration as a substitute for correct information. The sample is explicitly labelled as practice content, not an official notice.
 - Preserved the existing five-stage document workflow, Study & Copy, written Q&A, Quick Revision, and print/copy tools.
 - Checks performed: all three inline scripts passed JavaScript syntax parsing; no duplicate IDs; all four local asset/link references resolve; `git diff --check` passed; headless Chrome loaded the local page and rendered the initial workshop preview and sample text. Physical Android, screen-reader, print-output and full automated form-interaction tests remain outstanding.
+
+
+## Class IX curriculum blueprint and standards cross-check (2026-11-03)
+
+- Added `CLASS09_CURRICULUM_BLUEPRINT.md` with original chapter-level outcomes for all eight NCERT ICT chapters, practical evidence, progression, cross-chapter project, assessment design (explicitly not official marks weightage), common practical rubric, chapter quality gates and a repository audit snapshot.
+- Rechecked the official NCERT Class IX ICT PDF (reprint 2025–26). Its preface identifies four learning strands: Connecting with the World, Connecting with Each Other, Creating with ICT, and Interacting with ICT. Its contents confirms the exact eight chapter titles and sequence used in `CURRICULUM.md` and `class09/index.html`.
+- Rechecked CBSE Circular Acad-18/2026 (9 April 2026): NCERT CT&AI modules for Classes IX–XII are intended for internal assessment in 2026–27; other AI courses run through 2025–26 are discontinued for Class IX in 2026–27. This is recorded as a separate module layer, not a ninth ICT chapter. Actual Class IX NCERT CT&AI module and assessment guidance remain to be obtained and verified; no official module titles or marks have been invented.
+- Added an explicit distinction between NCERT national reference and Bihar Board/SCERT prescription. No BSEB alignment or marks claim is made until a current official Bihar syllabus crosswalk is completed.
+- Scope remains Class IX only. No Class X–XII student curriculum pages were edited. Existing old hardware/OS/files/bits/algorithms URLs remain redirects or optional practice, not additional canonical chapters.
+- Repository audit snapshot identifies concrete next improvements chapter by chapter. It is not a full textbook paragraph audit or a claim of complete browser QA. Keep mapped, content-ready, interaction-tested and live-verified as separate statuses.
