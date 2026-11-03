@@ -423,3 +423,11 @@ The course-wide buddy should have many distinct, purposeful moods and gestures, 
 - Followed the project's saved static HTML/CSS/vanilla JS design context. Applied UI/UX Pro Max guidance for native button semantics, focus, touch sizing, concise purposeful motion and prefers-reduced-motion. 21st.dev CLI reference search was attempted but requires a 21st login/token, so no 21st-generated component was claimed or used.
 - Browser QA: 14 assertions passed, including stage sequence, bilingual text, controls, auto-play, pause/resume, replay completion, keyboard-accessible native buttons, 390px mobile no-overflow and reduced-motion. Inline JavaScript syntax, duplicate-ID, local-link and git diff checks passed.
 - Still needs physical Android device, screen-reader and print QA.
+
+
+## Class 9 Part 3 memory and storage journey (2026-11-03)
+
+- `class09/ch01_part3_inside_computer.html` now includes a five-stage, learner-controlled file journey: open a saved report on SSD/HDD → load a working copy into RAM → CPU processes an edit → updated working data remains in RAM → save the updated file back to persistent storage.
+- The learner can use Play/Pause, Next/Previous, Reset, or select any numbered stage. The active component and file marker move together; each step explains the state change in English and Hindi, including the risk of unsaved edits.
+- The simulation is topic-specific and supplements (does not replace) the existing component explorer, CPU/RAM/ROM/SSD explanations, diagrams, Study & Copy, Q&A, and revision. It respects `prefers-reduced-motion`, stops timed playback when the tab is hidden, and has a compact mobile layout.
+- Static checks performed: inline JavaScript syntax, duplicate-ID check, local asset/link existence, and `git diff --check`. Browser rendering was attempted with headless Chrome but did not return a rendered DOM; do not claim browser interaction/mobile QA for this slice until a successful browser test is completed.
