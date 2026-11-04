@@ -64,6 +64,107 @@
 (()=>{const ids=['school','title','date','time','venue','audience','action','contact'];const fields=Object.fromEntries(ids.map(k=>[k,document.getElementById('notice-'+k)]));const outputs={school:'preview-school',title:'preview-title',date:'preview-date',time:'preview-time',venue:'preview-venue',audience:'preview-audience',action:'preview-action',contact:'preview-contact'};const preview=document.getElementById('notice-preview'),count=document.getElementById('notice-count'),feedback=document.getElementById('notice-feedback'),style=document.getElementById('notice-style');if(!preview||ids.some(k=>!fields[k]))return;const sample={school:'UCHCH MADHYAMIK VIDYALAY TETAHALI',title:'SCIENCE EXHIBITION',date:'12 November',time:'10:00 a.m. – 1:00 p.m.',venue:'School Hall',audience:'Students of Classes IX–X',action:'Register with the science teacher by 8 November. Bring your project model.',contact:'Science Teacher'};function update(){for(const k of ids)document.getElementById(outputs[k]).textContent=fields[k].value.trim()||'—';preview.classList.toggle('simple',style.value==='simple');count.textContent=fields.action.value.length+' / 220 characters';}for(const k of ids)fields[k].addEventListener('input',update);style.addEventListener('change',update);document.getElementById('notice-sample').addEventListener('click',()=>{for(const k of ids)fields[k].value=sample[k];style.value='formal';feedback.textContent='Sample restored. / नमूना फिर से रखा गया।';update()});document.getElementById('notice-check').addEventListener('click',()=>{const missing=ids.filter(k=>!fields[k].value.trim());if(missing.length){feedback.textContent='Please complete: '+missing.join(', ')+'. / कृपया खाली विवरण भरें।';fields[missing[0]].focus();return;}feedback.textContent='All eight notice fields are filled. Now verify every fact, especially date, time, venue and deadline, with the school before sharing. / सूचना के सभी आठ विवरण भरे हैं। साझा करने से पहले तारीख, समय, स्थान और अंतिम तिथि विद्यालय से सत्यापित करें।';});update()})();
 </script>
 
+<style>
+/* Chapter 2 — learner-facing document formatting studio */
+.format-studio{--studio-ink:#182b49;--studio-blue:#2459b7;--studio-line:#dce5f3;display:grid;grid-template-columns:minmax(230px,.82fr) minmax(0,1.18fr);gap:18px;align-items:start;margin:18px 0}
+.format-brief,.format-workspace{min-width:0;border:1px solid var(--studio-line);border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(25,55,105,.06)}
+.format-brief{padding:20px;background:linear-gradient(155deg,#f4f8ff,#fff 72%)}
+.format-kicker{display:inline-flex;align-items:center;gap:7px;padding:5px 10px;border-radius:999px;background:#e7efff;color:#17449b;font-size:.78rem;font-weight:800;letter-spacing:.035em}
+.format-brief h3{margin:12px 0 7px;color:var(--studio-ink);font-size:1.25rem}
+.format-brief p{margin:.45rem 0}
+.format-goal{margin:15px 0;padding:13px 14px;border:1px solid #cbdaf4;border-radius:13px;background:#fff}
+.format-goal strong{display:block;color:var(--studio-ink);margin-bottom:5px}
+.format-goal ol{margin:7px 0 0;padding-left:1.25rem}
+.format-goal li{margin:7px 0;color:#34445d}
+.format-progress{height:7px;border-radius:99px;background:#e6edf8;overflow:hidden;margin:12px 0 6px}
+.format-progress span{display:block;width:0;height:100%;border-radius:inherit;background:#2b68c8;transition:width .22s ease}
+.format-workspace{overflow:hidden}
+.format-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:13px;border-bottom:1px solid var(--studio-line);background:#f7f9fd}
+.format-toolbar label{display:flex;align-items:center;gap:6px;color:#40516c;font-size:.83rem;font-weight:750}
+.format-toolbar select{min-height:42px;max-width:100%;border:1px solid #c8d4e6;border-radius:9px;padding:7px 9px;background:#fff;color:#1d2b4f;font:inherit}
+.format-tool-group{display:flex;gap:5px;padding-right:8px;border-right:1px solid #d9e1ee}
+.format-tool{min-width:42px;min-height:42px;padding:7px 10px;border:1px solid #c8d4e6;border-radius:9px;background:#fff;color:#1d2b4f;font-weight:750;cursor:pointer;touch-action:manipulation}
+.format-tool[aria-pressed="true"]{background:#e7efff;border-color:#6d91d2;color:#17449b;box-shadow:inset 0 0 0 1px #b6c9ed}
+.format-tool:focus-visible,.format-toolbar select:focus-visible{outline:3px solid #e7a000;outline-offset:2px}
+.format-paper-wrap{padding:18px;background:repeating-linear-gradient(0deg,#f5f8fc 0,#f5f8fc 1px,#fff 1px,#fff 28px)}
+.format-paper{max-width:590px;min-height:330px;margin:0 auto;padding:clamp(18px,4vw,34px);border:1px solid #d7dfeb;border-radius:5px;background:#fff;box-shadow:0 8px 22px rgba(26,46,82,.10);color:#24334c;font-size:16px;line-height:1.65;transition:padding .2s ease,font-size .2s ease}
+.format-paper .paper-school{margin:0 0 18px;text-align:center;font-size:.8em;font-weight:800;letter-spacing:.045em;color:#43536e}
+.format-paper h4{margin:0 0 18px;text-align:center;color:#182b49;font-size:1.3em;line-height:1.25;text-decoration:underline;text-underline-offset:4px}
+.format-paper p{color:inherit;margin:0 0 12px}
+.format-paper .paper-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px;font-size:.92em}
+.format-paper ul{margin:8px 0 14px;padding-left:1.35rem}
+.format-paper li{margin:5px 0;color:inherit}
+.format-paper .paper-sign{margin-top:22px;text-align:right;font-weight:750}
+.format-paper[data-align="left"] h4,.format-paper[data-align="left"] .paper-school{ text-align:left }
+.format-paper[data-align="center"] .paper-meta{justify-content:center}
+.format-paper[data-size="compact"]{font-size:14px}
+.format-paper[data-size="large"]{font-size:18px}
+.format-paper[data-spacing="tight"]{line-height:1.35}
+.format-paper[data-spacing="relaxed"]{line-height:1.9}
+.format-paper[data-spacing="relaxed"] p{margin-bottom:18px}
+.format-paper[data-spacing="tight"] p{margin-bottom:7px}
+.format-status{display:flex;align-items:flex-start;gap:9px;min-height:58px;padding:13px 16px;border-top:1px solid var(--studio-line);background:#fbfcff;color:#34445d}
+.format-status strong{color:#17449b;white-space:nowrap}
+.format-status p{margin:0;color:inherit}
+.format-studio .lang-hi{display:none}
+body[data-lang="hi"] .format-studio .lang-hi{display:block!important}
+body[data-lang="hi"] .format-studio span.lang-hi{display:inline!important}
+@media(max-width:760px){.format-studio{grid-template-columns:1fr}.format-brief{padding:16px}.format-toolbar{gap:7px}.format-toolbar label{flex-wrap:wrap}.format-paper-wrap{padding:12px}.format-paper{min-height:300px}}
+@media(max-width:420px){.format-toolbar{align-items:stretch}.format-tool-group{flex:1}.format-tool{flex:1}.format-toolbar label{flex:1;min-width:125px}.format-toolbar select{width:100%}.format-status{display:block}.format-status strong{display:block;margin-bottom:4px}}
+@media(prefers-reduced-motion:reduce){.format-progress span,.format-paper{transition:none}}
+@media print{.format-studio .format-brief,.format-studio .format-toolbar,.format-studio .format-status{display:none!important}.format-studio{display:block}.format-workspace{border:0;box-shadow:none}.format-paper-wrap{background:#fff;padding:0}.format-paper{box-shadow:none;max-width:none}}
+</style>
+<section class="content-section" id="formatting-studio">
+<h2>Document Formatting Studio <span class="lang-hi" lang="hi">/ दस्तावेज़ फ़ॉर्मेटिंग अभ्यास</span></h2>
+<p>Try the tools and watch the same notice change. Your task is to make it clear and easy to read—not merely colourful.</p>
+<p class="lang-hi" lang="hi">उपकरणों का अभ्यास करें और सूचना में बदलाव देखें। आपका लक्ष्य इसे स्पष्ट और पढ़ने योग्य बनाना है, केवल रंगीन बनाना नहीं।</p>
+<div class="format-studio" id="format-studio">
+<aside class="format-brief">
+<span class="format-kicker">GUIDED PRACTICE · 4 STEPS</span>
+<h3>Make the notice reader-friendly</h3>
+<p class="lang-hi" lang="hi">सूचना को पाठक के लिए सरल और स्पष्ट बनाएँ।</p>
+<div class="format-goal"><strong>Your formatting mission <span class="lang-hi" lang="hi">/ आपका अभ्यास</span></strong>
+<ol>
+<li>Choose a clear heading style. <span class="lang-hi" lang="hi">स्पष्ट शीर्षक चुनें।</span></li>
+<li>Align the school name and heading. <span class="lang-hi" lang="hi">विद्यालय का नाम और शीर्षक संरेखित करें।</span></li>
+<li>Use a list for grouped details. <span class="lang-hi" lang="hi">समूहित विवरणों के लिए सूची बनाएँ।</span></li>
+<li>Choose comfortable spacing. <span class="lang-hi" lang="hi">उचित पंक्ति-अंतर चुनें।</span></li>
+</ol></div>
+<div class="format-progress" aria-hidden="true"><span id="format-progress-fill"></span></div>
+<p id="format-progress-label" class="small" aria-live="polite">0 of 4 formatting choices applied</p>
+<p class="small">Tip: select any tool to see its effect immediately. Reset is always available.</p>
+<p class="small lang-hi" lang="hi">सुझाव: किसी भी उपकरण को चुनें और उसका प्रभाव तुरंत देखें। रीसेट कभी भी कर सकते हैं।</p>
+<button type="button" class="btn secondary" id="format-reset">Reset document / रीसेट करें</button>
+</aside>
+<div class="format-workspace">
+<div class="format-toolbar" role="group" aria-label="Document formatting controls">
+<div class="format-tool-group" aria-label="Text emphasis">
+<button type="button" class="format-tool" id="format-bold" aria-pressed="false" aria-label="Toggle bold heading">B</button>
+<button type="button" class="format-tool" id="format-underline" aria-pressed="false" aria-label="Toggle heading underline"><span style="text-decoration:underline">U</span></button>
+</div>
+<div class="format-tool-group" aria-label="Text alignment">
+<button type="button" class="format-tool" data-format-align="left" aria-pressed="false" aria-label="Align left">≡</button>
+<button type="button" class="format-tool" data-format-align="center" aria-pressed="true" aria-label="Align center">☰</button>
+</div>
+<label>Text size <span class="lang-hi" lang="hi">/ आकार</span><select id="format-size"><option value="normal">Normal / सामान्य</option><option value="compact">Small / छोटा</option><option value="large">Large / बड़ा</option></select></label>
+<label>Line spacing <span class="lang-hi" lang="hi">/ पंक्ति अंतर</span><select id="format-spacing"><option value="normal">Normal / सामान्य</option><option value="tight">Compact / कम</option><option value="relaxed">Relaxed / अधिक</option></select></label>
+<button type="button" class="format-tool" id="format-list" aria-pressed="true" aria-label="Show details as a list">List</button>
+</div>
+<div class="format-paper-wrap">
+<article class="format-paper" id="format-paper" data-align="center" data-size="normal" data-spacing="normal" aria-label="Formatted school notice preview">
+<p class="paper-school" id="format-school">UCHCH MADHYAMIK VIDYALAY TETAHALI</p>
+<h4 id="format-heading">SCIENCE EXHIBITION — NOTICE</h4>
+<div class="paper-meta"><span><strong>Date:</strong> 12 November</span><span><strong>Time:</strong> 10:00 a.m.–1:00 p.m.</span></div>
+<p><strong>Venue:</strong> School Hall</p>
+<p><strong>Who can participate?</strong> Students of Classes IX–X</p>
+<ul id="format-details"><li>Register with the science teacher by 8 November.</li><li>Bring your project model on the exhibition day.</li></ul>
+<p class="paper-sign">Contact: Science Teacher</p>
+</article>
+</div>
+<div class="format-status"><strong>What changed?</strong><p id="format-feedback" role="status" aria-live="polite">Choose a formatting tool. The preview will explain how it changes the document.</p></div>
+</div>
+</div>
+</section>
 <section class="content-section" id="example"><h2>Apply the idea <span class="lang-hi" lang="hi">/ अवधारणा लागू करें</span></h2><p>Before sharing a document, which three checks would matter most for your intended reader?</p><p class="lang-hi" lang="hi">दस्तावेज़ साझा करने से पहले अपने पाठक के लिए कौन-सी तीन जाँच सबसे महत्वपूर्ण होंगी?</p></section>
 
 
@@ -109,4 +210,24 @@ copy?.addEventListener('click',async()=>{const text=paper.innerText.trim();try{a
 print?.addEventListener('click',()=>{document.body.classList.add('print-study-only');window.print();setTimeout(()=>document.body.classList.remove('print-study-only'),500);});
 })();
 </script>
+<script>
+(()=>{
+const root=document.getElementById('format-studio');if(!root)return;
+const paper=root.querySelector('#format-paper'),heading=root.querySelector('#format-heading'),school=root.querySelector('#format-school'),details=root.querySelector('#format-details'),feedback=root.querySelector('#format-feedback'),progress=root.querySelector('#format-progress-fill'),progressLabel=root.querySelector('#format-progress-label');
+const state={bold:false,underline:true,align:'center',size:'normal',spacing:'normal',list:true};
+const messages={bold:['Bold makes the heading stand out. Use it for the main title, not every line.','बोल्ड शीर्षक को प्रमुख बनाता है। इसका उपयोग मुख्य शीर्षक के लिए करें, हर पंक्ति के लिए नहीं।'],underline:['Underline adds emphasis. Use it sparingly so the page stays calm.','रेखांकन ज़ोर देता है। पृष्ठ को सरल रखने के लिए इसका सीमित उपयोग करें।'],align:['Alignment controls the position of text. Centre alignment works for a short title; body text is usually easier to read when left aligned.','संरेखण पाठ की स्थिति तय करता है। छोटे शीर्षक के लिए मध्य संरेखण ठीक है; मुख्य पाठ बाईं ओर होने पर सामान्यतः पढ़ना आसान होता है।'],size:['Text size changes the visual hierarchy. Keep body text comfortably readable and headings clearly larger.','अक्षर का आकार दृश्य क्रम बदलता है। मुख्य पाठ पढ़ने योग्य और शीर्षक उससे बड़ा रखें।'],spacing:['Line spacing controls the space between lines. More space can help long text; too much makes a short notice unnecessarily long.','पंक्ति-अंतर पंक्तियों के बीच जगह तय करता है। लंबे पाठ में अधिक जगह मदद कर सकती है; बहुत अधिक जगह छोटी सूचना को अनावश्यक रूप से लंबा करती है।'],list:['A list separates grouped actions into scannable items. Use it when readers need to follow more than one instruction.','सूची समूहित कार्यों को अलग-अलग बिंदुओं में दिखाती है। एक से अधिक निर्देश होने पर इसका उपयोग करें।']};
+function count(){let n=0;if(state.bold)n++;if(state.align==='center')n++;if(state.list)n++;if(state.spacing==='relaxed')n++;progress.style.width=(n/4*100)+'%';progressLabel.textContent=n+' of 4 formatting choices applied / 4 में से '+n+' विकल्प लागू';}
+function announce(key){feedback.innerHTML='';const en=document.createElement('span');en.textContent=messages[key][0];feedback.append(en);const hi=document.createElement('span');hi.className='lang-hi';hi.lang='hi';hi.textContent=messages[key][1];feedback.append(hi);}
+function update(){heading.style.fontWeight=state.bold?'850':'700';heading.style.textDecoration=state.underline?'underline':'none';paper.dataset.align=state.align;paper.dataset.size=state.size;paper.dataset.spacing=state.spacing;details.hidden=!state.list;root.querySelector('#format-bold').setAttribute('aria-pressed',String(state.bold));root.querySelector('#format-underline').setAttribute('aria-pressed',String(state.underline));root.querySelectorAll('[data-format-align]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.formatAlign===state.align)));root.querySelector('#format-list').setAttribute('aria-pressed',String(state.list));root.querySelector('#format-size').value=state.size;root.querySelector('#format-spacing').value=state.spacing;count();}
+root.querySelector('#format-bold').addEventListener('click',()=>{state.bold=!state.bold;update();announce('bold')});
+root.querySelector('#format-underline').addEventListener('click',()=>{state.underline=!state.underline;update();announce('underline')});
+root.querySelectorAll('[data-format-align]').forEach(b=>b.addEventListener('click',()=>{state.align=b.dataset.formatAlign;update();announce('align')}));
+root.querySelector('#format-size').addEventListener('change',e=>{state.size=e.target.value;update();announce('size')});
+root.querySelector('#format-spacing').addEventListener('change',e=>{state.spacing=e.target.value;update();announce('spacing')});
+root.querySelector('#format-list').addEventListener('click',()=>{state.list=!state.list;update();announce('list')});
+root.querySelector('#format-reset').addEventListener('click',()=>{Object.assign(state,{bold:false,underline:true,align:'center',size:'normal',spacing:'normal',list:true});update();feedback.textContent='The sample document has been restored. / नमूना दस्तावेज़ फिर से तैयार है।'});
+update();
+})();
+</script>
+
 </body></html>

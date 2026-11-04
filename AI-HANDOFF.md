@@ -458,3 +458,13 @@ The course-wide buddy should have many distinct, purposeful moods and gestures, 
 - Added an explicit distinction between NCERT national reference and Bihar Board/SCERT prescription. No BSEB alignment or marks claim is made until a current official Bihar syllabus crosswalk is completed.
 - Scope remains Class IX only. No Class X–XII student curriculum pages were edited. Existing old hardware/OS/files/bits/algorithms URLs remain redirects or optional practice, not additional canonical chapters.
 - Repository audit snapshot identifies concrete next improvements chapter by chapter. It is not a full textbook paragraph audit or a claim of complete browser QA. Keep mapped, content-ready, interaction-tested and live-verified as separate statuses.
+
+
+## Class IX Chapter 2 — learner-facing formatting studio (2026-11-04)
+
+- Used the installed UI/UX Pro Max design intelligence for the actual design and implementation (not review alone): selected a calm editorial learning workspace consistent with the existing white/blue site, with accessible controls, responsive reflow, clear feedback, and reduced-motion behavior. The playful claymorphism/children's font recommendations were not adopted because they conflict with the existing high-readability bilingual design system and secondary-school audience.
+- Used the existing `.21st/DESIGN.md` and `.21st/design.json` as the project-aware design context. The 21st CLI local review ran with zero findings. Hosted 21st component search/generation was unavailable because the VPS CLI session is not signed in; no component retrieval or generation is claimed.
+- Added a topic-specific Document Formatting Studio to `class09/ch02_textual_communication.html`: guided mission; bold/underline; left/centre alignment; text-size and line-spacing controls; list toggle; live document preview; progress feedback; bilingual explanations; reset; responsive layout; keyboard/touch controls; visible focus; reduced-motion and print behavior. It complements rather than replaces the existing school-notice builder.
+- Browser interaction assertions passed for bold, alignment, font size, line spacing, list visibility, progress updates and reset. Four inline scripts passed `node --check`; HTML parser found no duplicate IDs; headless Chrome rendered the page; `21st review ... --strict` reported 0 findings; `git diff --check` passed.
+- Mobile viewport check at the available 500px headless viewport reported document width 485px (no horizontal overflow); Hindi text visibility passed. Browser interaction assertions all passed. Physical Android/touch testing remains unverified.
+- Delivery pending at this handoff: commit/push, GitHub Actions completion, and live Pages verification.

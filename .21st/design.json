@@ -66,6 +66,16 @@
       "scope": "homepage",
       "choice": "Refine the homepage hero and class discovery hierarchy while preserving the established white, blue-accent learning-site identity and all existing destinations.",
       "rationale": "Make the learning approach and primary class entry clearer without changing the established curriculum or interactions."
+    },
+    {
+      "date": "2026-11-04",
+      "scope": "class09/ch02_textual_communication.html — formatting studio",
+      "choice": "Add a focused, notebook-inspired document-formatting workspace within the existing white-and-blue learning system. Use a guided four-step mission, compact native controls, a live paper preview, and immediate bilingual explanations.",
+      "rationale": "Students learn formatting by changing one property at a time and seeing its effect on the same document. This extends the existing notice builder without replacing chapter navigation, language controls, curriculum, or the static HTML/CSS/vanilla-JS architecture.",
+      "references": [
+        "UI/UX Pro Max: accessibility, touch target, mobile-first, semantic feedback, reduced motion guidance",
+        "21st.dev: project design context in .21st/DESIGN.md; local CLI review used. Hosted 21st search unavailable because the VPS session is not signed in."
+      ]
     }
   ],
   "evidence": [
