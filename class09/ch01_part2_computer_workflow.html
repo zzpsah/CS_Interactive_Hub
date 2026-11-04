@@ -70,6 +70,7 @@
 @media(prefers-reduced-motion:reduce){.architecture-stage,.architecture-data-packet{transition:none!important}.architecture-data-packet.is-moving{animation:none!important}}
 </style>
 <link rel="stylesheet" href="../assets/css/motion-labs.css?v=1">
+<link rel="stylesheet" href="../assets/css/hands-on-sims.css?v=1">
 </head>
 <body data-lang="en">
 <div class="topbar"><div class="wrap"><a class="brand" href="../index.html">📘 CS सीखें · Learn Computer Science</a><div class="nav"><a href="index.html">Class 9</a><div class="lang-switch"><button type="button" data-lang-toggle aria-pressed="false">Add Hindi</button></div></div></div></div>
@@ -164,6 +165,7 @@
 <div class="motion-stage" aria-live="polite"><div class="motion-track" data-motion-track><div class="motion-node" data-node="0"><span class="node-icon">▣</span><strong>Input</strong></div><div class="motion-node" data-node="1"><span class="node-icon">⚙</span><strong>Process</strong></div><div class="motion-node" data-node="2"><span class="node-icon">▤</span><strong>Output</strong></div><div class="motion-node" data-node="3"><span class="node-icon">✓</span><strong>Store</strong></div></div><div class="motion-explain"><span class="motion-count" data-motion-count>Step 1 of 4</span><h3 data-motion-heading>Input</h3><p data-motion-description>Keyboard and mouse send text and commands.</p><p class="lang-hi" lang="hi" data-motion-hindi>की-बोर्ड और माउस पाठ व निर्देश भेजते हैं।</p><p class="motion-detail" data-motion-detail>Watch how each stage depends on the one before it. Select a step to inspect its role.</p></div></div>
 <div class="motion-controls"><div class="motion-step-list"><button type="button" class="motion-step" data-motion-step="0" aria-pressed="false"><span>01</span>Input</button><button type="button" class="motion-step" data-motion-step="1" aria-pressed="false"><span>02</span>Process</button><button type="button" class="motion-step" data-motion-step="2" aria-pressed="false"><span>03</span>Output</button><button type="button" class="motion-step" data-motion-step="3" aria-pressed="false"><span>04</span>Store</button></div><div class="motion-actions"><button type="button" data-motion-prev disabled>← Previous</button><button type="button" data-motion-play>▶ Play animation</button><button type="button" data-motion-next>Next →</button><button type="button" data-motion-reset>↺ Reset</button></div></div><p class="motion-caption">Learning tip: pause at each stage and explain what enters, what changes and what leaves. / <span class="lang-hi" lang="hi">हर चरण पर रुककर बताएँ—क्या आया, क्या बदला और क्या निकला।</span></p>
 </section>
+<section class="content-section hands-on-sim" data-hands-on-sim="workflow"><h2>🧪 Hands-on lab: trace a computer task <span class="lang-hi" lang="hi">/ स्वयं करके सीखें</span></h2><p>Select a device or stage to see what happens when you type and save a notice.</p><p class="lang-hi" lang="hi">नोटिस टाइप और सेव करते समय उपकरणों की भूमिका देखें।</p><div class="sim-choice"><label>Task <select data-flow-task><option value="type">Type a sentence</option><option value="save">Save the document</option><option value="print">Print the document</option></select></label></div><div class="sim-flow" data-flow-output><div class="sim-chip">Keyboard <small>Input</small></div><span>→</span><div class="sim-chip">CPU + RAM <small>Process</small></div><span>→</span><div class="sim-chip">Monitor <small>Output</small></div></div><p class="sim-feedback" data-flow-explain aria-live="polite">Keyboard sends key signals; the CPU processes the application instructions; the monitor displays the text.</p></section>
 <section class="content-section study-copy-section" id="study-copy">
 <h2>📒 Study &amp; Copy <span class="lang-hi" lang="hi">/ कॉपी में लिखने योग्य नोट्स</span></h2>
 <p>Connected notes for your notebook. Read the explanation first, then revise the key points. <span class="lang-hi" lang="hi">कॉपी के लिए जुड़े हुए नोट्स। पहले व्याख्या पढ़ें, फिर मुख्य बिंदुओं को दोहराएँ।</span></p>
@@ -336,5 +338,6 @@ print?.addEventListener('click',()=>{document.body.classList.add('print-study-on
 })();
 </script>
 <script src="../assets/js/motion-labs.js?v=1" defer></script>
+<script src="../assets/js/hands-on-sims.js?v=1" defer></script>
 </body>
 </html>
