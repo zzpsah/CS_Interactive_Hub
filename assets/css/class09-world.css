@@ -1,0 +1,10 @@
+/* Class IX character-led learning layer: welcoming, playful and accessible. */
+.class09-buddy-dock{position:fixed;z-index:50;right:18px;bottom:16px;display:flex;align-items:center;gap:8px;padding:9px 11px;border:1px solid #dfe6f2;border-radius:20px;background:#ffffffed;box-shadow:0 12px 35px #172b4b22;backdrop-filter:blur(12px);max-width:min(480px,calc(100vw - 24px))}
+.class09-buddy-dock .buddy-label{font-size:.76rem;font-weight:800;color:#566783;white-space:nowrap;margin:0 3px}
+.class09-buddy-dock button{display:grid;place-items:center;width:43px;height:43px;padding:0;border:1px solid #e3e9f3;border-radius:14px;background:#f7f9fd;font-size:1.55rem;cursor:pointer;transition:transform .16s,border-color .16s,background .16s}
+.class09-buddy-dock button:hover{transform:translateY(-3px)}
+.class09-buddy-dock button[aria-pressed=true]{border-color:#7995e5;background:#edf2ff;box-shadow:0 0 0 2px #dce6ff}
+.class09-buddy-toast{position:fixed;z-index:49;right:20px;bottom:82px;width:min(320px,calc(100vw - 40px));padding:14px 16px;border:1px solid #dfe6f2;border-radius:18px;background:#fff;box-shadow:0 12px 35px #172b4b1c;color:#263958;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .2s,transform .2s}
+.class09-buddy-toast.is-visible{opacity:1;transform:translateY(0)}.class09-buddy-toast strong{display:block;margin-bottom:3px;color:#315fc5}.class09-buddy-toast p{margin:0;font-size:.91rem;line-height:1.5;color:#5c6b82}
+@media(max-width:560px){.class09-buddy-dock{right:10px;bottom:10px;left:10px;justify-content:center;max-width:none;padding:7px}.class09-buddy-dock .buddy-label{font-size:.68rem}.class09-buddy-dock button{width:39px;height:39px;font-size:1.4rem}.class09-buddy-toast{right:12px;bottom:66px}}
+@media(prefers-reduced-motion:reduce){.class09-buddy-dock button,.class09-buddy-toast{transition:none}}
