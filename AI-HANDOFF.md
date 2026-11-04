@@ -468,3 +468,12 @@ The course-wide buddy should have many distinct, purposeful moods and gestures, 
 - Browser interaction assertions passed for bold, alignment, font size, line spacing, list visibility, progress updates and reset. Four inline scripts passed `node --check`; HTML parser found no duplicate IDs; headless Chrome rendered the page; `21st review ... --strict` reported 0 findings; `git diff --check` passed.
 - Mobile viewport check at the available 500px headless viewport reported document width 485px (no horizontal overflow); Hindi text visibility passed. Browser interaction assertions all passed. Physical Android/touch testing remains unverified.
 - Delivered on `main` in commit `7af6ed3` (`feat(class09): add interactive document formatting studio`). GitHub Actions run `41754113362` completed successfully, and the published GitHub Pages page was fetched with a cache-busting query and confirmed to contain the new studio markup. Physical Android/touch testing remains unverified.
+
+
+## Class IX Chapter 3 — narrated visual communication lesson and cleanup (2026-11-04)
+
+- Generated and finalized a landscape Scrimba Explain lesson with twelve spoken narration segments and thirty-five explainer entries: https://scrimba.com/explain/guide06vn468s4?claim=jfgl62g76k9ht30f&fullscreen=1. Topics: choosing photographs/diagrams/charts/posters, visual hierarchy, alignment, contrast, whitespace, fair chart scales, labels, source and accessibility. Narration is Indian English.
+- Embedded the unlisted explainer in `class09/ch03_visual_communication.html` using the documented responsive iframe pattern; also retained a direct fullscreen link as fallback. Scrimba's embed documentation confirms an unlisted explainer plays inside a site iframe without requiring viewers to sign in.
+- Cleaned repeated page elements: removed the duplicate heading/caption inside the visual model, replaced it with a concise five-stage label, and removed the redundant Quick Revision section because the same terms already appear in Study & Copy. Kept the interactive five-stage trace, visual-type reference table, worked chart, Study & Copy and Questions & Answers because each serves a distinct learning task.
+- Updated the chapter contents links and assigned missing section IDs. HTML parser audit found no duplicate IDs or broken in-page links; one correctly titled iframe; two inline scripts passed `node --check`; `git diff --check` passed. Scrimba embed endpoint returned HTTP 200.
+- Delivery pending: commit/push, Actions result and live Pages verification.

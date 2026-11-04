@@ -76,6 +76,17 @@
         "UI/UX Pro Max: accessibility, touch target, mobile-first, semantic feedback, reduced motion guidance",
         "21st.dev: project design context in .21st/DESIGN.md; local CLI review used. Hosted 21st search unavailable because the VPS session is not signed in."
       ]
+    },
+    {
+      "date": "2026-11-04",
+      "scope": "class09/ch03_visual_communication.html — duplicate cleanup and narrated video lesson",
+      "choice": "Embed one landscape narrated explainer near the beginning of the lesson; retain the interactive five-stage model as hands-on follow-up; remove the repeated visual-model caption and the redundant Quick Revision section.",
+      "rationale": "The narrated video provides the complete visual walkthrough, while the existing interactive trace gives learners direct control to practise the planning sequence. Study & Copy remains the durable copy-ready notes section, so a second revision summary repeats rather than adds learning value.",
+      "references": [
+        "Scrimba Explain embed documentation: https://docs.scrimba.com/explain/embedding",
+        "UI/UX Pro Max: responsive media, semantic headings, mobile-first and accessibility guidance",
+        "21st.dev project design context in .21st/DESIGN.md"
+      ]
     }
   ],
   "evidence": [
