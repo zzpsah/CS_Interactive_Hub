@@ -53,16 +53,29 @@ Canonical chapter sequence and current implementation:
 
 **Consolidation rule:** existing Class IX pages on hardware/memory, software/OS, files/folders, bits/bytes and algorithms/flowcharts are not allowed to become extra competing chapters. Reuse their accurate teaching material as relevant subsections, labs or interactive demonstrations inside the canonical eight chapters, or mark genuinely advanced content as optional enrichment. Each concept has one canonical home and may link to it from other chapters rather than repeat its full lesson.
 
-### Class X — NCERT-first ICT continuation (source verification gate)
+### Class X — CBSE Computer Applications (165), session 2026–27 (source verified 2026-11-08)
 
-Do not automatically copy the current Class X Computer Applications (165) chapter list into this hub. The official CBSE e-book catalogue lists an ICT textbook for Class X, while the current 2026–27 subject curriculum has its own scope. The final Class X chapter map must be checked against the official Class X ICT book and current NCERT modules/circulars before it is labelled NCERT-aligned.
+**Authority used:** the official CBSE *Computer Applications, Subject Code 165, Class X (2026–27)* curriculum PDF (`cbseacademic.nic.in/web_material/CurriculumMain27/SecPart1/Computer_Applications_SecP1X_2026-27.pdf`). Theory 50 marks (Networking 15, HTML 25, Cyber ethics 10) + Practicals 50 marks (lab test 20, report file of at least 10 HTML pages 15, viva 5, project 10).
 
-Target progression once source-verified:
-1. Continue digital creation and ICT skills at a higher level, without repeating Class IX document/visual/media/presentation lessons.
-2. Develop the next level of web, network and digital-safety skills only where supported by the selected official source.
-3. Include practical work and integrated projects as activities, not duplicate theory chapters.
+**What was not found or not used:** no NCERT Class X ICT/Computer Applications textbook for 2026–27 was identified from an official NCERT page (secondary sources say new NCERT Class X books are expected from 2027–28; re-check before the next session). The older CBSE "Information and Communication Technology, Class X" e-book (2014) is not used as scope authority. Information Technology (402) is a separate skill subject and is not covered here.
 
-**Status: source audit pending; do not publish a final Class X chapter list yet.**
+**Official units and hub chapter map**
+
+| Unit (marks) | Official topics | Hub chapter | Status |
+|---|---|---|---|
+| 1 Networking (15) | Internet, WWW, web servers/clients/browsers, web address; protocols (TCP/IP, SMTP, POP3, HTTP, HTTPS, SSH, SFTP, FTP, SCP, TELNET); internet and web services; mobile technologies (SMS, MMS, 3G/4G/5G) | `class10/ch01_networks_web.html` | Built |
+| 3 Cyber ethics (10) | Netiquette; software licences and open source; IPR, plagiarism, digital property rights; freedom of information and digital divide; e-commerce privacy, fraud, secure transmission | `class10/ch02_digital_safety.html` | Built |
+| 2 HTML (25) | Structure tags, headings, paragraphs, br/hr, comments, b/i/u, lists (ul, ol, dl and their attributes) | `class10/ch03_html_basics.html` | Built |
+| 2 HTML (25) | Font tags, images (img, sup, sub), links (href, mailto, targets), audio/video | — | Planned: fonts, images, links and media |
+| 2 HTML (25) | Tables (table, tr, th, td, rowspan, colspan) | — | Planned |
+| 2 HTML (25) | Forms (textbox, radio, checkbox, password, list, combobox) | — | Planned |
+| 2 HTML (25) | CSS: colour, background-colour, border-style, margin, height, width, outline, font, align, float | — | Planned |
+| 4 Practicals (50) | Lab exercises, report file, lab test practice, project | — | Planned |
+
+**Notes**
+- Phishing awareness, passwords and MFA in the Class X digital-safety chapter are practical enrichment aligned with the lab task on viruses, malware and spam; they are not listed as syllabus items, so do not describe them as examinable.
+- The syllabus lists presentational attributes (for example `bgcolor`, `font face`). Teach them as syllabus items and say that modern pages use CSS.
+- Class X is a CBSE subject syllabus, not NCERT; do not label it "NCERT" in student-facing text.
 
 ### Class XI — Students choose one senior-secondary track
 
@@ -144,7 +157,7 @@ A chapter is not complete merely because it contains text, decorative animation,
 1. **Class IX — active implementation:** eight canonical NCERT ICT chapters now have dedicated pages and the class index links only to those eight. Continue auditing content, interactions, bilingual parity and mobile behaviour before calling the class complete.
 2. **Legacy cleanup:** older noncanonical Class IX chapter URLs redirect to their canonical chapter. Preserve genuinely useful standalone labs as optional practice, not as duplicate chapters.
 3. **Class VIII:** keep its separate CBSE CT&AI framework page clearly labelled as a proposed module map; build lessons only after checking the Grade 8 handbook outcomes.
-4. **Class X:** complete the NCERT/official ICT source audit before finalising its chapter map.
+4. **Class X:** source audit completed on 2026-11-08 against the CBSE Computer Applications (165) 2026–27 curriculum; build the planned HTML and practical chapters in the order shown in the Class X table.
 5. **Classes XI–XII:** build separate NCERT Computer Science and Informatics Practices tracks, one chapter at a time.
 6. **Quality gates:** verify links, content completeness, bilingual parity, touch controls, keyboard access, reduced motion, mobile layout, print, quizzes, and GitHub Pages build before marking a chapter complete.
 
