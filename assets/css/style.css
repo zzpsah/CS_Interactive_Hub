@@ -874,3 +874,24 @@ body.writing-focus #study-copy[data-study-mode="clean"] .study-paper{padding:1re
  .study-copy-section .study-view-switch,.study-copy-section [data-study-focus]{display:none!important}
  body.print-study-only #study-copy .study-paper{max-width:none}
 }
+
+/* Class IX shared accessibility and small-screen finishing rules */
+:where(a,button,input,select,textarea,summary,[role="button"],[tabindex]):focus-visible{
+  outline:3px solid #d58a00!important;
+  outline-offset:3px!important;
+  box-shadow:0 0 0 2px #fff!important;
+}
+:where(button,input,select,textarea){max-width:100%}
+:where(button,[role="button"]){touch-action:manipulation}
+:where(h1,h2,h3,h4,[id]){scroll-margin-top:1.25rem}
+@media(max-width:600px){
+  .content-section{min-width:0}
+  .table-scroll,.table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .table-scroll table,.table-wrap table{min-width:520px}
+  .controls,.file-actions,.algo-controls,.motion-actions,.logic-mission-controls{gap:8px}
+  .controls button,.file-actions button,.algo-controls button,.motion-actions button,.logic-mission-controls button{min-height:42px}
+  input,select,textarea{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
