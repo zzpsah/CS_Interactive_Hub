@@ -21,7 +21,7 @@ jobs:
           test -s favicon.svg
           test -s assets/css/style.css
           test -s assets/js/app.js
-          for f in class08/index.html class09/index.html class10/index.html class10/ch02_digital_safety.html class10/ch03_html_basics.html class10/ch04_html_media_links.html class10/ch05_html_tables.html class10/ch06_html_forms.html class11/index.html class12/index.html class09/ch01_introduction_ict.html class09/ch02_textual_communication.html class09/ch03_visual_communication.html class09/ch04_audio_video_communication.html class09/ch05_presenting_ideas.html class09/ch06_getting_connected_internet.html class09/ch07_cyber_safety.html class09/ch08_fun_with_logic.html class10/ch01_networks_web.html class11/ch01_number_systems.html class12/ch01_python_functions.html; do test -s "$f" || exit 1; done
+          for f in class08/index.html class09/index.html class10/index.html class10/ch02_digital_safety.html class10/ch03_html_basics.html class10/ch04_html_media_links.html class10/ch05_html_tables.html class10/ch06_html_forms.html class10/ch07_css_styling.html class11/index.html class12/index.html class09/ch01_introduction_ict.html class09/ch02_textual_communication.html class09/ch03_visual_communication.html class09/ch04_audio_video_communication.html class09/ch05_presenting_ideas.html class09/ch06_getting_connected_internet.html class09/ch07_cyber_safety.html class09/ch08_fun_with_logic.html class10/ch01_networks_web.html class11/ch01_number_systems.html class12/ch01_python_functions.html; do test -s "$f" || exit 1; done
           python - <<'PY'
           from pathlib import Path
           import re
@@ -44,6 +44,7 @@ jobs:
               'class10/ch04_html_media_links.html',
               'class10/ch05_html_tables.html',
               'class10/ch06_html_forms.html',
+              'class10/ch07_css_styling.html',
               'class11/index.html',
               'class11/ch01_number_systems.html',
               'class12/index.html',
@@ -248,6 +249,25 @@ jobs:
           assert 'autocomplete="off"' in html and 'password and personal fields are not shown' in html, 'Form practice must protect entered values'
           print('Class X local-only form practice controls and privacy checks verified.')
           PYFORM
+      - name: Validate Class X CSS practice controls
+        run: |
+          python - <<'PYCSS'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          required={'cs-color','cs-bg','cs-border','cs-outline','cs-width','cs-height','cs-margin','cs-font','cs-align','cs-float','cs-demo','cs-source','cs-download','cs-reset'}
+          class IDs(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.ids=set()
+              def handle_starttag(self, tag, attrs):
+                  value=dict(attrs).get('id')
+                  if value: self.ids.add(value)
+          html=Path('class10/ch07_css_styling.html').read_text(encoding='utf-8')
+          parser=IDs(); parser.feed(html)
+          missing=sorted(required-parser.ids)
+          assert not missing, f'Class X CSS lab missing controls: {missing}'
+          assert 'prefers-reduced-motion' in Path('assets/css/style.css').read_text(encoding='utf-8'), 'Shared stylesheet should provide reduced-motion support'
+          print('Class X CSS practice controls verified.')
+          PYCSS
       - uses: actions/configure-pages@v5
       - name: Download official Bihar Gazette PDF for offline hosting
         run: |
