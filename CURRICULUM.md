@@ -67,7 +67,7 @@ Canonical chapter sequence and current implementation:
 | 3 Cyber ethics (10) | Netiquette; software licences and open source; IPR, plagiarism, digital property rights; freedom of information and digital divide; e-commerce privacy, fraud, secure transmission | `class10/ch02_digital_safety.html` | Built |
 | 2 HTML (25) | Structure tags, headings, paragraphs, br/hr, comments, b/i/u, lists (ul, ol, dl and their attributes) | `class10/ch03_html_basics.html` | Built |
 | 2 HTML (25) | Font tags, images (img, sup, sub), links (href, mailto, targets), audio/video | class10/ch04_html_media_links.html | Built: bilingual explanations, safe live editor, local audio/video preview, standalone HTML export |
-| 2 HTML (25) | Tables (table, tr, th, td, rowspan, colspan) | — | Planned |
+| 2 HTML (25) | Tables (table, tr, th, td, rowspan, colspan) | class10/ch05_html_tables.html | Built: bilingual explanations, editable cell grid, rowspan/colspan preview, standalone HTML export |
 | 2 HTML (25) | Forms (textbox, radio, checkbox, password, list, combobox) | — | Planned |
 | 2 HTML (25) | CSS: colour, background-colour, border-style, margin, height, width, outline, font, align, float | — | Planned |
 | 4 Practicals (50) | Lab exercises, report file, lab test practice, project | — | Planned |
