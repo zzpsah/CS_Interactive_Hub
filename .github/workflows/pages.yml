@@ -284,6 +284,16 @@ jobs:
               assert term.lower() in html.lower(), f'Practical exercise missing: {term}'
           print('Class X ten-page HTML project generator verified.')
           PYPROJECT
+      - name: Validate Class X networking interactive labs
+        run: |
+          python - <<'PYNETLAB'
+          from pathlib import Path
+          html=Path('class10/ch01_networks_web.html').read_text(encoding='utf-8')
+          for token in ('data-protocol-lab','data-protocol-check','data-protocol-next','data-service-lab','data-service-check','hiPrompt','SMTP','POP3','HTTPS','SFTP','SCP'):
+              assert token in html, f'Networking lab missing {token}'
+          assert 'aria-live="polite"' in html, 'Networking lab feedback must be announced accessibly'
+          print('Class X networking protocol and Internet-service labs verified.')
+          PYNETLAB
       - name: Audit Class X theory against the official 2026–27 syllabus
         run: |
           python - <<'PYSYLLABUS'
