@@ -315,13 +315,18 @@ jobs:
               ],
               'class10/ch03_html_basics.html': [
                   '<html>','<head>','<title>','<body>','bgcolor','text','link',
-                  'vlink','alink','<br>','<hr>','comment','<h1>','<h6>','<p>',
+                  'background','vlink','alink','<br>','<hr>','comment','<h1>','<h6>','<p>',
                   '<b>','<i>','<u>','<ul>','<ol>','<li>','<dl>','<dt>','<dd>',
                   'start','type'
               ],
               'class10/ch04_html_media_links.html': [
                   'face','size','color','<img','src','width','height','alt',
                   '<sup>','<sub>','mailto','target','audio','video'
+              ],
+              'class10/ch07_css_styling.html': [
+                  'color','background-color','border-style','margin','height',
+                  'width','outline','font-family','font-style','font-size',
+                  'text-align','float'
               ],
           }
           for name, terms in checks.items():
