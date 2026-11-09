@@ -21,7 +21,7 @@ jobs:
           test -s favicon.svg
           test -s assets/css/style.css
           test -s assets/js/app.js
-          for f in class08/index.html class09/index.html class10/index.html class11/index.html class12/index.html class09/ch01_introduction_ict.html class09/ch02_textual_communication.html class09/ch03_visual_communication.html class09/ch04_audio_video_communication.html class09/ch05_presenting_ideas.html class09/ch06_getting_connected_internet.html class09/ch07_cyber_safety.html class09/ch08_fun_with_logic.html class10/ch01_networks_web.html class11/ch01_number_systems.html class12/ch01_python_functions.html; do test -s "$f" || exit 1; done
+          for f in class08/index.html class09/index.html class10/index.html class10/ch02_digital_safety.html class10/ch03_html_basics.html class10/ch04_html_media_links.html class11/index.html class12/index.html class09/ch01_introduction_ict.html class09/ch02_textual_communication.html class09/ch03_visual_communication.html class09/ch04_audio_video_communication.html class09/ch05_presenting_ideas.html class09/ch06_getting_connected_internet.html class09/ch07_cyber_safety.html class09/ch08_fun_with_logic.html class10/ch01_networks_web.html class11/ch01_number_systems.html class12/ch01_python_functions.html; do test -s "$f" || exit 1; done
           python - <<'PY'
           from pathlib import Path
           import re
@@ -39,6 +39,9 @@ jobs:
               'class09/ch08_fun_with_logic.html',
               'class10/index.html',
               'class10/ch01_networks_web.html',
+              'class10/ch02_digital_safety.html',
+              'class10/ch03_html_basics.html',
+              'class10/ch04_html_media_links.html',
               'class11/index.html',
               'class11/ch01_number_systems.html',
               'class12/index.html',
@@ -47,7 +50,7 @@ jobs:
           for name in pages:
               s = Path(name).read_text(encoding='utf-8')
               assert '<!doctype html>' in s.lower(), f'{name}: missing doctype'
-              if name == 'index.html' or name.startswith('class08/') or name.startswith('class09/'):
+              if name == 'index.html' or name.startswith('class08/') or name.startswith('class09/') or name.startswith('class10/'):
                   assert 'lang-hi' in s, f'{name}: missing bilingual text'
               assert 'assets/css/style.css' in s, f'{name}: missing shared stylesheet'
               assert 'assets/js/app.js' in s, f'{name}: missing shared language script'
@@ -76,11 +79,12 @@ jobs:
                   for key in ('href','src'):
                       if attrs.get(key): self.refs.append(attrs[key])
           pages={}
-          for path in Path('class09').glob('*.html'):
-              page=Page(); page.feed(path.read_text(encoding='utf-8'))
-              duplicates=sorted({item for item in page.ids if page.ids.count(item)>1})
-              assert not duplicates, f'{path}: duplicate IDs: {duplicates}'
-              pages[path.resolve()]=page
+          for folder in ('class09','class10'):
+              for path in Path(folder).glob('*.html'):
+                  page=Page(); page.feed(path.read_text(encoding='utf-8'))
+                  duplicates=sorted({item for item in page.ids if page.ids.count(item)>1})
+                  assert not duplicates, f'{path}: duplicate IDs: {duplicates}'
+                  pages[path.resolve()]=page
           errors=[]
           for source,page in pages.items():
               for ref in page.refs:
@@ -96,7 +100,7 @@ jobs:
                       if unquote(url.fragment) not in target_page.ids:
                           errors.append(f'{source}: missing fragment {ref}')
           assert not errors, '\n'.join(errors)
-          print(f'Validated {len(pages)} Class IX HTML files: local links, anchors and IDs are sound.')
+          print(f'Validated {len(pages)} Class IX/X HTML files: local links, anchors and IDs are sound.')
           PY
       - name: Check JavaScript syntax
         run: |
@@ -125,14 +129,15 @@ jobs:
                       self.current=None
           checked=0
           with tempfile.TemporaryDirectory() as tmp:
-              for page in Path('class09').glob('*.html'):
-                  parser=Scripts(); parser.feed(page.read_text(encoding='utf-8'))
-                  for i, code in enumerate(parser.scripts):
-                      path=Path(tmp)/f'{page.stem}-{i}.js'
-                      path.write_text(code, encoding='utf-8')
-                      subprocess.run(['node','--check',str(path)],check=True)
-                      checked += 1
-          print(f'Validated {checked} inline scripts across Class IX pages.')
+              for folder in ('class09','class10'):
+                  for page in Path(folder).glob('*.html'):
+                      parser=Scripts(); parser.feed(page.read_text(encoding='utf-8'))
+                      for i, code in enumerate(parser.scripts):
+                          path=Path(tmp)/f'{page.parent.name}-{page.stem}-{i}.js'
+                          path.write_text(code, encoding='utf-8')
+                          subprocess.run(['node','--check',str(path)],check=True)
+                          checked += 1
+          print(f'Validated {checked} inline scripts across Class IX and X pages.')
           PYINLINE
       - name: Validate Class IX model-answer language parity
         run: |
@@ -184,6 +189,25 @@ jobs:
               assert not missing, f'{name}: missing interactive hooks: {missing}'
               print('OK', name)
           PYHOOKS
+      - name: Validate Class X HTML media lab controls
+        run: |
+          python - <<'PYX'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          class IDs(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.ids=set()
+              def handle_starttag(self, tag, attrs):
+                  value=dict(attrs).get('id')
+                  if value: self.ids.add(value)
+          required={'hm-title','hm-copy','hm-face','hm-size','hm-color','hm-image','hm-alt','hm-link','hm-linktext','hm-math','hm-audio','hm-video','hm-download','hm-reset','hm-preview','hm-source','hm-status'}
+          page=IDs(); page.feed(Path('class10/ch04_html_media_links.html').read_text(encoding='utf-8'))
+          missing=sorted(required-page.ids)
+          assert not missing, f'Class X HTML media lab missing controls: {missing}'
+          assert 'sandbox=""' in Path('class10/ch04_html_media_links.html').read_text(encoding='utf-8'), 'HTML preview must remain sandboxed'
+          assert 'function documentFor(content)' in Path('class10/ch04_html_media_links.html').read_text(encoding='utf-8'), 'Export must use standalone media file names rather than temporary preview blob URLs'
+          print('Class X HTML media lab controls and sandbox verified.')
+          PYX
       - uses: actions/configure-pages@v5
       - name: Download official Bihar Gazette PDF for offline hosting
         run: |
