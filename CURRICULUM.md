@@ -70,7 +70,7 @@ Canonical chapter sequence and current implementation:
 | 2 HTML (25) | Tables (table, tr, th, td, rowspan, colspan) | class10/ch05_html_tables.html | Built: bilingual explanations, editable cell grid, rowspan/colspan preview, standalone HTML export |
 | 2 HTML (25) | Forms (textbox, radio, checkbox, password, list, combobox) | class10/ch06_html_forms.html | Built: local-only validation lab, password-safe feedback, bilingual controls and downloadable form example |
 | 2 HTML (25) | CSS: colour, background-colour, border-style, margin, height, width, outline, font, align, float | class10/ch07_css_styling.html | Built: bilingual CSS reference, live property controls, responsive preview, CSS source and HTML export |
-| 4 Practicals (50) | Lab exercises, report file, lab test practice, project | — | Planned |
+| 4 Practicals (50) | Lab exercises, report file of at least 10 HTML pages, lab test practice, project | class10/ch08_practical_project.html | Built: ten-page linked HTML starter ZIP, shared stylesheet, README, project checklist and viva guidance |
 
 **Notes**
 - Phishing awareness, passwords and MFA in the Class X digital-safety chapter are practical enrichment aligned with the lab task on viruses, malware and spam; they are not listed as syllabus items, so do not describe them as examinable.
@@ -157,7 +157,7 @@ A chapter is not complete merely because it contains text, decorative animation,
 1. **Class IX — active implementation:** eight canonical NCERT ICT chapters now have dedicated pages and the class index links only to those eight. Continue auditing content, interactions, bilingual parity and mobile behaviour before calling the class complete.
 2. **Legacy cleanup:** older noncanonical Class IX chapter URLs redirect to their canonical chapter. Preserve genuinely useful standalone labs as optional practice, not as duplicate chapters.
 3. **Class VIII:** keep its separate CBSE CT&AI framework page clearly labelled as a proposed module map; build lessons only after checking the Grade 8 handbook outcomes.
-4. **Class X:** source audit completed on 2026-11-08 against the CBSE Computer Applications (165) 2026–27 curriculum. Chapters 1–7 are now built; continue with the HTML practical report file and project in syllabus order.
+4. **Class X:** source audit completed on 2026-11-08 against the CBSE Computer Applications (165) 2026–27 curriculum. Chapters 1–8 are now mapped and implemented as a starter course; the 10-page practical project generator is built. Continue with full topic-by-topic syllabus and practical verification before marking Class X complete.
 5. **Classes XI–XII:** build separate NCERT Computer Science and Informatics Practices tracks, one chapter at a time.
 6. **Quality gates:** verify links, content completeness, bilingual parity, touch controls, keyboard access, reduced motion, mobile layout, print, quizzes, and GitHub Pages build before marking a chapter complete.
 
