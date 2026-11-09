@@ -507,3 +507,13 @@ The course-wide buddy should have many distinct, purposeful moods and gestures, 
 - Added bilingual safety/research guidance: never download malware samples or test live malicious links; cite reliable sources and do not invent plagiarism cases, penalties or cross-country legal comparisons.
 - Added a safe iframe/SVG example and updated CURRICULUM.md.
 - Remaining: run browser tests for all 13 checklist items, confirm progress/log download count, run full CI, and continue auditing Class X chapters 1–3. Physical Android screen-reader testing remains outside remote browser coverage.
+
+
+## Class X theory audit — 2026-11-09 (continued)
+- Compared Chapters 1–4 with the official CBSE Computer Applications (165) 2026–27 PDF (Unit 1 Networking, Unit 2 HTML and Unit 3 Cyber ethics).
+- Chapter 1: filled explicit theory gaps for web clients and servers, web pages/sites, blogs, newsgroups, HTML, web and e-mail addresses, remote download/upload, information retrieval, search engines and finding people. Added bilingual definitions/table and a client/server request-response SVG. Added SCP as its own protocol row; clarified TCP/IP as a suite (IP addressing/routing; TCP ordered reliable delivery). Added two quiz questions and explicit protocol revision points.
+- Chapter 2: explicitly added the open-source software movement, permissive vs copyleft licence examples, and digital property rights. Kept the legal caveat that open source still has copyright/licence conditions.
+- Chapter 3: existing coverage verified for html/head/title/body attributes, br/hr/comments, headings, paragraphs, formatting, ordered/unordered/description lists and list attributes. Font/image/sup/sub/link/audio/video items are covered in Chapter 4.
+- Added a GitHub Actions theory audit gate for official topic terms across Chapters 1–4, bilingual content presence, duplicate IDs, and raised the practical checklist minimum to 13.
+- Local audit passed: 34 Chapter 1 terms, 12 Chapter 2 terms, 26 Chapter 3 terms and 14 Chapter 4 terms; duplicate-ID checks passed and two inline scripts passed node --check.
+- Remaining: CI run after push, deeper semantic and Hindi proofreading, real browser interaction/keyboard/mobile/print checks and physical Android screen-reader testing.

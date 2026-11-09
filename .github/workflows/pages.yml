@@ -279,9 +279,61 @@ jobs:
           assert 'application/zip' in html and 'function crc32' in html and 'function zip(files)' in html, 'Project ZIP generator is incomplete'
           assert 'u16(0),u32(0),u32(offset)' in html, 'ZIP central directory offsets must be written in the correct fields'
           assert 'sandbox=""' in html, 'Project preview must remain sandboxed'
-          assert html.count('data-lab-task') >= 9 and 'lab-task-download' in html, 'Practical lab checklist/log is incomplete'
+          assert html.count('data-lab-task') >= 13 and 'lab-task-download' in html, 'Practical lab checklist/log is incomplete'
+          for term in ('sandbox', 'antivirus', 'plagiarism', 'frame', 'graphical elements'):
+              assert term.lower() in html.lower(), f'Practical exercise missing: {term}'
           print('Class X ten-page HTML project generator verified.')
           PYPROJECT
+      - name: Audit Class X theory against the official 2026–27 syllabus
+        run: |
+          python - <<'PYSYLLABUS'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          from html import unescape
+          class Page(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.ids=[]; self.en=0; self.hi=0
+              def handle_starttag(self, tag, attrs):
+                  attrs=dict(attrs); classes=attrs.get('class','').split()
+                  if attrs.get('id'): self.ids.append(attrs['id'])
+                  if 'lang-en' in classes: self.en += 1
+                  if 'lang-hi' in classes or attrs.get('lang') == 'hi': self.hi += 1
+          checks = {
+              'class10/ch01_networks_web.html': [
+                  'web client','web server','blog','newsgroup','html','web address',
+                  'e-mail address','downloading','uploading','tcp/ip','smtp','pop3',
+                  'http','https','ssh','sftp','ftp','scp','telnet','information retrieval',
+                  'search engines','finding people','e-learning','e-banking','eshopping',
+                  'e-reservation','e-governance','e-groups','social networking',
+                  'sms','mms','3g','4g','5g'
+              ],
+              'class10/ch02_digital_safety.html': [
+                  'netiquette','software licence','open-source software movement',
+                  'intellectual property rights','plagiarism','digital property rights',
+                  'freedom of information','digital divide','e-commerce','privacy',
+                  'fraud','secure data transmission'
+              ],
+              'class10/ch03_html_basics.html': [
+                  '<html>','<head>','<title>','<body>','bgcolor','text','link',
+                  'vlink','alink','<br>','<hr>','comment','<h1>','<h6>','<p>',
+                  '<b>','<i>','<u>','<ul>','<ol>','<li>','<dl>','<dt>','<dd>',
+                  'start','type'
+              ],
+              'class10/ch04_html_media_links.html': [
+                  'face','size','color','<img','src','width','height','alt',
+                  '<sup>','<sub>','mailto','target','audio','video'
+              ],
+          }
+          for name, terms in checks.items():
+              html=Path(name).read_text(encoding='utf-8')
+              parser=Page(); parser.feed(html)
+              lower=unescape(html).lower()
+              missing=[term for term in terms if term.lower() not in lower]
+              assert not missing, f'{name}: syllabus terms missing: {missing}'
+              assert len(parser.ids)==len(set(parser.ids)), f'{name}: duplicate IDs'
+              assert parser.en and parser.hi, f'{name}: bilingual content missing'
+              print(f'OK {name}: {len(terms)} syllabus terms; EN={parser.en}, HI={parser.hi}')
+          PYSYLLABUS
       - uses: actions/configure-pages@v5
       - name: Download official Bihar Gazette PDF for offline hosting
         run: |
