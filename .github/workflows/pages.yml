@@ -102,6 +102,37 @@ jobs:
           find assets/js -type f -name '*.js' -print0 | while IFS= read -r -d '' file; do
             node --check "$file"
           done
+      - name: Check inline JavaScript in Class IX lessons
+        run: |
+          python - <<'PYINLINE'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          import subprocess, tempfile
+          class Scripts(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.current=None; self.parts=[]; self.scripts=[]
+              def handle_starttag(self, tag, attrs):
+                  if tag.lower() == 'script':
+                      attrs=dict(attrs)
+                      self.current=None if 'src' in attrs else []
+              def handle_data(self, data):
+                  if self.current is not None: self.current.append(data)
+              def handle_endtag(self, tag):
+                  if tag.lower() == 'script' and self.current is not None:
+                      code=''.join(self.current).strip()
+                      if code: self.scripts.append(code)
+                      self.current=None
+          checked=0
+          with tempfile.TemporaryDirectory() as tmp:
+              for page in Path('class09').glob('*.html'):
+                  parser=Scripts(); parser.feed(page.read_text(encoding='utf-8'))
+                  for i, code in enumerate(parser.scripts):
+                      path=Path(tmp)/f'{page.stem}-{i}.js'
+                      path.write_text(code, encoding='utf-8')
+                      subprocess.run(['node','--check',str(path)],check=True)
+                      checked += 1
+          print(f'Validated {checked} inline scripts across Class IX pages.')
+          PYINLINE
       - uses: actions/configure-pages@v5
       - name: Download official Bihar Gazette PDF for offline hosting
         run: |
