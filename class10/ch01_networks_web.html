@@ -53,7 +53,7 @@
   ];
   let index=0;
   const taskEn=root.querySelector('[data-task-en]'),taskHi=root.querySelector('[data-task-hi]'),choice=root.querySelector('#protocol-choice'),feedback=root.querySelector('[data-protocol-feedback]'),progress=root.querySelector('[data-protocol-progress]');
-  const render=()=>{taskEn.textContent=tasks[index].prompt;taskHi.textContent=tasks[index].hiPrompt;choice.value='';feedback.textContent='';progress.textContent='Task '+(index+1)+' of '+tasks.length+' / कार्य '+(index+1)+' / '+tasks.length;};
+  const render=()=>{taskEn.textContent=tasks[index].prompt;taskHi.textContent=tasks[index].hiPrompt;choice.value='';feedback.textContent='';progress.textContent='Task '+(index+1)+' of '+tasks.length+' | कार्य '+(index+1)+' / '+tasks.length;};
   root.querySelector('[data-protocol-check]').addEventListener('click',()=>{if(!choice.value){feedback.textContent='Choose a protocol first. / पहले प्रोटोकॉल चुनें।';return;}const t=tasks[index];feedback.innerHTML=choice.value===t.answer?'<span class="lang-en">'+t.en+'</span><span class="lang-hi" lang="hi">'+t.hi+'</span>':'<span class="lang-en">Not quite. Try again.</span><span class="lang-hi" lang="hi">अभी सही नहीं। फिर प्रयास करें।</span>';});
   root.querySelector('[data-protocol-next]').addEventListener('click',()=>{index=(index+1)%tasks.length;render();});
   render();

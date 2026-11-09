@@ -294,6 +294,16 @@ jobs:
           assert 'aria-live="polite"' in html, 'Networking lab feedback must be announced accessibly'
           print('Class X networking protocol and Internet-service labs verified.')
           PYNETLAB
+      - name: Validate Class X cyber ethics decision lab
+        run: |
+          python - <<'PYETHICS'
+          from pathlib import Path
+          html=Path('class10/ch02_digital_safety.html').read_text(encoding='utf-8')
+          assert html.count('data-ethics-case') == 4, 'Expected four ethics decision cases'
+          for token in ('license','credit','verify','access','data-ethics-check','aria-live="polite"'):
+              assert token in html, f'Ethics decision lab missing {token}'
+          print('Class X four-case digital ethics decision lab verified.')
+          PYETHICS
       - name: Audit Class X theory against the official 2026–27 syllabus
         run: |
           python - <<'PYSYLLABUS'
