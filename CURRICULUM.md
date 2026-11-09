@@ -70,7 +70,7 @@ Canonical chapter sequence and current implementation:
 | 2 HTML (25) | Tables (table, tr, th, td, rowspan, colspan) | class10/ch05_html_tables.html | Built: bilingual explanations, editable cell grid, rowspan/colspan preview, standalone HTML export |
 | 2 HTML (25) | Forms (textbox, radio, checkbox, password, list, combobox) | class10/ch06_html_forms.html | Built: local-only validation lab, password-safe feedback, bilingual controls and downloadable form example |
 | 2 HTML (25) | CSS: colour, background-colour, border-style, margin, height, width, outline, font, align, float | class10/ch07_css_styling.html | Built: bilingual CSS reference, live property controls, responsive preview, CSS source and HTML export |
-| 4 Practicals (50) | Lab exercises, report file of at least 10 HTML pages, lab test practice, project | class10/ch08_practical_project.html | Built: ten-page linked HTML starter ZIP, shared stylesheet, README, project checklist and viva guidance |
+| 4 Practicals (50) | Lab exercises, report file of at least 10 HTML pages, lab test practice, project | class10/ch08_practical_project.html | Built: ten-page linked HTML starter ZIP, shared stylesheet, README, eight-task lab checklist/log, project checklist and viva guidance |
 
 **Notes**
 - Phishing awareness, passwords and MFA in the Class X digital-safety chapter are practical enrichment aligned with the lab task on viruses, malware and spam; they are not listed as syllabus items, so do not describe them as examinable.
