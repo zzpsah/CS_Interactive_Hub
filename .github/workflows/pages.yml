@@ -60,6 +60,48 @@ jobs:
                   assert not re.search(r'\bexam(?:[- ]?(?:ready|notes|practice|tip))?\b', s, re.I), f'{name}: exam-focused wording should not appear in student pages'
               print('OK', name)
           PY
+      - name: Validate Class IX local links, anchors and unique IDs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          from urllib.parse import urlsplit, unquote
+          class Page(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.ids=[]; self.refs=[]
+              def handle_starttag(self, tag, attrs):
+                  attrs=dict(attrs)
+                  if attrs.get('id'): self.ids.append(attrs['id'])
+                  for key in ('href','src'):
+                      if attrs.get(key): self.refs.append(attrs[key])
+          pages={}
+          for path in Path('class09').glob('*.html'):
+              page=Page(); page.feed(path.read_text(encoding='utf-8'))
+              duplicates=sorted({item for item in page.ids if page.ids.count(item)>1})
+              assert not duplicates, f'{path}: duplicate IDs: {duplicates}'
+              pages[path.resolve()]=page
+          errors=[]
+          for source,page in pages.items():
+              for ref in page.refs:
+                  url=urlsplit(ref)
+                  if url.scheme or url.netloc or not url.path: continue
+                  target=(source.parent/unquote(url.path)).resolve()
+                  if not target.exists():
+                      errors.append(f'{source}: missing local target {ref}'); continue
+                  if url.fragment and target.suffix.lower()=='.html':
+                      target_page=pages.get(target)
+                      if target_page is None:
+                          target_page=Page(); target_page.feed(target.read_text(encoding='utf-8'))
+                      if unquote(url.fragment) not in target_page.ids:
+                          errors.append(f'{source}: missing fragment {ref}')
+          assert not errors, '\n'.join(errors)
+          print(f'Validated {len(pages)} Class IX HTML files: local links, anchors and IDs are sound.')
+          PY
+      - name: Check JavaScript syntax
+        run: |
+          find assets/js -type f -name '*.js' -print0 | while IFS= read -r -d '' file; do
+            node --check "$file"
+          done
       - uses: actions/configure-pages@v5
       - name: Download official Bihar Gazette PDF for offline hosting
         run: |
