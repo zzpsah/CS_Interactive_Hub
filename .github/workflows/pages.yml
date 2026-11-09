@@ -133,6 +133,34 @@ jobs:
                       checked += 1
           print(f'Validated {checked} inline scripts across Class IX pages.')
           PYINLINE
+      - name: Validate Class IX model-answer language parity
+        run: |
+          python - <<'PYLANG'
+          from pathlib import Path
+          import re
+          pages = [
+              'class09/ch01_part1_ict_basics.html',
+              'class09/ch01_part2_computer_workflow.html',
+              'class09/ch01_part3_inside_computer.html',
+              'class09/ch01_part4_ict_practical_lab.html',
+              'class09/ch02_textual_communication.html',
+              'class09/ch03_visual_communication.html',
+              'class09/ch04_audio_video_communication.html',
+              'class09/ch05_presenting_ideas.html',
+              'class09/ch06_getting_connected_internet.html',
+              'class09/ch07_cyber_safety.html',
+              'class09/ch08_fun_with_logic.html',
+          ]
+          total = 0
+          for name in pages:
+              html = Path(name).read_text(encoding='utf-8')
+              answers = re.findall(r'<div class="model-answer">([\s\S]*?)</div>', html)
+              assert len(answers) == 5, f'{name}: expected 5 model answers, found {len(answers)}'
+              missing = [i + 1 for i, answer in enumerate(answers) if 'lang-hi' not in answer and 'lang="hi"' not in answer]
+              assert not missing, f'{name}: model answers missing Hindi: {missing}'
+              total += len(answers)
+          print(f'Validated Hindi equivalents for all {total} model answers across {len(pages)} Class IX lessons.')
+          PYLANG
       - uses: actions/configure-pages@v5
       - name: Download official Bihar Gazette PDF for offline hosting
         run: |
