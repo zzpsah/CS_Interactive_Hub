@@ -161,6 +161,28 @@ jobs:
               total += len(answers)
           print(f'Validated Hindi equivalents for all {total} model answers across {len(pages)} Class IX lessons.')
           PYLANG
+      - name: Validate interactive story mount points
+        run: |
+          python - <<'PYHOOKS'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          class Hooks(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.data=set()
+              def handle_starttag(self, tag, attrs):
+                  for key, value in attrs:
+                      if key.startswith('data-'): self.data.add(key)
+          expected = {
+              'class09/ch01_part1_ict_basics.html': {'data-ict-story','data-ict-count','data-ict-options','data-ict-next'},
+              'class09/ch06_getting_connected_internet.html': {'data-internet-journey','data-ij-count','data-ij-next','data-ij-options'},
+              'class09/ch08_fun_with_logic.html': {'data-logic-mission','data-lm-count','data-lm-options','data-lm-next','data-lt-run','data-lt-download','data-lt-print'},
+          }
+          for name, required in expected.items():
+              parser=Hooks(); parser.feed(Path(name).read_text(encoding='utf-8'))
+              missing=sorted(required-parser.data)
+              assert not missing, f'{name}: missing interactive hooks: {missing}'
+              print('OK', name)
+          PYHOOKS
       - uses: actions/configure-pages@v5
       - name: Download official Bihar Gazette PDF for offline hosting
         run: |
