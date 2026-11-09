@@ -299,7 +299,7 @@ jobs:
           python - <<'PYETHICS'
           from pathlib import Path
           html=Path('class10/ch02_digital_safety.html').read_text(encoding='utf-8')
-          assert html.count('data-ethics-case') == 4, 'Expected four ethics decision cases'
+          assert html.count('class="interactive ethics-case" data-ethics-case') == 4, 'Expected four ethics decision cases'
           for token in ('license','credit','verify','access','data-ethics-check','aria-live="polite"'):
               assert token in html, f'Ethics decision lab missing {token}'
           print('Class X four-case digital ethics decision lab verified.')
